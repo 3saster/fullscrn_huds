@@ -300,7 +300,7 @@ Class SpecialHexenStatusBar : HexenStatusBar
 		// Draw frags
 		if (deathmatch || teamplay)
 		{
-			DrawString(mHUDFont, FormatNumber(CPlayer.FragCount, 3), (0, 0), DI_SCREEN_LEFT_BOTTOM|DI_TEXT_ALIGN_RIGHT, alpha:alphaFloatNum);
+			DrawString(mHUDFont, FormatNumber(CPlayer.FragCount, 3), (126, -17), DI_SCREEN_LEFT_BOTTOM|DI_TEXT_ALIGN_RIGHT, alpha:alphaFloatNum);
 		}
 		
 		// Draw Ammo
