@@ -1,0 +1,70 @@
+AddOptionMenu "HUDOptions"
+{
+   	StaticText ""     
+   	Submenu "Fullscreen Status Bar", "FullscreenStatusbarOptions"
+}
+
+OptionValue "FullscreenMode"
+{
+	10, "Off"
+	11, "On"
+}
+
+OptionValue "LevelStats"
+{
+	0, "Off"
+	1, "Percentages"
+	2, "Countdown"
+	3, "Fraction"
+}
+
+OptionValue "LevelStatsPosition"
+{
+	0, "Off"
+	1, "Top left"
+	2, "Top right"
+	3, "Bottom left"
+	4, "Bottom right"
+}
+
+OptionValue "Colors"
+{
+	0, "Green"
+	1, "Red"
+	2, "None"
+}
+
+OptionValue "Opaque"
+{
+	0, "Off"
+	1, "Numbers"
+	2, "Numbers & graphics"
+}
+
+ListMenu "FullscreenCreditsMenu"
+{
+	Font "SmallFont"
+	StaticText -64,	  0, "Version 5.0.0", gold
+	StaticText -64,	 12, "NightFright", red
+	StaticText -64,	 24, "3saster", red
+	StaticText -64,	 48, "id Software", red
+	StaticText -64,	 60, "Raven Software", red
+	StaticText -64,	 72, "bangstk", red
+	StaticText -64,	 84, "Doorhenge", red
+	StaticText -64,	 96, "DTDsphere", red
+	StaticText -64,	108, "Hexereticdoom", red
+	StaticText -64,	120, "m8f", red
+	StaticText -64,	132, "MaxED", red
+	StaticText -64,	144, "neoworm", red
+	StaticText  80,	 12, "Original SBARINFO coding / idea", green
+	StaticText  80,	 24, "ZScript coding", green	
+	StaticText  80,	 48, "Original Doom GFX", green
+	StaticText  80,	 60, "Original Heretic/Hexen GFX", green
+	StaticText  80,	 72, "Code for widescreen status bars", green
+	StaticText  80,	 84, "Widescreen Heretic status bar", green
+	StaticText  80,	 96, "Project initiator - special thanks!", green
+	StaticText  80,	108, "Level stats graphics", green
+	StaticText  80,	120, "ACS coding support / split status bar for Doom", green
+	StaticText  80,	132, "Split status bars for Heretic/Hexen", green
+	StaticText  80,	144, "Widescreen Hexen status bar", green
+}

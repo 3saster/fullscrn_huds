@@ -1,0 +1,810 @@
+version "4.1.2"
+
+Class SpecialHexenStatusBar : HexenStatusBar
+{
+	transient CVar splitHUD;
+	transient CVar alphaValue;
+	transient CVar alphaOpaque;
+	
+	transient CVAR boomColors;
+	transient CVAR automapHide;
+	
+	transient CVAR statsType;
+	transient CVAR statsCompColor;
+	transient CVAR statKills;
+	transient CVAR statSecrets;
+	transient CVAR statItems;
+	transient CVAR statTime;
+
+	int chainWig; // wiggle is private...
+	
+	enum StatsTypeValues
+	{
+		DISABLED = 0,
+		PERCENT = 1,
+		COUNTDOWN = 2,
+		FRACTION = 3
+	}
+	
+	enum StatsColorValues
+	{
+		GREEN = 0,
+		RED = 1,
+		NONE = 2,
+	}
+	
+	enum StatsPosition
+	{
+		OFF = 0,
+		TOPLEFT = 1,
+		TOPRIGHT = 2,
+		BOTTOMLEFT = 3,
+		BOTTOMRIGHT = 4
+	}
+	
+	enum OpaqueValues
+	{
+		OP_NONE = 0,
+		OP_NUM = 1,
+		OP_NUMGRAPH = 2,
+	}
+	
+	override void Init()
+	{
+		Super.Init();
+		
+		splitHUD    = CVar.FindCVar("fullhud_split");
+		alphaValue  = CVar.FindCVar("fullhud_trans");
+		alphaOpaque = CVar.FindCVar("fullhud_opaque");
+		
+		boomColors  = CVar.FindCVar("fullhud_boomcolors");
+		automapHide = CVar.FindCVar("fullhud_automaphide");
+		
+		statsType      = CVar.FindCVar("fullhud_stats_type");
+		statsCompColor = CVar.FindCVar("fullhud_stats_comp");
+		statKills      = CVar.FindCVar("fullhud_stats_kills");
+		statSecrets    = CVar.FindCVar("fullhud_stats_secrets");
+		statItems      = CVar.FindCVar("fullhud_stats_items");
+		statTime       = CVar.FindCVar("fullhud_stats_time");
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		mHealthInterpolator.Update(CPlayer.health);
+
+		// wiggle the chain if it moves
+		if (Level.time & 1)
+		{
+			chainWig = (mHealthInterpolator.GetValue() != CPlayer.health) && Random[ChainWiggle](0, 1);
+		}
+	}
+
+	override void Draw (int state, double TicFrac)
+	{
+		BaseStatusBar.Draw (state, TicFrac);
+
+		if (state == HUD_StatusBar)
+		{
+			if(!(automapactive && automapHide.GetInt()))
+			{
+				SetSize(38, 320, 200);
+				BeginStatusBar();
+				DrawMainBar (TicFrac);
+				if(!automapactive) DrawLevelStats (NewConsoleFont,state);
+			}
+			else // Minimize HUD on Automap
+			{
+				SetSize(0, 320, 200);
+				BeginHUD(); // Act like we are fullscreen
+				DrawSplitAutomap();
+			}
+		}
+		else if (state == HUD_Fullscreen)
+		{
+			BeginHUD();
+			DrawFullScreenStuff();
+			DrawLevelStats (NewConsoleFont,state);
+		}
+	}
+
+	protected void DrawFullScreenStuff ()
+	{
+		if(splitHUD.getint())
+			DrawSplit();
+		else
+			DrawUnsplit();
+	}
+	
+	// =====================================================
+	// The Main Functions for Drawing Split and Unsplit HUDS
+	// =====================================================
+	void DrawUnsplit ()
+	{
+		double alphaFloat = 1-alphaValue.getfloat(); // Transparency
+		
+		int alphaO = alphaOpaque.GetInt();
+		double alphaFloatNum = alphaO == OP_NUM || alphaO == OP_NUMGRAPH ? 1 : alphaFloat;
+		double alphaFloatGraph = alphaO == OP_NUMGRAPH ? 1 : alphaFloat;
+		
+		// Draw Main STBAR Chunk
+		DrawImage("H2BAR", (-160, -66), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
+
+		// Draw Health Gem
+		String Gem, Chain;
+		if      (CPlayer.mo is "ClericPlayer") { Gem = "LIFEGMC2"; Chain = "CHAIN2"; }
+		else if (CPlayer.mo is "MagePlayer")   { Gem = "LIFEGMM2"; Chain = "CHAIN3"; }
+		else { Gem = "LIFEGMF2"; Chain = "CHAIN"; }
+
+		int inthealth =  mHealthInterpolator2.GetValue();
+		DrawGemTrans(Chain, Gem, inthealth, CPlayer.mo.GetMaxHealth(true), (-7, 0), -23, 49, 15, (multiplayer? DI_TRANSLATABLE : 0) | DI_ITEM_CENTER_BOTTOM | DI_SCREEN_CENTER_BOTTOM, alphaFloat); 
+		
+		DrawImage("LFEDGE", (-160, -8), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
+		DrawImage("RTEDGE", ( 117, -8), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
+		
+
+		// Draw Inventory Bar
+		if (isInventoryBarVisible())
+		{
+			DrawImage("INVBAR", (-122, -38), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
+			DrawInventoryBarTrans(diparms_sbar, (0.5, -6), 7, DI_SCREEN_CENTER_BOTTOM, bgalpha:alphaFloat, fgalpha:alphaFloatGraph, numalpha: alphaFloatNum);
+		}
+		else
+		{
+			// Draw Frags
+			if (deathmatch || teamplay)
+			{
+				DrawImage("KILLBAR", (-122, -38), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
+				DrawString(mHUDFont, FormatNumber(CPlayer.FragCount, 3), (-94, -24), DI_SCREEN_CENTER_BOTTOM|DI_TEXT_ALIGN_RIGHT, alpha:alphaFloatNum);
+			}
+			// Draw Health
+			else
+			{
+				DrawImage("STATBAR", (-122, -38), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
+				// Unnecessary, and GZDoom seems to draw this in the wrong spot...
+				DrawImage("ARMCLS", (-119, -22), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
+				int healthColor = getHealthColor();
+				DrawString(mHUDFont, FormatNumber(mHealthInterpolator.GetValue(), 3), (-94, -24), DI_SCREEN_CENTER_BOTTOM|DI_TEXT_ALIGN_RIGHT, healthColor, alpha:alphaFloatNum);
+			}
+			
+			// Draw Inventory
+			if (CPlayer.mo.InvSel != null)
+			{
+				DrawInventoryIcon(CPlayer.mo.InvSel, (-0.5, -23), DI_ARTIFLASH|DI_ITEM_CENTER|DI_SCREEN_CENTER_BOTTOM,alpha:alphaFloatGraph, boxsize:(28, 28));
+				if (CPlayer.mo.InvSel.Amount > 1)
+				{
+					DrawString(mIndexFont, FormatNumber(CPlayer.mo.InvSel.Amount, 3), (14, -16), DI_SCREEN_CENTER_BOTTOM|DI_TEXT_ALIGN_RIGHT, Font.CR_UNTRANSLATED, alpha:alphaFloatNum);
+				}
+			}
+			
+			// Draw Armor
+			// GZDoom seems to draw this in the wrong spot...
+			DrawImage("ARMCLS", (95, -22), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
+			int armorColor = getArmorColor();
+			DrawString(mHUDFont, FormatNumber(GetArmorSavePercent() / 5, 2), (116, -24), DI_SCREEN_CENTER_BOTTOM|DI_TEXT_ALIGN_RIGHT, armorColor, alpha:alphaFloatNum);
+			
+			// Draw Ammo
+			Ammo ammo1, ammo2;
+			[ammo1, ammo2] = GetCurrentAmmo();
+			// Non-standard Weapons
+			if (ammo1 != null && !(ammo1 is "Mana1") && !(ammo1 is "Mana2"))
+			{
+				DrawImage("HAMOBACK", (-83, -36), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloat);
+				if (ammo2 != null)
+				{
+					DrawTexture(ammo1.icon, (-71, -28), DI_ITEM_CENTER|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+					DrawTexture(ammo2.icon, (-47, -28), DI_ITEM_CENTER|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+					DrawString(mIndexFont, FormatNumber(ammo1.amount, 3), (-62, -18), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM, translation: getAmmoColor(ammo1), alpha:alphaFloatNum);
+					DrawString(mIndexFont, FormatNumber(ammo2.amount, 3), (-38, -18), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM, translation: getAmmoColor(ammo2), alpha:alphaFloatNum);
+				}
+				else
+				{
+					DrawTexture(ammo1.icon, (-60, -28), DI_ITEM_CENTER|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+					DrawString(mIndexFont, FormatNumber(ammo1.amount, 3), (-51, -18), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM, translation: getAmmoColor(ammo1), alpha:alphaFloatNum);
+				}
+			}
+			// Standard Weapons
+			else
+			{
+				int amt1, maxamt1, amt2, maxamt2;
+				[amt1, maxamt1] = GetAmount("Mana1");
+				[amt2, maxamt2] = GetAmount("Mana2");
+				// Mana 1
+				if ((ammo1 is "Mana1") || (ammo2 is "Mana1")) 
+				{
+					DrawImage("MANABRT1", (-83, -36), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+					DrawBarTrans("MANAVL1", "", amt1, maxamt1, (-66, -36), 1, SHADER_VERT, DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+				}
+				else
+				{
+					DrawImage("MANADIM1", (-83, -36), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+					DrawBarTrans("MANAVL1D", "", amt1, maxamt1, (-66, -36), 1, SHADER_VERT, DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+				}
+				// Mana 2
+				if ((ammo1 is "Mana2") || (ammo2 is "Mana2")) 
+				{
+					DrawImage("MANABRT2", (-50,-36), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+					DrawBarTrans("MANAVL2", "", amt2, maxamt2, (-58, -36), 1, SHADER_VERT, DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+				}
+				else
+				{
+					DrawImage("MANADIM2", (-50,-36), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+					DrawBarTrans("MANAVL2D", "", amt2, maxamt2, (-58, -36), 1, SHADER_VERT, DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+				}
+				DrawString(mIndexFont, FormatNumber(amt1, 3), (-68, -19), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM, translation: getAmmoColor(ammo1,amt1,maxamt1), alpha:alphaFloatNum);
+				DrawString(mIndexFont, FormatNumber(amt2, 3), (-36, -19), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM, translation: getAmmoColor(ammo2,amt2,maxamt2), alpha:alphaFloatNum);
+			}
+			
+			// Draw Ultimate Weapon
+			if (CPlayer.mo is "ClericPlayer")
+			{
+				DrawImage("WPSLOT1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloat);
+				if (CheckInventory("CWeapWraithverge")) DrawImage("WPFULL1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+				else
+				{
+					// These pieces are misaligned in GZDoom
+					int pieces = GetWeaponPieceMask("CWeapWraithverge");
+					if (pieces & 1) DrawImage("WPIECEC1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+					if (pieces & 2) DrawImage("WPIECEC2", (52, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+					if (pieces & 4) DrawImage("WPIECEC3", (65, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+				}
+			}
+			else if (CPlayer.mo is "MagePlayer")
+			{
+				DrawImage("WPSLOT2", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloat);
+				if (CheckInventory("MWeapBloodscourge")) DrawImage("WPFULL2", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+				else
+				{
+					int pieces = GetWeaponPieceMask("MWeapBloodscourge");
+					if (pieces & 1) DrawImage("WPIECEM1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+					if (pieces & 2) DrawImage("WPIECEM2", (45, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+					if (pieces & 4) DrawImage("WPIECEM3", (64, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+				}
+			}
+			else // if *Cplayer.mo is "FighterPlayer")
+			{
+				DrawImage("WPSLOT0", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloat);
+				if (CheckInventory("FWeapQuietus")) DrawImage("WPFULL0", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+				else
+				{
+					int pieces = GetWeaponPieceMask("FWeapQuietus");
+					if (pieces & 1) DrawImage("WPIECEF1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+					if (pieces & 2) DrawImage("WPIECEF2", (65, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+					if (pieces & 4) DrawImage("WPIECEF3", (74, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+				}
+			}
+		}
+	}
+	
+	void DrawSplit ()
+	{
+		double alphaFloat = 1-alphaValue.getfloat(); // Transparency
+		
+		int alphaO = alphaOpaque.GetInt();
+		double alphaFloatNum = alphaO == OP_NUM || alphaO == OP_NUMGRAPH ? 1 : alphaFloat;
+		double alphaFloatGraph = alphaO == OP_NUMGRAPH ? 1 : alphaFloat;
+		
+		// Draw left side
+		string barLeft = (deathmatch || teamplay) ? "BAR_KILL" : "BAR_LEFT";
+		DrawImage(barLeft, (0, 0), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, alphaFloat);
+		
+		// Draw right side
+		DrawImage("BAR_RGHT", (0, 0), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_RIGHT_BOTTOM, alphaFloat);
+		
+		// Draw Health
+		// Unnecessary, and GZDoom seems to draw this in the wrong spot...
+		DrawImage("ARMCLS", (5, -15), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
+		int healthColor = getHealthColor();
+		DrawString(mHUDFont, FormatNumber(mHealthInterpolator.GetValue(), 3), (30, -17), DI_SCREEN_LEFT_BOTTOM|DI_TEXT_ALIGN_RIGHT, healthColor, alpha:alphaFloatNum);
+		
+		// Draw frags
+		if (deathmatch || teamplay)
+		{
+			DrawString(mHUDFont, FormatNumber(CPlayer.FragCount, 3), (0, 0), DI_SCREEN_LEFT_BOTTOM|DI_TEXT_ALIGN_RIGHT, alpha:alphaFloatNum);
+		}
+		
+		// Draw Ammo
+		Ammo ammo1, ammo2;
+		[ammo1, ammo2] = GetCurrentAmmo();
+		// Non-standard Weapons
+		if (ammo1 != null && !(ammo1 is "Mana1") && !(ammo1 is "Mana2"))
+		{
+			DrawImage("HAMOBACK", (41, -29), DI_ITEM_OFFSETS|DI_SCREEN_LEFT_BOTTOM, alpha:alphaFloat);
+			if (ammo2 != null)
+			{
+				DrawTexture(ammo1.icon, (53, -21), DI_ITEM_CENTER|DI_SCREEN_LEFT_BOTTOM, alpha:alphaFloatGraph);
+				DrawTexture(ammo2.icon, (77, -21), DI_ITEM_CENTER|DI_SCREEN_LEFT_BOTTOM, alpha:alphaFloatGraph);
+				DrawString(mIndexFont, FormatNumber(ammo1.amount, 3), (62, -11), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_LEFT_BOTTOM, translation: getAmmoColor(ammo1), alpha:alphaFloatNum);
+				DrawString(mIndexFont, FormatNumber(ammo2.amount, 3), (86, -11), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_LEFT_BOTTOM, translation: getAmmoColor(ammo2), alpha:alphaFloatNum);
+			}
+			else
+			{
+				DrawTexture(ammo1.icon, (64, -21), DI_ITEM_CENTER|DI_SCREEN_LEFT_BOTTOM, alpha:alphaFloatGraph);
+				DrawString(mIndexFont, FormatNumber(ammo1.amount, 3), (73, -11), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_LEFT_BOTTOM, translation: getAmmoColor(ammo1), alpha:alphaFloatNum);
+			}
+		}
+		// Standard Weapons
+		else
+		{
+			int amt1, maxamt1, amt2, maxamt2;
+			[amt1, maxamt1] = GetAmount("Mana1");
+			[amt2, maxamt2] = GetAmount("Mana2");
+			// Mana 1
+			if ((ammo1 is "Mana1") || (ammo2 is "Mana1")) 
+			{
+				DrawImage("MANABRT1", (41, -29), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+				DrawBarTrans("MANAVL1", "", amt1, maxamt1, (58, -29), 1, SHADER_VERT, DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+			}
+			else
+			{
+				DrawImage("MANADIM1", (41, -29), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+				DrawBarTrans("MANAVL1D", "", amt1, maxamt1, (58, -29), 1, SHADER_VERT, DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+			}
+			// Mana 2
+			if ((ammo1 is "Mana2") || (ammo2 is "Mana2")) 
+			{
+				DrawImage("MANABRT2", (74,-29), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+				DrawBarTrans("MANAVL2", "", amt2, maxamt2, (66, -29), 1, SHADER_VERT, DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+			}
+			else
+			{
+				DrawImage("MANADIM2", (74,-29), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+				DrawBarTrans("MANAVL2D", "", amt2, maxamt2, (66, -29), 1, SHADER_VERT, DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+			}
+			DrawString(mIndexFont, FormatNumber(amt1, 3), (56, -12), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_LEFT_BOTTOM, translation: getAmmoColor(ammo1,amt1,maxamt1), alpha:alphaFloatNum);
+			DrawString(mIndexFont, FormatNumber(amt2, 3), (88, -12), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_LEFT_BOTTOM, translation: getAmmoColor(ammo2,amt2,maxamt2), alpha:alphaFloatNum);
+		}
+		
+		// Draw Ultimate Weapon
+		if (CPlayer.mo is "ClericPlayer")
+		{
+			DrawImage("WPSLOT1", (-93, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloat);
+			if (CheckInventory("CWeapWraithverge")) DrawImage("WPFULL1", (-93, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+			else
+			{
+				// These pieces are misaligned in GZDoom
+				int pieces = GetWeaponPieceMask("CWeapWraithverge");
+				if (pieces & 1) DrawImage("WPIECEC1", (-93, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+				if (pieces & 2) DrawImage("WPIECEC2", (-71, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+				if (pieces & 4) DrawImage("WPIECEC3", (-58, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+			}
+		}
+		else if (CPlayer.mo is "MagePlayer")
+		{
+			DrawImage("WPSLOT2", (-93, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloat);
+			if (CheckInventory("MWeapBloodscourge")) DrawImage("WPFULL2", (-93, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+			else
+			{
+				int pieces = GetWeaponPieceMask("MWeapBloodscourge");
+				if (pieces & 1) DrawImage("WPIECEM1", (-93, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+				if (pieces & 2) DrawImage("WPIECEM2", (-78, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+				if (pieces & 4) DrawImage("WPIECEM3", (-59, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+			}
+		}
+		else // if *Cplayer.mo is "FighterPlayer")
+		{
+			DrawImage("WPSLOT0", (-93, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloat);
+			if (CheckInventory("FWeapQuietus")) DrawImage("WPFULL0", (-93, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+			else
+			{
+				int pieces = GetWeaponPieceMask("FWeapQuietus");
+				if (pieces & 1) DrawImage("WPIECEF1", (-93, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+				if (pieces & 2) DrawImage("WPIECEF2", (-58, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+				if (pieces & 4) DrawImage("WPIECEF3", (-49, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+			}
+		}
+		
+		// Draw Armor
+		// GZDoom seems to draw this in the wrong spot...
+		DrawImage("ARMCLS", (-28, -15), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
+		int armorColor = getArmorColor();
+		DrawString(mHUDFont, FormatNumber(GetArmorSavePercent() / 5, 2), (-7, -17), DI_SCREEN_RIGHT_BOTTOM|DI_TEXT_ALIGN_RIGHT, armorColor, alpha:alphaFloatNum);
+		
+		// Draw Inventory Bar
+		if (isInventoryBarVisible())
+		{
+			int itemCount = 0;
+			for(Inventory item = CPlayer.mo.InvFirst; item != NULL && itemCount < 4; item = item.NextInv())
+				itemCount++;
+			DrawInventoryBarTrans(diparms_sbar, (0, -1), max(itemCount,1), DI_SCREEN_CENTER_BOTTOM, bgalpha:alphaFloat, fgalpha:alphaFloatGraph, numalpha: alphaFloatNum);
+		}
+		// Draw Inventory
+		else if (CPlayer.mo.InvSel != null)
+		{
+			DrawInventoryIcon(CPlayer.mo.InvSel, (-111.5, -16), DI_ARTIFLASH|DI_ITEM_CENTER|DI_SCREEN_RIGHT_BOTTOM,alpha:alphaFloatGraph, boxsize:(28, 28));
+			if (CPlayer.mo.InvSel.Amount > 1)
+			{
+				DrawString(mIndexFont, FormatNumber(CPlayer.mo.InvSel.Amount, 3), (-97, -7), DI_SCREEN_RIGHT_BOTTOM|DI_TEXT_ALIGN_RIGHT, Font.CR_UNTRANSLATED, alpha:alphaFloatNum);
+			}
+		}
+	}
+	
+	// =====================================================
+	// The Main Function to Draw the Split Automap
+	// =====================================================
+	void DrawSplitAutomap()
+	{
+		DrawImage("KEYBAR_L", (0, 0), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM);
+		DrawImage("KEYBAR_R", (0, 0), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_RIGHT_BOTTOM);
+		
+		// Draw Keys
+		int cnt = 0;
+		Vector2 keypos = (6, -30);
+		for(let i = CPlayer.mo.Inv; i != null; i = i.Inv)
+		{
+			if (i is "Key" && i.Icon.IsValid())
+			{
+				DrawTexture(i.Icon, keypos, DI_ITEM_OFFSETS|DI_SCREEN_LEFT_BOTTOM);
+				keypos.X += 20;
+				if (++cnt >= 5) break;
+			}
+		}
+		
+		// Draw Armor
+		DrawHexenArmor(HEXENARMOR_ARMOR,  "ARMSLOT1", (-128, -30), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM);
+		DrawHexenArmor(HEXENARMOR_SHIELD, "ARMSLOT2", (-97, -30),  DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM);
+		DrawHexenArmor(HEXENARMOR_HELM,   "ARMSLOT3", (-66, -30),   DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM);
+		DrawHexenArmor(HEXENARMOR_AMULET, "ARMSLOT4", (-35, -30),   DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM);
+	}
+	
+	// =====================================================
+	// The Main Functions for Drawing Stats
+	// =====================================================
+	void DrawStatLine(font fnt, int cr, Vector2 pos, String text, double alpha)
+	{
+		Vector2 scale = GetHUDScale();
+		
+		// These values are jury-rigged; they were initially designed for my personal settings before becoming generic
+		int VirtualWidth  = floor(650 * 6.0/scale.x * Screen.GetWidth() /2560);
+		int VirtualHeight = floor(400 * 7.2/scale.y * Screen.GetHeight()/1440);
+		
+		int posX = pos.x >= 0 ? pos.x : VirtualWidth  + pos.x;
+		int posY = pos.y >= 0 ? pos.y : VirtualHeight + pos.y;
+
+		screen.DrawText(fnt, cr, posX, posY, text, 
+			DTA_KeepRatio, true,
+			DTA_VirtualWidth, VirtualWidth, DTA_VirtualHeight, VirtualHeight, DTA_Alpha, alpha);
+	}
+	
+	protected virtual void DrawLevelStats (Font fnt, int state = HUD_StatusBar)
+	{
+		int alphaO = alphaOpaque.GetInt();
+		double alphaFloat = alphaO == OP_NUM || alphaO == OP_NUMGRAPH ? 1 : 1-alphaValue.getfloat();
+		
+		int compColor;
+		switch(statsCompColor.GetInt())
+		{
+			case GREEN:
+				compColor = Font.CR_GREEN;
+				break;
+			case RED:
+				compColor = Font.CR_RED;
+				break;
+			case NONE:
+			default:
+				compColor = Font.CR_WHITE;
+				break;
+		}
+		
+		string kills = "";
+		string secrets = "";
+		string items = "";
+		string time = "";
+
+		int mkilled   = multiplayer? CPlayer.killcount : Level.killed_monsters;
+		int sfound    = multiplayer? CPlayer.secretcount : Level.found_secrets;
+		int ifound    = multiplayer? CPlayer.itemcount : Level.found_items;
+		
+		// Format based on type specified
+		string killstring = (gameinfo.gametype & GAME_Chex) ? "Zorches" : "Kills";
+		switch(statsType.GetInt())
+		{
+			case PERCENT: // Take care of division by zero here
+				if (statKills.GetInt())   kills   = string.format("%s: %i%%", killstring,Level.total_monsters ? 100*mkilled/Level.total_monsters : 100);
+				if (statSecrets.GetInt()) secrets = string.format("Secrets: %i%%",Level.total_secrets ? 100*sfound/Level.total_secrets : 100);
+				if (statItems.GetInt())   items   = string.format("Items: %i%%",  Level.total_items ? 100*ifound/Level.total_items : 100);
+				break;
+				
+			case COUNTDOWN:
+				if (statKills.GetInt())   kills   = string.format("%s: %i Left", killstring,Level.total_monsters - mkilled);
+				if (statSecrets.GetInt()) secrets = string.format("Secrets: %i Left", Level.total_secrets - sfound);
+				if (statItems.GetInt())   items   = string.format("Items: %i Left", Level.total_items - ifound);
+				break;
+				
+			case FRACTION:
+				if (statKills.GetInt())   kills   = string.format("%s: %i/%i",killstring,mkilled, Level.total_monsters);
+				if (statSecrets.GetInt()) secrets = string.format("Secrets: %i/%i",sfound, Level.total_secrets);
+				if (statItems.GetInt())   items   = string.format("Items: %i/%i",ifound, Level.total_items);
+				break;
+		}
+		// Format Level time
+		int hubtime = Level.time/Thinker.TICRATE;
+		if (statTime.GetInt()) time = string.format("%02d:%02d:%02d",hubtime/3600,(hubtime/60)%60,hubtime%60);
+		
+		int textSize = fnt.GetHeight()*0.8;
+		int killpos = statKills.getInt();
+		int secretpos = statSecrets.getInt();
+		int itempos = statItems.getInt();
+		int timepos = statTime.getInt();
+		
+		// Make each block have the same length
+		int maxlength[5] = {0,0,0,0,0};
+		maxlength[killpos]   = max(maxlength[killpos],  kills.length());
+		maxlength[secretpos] = max(maxlength[secretpos],secrets.length());
+		maxlength[itempos]   = max(maxlength[itempos],  items.length());
+		
+		kills = makeLength(kills,maxlength[killpos]);
+		secrets = makeLength(secrets,maxlength[secretpos]);
+		items = makeLength(items,maxlength[itempos]);
+		
+		// Top Left
+		int topLeftTotal = 0;
+		if(killpos   == TOPLEFT) DrawStatLine(fnt,mkilled == Level.total_monsters ? compColor : Font.CR_WHITE, (2,textSize*topLeftTotal++) ,kills,alphaFloat);
+		if(secretpos == TOPLEFT) DrawStatLine(fnt,sfound == Level.total_secrets   ? compColor : Font.CR_WHITE, (2,textSize*topLeftTotal++) ,secrets,alphaFloat);
+		if(itempos   == TOPLEFT) DrawStatLine(fnt,ifound == Level.total_items     ? compColor : Font.CR_WHITE, (2,textSize*topLeftTotal++) ,items,alphaFloat);
+		if(timepos   == TOPLEFT) DrawStatLine(fnt,                                              Font.CR_WHITE, (2,textSize*topLeftTotal++) ,time,alphaFloat);
+		// Top Right
+		// This needs special handling for vid_fps
+		int conOffset = vid_fps ?  GetConSize()+2 : 0;
+		int topRightTotal = 0;
+		if(killpos   == TOPRIGHT) DrawStatLine(fnt,mkilled == Level.total_monsters ? compColor : Font.CR_WHITE, (-fnt.StringWidth(kills),  conOffset+textSize*topRightTotal++)  ,kills,alphaFloat);
+		if(secretpos == TOPRIGHT) DrawStatLine(fnt,sfound == Level.total_secrets   ? compColor : Font.CR_WHITE, (-fnt.StringWidth(secrets),conOffset+textSize*topRightTotal++),secrets,alphaFloat);
+		if(itempos   == TOPRIGHT) DrawStatLine(fnt,ifound == Level.total_items     ? compColor : Font.CR_WHITE, (-fnt.StringWidth(items),  conOffset+textSize*topRightTotal++)  ,items,alphaFloat);
+		if(timepos   == TOPRIGHT) DrawStatLine(fnt,                                              Font.CR_WHITE, (-fnt.StringWidth(time),   conOffset+textSize*topRightTotal++)   ,time,alphaFloat);
+		// Bottom Left
+		int bottomLeftTotal = 0;
+		int topOfHUD =  splitHUD.getint() && state !=HUD_StatusBar  ?  -78 : -106;
+		if(itempos   == BOTTOMLEFT) DrawStatLine(fnt,ifound == Level.total_items     ? compColor : Font.CR_WHITE, (2,topOfHUD-textSize*bottomLeftTotal++) ,items,alphaFloat);
+		if(secretpos == BOTTOMLEFT) DrawStatLine(fnt,sfound == Level.total_secrets   ? compColor : Font.CR_WHITE, (2,topOfHUD-textSize*bottomLeftTotal++) ,secrets,alphaFloat);
+		if(killpos   == BOTTOMLEFT) DrawStatLine(fnt,mkilled == Level.total_monsters ? compColor : Font.CR_WHITE, (2,topOfHUD-textSize*bottomLeftTotal++) ,kills,alphaFloat);
+		if(timepos   == BOTTOMLEFT) DrawStatLine(fnt,                                              Font.CR_WHITE, (2,topOfHUD-textSize*bottomLeftTotal++) ,time,alphaFloat);
+		// Bottom Right
+		int bottomRightTotal = 0;
+		if(secretpos == BOTTOMRIGHT) DrawStatLine(fnt,sfound == Level.total_secrets   ? compColor : Font.CR_WHITE, (-fnt.StringWidth(secrets),topOfHUD-textSize*bottomRightTotal++),secrets,alphaFloat);
+		if(itempos   == BOTTOMRIGHT) DrawStatLine(fnt,ifound == Level.total_items     ? compColor : Font.CR_WHITE, (-fnt.StringWidth(items),  topOfHUD-textSize*bottomRightTotal++)  ,items,alphaFloat);
+		if(killpos   == BOTTOMRIGHT) DrawStatLine(fnt,mkilled == Level.total_monsters ? compColor : Font.CR_WHITE, (-fnt.StringWidth(kills),  topOfHUD-textSize*bottomRightTotal++)  ,kills,alphaFloat);
+		if(timepos   == BOTTOMRIGHT) DrawStatLine(fnt,   											Font.CR_WHITE, (-fnt.StringWidth(time),   topOfHUD-textSize*bottomRightTotal++)   ,time,alphaFloat);
+	}
+	
+	// ================================================
+	// Helper Functions for getting various font colors
+	// ================================================
+	int GetPercentColor()
+	{
+		return boomColors.getInt() ? Font.CR_WHITE : Font.CR_UNTRANSLATED;
+	}
+	
+	int GetAmmoColor(Inventory a1, int curr = 0, int max = 0)
+	{
+		int amt1   = (a1 != NULL) ? a1.Amount : curr;
+		int maxamt = (a1 != NULL) ? a1.MaxAmount : max;
+		
+		int ammoColor;
+		if(boomColors.getInt())
+		{
+			if		(amt1 <= maxamt/4) ammoColor = FONT.CR_RED;
+			else if (amt1 <= maxamt/2) ammoColor = FONT.CR_UNTRANSLATED;
+			else 					   ammoColor = FONT.CR_GREEN;
+		}
+		else
+			ammoColor = FONT.CR_UNTRANSLATED;
+			
+		return ammoColor;
+	}
+	
+	int GetHealthColor()
+	{
+		int currHealth = CPlayer.Health;
+		int maxHealth = CPlayer.mo.GetMaxHealth();
+		
+		int healthColor;
+		if(boomColors.getInt())
+		{
+			if	(currHealth <= maxHealth/4) healthColor = FONT.CR_RED;
+			else if	(currHealth <= maxHealth/2) healthColor = FONT.CR_UNTRANSLATED;
+			else if	(currHealth <= maxHealth)   healthColor = FONT.CR_GREEN;
+			else 				    healthColor = FONT.CR_BLUE;
+		}
+		else
+		{
+			healthColor = CPlayer.Health < 25? Font.CR_RED : Font.CR_UNTRANSLATED;
+		}
+			
+		return healthColor;	
+	}
+	
+	int GetArmorColor()
+	{
+		double currArmor = GetArmorSavePercent();
+		
+		let player = CPlayer.mo;
+		double minArmor = player.HexenArmor[0];
+		double maxArmor = player.HexenArmor[0]+player.HexenArmor[1]+player.HexenArmor[2]+player.HexenArmor[3]+player.HexenArmor[4];
+		
+		int armorColor;
+		// Red = Minimum armor level
+		// Green = More than min, less than halfway to max armor
+		// Blue = More than halfway to max armor
+		if(boomColors.getInt())
+		{
+			if		(currArmor > maxArmor)					  armorColor = FONT.CR_PURPLE; // Possible with Dragonskin Bracers
+			else if	(currArmor >= (maxArmor+minArmor)/2)      armorColor = FONT.CR_BLUE;
+			else if (currArmor > minArmor)					  armorColor = FONT.CR_GREEN;
+			else											  armorColor = FONT.CR_RED;
+		}
+		else
+			armorColor = FONT.CR_UNTRANSLATED;
+			
+		return armorColor;
+	}
+	
+	// ===================================
+	// Helper Function to get vid_fps size
+	// ===================================
+	int GetConSize()
+	{
+		int scaleval;
+		if (con_scale > 0) scaleval = (con_scale+1) / 2;
+		else if (uiscale == 0)
+		{
+			// Default should try to scale to 640x400
+			int vscale = screen.GetHeight() / 800;
+			int hscale = screen.GetWidth() / 1280;
+			scaleval = clamp(vscale, 1, hscale);
+		}
+		else scaleval = (uiscale+1) / 2;
+
+		// block scales that result in something larger than the current screen.
+		int vmax = screen.GetHeight() / 400;
+		int hmax = screen.GetWidth() / 640;
+		int max = MAX(vmax, hmax);
+		return NewConsoleFont.GetHeight()*MAX(1, MIN(scaleval, max))/4;
+	}
+	
+	// ================================================
+	// Helper Function to make string a specific length
+	// ================================================
+	String makeLength(string input, int length, string extender = ":")
+	{
+		if(input.length() > length) return input;
+		
+		string replacer = string.format(string.format("%%s%%%ds",length-input.length()), extender, "");
+		input.replace(extender,replacer);
+		return input;
+	}
+	
+	// ======================================
+	// Same as DrawGem, but with transparency
+	// ======================================
+	void DrawGemTrans(String chain, String gem, int displayvalue, int maxrange, Vector2 pos, int leftpadding, int rightpadding, int chainmod, int flags = 0, float trans = 1.)
+	{
+		TextureID chaintex = TexMan.CheckForTexture(chain, TexMan.TYPE_MiscPatch);
+		if (!chaintex.IsValid()) return;
+		Vector2 chainsize = TexMan.GetScaledSize(chaintex);
+		[pos, flags] = AdjustPosition(pos, flags, chainsize.X, chainsize.Y);
+
+		displayvalue = clamp(displayvalue, 0, maxrange);
+		int offset = int(double(chainsize.X - leftpadding - rightpadding) * displayvalue / maxrange);
+	
+		DrawTexture(chaintex, pos + (offset % chainmod, 0), flags | DI_ITEM_LEFT_TOP,trans);
+		DrawImage(gem, pos + (offset + leftPadding, 0), flags | DI_ITEM_LEFT_TOP,trans);
+	}
+	
+	// =========================================================
+	// Same as DrawInventoryBar, but with transparency for items
+	// =========================================================
+	void DrawInventoryBarTrans(InventoryBarState parms, Vector2 position, int numfields, int flags = 0, double bgalpha = 1., double fgalpha = 1., double numalpha = 1.)
+	{
+		double width = parms.boxsize.X * numfields;
+		[position, flags] = AdjustPosition(position, flags, width, parms.boxsize.Y);
+		
+		CPlayer.mo.InvFirst = ValidateInvFirst(numfields);
+		if (CPlayer.mo.InvFirst == null) return;	// Player has no listed inventory items.
+		
+		Vector2 boxsize = parms.boxsize;
+		// First draw all the boxes
+		for(int i = 0; i < numfields; i++)
+		{
+			DrawTexture(parms.box, position + (boxsize.X * i, 0), flags | DI_ITEM_LEFT_TOP, bgalpha);
+		}
+		
+		// now the items and the rest
+		
+		Vector2 itempos = position + boxsize / 2;
+		Vector2 textpos = position + boxsize - (1, 1 + parms.amountfont.mFont.GetHeight());
+
+		int i = 0;
+		Inventory item;
+		for(item = CPlayer.mo.InvFirst; item != NULL && i < numfields; item = item.NextInv())
+		{
+			for(int j = 0; j < 2; j++)
+			{
+				if (j ^ !!(flags & DI_DRAWCURSORFIRST))
+				{
+					if (item == CPlayer.mo.InvSel)
+					{
+						double flashAlpha = fgalpha;
+						if (flags & DI_ARTIFLASH) flashAlpha *= itemflashFade;
+						DrawTexture(parms.selector, position + parms.selectofs + (boxsize.X * i, 0), flags | DI_ITEM_LEFT_TOP, flashAlpha);
+					}
+				}
+				else
+				{
+					DrawInventoryIcon(item, itempos + (boxsize.X * i, 0), flags | DI_ITEM_CENTER, fgalpha );
+				}
+			}
+			
+			if (parms.amountfont != null && (item.Amount > 1 || (flags & DI_ALWAYSSHOWCOUNTERS)))
+			{
+				DrawString(parms.amountfont, FormatNumber(item.Amount, 0, 5), textpos + (boxsize.X * i, 0), flags | DI_TEXT_ALIGN_RIGHT, parms.cr, numalpha);
+			}
+			i++;
+		}
+		// Is there something to the left?
+		if (CPlayer.mo.FirstInv() != CPlayer.mo.InvFirst)
+		{
+			DrawTexture(parms.left, position + (-parms.arrowoffset.X, parms.arrowoffset.Y), flags | DI_ITEM_RIGHT|DI_ITEM_VCENTER, fgalpha);
+		}
+		// Is there something to the right?
+		if (item != NULL)
+		{
+			DrawTexture(parms.right, position + parms.arrowoffset + (width, 0), flags | DI_ITEM_LEFT|DI_ITEM_VCENTER, fgalpha);
+		}
+	}
+	
+	// ===============================================
+	// Same as DrawInventoryBar, but with transparency
+	// ===============================================
+	void DrawBarTrans(String ongfx, String offgfx, double curval, double maxval, Vector2 position, int border, int vertical, int flags = 0, double trans = 1.)
+	{
+		let ontex = TexMan.CheckForTexture(ongfx, TexMan.TYPE_MiscPatch);
+		if (!ontex.IsValid()) return;
+		let offtex = TexMan.CheckForTexture(offgfx, TexMan.TYPE_MiscPatch);
+
+		Vector2 texsize = TexMan.GetScaledSize(ontex);
+		[position, flags] = AdjustPosition(position, flags, texsize.X, texsize.Y);
+		
+		double value = (maxval != 0) ? clamp(curval / maxval, 0, 1) : 0;
+		if(border != 0) value = 1. - value; // invert since the new drawing method requires drawing the bg on the fg.
+		
+		
+		// {cx, cb, cr, cy}
+		double Clip[4];
+		Clip[0] = Clip[1] = Clip[2] = Clip[3] = 0;
+		
+		bool horizontal = !(vertical & SHADER_VERT);
+		bool reverse = !!(vertical & SHADER_REVERSE);
+		double sizeOfImage = (horizontal ? texsize.X - border*2 : texsize.Y - border*2);
+		Clip[(!horizontal) | ((!reverse)<<1)] = sizeOfImage - sizeOfImage *value;
+		
+		// preserve the active clipping rectangle
+		int cx, cy, cw, ch;
+		[cx, cy, cw, ch] = screen.GetClipRect();
+
+		if(border != 0)
+		{
+			for(int i = 0; i < 4; i++) Clip[i] += border;
+
+			// Draw the whole foreground
+			DrawTexture(ontex, position, flags | DI_ITEM_LEFT_TOP, trans);
+			SetClipRect(position.X + Clip[0], position.Y + Clip[1], texsize.X - Clip[0] - Clip[2], texsize.Y - Clip[1] - Clip[3], flags);
+		}
+		
+		if (offtex.IsValid() && TexMan.GetScaledSize(offtex) == texsize) DrawTexture(offtex, position, flags | DI_ITEM_LEFT_TOP, trans);
+		else 
+		{
+			// Use partial transparency to prevent the foreground from being shown
+			int partTrans = trans == 0 ? 0 : 255*(0.4 + 0.6*trans);
+			Fill(color(partTrans,0,0,0), position.X + Clip[0], position.Y + Clip[1], texsize.X - Clip[0] - Clip[2], texsize.Y - Clip[1] - Clip[3], flags);
+			Fill(color(partTrans,0,0,0), position.X + Clip[0], position.Y + Clip[1], texsize.X - Clip[0] - Clip[2], texsize.Y - Clip[1] - Clip[3], flags);
+		}
+		
+		if (border == 0) 
+		{
+			SetClipRect(position.X + Clip[0], position.Y + Clip[1], texsize.X - Clip[0] - Clip[2], texsize.Y - Clip[1] - Clip[3], flags);
+			DrawTexture(ontex, position, flags | DI_ITEM_LEFT_TOP, trans);
+		}
+		// restore the previous clipping rectangle
+		screen.SetClipRect(cx, cy, cw, ch);
+	}
+}

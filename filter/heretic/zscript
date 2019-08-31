@@ -1,0 +1,569 @@
+version "4.1.2"
+
+Class SpecialHereticStatusBar : HereticStatusBar
+{
+	transient CVar splitHUD;
+	transient CVar alphaValue;
+	transient CVar alphaOpaque;
+	
+	transient CVAR boomColors;
+	transient CVAR automapHide;
+	
+	transient CVAR statsType;
+	transient CVAR statsCompColor;
+	transient CVAR statKills;
+	transient CVAR statSecrets;
+	transient CVAR statItems;
+	transient CVAR statTime;
+
+	int chainWig; // wiggle is private...
+	
+	enum StatsTypeValues
+	{
+		DISABLED = 0,
+		PERCENT = 1,
+		COUNTDOWN = 2,
+		FRACTION = 3
+	}
+	
+	enum StatsColorValues
+	{
+		GREEN = 0,
+		RED = 1,
+		NONE = 2,
+	}
+	
+	enum StatsPosition
+	{
+		OFF = 0,
+		TOPLEFT = 1,
+		TOPRIGHT = 2,
+		BOTTOMLEFT = 3,
+		BOTTOMRIGHT = 4
+	}
+	
+	enum OpaqueValues
+	{
+		OP_NONE = 0,
+		OP_NUM = 1,
+		OP_NUMGRAPH = 2,
+	}
+	
+	override void Init()
+	{
+		Super.Init();
+		
+		splitHUD    = CVar.FindCVar("fullhud_split");
+		alphaValue  = CVar.FindCVar("fullhud_trans");
+		alphaOpaque = CVar.FindCVar("fullhud_opaque");
+		
+		boomColors  = CVar.FindCVar("fullhud_boomcolors");
+		automapHide = CVar.FindCVar("fullhud_automaphide");
+		
+		statsType      = CVar.FindCVar("fullhud_stats_type");
+		statsCompColor = CVar.FindCVar("fullhud_stats_comp");
+		statKills      = CVar.FindCVar("fullhud_stats_kills");
+		statSecrets    = CVar.FindCVar("fullhud_stats_secrets");
+		statItems      = CVar.FindCVar("fullhud_stats_items");
+		statTime       = CVar.FindCVar("fullhud_stats_time");
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		mHealthInterpolator.Update(CPlayer.health);
+
+		// wiggle the chain if it moves
+		if (Level.time & 1)
+		{
+			chainWig = (mHealthInterpolator.GetValue() != CPlayer.health) && Random[ChainWiggle](0, 1);
+		}
+	}
+
+	override void Draw (int state, double TicFrac)
+	{
+		BaseStatusBar.Draw (state, TicFrac);
+
+		if (state == HUD_StatusBar)
+		{
+			if(!(automapactive && automapHide.GetInt()))
+			{
+				SetSize(42, 320, 200);
+				BeginStatusBar();
+				DrawMainBar (TicFrac);
+				if(!automapactive) DrawLevelStats (NewConsoleFont,state);
+			}
+			else // Hide HUD on Automap
+				SetSize(0, 320, 200);
+		}
+		else if (state == HUD_Fullscreen)
+		{
+			BeginHUD();
+			DrawFullScreenStuff();
+			DrawLevelStats (NewConsoleFont,state);
+		}
+	}
+
+	protected void DrawFullScreenStuff ()
+	{
+		if(splitHUD.getint())
+			DrawSplit();
+		else
+			DrawUnsplit();
+	}
+	
+	// =====================================================
+	// The Main Functions for Drawing Split and Unsplit HUDS
+	// =====================================================
+	void DrawUnsplit ()
+	{
+		double alphaFloat = 1-alphaValue.getfloat(); // Transparency
+		
+		int alphaO = alphaOpaque.GetInt();
+		double alphaFloatNum = alphaO == OP_NUM || alphaO == OP_NUMGRAPH ? 1 : alphaFloat;
+		double alphaFloatGraph = alphaO == OP_NUMGRAPH ? 1 : alphaFloat;
+		
+		float offset = 0; // Set to -2.5 to match Heretic's standard HUD
+		
+		// Draw Main STBAR Chunk
+		DrawImage("BARBACK", (-157.5+offset, -42), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
+		DrawImage("LTFCTOP", (-157.5+offset, -52), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
+		DrawImage("RTFCTOP", ( 132.5+offset, -52), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
+		if (isInvulnerable())
+		{
+			// god mode
+			DrawImage("GOD1", (-141.5+offset, -33), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
+			DrawImage("GOD2", ( 129.5+offset, -33), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
+		}
+
+		// Draw Lifebar or inventory bar
+		if(!isInventoryBarVisible())
+		{	
+			// Draw Frags
+			if(deathmatch || teamplay)
+			{
+				DrawImage("STATBAR",  (-123.4+offset, -40), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
+				// DrawImage("ARMCLEAR", (-100.5+offset, -29), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
+				DrawString(mHUDFont, FormatNumber(CPlayer.FragCount, 3), (-69.5+offset, -30), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM|DI_NOSHADOW, alpha:alphaFloatNum);
+			}
+			// Draw Health
+			else
+			{
+				DrawImage("LIFEBAR",  (-123.4+offset, -40), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
+				// DrawImage("ARMCLEAR", (-100.5+offset, -29), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
+				int healthColor = GetHealthColor();
+				DrawString(mHUDFont, FormatNumber(mHealthInterpolator.GetValue(), 3), (-69.5+offset, -30), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM|DI_NOSHADOW, translation:healthColor, alpha:alphaFloatNum);
+			}
+			
+			// Draw Current Ammo Counter
+			Inventory a1 = GetCurrentAmmo();
+			if (a1 != null)
+			{
+				int ammoColor = GetAmmoColor(a1);
+				DrawString(mHUDFont, FormatNumber(a1.Amount, 3), (-21.5+offset, -38), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_CENTER_BOTTOM, translation: ammoColor, alpha:alphaFloatNum);
+				DrawTexture(a1.icon, (-34.5+offset, -20), DI_ITEM_CENTER|DI_SCREEN_CENTER_BOTTOM, alphaFloatNum);
+			}
+			
+			// Draw Armor
+			int armorColor = GetArmorColor();
+			DrawString(mHUDFont, FormatNumber(GetArmorAmount(), 3), (97.5+offset, -30), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_CENTER_BOTTOM, translation:armorColor, alpha:alphaFloatNum);
+			
+			// Draw Keys
+			if (CPlayer.mo.CheckKeys(3, false, true)) DrawImage("YKEYICON", (-4.5+offset, -36), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+			if (CPlayer.mo.CheckKeys(1, false, true)) DrawImage("GKEYICON", (-4.5+offset, -28), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+			if (CPlayer.mo.CheckKeys(2, false, true)) DrawImage("BKEYICON", (-4.5+offset, -20), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+			
+			// Draw Inventory
+			if (CPlayer.mo.InvSel != null && !Level.NoInventoryBar)
+			{
+				DrawInventoryIcon(CPlayer.mo.InvSel, (36.5+offset, -25), DI_ITEM_CENTER|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+				if (CPlayer.mo.InvSel.Amount > 1)
+				{
+					DrawString(mIndexFont, FormatNumber(CPlayer.mo.InvSel.Amount), (51.5+offset, -12-mIndexFont.mFont.GetHeight()), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM, Font.CR_UNTRANSLATED, alpha:alphaFloatNum);
+				}
+			}
+		}
+		else
+		{
+			DrawImage("INVBAR", (-123.4+offset, -40), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
+			DrawInventoryBarTrans(diparms_sbar, (0+offset, -9), 7, DI_SCREEN_CENTER_BOTTOM, bgalpha:alphaFloat, fgalpha:alphaFloatGraph, numalpha: alphaFloatNum);
+		}
+		
+		// Draw Health Chain
+		// DrawImage("CHAINBAC", (2.5+offset, 0), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_CENTER_BOTTOM, alphaFloat);
+		// wiggle the chain if it moves
+		int inthealth =  mHealthInterpolator.GetValue();
+		DrawGemTrans("CHAIN", "LIFEGEM2",inthealth, CPlayer.mo.GetMaxHealth(true), (-7.5+offset, -1 + chainWig), 15, 25, 16, (multiplayer? DI_TRANSLATABLE : 0) | DI_ITEM_CENTER_BOTTOM | DI_SCREEN_CENTER_BOTTOM,alphaFloat);
+		DrawImage("LTFACE", (-157.5+offset, -10), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
+		DrawImage("RTFACE", (118.6+offset, -10), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
+		DrawShader(SHADER_HORZ, (-138.5+offset, -10), (16, 10), DI_SCREEN_CENTER_BOTTOM, alphaFloat);
+		DrawShader(SHADER_HORZ|SHADER_REVERSE, (120.5+offset, -10), (16, 10), DI_SCREEN_CENTER_BOTTOM, alphaFloat);
+	}
+	
+	void DrawSplit ()
+	{
+		double alphaFloat = 1-alphaValue.getfloat(); // Transparency
+		
+		int alphaO = alphaOpaque.GetInt();
+		double alphaFloatNum = alphaO == OP_NUM || alphaO == OP_NUMGRAPH ? 1 : alphaFloat;
+		double alphaFloatGraph = alphaO == OP_NUMGRAPH ? 1 : alphaFloat;
+
+		// Draw left side
+		string barLeft = (deathmatch || teamplay) ? "BAR_KILL" : "BAR_LEFT";
+		DrawImage(barLeft, (1, -1), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, alphaFloat);
+			
+		// Draw right side
+		DrawImage("BAR_RGHT", (-1, -1), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_RIGHT_BOTTOM, alphaFloat);
+		
+		// Draw Current Ammo Counter
+		Inventory a1 = GetCurrentAmmo();
+		if (a1 != null)
+		{
+			int ammoColor = GetAmmoColor(a1);
+			DrawString(mHUDFont, FormatNumber(a1.Amount, 3), (-51, -29), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_RIGHT_BOTTOM, translation: ammoColor, alpha:alphaFloatNum);
+			DrawTexture(a1.icon, (-64, -11), DI_ITEM_CENTER|DI_SCREEN_RIGHT_BOTTOM, alphaFloatNum);
+		}
+		
+		// Draw Health
+		int healthColor = GetHealthColor();
+		DrawString(mHUDFont, FormatNumber(mHealthInterpolator.GetValue()), (36, -18), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_LEFT_BOTTOM, translation: healthColor, alpha:alphaFloatNum);
+		
+		// Draw Armor
+		int armorColor = GetArmorColor();
+		DrawString(mHUDFont, FormatNumber(GetArmorAmount(), 3), (87, -18), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_LEFT_BOTTOM, translation:armorColor, alpha:alphaFloatNum);
+		
+		// Draw Keys
+		if (CPlayer.mo.CheckKeys(3, false, true)) DrawImage("YKEYICON", (-105, -27), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+		if (CPlayer.mo.CheckKeys(1, false, true)) DrawImage("GKEYICON", (-105, -19), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+		if (CPlayer.mo.CheckKeys(2, false, true)) DrawImage("BKEYICON", (-105, -11), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+		
+		// Draw Frags + Color
+		if(multiplayer)
+		{
+			if (deathmatch || teamplay)
+			{
+				DrawString(mHUDFont, FormatNumber(CPlayer.FragCount, 3), (138, -18), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_LEFT_BOTTOM|DI_NOSHADOW, alpha:alphaFloatNum);
+				DrawImage("DM_COL", (1, -1), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM|DI_TRANSLATABLE, alphaFloat);
+			}
+			else
+			{
+				DrawImage("COOP_COL", (1, -1), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM|DI_TRANSLATABLE, alphaFloat);
+			}
+		}
+		
+		// Draw Inventory
+		if (CPlayer.mo.InvSel != null && !Level.NoInventoryBar)
+		{
+			DrawInventoryIcon(CPlayer.mo.InvSel, (-19, -16), DI_ITEM_CENTER|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+			if (CPlayer.mo.InvSel.Amount > 1)
+			{
+				DrawString(mIndexFont, FormatNumber(CPlayer.mo.InvSel.Amount), (-4, -3-mIndexFont.mFont.GetHeight()), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM, Font.CR_UNTRANSLATED, alpha:alphaFloatNum);
+			}
+		}
+		
+		// Draw Inventory Bar
+		if (isInventoryBarVisible())
+		{
+			int itemCount = 0;
+			for(Inventory item = CPlayer.mo.InvFirst; item != NULL && itemCount < 4; item = item.NextInv())
+				itemCount++;
+			DrawInventoryBarTrans(diparms_sbar, (0, -1), max(itemCount,1), DI_SCREEN_CENTER_BOTTOM, bgalpha:alphaFloat, fgalpha:alphaFloatGraph, numalpha: alphaFloatNum);
+		}
+	}
+	
+	// =====================================================
+	// The Main Functions for Drawing Stats
+	// =====================================================
+	void DrawStatLine(font fnt, int cr, Vector2 pos, String text, double alpha)
+	{
+		Vector2 scale = GetHUDScale();
+		
+		// These values are jury-rigged; they were initially designed for my personal settings before becoming generic
+		int VirtualWidth  = floor(650 * 6.0/scale.x * Screen.GetWidth() /2560);
+		int VirtualHeight = floor(400 * 7.2/scale.y * Screen.GetHeight()/1440);
+		
+		int posX = pos.x >= 0 ? pos.x : VirtualWidth  + pos.x;
+		int posY = pos.y >= 0 ? pos.y : VirtualHeight + pos.y;
+
+		screen.DrawText(fnt, cr, posX, posY, text, 
+			DTA_KeepRatio, true,
+			DTA_VirtualWidth, VirtualWidth, DTA_VirtualHeight, VirtualHeight, DTA_Alpha, alpha);
+	}
+	
+	protected virtual void DrawLevelStats (Font fnt, int state = HUD_StatusBar)
+	{
+		int alphaO = alphaOpaque.GetInt();
+		double alphaFloat = alphaO == OP_NUM || alphaO == OP_NUMGRAPH ? 1 : 1-alphaValue.getfloat();
+		
+		int compColor;
+		switch(statsCompColor.GetInt())
+		{
+			case GREEN:
+				compColor = Font.CR_GREEN;
+				break;
+			case RED:
+				compColor = Font.CR_RED;
+				break;
+			case NONE:
+			default:
+				compColor = Font.CR_WHITE;
+				break;
+		}
+		
+		string kills = "";
+		string secrets = "";
+		string items = "";
+		string time = "";
+
+		int mkilled   = multiplayer? CPlayer.killcount : Level.killed_monsters;
+		int sfound    = multiplayer? CPlayer.secretcount : Level.found_secrets;
+		int ifound    = multiplayer? CPlayer.itemcount : Level.found_items;
+		
+		// Format based on type specified
+		string killstring = (gameinfo.gametype & GAME_Chex) ? "Zorches" : "Kills";
+		switch(statsType.GetInt())
+		{
+			case PERCENT: // Take care of division by zero here
+				if (statKills.GetInt())   kills   = string.format("%s: %i%%", killstring,Level.total_monsters ? 100*mkilled/Level.total_monsters : 100);
+				if (statSecrets.GetInt()) secrets = string.format("Secrets: %i%%",Level.total_secrets ? 100*sfound/Level.total_secrets : 100);
+				if (statItems.GetInt())   items   = string.format("Items: %i%%",  Level.total_items ? 100*ifound/Level.total_items : 100);
+				break;
+				
+			case COUNTDOWN:
+				if (statKills.GetInt())   kills   = string.format("%s: %i Left", killstring,Level.total_monsters - mkilled);
+				if (statSecrets.GetInt()) secrets = string.format("Secrets: %i Left", Level.total_secrets - sfound);
+				if (statItems.GetInt())   items   = string.format("Items: %i Left", Level.total_items - ifound);
+				break;
+				
+			case FRACTION:
+				if (statKills.GetInt())   kills   = string.format("%s: %i/%i",killstring,mkilled, Level.total_monsters);
+				if (statSecrets.GetInt()) secrets = string.format("Secrets: %i/%i",sfound, Level.total_secrets);
+				if (statItems.GetInt())   items   = string.format("Items: %i/%i",ifound, Level.total_items);
+				break;
+		}
+		// Format Level time
+		int hubtime = Level.time/Thinker.TICRATE;
+		if (statTime.GetInt()) time = string.format("%02d:%02d:%02d",hubtime/3600,(hubtime/60)%60,hubtime%60);
+		
+		int textSize = fnt.GetHeight()*0.8;
+		int killpos = statKills.getInt();
+		int secretpos = statSecrets.getInt();
+		int itempos = statItems.getInt();
+		int timepos = statTime.getInt();
+		
+		// Make each block have the same length
+		int maxlength[5] = {0,0,0,0,0};
+		maxlength[killpos]   = max(maxlength[killpos],  kills.length());
+		maxlength[secretpos] = max(maxlength[secretpos],secrets.length());
+		maxlength[itempos]   = max(maxlength[itempos],  items.length());
+		
+		kills = makeLength(kills,maxlength[killpos]);
+		secrets = makeLength(secrets,maxlength[secretpos]);
+		items = makeLength(items,maxlength[itempos]);
+		
+		// Top Left
+		int topLeftTotal = 0;
+		if(killpos   == TOPLEFT) DrawStatLine(fnt,mkilled == Level.total_monsters ? compColor : Font.CR_WHITE, (2,textSize*topLeftTotal++) ,kills,alphaFloat);
+		if(secretpos == TOPLEFT) DrawStatLine(fnt,sfound == Level.total_secrets   ? compColor : Font.CR_WHITE, (2,textSize*topLeftTotal++) ,secrets,alphaFloat);
+		if(itempos   == TOPLEFT) DrawStatLine(fnt,ifound == Level.total_items     ? compColor : Font.CR_WHITE, (2,textSize*topLeftTotal++) ,items,alphaFloat);
+		if(timepos   == TOPLEFT) DrawStatLine(fnt,                                              Font.CR_WHITE, (2,textSize*topLeftTotal++) ,time,alphaFloat);
+		// Top Right
+		// This needs special handling for vid_fps
+		int conOffset = vid_fps ?  GetConSize()+2 : 0;
+		int topRightTotal = 0;
+		if(killpos   == TOPRIGHT) DrawStatLine(fnt,mkilled == Level.total_monsters ? compColor : Font.CR_WHITE, (-fnt.StringWidth(kills),  conOffset+textSize*topRightTotal++)  ,kills,alphaFloat);
+		if(secretpos == TOPRIGHT) DrawStatLine(fnt,sfound == Level.total_secrets   ? compColor : Font.CR_WHITE, (-fnt.StringWidth(secrets),conOffset+textSize*topRightTotal++),secrets,alphaFloat);
+		if(itempos   == TOPRIGHT) DrawStatLine(fnt,ifound == Level.total_items     ? compColor : Font.CR_WHITE, (-fnt.StringWidth(items),  conOffset+textSize*topRightTotal++)  ,items,alphaFloat);
+		if(timepos   == TOPRIGHT) DrawStatLine(fnt,                                              Font.CR_WHITE, (-fnt.StringWidth(time),   conOffset+textSize*topRightTotal++)   ,time,alphaFloat);
+		// Bottom Left
+		int bottomLeftTotal = 0;
+		int topOfHUD =  splitHUD.getint() && state !=HUD_StatusBar  ?  -72 : -120;
+		if(itempos   == BOTTOMLEFT) DrawStatLine(fnt,ifound == Level.total_items     ? compColor : Font.CR_WHITE, (2,topOfHUD-textSize*bottomLeftTotal++) ,items,alphaFloat);
+		if(secretpos == BOTTOMLEFT) DrawStatLine(fnt,sfound == Level.total_secrets   ? compColor : Font.CR_WHITE, (2,topOfHUD-textSize*bottomLeftTotal++) ,secrets,alphaFloat);
+		if(killpos   == BOTTOMLEFT) DrawStatLine(fnt,mkilled == Level.total_monsters ? compColor : Font.CR_WHITE, (2,topOfHUD-textSize*bottomLeftTotal++) ,kills,alphaFloat);
+		if(timepos   == BOTTOMLEFT) DrawStatLine(fnt,                                              Font.CR_WHITE, (2,topOfHUD-textSize*bottomLeftTotal++) ,time,alphaFloat);
+		// Bottom Right
+		int bottomRightTotal = 0;
+		topOfHUD -= splitHUD.getint() && state !=HUD_StatusBar ? 6 : 0; // Right side is taller than left side
+		if(secretpos == BOTTOMRIGHT) DrawStatLine(fnt,sfound == Level.total_secrets   ? compColor : Font.CR_WHITE, (-fnt.StringWidth(secrets),topOfHUD-textSize*bottomRightTotal++),secrets,alphaFloat);
+		if(itempos   == BOTTOMRIGHT) DrawStatLine(fnt,ifound == Level.total_items     ? compColor : Font.CR_WHITE, (-fnt.StringWidth(items),  topOfHUD-textSize*bottomRightTotal++)  ,items,alphaFloat);
+		if(killpos   == BOTTOMRIGHT) DrawStatLine(fnt,mkilled == Level.total_monsters ? compColor : Font.CR_WHITE, (-fnt.StringWidth(kills),  topOfHUD-textSize*bottomRightTotal++)  ,kills,alphaFloat);
+		if(timepos   == BOTTOMRIGHT) DrawStatLine(fnt,   											Font.CR_WHITE, (-fnt.StringWidth(time),   topOfHUD-textSize*bottomRightTotal++)   ,time,alphaFloat);
+	}
+	
+	// ================================================
+	// Helper Functions for getting various font colors
+	// ================================================
+	int GetPercentColor()
+	{
+		return boomColors.getInt() ? Font.CR_WHITE : Font.CR_UNTRANSLATED;
+	}
+	
+	int GetAmmoColor(Inventory a1)
+	{
+		int amt1   = a1.Amount;
+		int maxamt = a1.MaxAmount;
+		
+		int ammoColor;
+		if(boomColors.getInt())
+		{
+			if		(amt1 <= maxamt/4) ammoColor = FONT.CR_RED;
+			else if (amt1 <= maxamt/2) ammoColor = FONT.CR_UNTRANSLATED;
+			else 					   ammoColor = FONT.CR_GREEN;
+		}
+		else
+			ammoColor = FONT.CR_UNTRANSLATED;
+			
+		return ammoColor;
+	}
+	
+	int GetHealthColor()
+	{
+		int currHealth = CPlayer.Health;
+		int maxHealth = CPlayer.mo.GetMaxHealth();
+		
+		int healthColor;
+		if(boomColors.getInt())
+		{
+			if	(currHealth <= maxHealth/4) healthColor = FONT.CR_RED;
+			else if	(currHealth <= maxHealth/2) healthColor = FONT.CR_UNTRANSLATED;
+			else if	(currHealth <= maxHealth)   healthColor = FONT.CR_GREEN;
+			else 				    healthColor = FONT.CR_BLUE;
+		}
+		else
+			healthColor = FONT.CR_UNTRANSLATED;
+			
+		return healthColor;	
+	}
+	
+	int GetArmorColor()
+	{
+		int currArmor = GetArmorSavePercent();
+		
+		int armorColor;
+		if(boomColors.getInt())
+		{
+			if		(currArmor >= gameinfo.Armor2Percent*100) armorColor = FONT.CR_BLUE;
+			else if (currArmor > 0)							  armorColor = FONT.CR_GREEN;
+			else											  armorColor = FONT.CR_RED;
+		}
+		else
+			armorColor = FONT.CR_UNTRANSLATED;
+			
+		return armorColor;
+	}
+	
+	// ===================================
+	// Helper Function to get vid_fps size
+	// ===================================
+	int GetConSize()
+	{
+		int scaleval;
+		if (con_scale > 0) scaleval = (con_scale+1) / 2;
+		else if (uiscale == 0)
+		{
+			// Default should try to scale to 640x400
+			int vscale = screen.GetHeight() / 800;
+			int hscale = screen.GetWidth() / 1280;
+			scaleval = clamp(vscale, 1, hscale);
+		}
+		else scaleval = (uiscale+1) / 2;
+
+		// block scales that result in something larger than the current screen.
+		int vmax = screen.GetHeight() / 400;
+		int hmax = screen.GetWidth() / 640;
+		int max = MAX(vmax, hmax);
+		return NewConsoleFont.GetHeight()*MAX(1, MIN(scaleval, max))/4;
+	}
+	
+	// ================================================
+	// Helper Function to make string a specific length
+	// ================================================
+	String makeLength(string input, int length, string extender = ":")
+	{
+		if(input.length() > length) return input;
+		
+		string replacer = string.format(string.format("%%s%%%ds",length-input.length()), extender, "");
+		input.replace(extender,replacer);
+		return input;
+	}
+	
+	// ======================================
+	// Same as DrawGem, but with transparency
+	// ======================================
+	void DrawGemTrans(String chain, String gem, int displayvalue, int maxrange, Vector2 pos, int leftpadding, int rightpadding, int chainmod, int flags = 0, float trans = 1.)
+	{
+		TextureID chaintex = TexMan.CheckForTexture(chain, TexMan.TYPE_MiscPatch);
+		if (!chaintex.IsValid()) return;
+		Vector2 chainsize = TexMan.GetScaledSize(chaintex);
+		[pos, flags] = AdjustPosition(pos, flags, chainsize.X, chainsize.Y);
+
+		displayvalue = clamp(displayvalue, 0, maxrange);
+		int offset = int(double(chainsize.X - leftpadding - rightpadding) * displayvalue / maxrange);
+	
+		DrawTexture(chaintex, pos + (offset % chainmod, 0), flags | DI_ITEM_LEFT_TOP,trans);
+		DrawImage(gem, pos + (offset + leftPadding, 0), flags | DI_ITEM_LEFT_TOP,trans);
+	}
+	
+	// =========================================================
+	// Same as DrawInventoryBar, but with transparency for items
+	// =========================================================
+	void DrawInventoryBarTrans(InventoryBarState parms, Vector2 position, int numfields, int flags = 0, double bgalpha = 1., double fgalpha = 1., double numalpha = 1.)
+	{
+		double width = parms.boxsize.X * numfields;
+		[position, flags] = AdjustPosition(position, flags, width, parms.boxsize.Y);
+		
+		CPlayer.mo.InvFirst = ValidateInvFirst(numfields);
+		if (CPlayer.mo.InvFirst == null) return;	// Player has no listed inventory items.
+		
+		Vector2 boxsize = parms.boxsize;
+		// First draw all the boxes
+		for(int i = 0; i < numfields; i++)
+		{
+			DrawTexture(parms.box, position + (boxsize.X * i, 0), flags | DI_ITEM_LEFT_TOP, bgalpha);
+		}
+		
+		// now the items and the rest
+		
+		Vector2 itempos = position + boxsize / 2;
+		Vector2 textpos = position + boxsize - (1, 1 + parms.amountfont.mFont.GetHeight());
+
+		int i = 0;
+		Inventory item;
+		for(item = CPlayer.mo.InvFirst; item != NULL && i < numfields; item = item.NextInv())
+		{
+			for(int j = 0; j < 2; j++)
+			{
+				if (j ^ !!(flags & DI_DRAWCURSORFIRST))
+				{
+					if (item == CPlayer.mo.InvSel)
+					{
+						double flashAlpha = fgalpha;
+						if (flags & DI_ARTIFLASH) flashAlpha *= itemflashFade;
+						DrawTexture(parms.selector, position + parms.selectofs + (boxsize.X * i, 0), flags | DI_ITEM_LEFT_TOP, flashAlpha);
+					}
+				}
+				else
+				{
+					DrawInventoryIcon(item, itempos + (boxsize.X * i, 0), flags | DI_ITEM_CENTER, fgalpha );
+				}
+			}
+			
+			if (parms.amountfont != null && (item.Amount > 1 || (flags & DI_ALWAYSSHOWCOUNTERS)))
+			{
+				DrawString(parms.amountfont, FormatNumber(item.Amount, 0, 5), textpos + (boxsize.X * i, 0), flags | DI_TEXT_ALIGN_RIGHT, parms.cr, numalpha);
+			}
+			i++;
+		}
+		// Is there something to the left?
+		if (CPlayer.mo.FirstInv() != CPlayer.mo.InvFirst)
+		{
+			DrawTexture(parms.left, position + (-parms.arrowoffset.X, parms.arrowoffset.Y), flags | DI_ITEM_RIGHT|DI_ITEM_VCENTER, fgalpha);
+		}
+		// Is there something to the right?
+		if (item != NULL)
+		{
+			DrawTexture(parms.right, position + parms.arrowoffset + (width, 0), flags | DI_ITEM_LEFT|DI_ITEM_VCENTER, fgalpha);
+		}
+	}
+}

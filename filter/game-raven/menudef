@@ -1,0 +1,35 @@
+OptionMenu "FullscreenStatusbarOptions"
+{
+   	Position -15
+   	Title "Fullscreen Status Bar"
+   	StaticText ""
+   	StaticText "General Settings", "gold"
+	Option "Fullscreen", "screenblocks", "FullscreenMode"
+   	ScaleSlider "Scaling", "hud_scale", -1.0, 8.0, 1.0, "$SCALEMNU_USEUI", "$SCALEMNU_USEFS"
+	StaticText ""
+   	StaticText "Status Bar Appearance", "gold"
+   	Option "Split bar", "fullhud_split", "OnOff"
+	Slider "Transparency", "fullhud_trans", 0, 1, 0.1
+	Option "Opaque elements", "fullhud_opaque", "Opaque"
+   	StaticText ""
+   	StaticText  "Optional Settings", "gold"
+	Option "Use Boom HUD colors", "fullhud_boomcolors", "OnOff"
+ 	IfGame(Heretic)
+	{
+		Option "Hide status bar on automap", "fullhud_automaphide", "OnOff"
+	}
+ 	IfGame(Hexen)
+	{
+		Option "Inventory as icons on automap", "fullhud_automaphide", "OnOff"
+	}
+   	StaticText ""
+   	StaticText  "Level Stats", "gold"
+	Option "Stats display", "fullhud_stats_type", "LevelStats"
+	Option "Completion color", "fullhud_stats_comp", "Colors", "fullhud_stats_type"
+	Option "Kill counter", "fullhud_stats_kills", "LevelStatsPosition", "fullhud_stats_type"
+	Option "Secret counter", "fullhud_stats_secrets", "LevelStatsPosition", "fullhud_stats_type"
+	Option "Item counter", "fullhud_stats_items", "LevelStatsPosition", "fullhud_stats_type"
+	Option "Level time", "fullhud_stats_time", "LevelStatsPosition", "fullhud_stats_type"
+	StaticText ""
+	Submenu "Credits/About", "FullscreenCreditsMenu"
+}

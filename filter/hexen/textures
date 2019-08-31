@@ -1,0 +1,16 @@
+// Merged STATBAR + KILLS (for DM)
+Graphic "KILLBAR", 244, 31
+{
+    	Patch "STATBAR", 0, 0
+    	Patch "KILLS", 0, 0
+}
+
+// Automap key + armor panels
+Graphic "KEYBAR_LEFT", 103, 31
+{
+    	Patch "KEYBAR", -6, 0 { UseOffsets }
+}
+Graphic "KEYBAR_RIGHT", 127, 31
+{
+    	Patch "KEYBAR", -110, 0 { UseOffsets }
+}

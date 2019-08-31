@@ -1,0 +1,33 @@
+// Non-split status bars (SP/MP/DM)
+Graphic "HUD_SMP", 320, 32
+{
+    	Patch "STBAR", 0, 0 { UseOffsets }
+    	Patch "STARMS", 104, 0 { UseOffsets }
+}
+Graphic "HUD_DM", 320, 32 
+{
+    	Patch "STBAR", 0, 0 { UseOffsets }
+}
+
+// Split bar panels
+Graphic "MUGFRAME", 35, 32 
+{
+    	Patch "STBAR", -143, 0 { UseOffsets }
+}
+Graphic "HUD_LFIX", 143, 32 
+{
+    	Patch "STBAR", 0, 0 { UseOffsets }
+    	Patch "MUGFRAME", 107, 0
+}
+Graphic "HUD_RFIX", 143, 32 
+{
+    	Patch "STBAR", -178, 0 { UseOffsets }
+}
+Graphic "HUD_LEFT", 143, 32 
+{
+    	Patch "HUD_LFIX", 0, 0
+}
+Graphic "HUD_RIGHT", 145, 32 
+{
+    	Patch "HUD_RFIX", 2, 0
+}
