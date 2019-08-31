@@ -1,12 +1,5 @@
 // Non-split status bars (SP/MP/DM), Chex logos removed
-Graphic "HUD_SP_ARMS", 320, 32
-{
-    	Patch "STBAR", 0, 0 { UseOffsets }
-    	Patch "ARMS", 105, 0
-	Patch "AMMO1", 256, 0
-    	Patch "AMMO2", 261, 5
-}
-Graphic "HUD_MP_ARMS", 320, 32
+Graphic "HUD_SMP_ARMS", 320, 32
 {
     	Patch "STBAR", 0, 0 { UseOffsets }
     	Patch "ARMS", 105, 0
