@@ -9,6 +9,7 @@ Graphic "HUD_SMP_ARMS", 320, 32
 Graphic "HUD_DM_ARMS", 320, 32 
 {
     	Patch "STBAR", 0, 0 { UseOffsets }
+    	Patch "FRAG", 105, 0
 	Patch "AMMO1", 256, 0
     	Patch "AMMO2", 261, 5
 }

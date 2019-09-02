@@ -220,10 +220,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		// Draw Frags
 		if (deathmatch || teamplay)
 		{
-			if (!isChex())
-			{
-				DrawString(mHUDFont, FormatNumber(CPlayer.FragCount, 3), (-22, -29), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM|DI_NOSHADOW, alpha:alphaFloatNum);
-			}
+			DrawString(mHUDFont, FormatNumber(CPlayer.FragCount, 3), (-22+isChex(5), -29), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM|DI_NOSHADOW, alpha:alphaFloatNum);
 		}
 		// Draw Arms
 		else if(!chexArms || chexArms.getInt())
@@ -420,10 +417,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		// Draw Frags
 		if (deathmatch || teamplay)
 		{
-			if (!isChex())
-			{
-				DrawString(mAmountFont, FormatNumber(CPlayer.FragCount, 3), (139, -30), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_LEFT_BOTTOM|DI_NOSHADOW, Font.CR_RED, alpha:alphaFloatNum);
-			}
+			DrawString(mAmountFont, FormatNumber(CPlayer.FragCount, 3), (139, -30), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_LEFT_BOTTOM|DI_NOSHADOW, Font.CR_RED, alpha:alphaFloatNum);
 		}
 		
 		// Draw Inventory Bar
