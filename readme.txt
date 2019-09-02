@@ -3,7 +3,7 @@ Advanced engine needed  : GZDoom
 ===========================================================================
 Title                : Fullscreen Status Bars for ZDoom (v5.0)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : 09/09/2019
+Release date         : 09/04/2019
 Author               : NightFright
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -88,7 +88,7 @@ Tested With          : GZDoom
 
 * CHANGELOG *
 
-> Version 5.0 (Sep 9, 2019)
+> Version 5.0 (Sep 4, 2019)
   NOTE: It is recommended to clean your GZDoom ini from all CVAR entries of earlier releases. 
         Before using this version, search for any ini entry starting with "fullhud_", 
         delete all those lines, save the file, then launch the game with the new mod
@@ -120,6 +120,7 @@ Tested With          : GZDoom
   [CHEX] When BOOM HUD colors are on, the color of health > 100 and blue armor is now LIGHTBLUE
   [CHEX] Berserk display option hidden. If a berserk pack is found, it will still be shown 
          if CVAR fullhud_showberserk=true (can only be done from console)
+  [CHEX] Non-split mode: "Frag" display added (DM only)
   [CHEX] "Kills" stats renamed to "Zorch"
   [HACX] Split mode: Colors of arms numbers are now inverted (dark=missing, bright=obtained)
   [HACX] Boom color mode now hidden from menu
