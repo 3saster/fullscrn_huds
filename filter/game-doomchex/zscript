@@ -220,7 +220,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		// Draw Frags
 		if (deathmatch || teamplay)
 		{
-			DrawString(mHUDFont, FormatNumber(CPlayer.FragCount, 3), (-22+isChex(5), -29), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM|DI_NOSHADOW, alpha:alphaFloatNum);
+			DrawString(mHUDFont, FormatNumber(CPlayer.FragCount, 3), (-22+isChex(3), -29), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM|DI_NOSHADOW, alpha:alphaFloatNum);
 		}
 		// Draw Arms
 		else if(!chexArms || chexArms.getInt())
