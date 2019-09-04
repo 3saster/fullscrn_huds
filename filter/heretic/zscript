@@ -366,7 +366,7 @@ Class SpecialHereticStatusBar : HereticStatusBar
 		if(killpos   == TOPLEFT) DrawStatLine(fnt,mkilled == Level.total_monsters ? compColor : Font.CR_WHITE, (2,textSize*topLeftTotal++) ,kills,alphaFloat);
 		if(secretpos == TOPLEFT) DrawStatLine(fnt,sfound == Level.total_secrets   ? compColor : Font.CR_WHITE, (2,textSize*topLeftTotal++) ,secrets,alphaFloat);
 		if(itempos   == TOPLEFT) DrawStatLine(fnt,ifound == Level.total_items     ? compColor : Font.CR_WHITE, (2,textSize*topLeftTotal++) ,items,alphaFloat);
-		if(timepos   == TOPLEFT && statsType.GetInt() != 0) DrawStatLine(fnt,                   Font.CR_WHITE, (2,textSize*topLeftTotal++) ,time,alphaFloat);
+		if(timepos   == TOPLEFT && statsType.GetInt()) DrawStatLine(fnt,                   Font.CR_WHITE, (2,textSize*topLeftTotal++) ,time,alphaFloat);
 		// Top Right
 		// This needs special handling for vid_fps
 		int conOffset = vid_fps ?  GetConSize()+2 : 0;
@@ -374,21 +374,21 @@ Class SpecialHereticStatusBar : HereticStatusBar
 		if(killpos   == TOPRIGHT) DrawStatLine(fnt,mkilled == Level.total_monsters ? compColor : Font.CR_WHITE, (-fnt.StringWidth(kills),  conOffset+textSize*topRightTotal++)  ,kills,alphaFloat);
 		if(secretpos == TOPRIGHT) DrawStatLine(fnt,sfound == Level.total_secrets   ? compColor : Font.CR_WHITE, (-fnt.StringWidth(secrets),conOffset+textSize*topRightTotal++),secrets,alphaFloat);
 		if(itempos   == TOPRIGHT) DrawStatLine(fnt,ifound == Level.total_items     ? compColor : Font.CR_WHITE, (-fnt.StringWidth(items),  conOffset+textSize*topRightTotal++)  ,items,alphaFloat);
-		if(timepos   == TOPRIGHT && statsType.GetInt() != 0) DrawStatLine(fnt,                   Font.CR_WHITE, (-fnt.StringWidth(time),   conOffset+textSize*topRightTotal++)   ,time,alphaFloat);
+		if(timepos   == TOPRIGHT && statsType.GetInt()) DrawStatLine(fnt,                   Font.CR_WHITE, (-fnt.StringWidth(time),   conOffset+textSize*topRightTotal++)   ,time,alphaFloat);
 		// Bottom Left
 		int bottomLeftTotal = 0;
 		int topOfHUD =  splitHUD.getint() && state !=HUD_StatusBar  ?  -72 : -120;
 		if(itempos   == BOTTOMLEFT) DrawStatLine(fnt,ifound == Level.total_items     ? compColor : Font.CR_WHITE, (2,topOfHUD-textSize*bottomLeftTotal++) ,items,alphaFloat);
 		if(secretpos == BOTTOMLEFT) DrawStatLine(fnt,sfound == Level.total_secrets   ? compColor : Font.CR_WHITE, (2,topOfHUD-textSize*bottomLeftTotal++) ,secrets,alphaFloat);
 		if(killpos   == BOTTOMLEFT) DrawStatLine(fnt,mkilled == Level.total_monsters ? compColor : Font.CR_WHITE, (2,topOfHUD-textSize*bottomLeftTotal++) ,kills,alphaFloat);
-		if(timepos   == BOTTOMLEFT && statsType.GetInt() != 0) DrawStatLine(fnt,                   Font.CR_WHITE, (2,topOfHUD-textSize*bottomLeftTotal++) ,time,alphaFloat);
+		if(timepos   == BOTTOMLEFT && statsType.GetInt()) DrawStatLine(fnt,                   Font.CR_WHITE, (2,topOfHUD-textSize*bottomLeftTotal++) ,time,alphaFloat);
 		// Bottom Right
 		int bottomRightTotal = 0;
 		topOfHUD -= splitHUD.getint() && state !=HUD_StatusBar ? 6 : 0; // Right side is taller than left side
 		if(secretpos == BOTTOMRIGHT) DrawStatLine(fnt,sfound == Level.total_secrets   ? compColor : Font.CR_WHITE, (-fnt.StringWidth(secrets),topOfHUD-textSize*bottomRightTotal++),secrets,alphaFloat);
 		if(itempos   == BOTTOMRIGHT) DrawStatLine(fnt,ifound == Level.total_items     ? compColor : Font.CR_WHITE, (-fnt.StringWidth(items),  topOfHUD-textSize*bottomRightTotal++)  ,items,alphaFloat);
 		if(killpos   == BOTTOMRIGHT) DrawStatLine(fnt,mkilled == Level.total_monsters ? compColor : Font.CR_WHITE, (-fnt.StringWidth(kills),  topOfHUD-textSize*bottomRightTotal++)  ,kills,alphaFloat);
-		if(timepos   == BOTTOMRIGHT && statsType.GetInt() != 0) DrawStatLine(fnt,   		    Font.CR_WHITE, (-fnt.StringWidth(time),   topOfHUD-textSize*bottomRightTotal++)   ,time,alphaFloat);
+		if(timepos   == BOTTOMRIGHT && statsType.GetInt()) DrawStatLine(fnt,   		    Font.CR_WHITE, (-fnt.StringWidth(time),   topOfHUD-textSize*bottomRightTotal++)   ,time,alphaFloat);
 	}
 	
 	// ================================================
