@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom
 ===========================================================================
-Title                : Fullscreen Status Bars for ZDoom (v5.0)
+Title                : Fullscreen Status Bars for ZDoom (v5.1)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : 09/04/2019
+Release date         : XX/XX/2019
 Author               : NightFright
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -87,6 +87,8 @@ Tested With          : GZDoom
 
 
 * CHANGELOG *
+
+> Version 5.1 (XXX X, 2019)
 
 > Version 5.0 (Sep 4, 2019)
   NOTE: It is recommended to clean your GZDoom ini from all CVAR entries of earlier releases. 
