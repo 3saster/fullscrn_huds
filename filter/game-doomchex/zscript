@@ -525,7 +525,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		if(killpos   == TOPLEFT) DrawStatLine(fnt,mkilled == Level.total_monsters ? compColor : Font.CR_WHITE, (2,textSize*topLeftTotal++) ,kills,alphaFloat);
 		if(secretpos == TOPLEFT) DrawStatLine(fnt,sfound == Level.total_secrets   ? compColor : Font.CR_WHITE, (2,textSize*topLeftTotal++) ,secrets,alphaFloat);
 		if(itempos   == TOPLEFT) DrawStatLine(fnt,ifound == Level.total_items     ? compColor : Font.CR_WHITE, (2,textSize*topLeftTotal++) ,items,alphaFloat);
-		if(timepos   == TOPLEFT) DrawStatLine(fnt,                                              Font.CR_WHITE, (2,textSize*topLeftTotal++) ,time,alphaFloat);
+		if(timepos   == TOPLEFT && statsType.GetInt() != 0) DrawStatLine(fnt,                            Font.CR_WHITE, (2,textSize*topLeftTotal++) ,time,alphaFloat);
 		// Top Right
 		// This needs special handling for vid_fps
 		int conOffset = vid_fps ?  GetConSize()+2 : 0;
@@ -533,19 +533,19 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		if(killpos   == TOPRIGHT) DrawStatLine(fnt,mkilled == Level.total_monsters ? compColor : Font.CR_WHITE, (-fnt.StringWidth(kills),  conOffset+textSize*topRightTotal++)  ,kills,alphaFloat);
 		if(secretpos == TOPRIGHT) DrawStatLine(fnt,sfound == Level.total_secrets   ? compColor : Font.CR_WHITE, (-fnt.StringWidth(secrets),conOffset+textSize*topRightTotal++),secrets,alphaFloat);
 		if(itempos   == TOPRIGHT) DrawStatLine(fnt,ifound == Level.total_items     ? compColor : Font.CR_WHITE, (-fnt.StringWidth(items),  conOffset+textSize*topRightTotal++)  ,items,alphaFloat);
-		if(timepos   == TOPRIGHT) DrawStatLine(fnt,                                              Font.CR_WHITE, (-fnt.StringWidth(time),   conOffset+textSize*topRightTotal++)   ,time,alphaFloat);
+		if(timepos   == TOPRIGHT && statsType.GetInt() != 0) DrawStatLine(fnt,                            Font.CR_WHITE, (-fnt.StringWidth(time),   conOffset+textSize*topRightTotal++)   ,time,alphaFloat);
 		// Bottom Left
 		int bottomLeftTotal = 0;
 		if(itempos   == BOTTOMLEFT) DrawStatLine(fnt,ifound == Level.total_items     ? compColor : Font.CR_WHITE, (2,-78-textSize*bottomLeftTotal++) ,items,alphaFloat);
 		if(secretpos == BOTTOMLEFT) DrawStatLine(fnt,sfound == Level.total_secrets   ? compColor : Font.CR_WHITE, (2,-78-textSize*bottomLeftTotal++) ,secrets,alphaFloat);
 		if(killpos   == BOTTOMLEFT) DrawStatLine(fnt,mkilled == Level.total_monsters ? compColor : Font.CR_WHITE, (2,-78-textSize*bottomLeftTotal++) ,kills,alphaFloat);
-		if(timepos   == BOTTOMLEFT) DrawStatLine(fnt,                                              Font.CR_WHITE, (2,-78-textSize*bottomLeftTotal++) ,time,alphaFloat);
+		if(timepos   == BOTTOMLEFT && statsType.GetInt() != 0) DrawStatLine(fnt,                           Font.CR_WHITE, (2,-78-textSize*bottomLeftTotal++) ,time,alphaFloat);
 		// Bottom Right
 		int bottomRightTotal = 0;
 		if(secretpos == BOTTOMRIGHT) DrawStatLine(fnt,sfound == Level.total_secrets   ? compColor : Font.CR_WHITE, (-fnt.StringWidth(secrets),-78-textSize*bottomRightTotal++),secrets,alphaFloat);
 		if(itempos   == BOTTOMRIGHT) DrawStatLine(fnt,ifound == Level.total_items     ? compColor : Font.CR_WHITE, (-fnt.StringWidth(items),  -78-textSize*bottomRightTotal++)  ,items,alphaFloat);
 		if(killpos   == BOTTOMRIGHT) DrawStatLine(fnt,mkilled == Level.total_monsters ? compColor : Font.CR_WHITE, (-fnt.StringWidth(kills),  -78-textSize*bottomRightTotal++)  ,kills,alphaFloat);
-		if(timepos   == BOTTOMRIGHT) DrawStatLine(fnt,   											Font.CR_WHITE, (-fnt.StringWidth(time),   -78-textSize*bottomRightTotal++)   ,time,alphaFloat);
+		if(timepos   == BOTTOMRIGHT && statsType.GetInt() != 0) DrawStatLine(fnt,   			    Font.CR_WHITE, (-fnt.StringWidth(time),   -78-textSize*bottomRightTotal++)   ,time,alphaFloat);
 	}
 	
 	// ================================================
