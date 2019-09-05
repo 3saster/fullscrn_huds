@@ -28,6 +28,7 @@ OptionMenu "FullscreenStatusbarOptions"
    	StaticText ""
    	StaticText  "Level Stats", "gold"
 	Option "Stats display", "fullhud_stats_type", "LevelStats"
+	Option "Stats font", "fullhud_stats_font", "LevelStatsFont"
 	Option "Completion color", "fullhud_stats_comp", "Colors", "fullhud_stats_type"
 	IfGame(Doom) 
 	{

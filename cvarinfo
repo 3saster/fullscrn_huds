@@ -6,6 +6,7 @@ user bool  fullhud_boomcolors    = false;
 user bool  fullhud_automaphide   = false;
 
 user int fullhud_stats_type      = 0; 
+user int fullhud_stats_font		= 1;
 user int fullhud_stats_comp	 = 0;
 user int fullhud_stats_kills     = 0;
 user int fullhud_stats_secrets   = 0;

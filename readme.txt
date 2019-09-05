@@ -50,6 +50,7 @@ Additional Credits to: id Software .................. Original Doom GFX
                                                       Split status bar for Doom
                        MaxED ........................ Split status bars for Heretic/Hexen
                        neoworm ...................... Widescreen Hexen status bar
+                       Jimmy ........................ Various Addition Fonts
   
 ===========================================================================
 * What is included *
@@ -89,6 +90,7 @@ Tested With          : GZDoom
 * CHANGELOG *
 
 > Version 5.1 (XXX X, 2019)
+  [ALL] Added ability to change fonts for level stats. Default is Memento Mori 2 (similar to pre-5.0 font). 
 
 > Version 5.0 (Sep 4, 2019)
   NOTE: It is recommended to clean your GZDoom ini from all CVAR entries of earlier releases. 

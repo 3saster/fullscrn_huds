@@ -18,6 +18,14 @@ OptionValue "LevelStats"
 	3, "Fraction"
 }
 
+OptionValue "LevelStatsFont"
+{
+	0, "New Console Font"
+	1, "Memento Mori 2"
+	2, "Solid Snake"
+	3, "ZDoom 2012"
+}
+
 OptionValue "LevelStatsPosition"
 {
 	0, "Off"
@@ -56,6 +64,7 @@ ListMenu "FullscreenCreditsMenu"
 	StaticText -64,	120, "m8f", red
 	StaticText -64,	132, "MaxED", red
 	StaticText -64,	144, "neoworm", red
+	StaticText -64,	156, "Jimmy", red
 	StaticText  80,	 12, "Original SBARINFO coding / idea", green
 	StaticText  80,	 24, "ZScript coding", green	
 	StaticText  80,	 48, "Original Doom GFX", green
@@ -67,4 +76,5 @@ ListMenu "FullscreenCreditsMenu"
 	StaticText  80,	120, "ACS coding support / split status bar for Doom", green
 	StaticText  80,	132, "Split status bars for Heretic/Hexen", green
 	StaticText  80,	144, "Widescreen Hexen status bar", green
+	StaticText  80,	156, "Various additional fonts", green
 }
