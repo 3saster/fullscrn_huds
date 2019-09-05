@@ -504,7 +504,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		int hubtime = Level.time/Thinker.TICRATE;
 		if (statTime.GetInt()) time = string.format("%02d:%02d:%02d",hubtime/3600,(hubtime/60)%60,hubtime%60);
 		
-		int textSize = fnt.GetHeight()*0.8;
+		int textSize = fnt.GetHeight()*0.9;
 		int killpos = statKills.getInt();
 		int secretpos = statSecrets.getInt();
 		int itempos = statItems.getInt();
