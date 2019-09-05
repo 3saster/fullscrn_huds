@@ -90,7 +90,7 @@ Tested With          : GZDoom
 * CHANGELOG *
 
 > Version 5.1 (XXX X, 2019)
-  [ALL] Added ability to change fonts for level stats. Default is Memento Mori 2 (similar to pre-5.0 font). 
+  [ALL] Added ability to change fonts for level stats. Default is Old Font (same as pre-5.0 font). 
 
 > Version 5.0 (Sep 4, 2019)
   NOTE: It is recommended to clean your GZDoom ini from all CVAR entries of earlier releases. 
