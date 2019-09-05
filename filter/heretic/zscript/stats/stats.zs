@@ -56,6 +56,7 @@ extend Class SpecialHereticStatusBar
 		double alphaFloat = alphaO == OP_NUM || alphaO == OP_NUMGRAPH ? 1 : 1-alphaValue.getfloat();
 		
 		let fnt = sfnt.fnt;
+		int padding = sfnt.padding;
 		
 		int compColor;
 		switch(statsCompColor.GetInt())
@@ -92,9 +93,10 @@ extend Class SpecialHereticStatusBar
 				break;
 				
 			case COUNTDOWN:
-				if (statKills.GetInt())   kills   = string.format("%s: %i Left", killstring,Level.total_monsters - mkilled);
-				if (statSecrets.GetInt()) secrets = string.format("Secrets: %i Left", Level.total_secrets - sfound);
-				if (statItems.GetInt())   items   = string.format("Items: %i Left", Level.total_items - ifound);
+				string space = string.format(string.format("%%%ds",padding), padding ? "" : " ");
+				if (statKills.GetInt())   kills   = string.format("%s: %i%sLeft", killstring,Level.total_monsters - mkilled, space);
+				if (statSecrets.GetInt()) secrets = string.format("Secrets: %i%sLeft",Level.total_secrets - sfound, space);
+				if (statItems.GetInt())   items   = string.format("Items: %i%sLeft",Level.total_items - ifound, space);
 				break;
 				
 			case FRACTION:
@@ -119,7 +121,6 @@ extend Class SpecialHereticStatusBar
 		maxlength[secretpos] = max(maxlength[secretpos],fnt.StringWidth(secrets));
 		maxlength[itempos]   = max(maxlength[itempos],  fnt.StringWidth(items));
 		
-		int padding = sfnt.padding;
 		kills =   makeLength(kills,  fnt, maxlength[killpos]   + padding);
 		secrets = makeLength(secrets,fnt, maxlength[secretpos] + padding);
 		items =   makeLength(items,  fnt, maxlength[itempos]   + padding);
