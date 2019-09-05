@@ -3,9 +3,10 @@ extend Class SpecialHereticStatusBar
 	enum FontValues
 	{
 		NEWCONFONT = 0,
-		MM2 = 1,
-		SOLIDFONT = 2,
-		ZDOOM = 3
+		OLDFONT = 1,
+		MM2 = 2,
+		SOLIDFONT = 3,
+		ZDOOM = 4
 	}
 	
 	struct StatFont
@@ -34,6 +35,16 @@ extend Class SpecialHereticStatusBar
 			s.padding = 0;
 			s.sPush = 2;
 			s.vspace = -3;
+			break;
+		case OLDFONT:
+			s.fnt = "OLDFONT";
+			s.tHeight = 2;
+			s.bHeightL[0] = 48; s.bHeightL[1] = 36;
+			s.bHeightR[0] = 48; s.bHeightR[1] = 39;
+			s.scale = (320,200);
+			s.padding = 0;
+			s.sPush = 1;
+			s.vspace = 1;
 			break;
 		case MM2:
 			s.fnt = "MM2FONTO";
