@@ -33,7 +33,8 @@ Additional Info      : 1) Only works with GZDoom and compatible sourceports.
                                   + Display in %, countdowns or fraction (+ time)
                                   + Position (top left/right, bottom left/right)
                                   + Toggle any stat (kills, secrets, items, time)
-                       4) Adds 11-15 CVARS to your GZDoom ini, starting with "fullhud_" 
+				  + Choose between five different fonts
+                       4) Adds 12-16 CVARS to your GZDoom ini, starting with "fullhud_" 
 
 Known issues         : [CHEX] Logo replacement will only look good if default STBAR graphics 
                               are used (with blue background)
