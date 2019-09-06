@@ -2,8 +2,8 @@ extend Class SpecialDoomStatusBar
 {
 	enum FontValues
 	{
-		NEWCONFONT = 0,
-		OLDFONT = 1,
+		OLDFONT = 0,
+		NEWCONFONT = 1,
 		MM2 = 2,
 		SOLIDFONT = 3,
 		ZDOOM = 4
@@ -25,15 +25,6 @@ extend Class SpecialDoomStatusBar
 		switch(statsFont.GetInt())
 		{
 		default:
-		case NEWCONFONT:
-			s.fnt = "NewConsoleFont";
-			s.tHeight = 2;
-			s.bHeight = 78;
-			s.scale = (650,400);
-			s.padding = 0;
-			s.sPush = 2;
-			s.vspace = -3;
-			break;
 		case OLDFONT:
 			s.fnt = "OLDFONT";
 			s.tHeight = 2;
@@ -42,6 +33,15 @@ extend Class SpecialDoomStatusBar
 			s.padding = 0;
 			s.sPush = 1;
 			s.vspace = 1;
+			break;
+		case NEWCONFONT:
+			s.fnt = "NewConsoleFont";
+			s.tHeight = 2;
+			s.bHeight = 78;
+			s.scale = (650,400);
+			s.padding = 0;
+			s.sPush = 2;
+			s.vspace = -3;
 			break;
 		case MM2:
 			s.fnt = "MM2FONTO";
