@@ -35,8 +35,17 @@ Class SpecialHexenStatusBar : HexenStatusBar
 		statSecrets    = CVar.FindCVar("fullhud_stats_secrets");
 		statItems      = CVar.FindCVar("fullhud_stats_items");
 		statTime       = CVar.FindCVar("fullhud_stats_time");
+
+		statInit();
 	}
-	
+
+	override void NewGame()
+	{
+		Super.NewGame();
+
+		statNewGame();
+	}
+
 	override void Tick()
 	{
 		Super.Tick();
@@ -47,6 +56,8 @@ Class SpecialHexenStatusBar : HexenStatusBar
 		{
 			chainWig = (mHealthInterpolator.GetValue() != CPlayer.health) && Random[ChainWiggle](0, 1);
 		}
+
+		statTick();
 	}
 
 	override void Draw (int state, double TicFrac)

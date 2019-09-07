@@ -64,6 +64,22 @@ Class SpecialDoomStatusBar : DoomStatusBar
 			fnt = "INDEXFONT_CHEX";
 			mIndexFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft);
 		}
+
+		statInit();
+	}
+
+	override void NewGame()
+	{
+		Super.NewGame();
+
+		statNewGame();
+	}
+
+	override void Tick()
+	{
+		Super.Tick();
+
+		statTick();
 	}
 
 	override void Draw (int state, double TicFrac)
