@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom
 ===========================================================================
-Title                : Fullscreen Status Bars for ZDoom (v5.0.1)
+Title                : Fullscreen Status Bars for ZDoom (v5.X.X)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : 09/06/2019
+Release date         : XX/XX/2019
 Author               : NightFright
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -89,6 +89,10 @@ Tested With          : GZDoom
 
 
 * CHANGELOG *
+
+> Version 5.X.X (XXX X, 2019)
+  [ALL] Interpolation added to level stats.
+  [ALL] Fixed incorrect stat order in bottom-right corner.
 
 > Version 5.0.1 (Sep 6, 2019)
   [ALL] Level stats: Added option to change stats font. 5 choices available (default: font from 4.x releases)
