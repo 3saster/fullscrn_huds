@@ -38,6 +38,7 @@ Additional Info      : 1) Only works with GZDoom and compatible sourceports.
 
 Known issues         : [CHEX] Logo replacement will only look good if default STBAR graphics 
                               are used (with blue background)
+                       [LZDOOM] Stats using "Console Font" may appear in the wrong position (too high)
 
 Additional Credits to: id Software .................. Original Doom GFX
                        Raven Software ............... Original Heretic/Hexen GFX
@@ -93,6 +94,7 @@ Tested With          : GZDoom
 > Version 5.X.X (XXX X, 2019)
   [ALL] Interpolation added to level stats.
   [ALL] Fixed incorrect stat order in bottom-right corner.
+  [LZDOOM] This mod will now work on LZDoom 3.8.3. Stats using "Console Font" may appear misplaced.
 
 > Version 5.0.1 (Sep 6, 2019)
   [ALL] Level stats: Added option to change stats font. 5 choices available (default: font from 4.x releases)

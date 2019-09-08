@@ -37,7 +37,7 @@ extend Class SpecialHereticStatusBar
 			s.vspace = 1;
 			break;
 		case NEWCONFONT:
-			s.fnt = "NewConsoleFont";
+			s.fnt = NewConsoleFont;
 			s.tHeight = 2;
 			s.bHeightL[0] = 100; s.bHeightL[1] = 72;
 			s.bHeightR[0] = 100; s.bHeightR[1] = 78;

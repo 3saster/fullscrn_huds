@@ -35,7 +35,7 @@ extend Class SpecialDoomStatusBar
 			s.vspace = 1;
 			break;
 		case NEWCONFONT:
-			s.fnt = "NewConsoleFont";
+			s.fnt = NewConsoleFont;
 			s.tHeight = 2;
 			s.bHeight = 78;
 			s.scale = (650,400);
