@@ -4,9 +4,10 @@ extend Class SpecialHereticStatusBar
 	{
 		OLDFONT = 0,
 		NEWCONFONT = 1,
-		MM2 = 2,
-		SOLIDFONT = 3,
-		ZDOOM = 4
+		STATREPORT = 2,
+		MM2 = 3,
+		SOLIDFONT = 4,
+		ZDOOM = 5
 	}
 	
 	struct StatFont
@@ -45,6 +46,16 @@ extend Class SpecialHereticStatusBar
 			s.padding = 0;
 			s.sPush = 2;
 			s.vspace = -3;
+			break;
+		case STATREPORT:
+			s.fnt = "STATBGGS";
+			s.tHeight = 2; 
+			s.bHeightL[0] = 100; s.bHeightL[1] = 71;
+			s.bHeightR[0] = 100; s.bHeightR[1] = 77;
+			s.scale = (640,400);
+			s.padding = 0;
+			s.sPush = 2;
+			s.vspace = 1;
 			break;
 		case MM2:
 			s.fnt = "MM2FONTO";

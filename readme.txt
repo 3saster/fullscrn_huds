@@ -1,7 +1,7 @@
 ===========================================================================
 Advanced engine needed  : GZDoom
 ===========================================================================
-Title                : Fullscreen Status Bars for ZDoom (v5.X.X)
+Title                : Fullscreen Status Bar Mod (v5.X.X)
 Filename             : FULLSCRN_HUDS.PK3
 Release date         : XX/XX/2019
 Author               : NightFright
@@ -33,12 +33,13 @@ Additional Info      : 1) Only works with GZDoom and compatible sourceports.
                                   + Display in %, countdowns or fraction (+ time)
                                   + Position (top left/right, bottom left/right)
                                   + Toggle any stat (kills, secrets, items, time)
-				  + Choose between five different fonts
+				  + Choose between six different fonts
                        4) Adds 12-16 CVARS to your GZDoom ini, starting with "fullhud_" 
 
-Known issues         : [CHEX] Logo replacement will only look good if default STBAR graphics 
-                              are used (with blue background)
-                       [LZDOOM] Stats using "Console Font" may appear in the wrong position (too high)
+Known issues         : [LZDOOM] Stats using "Console Font" may appear in wrong position (too high)
+                       [CHEX] Logo replacement will only look good if default STBAR graphics are
+                              used (with blue background)
+                       
 
 Additional Credits to: id Software .................. Original Doom GFX
                        Raven Software ............... Original Heretic/Hexen GFX
@@ -91,10 +92,11 @@ Tested With          : GZDoom
 
 * CHANGELOG *
 
-> Version 5.X.X (XXX X, 2019)
-  [ALL] Interpolation added to level stats.
-  [ALL] Fixed incorrect stat order in bottom-right corner.
-  [LZDOOM] This mod will now work on LZDoom 3.8.3. Stats using "Console Font" may appear misplaced.
+> Version 5.X.X (XXX XX, 2019)
+  NOTE: Now requires GZDoom 4.2.0 (or higher), but also works with LZDoom 3.8.3 (or higher)
+  [ALL] Level stats: Added new font "Status Report"
+  [ALL] Level stats: Interpolation added
+  [ALL] Level stats: Fixed incorrect stats order in bottom-right corner
 
 > Version 5.0.1 (Sep 6, 2019)
   [ALL] Level stats: Added option to change stats font. 5 choices available (default: font from 4.x releases)
