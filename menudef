@@ -22,10 +22,11 @@ OptionValue "LevelStatsFont"
 {
 	0, "Default"
 	1, "Console Font"
-	2, "Status Report"
-	3, "Memento Mori 2"
-	4, "Solid Snake"
-	5, "ZDoom 2012"
+	2, "Smallfont"
+	3, "Status Report"
+	4, "Memento Mori 2"
+	5, "Solid Snake"
+	6, "ZDoom 2012"
 }
 
 OptionValue "LevelStatsPosition"
