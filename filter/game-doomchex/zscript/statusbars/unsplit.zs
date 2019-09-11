@@ -71,16 +71,14 @@ extend Class SpecialDoomStatusBar
 		
 		// Draw Total Ammo Count
 		int amt1, maxamt;
-		string ammonamesDoom[4] = {"Clip","Shell","RocketAmmo","Cell"};
-		string ammonamesHacx[4] = {"HacxRounds","HacxCartridges","HacxTorpedo","HacxMolecules"};
 		
 		if(!chexArms || chexArms.getInt())
 		{
-			for(int i = 0; i < 4; i++)
+			for(int i = 0; i < ammoNames.size(); i++)
 			{
 				for(int j = 0; j < AllActorClasses.Size(); j++)
 				{
-					if(AllActorClasses[j] is (!isHacx() ? ammonamesDoom[i] : ammonamesHacx[i]) )
+					if(AllActorClasses[j] is ammoNames[i])
 					{
 						let ammotype = (class<Ammo>)(AllActorClasses[j]);
 						[amt1, maxamt] = GetAmount(ammotype);

@@ -48,40 +48,44 @@ extend Class SpecialDoomStatusBar
 		return 0;
 	}
 	
-	// ================================================
-	// Override to ensure HacX standard HUD still works
-	// ================================================
+	// ==================================
+	// Wrapper to add offsets for Harmony
+	// ==================================
+	float isHarmony(float offset = 1.0)
+	{
+		if( Wads.CheckNumForName("MAP01",0)!=-1 && Wads.CheckNumForName("0HAWK01",0)!=-1 && Wads.CheckNumForName("0CARA3",0)!=-1 && Wads.CheckNumForName("0NOSE1",0)!=-1)
+			return offset;
+		return 0;
+	}
+	
+	Array<String> ammoNames;
+	// ===========================================
+	// Override to ensure standard HUD still works
+	// ===========================================
 	override void DrawBarAmmo()
 	{
-		if ( !isHacX() )
-			Super.DrawBarAmmo();
-		else
+		int amt1, maxamt;
+		
+		for(int i = 0; i < ammoNames.size(); i++)
 		{
-			int amt1, maxamt;
-			// We must store the ammo types in a string, because using them directly 
-			// will prevent GZDoom from starting because it tries to resolve the names
-			// at launch instead of during runtime
-			string ammoClass; 
-			
-			ammoClass = "HacxRounds";
-			[amt1, maxamt] = GetAmount(ammoClass);
-			DrawString(mIndexFont, FormatNumber(amt1, 3), (288, 173), DI_TEXT_ALIGN_RIGHT);
-			DrawString(mIndexFont, FormatNumber(maxamt, 3), (314, 173), DI_TEXT_ALIGN_RIGHT);
-			
-			ammoClass = "HacxCartridges";
-			[amt1, maxamt] = GetAmount(ammoClass);
-			DrawString(mIndexFont, FormatNumber(amt1, 3), (288, 179), DI_TEXT_ALIGN_RIGHT);
-			DrawString(mIndexFont, FormatNumber(maxamt, 3), (314, 179), DI_TEXT_ALIGN_RIGHT);
-			
-			ammoClass = "HacxTorpedo";
-			[amt1, maxamt] = GetAmount(ammoClass);
-			DrawString(mIndexFont, FormatNumber(amt1, 3), (288, 185), DI_TEXT_ALIGN_RIGHT);
-			DrawString(mIndexFont, FormatNumber(maxamt, 3), (314, 185), DI_TEXT_ALIGN_RIGHT);
-			
-			ammoClass = "HacxMolecules";
-			[amt1, maxamt] = GetAmount(ammoClass);
-			DrawString(mIndexFont, FormatNumber(amt1, 3), (288, 191), DI_TEXT_ALIGN_RIGHT);
-			DrawString(mIndexFont, FormatNumber(maxamt, 3), (314, 191), DI_TEXT_ALIGN_RIGHT);
+			[amt1, maxamt] = GetAmount(ammoNames[i]);
+			DrawString(mIndexFont, FormatNumber(amt1, 3), (288, 173+6*i), DI_TEXT_ALIGN_RIGHT);
+			DrawString(mIndexFont, FormatNumber(maxamt, 3), (314, 173+6*i), DI_TEXT_ALIGN_RIGHT);
 		}
+	}
+	
+	// ===================================
+	// Get Ammo Names for particular games
+	// ===================================
+	void setAmmoNames()
+	{
+		string ammoString;
+		if( isHacX() )
+			ammoString = "HacxRounds, HacxCartridges, HacxTorpedo, HacxMolecules";
+		else if ( isHarmony() )
+			ammoString = "MinigunAmmo, Shells, TimeBombAmmo, ChaosBarsAmmo";
+		else
+			ammoString = "Clip, Shell, RocketAmmo, Cell";
+		ammoString.Split(ammoNames, ", ");
 	}
 }

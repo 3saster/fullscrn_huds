@@ -66,6 +66,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		}
 
 		statInit();
+		setAmmoNames();
 	}
 
 	override void NewGame()

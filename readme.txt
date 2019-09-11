@@ -97,6 +97,7 @@ Tested With          : GZDoom
   [ALL] Level stats: Added two new fonts ("Smallfont" and "Status Report")
   [ALL] Level stats: Interpolation added
   [ALL] Level stats: Fixed incorrect stats order in bottom-right corner
+  [HARMONY] Ammo Counters work correctly now
 
 > Version 5.0.1 (Sep 6, 2019)
   [ALL] Level stats: Added option to change stats font. 5 choices available (default: font from 4.x releases)
