@@ -33,7 +33,7 @@ Additional Info      : 1) Only works with GZDoom and compatible sourceports.
                                   + Display in %, countdowns or fraction (+ time)
                                   + Position (top left/right, bottom left/right)
                                   + Toggle any stat (kills, secrets, items, time)
-				  + Choose between 7 different fonts
+				  + Choose between 3 different fonts
                        4) Adds 12-16 CVARS to your GZDoom ini, starting with "fullhud_" 
 
 Known issues         : [LZDOOM] Stats using "Console Font" may appear in wrong position (too high)
@@ -94,10 +94,11 @@ Tested With          : GZDoom
 
 > Version 5.X.X (XXX XX, 2019)
   NOTE: Now requires GZDoom 4.2.0 (or higher), but also works with LZDoom 3.8.3 (or higher)
-  [ALL] Level stats: Added two new fonts ("Smallfont" and "Status Report")
+  [ALL] Level stats: Three main fonts to choose from now - "Default", "Console Font" and "Smallfont" (new)
   [ALL] Level stats: Interpolation added
+  [ALL] Level stats: Realignments for all font types
   [ALL] Level stats: Fixed incorrect stats order in bottom-right corner
-  [HARMONY] Ammo Counters work correctly now
+  [HARMONY] Ammo counters now work correctly
 
 > Version 5.0.1 (Sep 6, 2019)
   [ALL] Level stats: Added option to change stats font. 5 choices available (default: font from 4.x releases)

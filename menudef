@@ -23,10 +23,6 @@ OptionValue "LevelStatsFont"
 	0, "Default"
 	1, "Console Font"
 	2, "Smallfont"
-	3, "Status Report"
-	4, "Memento Mori 2"
-	5, "Solid Snake"
-	6, "ZDoom 2012"
 }
 
 OptionValue "LevelStatsPosition"
@@ -55,7 +51,7 @@ OptionValue "Opaque"
 ListMenu "FullscreenCreditsMenu"
 {
 	Font "SmallFont"
-	StaticText -64,	  0, "Version 5.0.2", gold
+	StaticText -64,	  0, "Version 5.X.X", gold
 	StaticText -64,	 12, "NightFright", red
 	StaticText -64,	 24, "3saster", red
 	StaticText -64,	 48, "id Software", red

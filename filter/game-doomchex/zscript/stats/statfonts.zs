@@ -4,11 +4,7 @@ extend Class SpecialDoomStatusBar
 	{
 		OLDFONT = 0,
 		NEWCONFONT = 1,
-		SMALFONT = 2,
-		STATREPORT = 3,
-		MM2 = 4,
-		SOLIDFONT = 5,
-		ZDOOM = 6
+		SMALLFNT = 2,
 	}
 	
 	struct StatFont
@@ -39,56 +35,20 @@ extend Class SpecialDoomStatusBar
 		case NEWCONFONT:
 			s.fnt = NewConsoleFont;
 			s.tHeight = 2;
-			s.bHeight = 78;
+			s.bHeight = 80;
 			s.scale = (650,400);
 			s.padding = 0;
-			s.sPush = 2;
+			s.sPush = 1;
 			s.vspace = -3;
 			break;
-		case SMALFONT:
+		case SMALLFNT:
 			s.fnt = SMALLFONT;
-			s.tHeight = 0;
+			s.tHeight = 1;
 			s.bHeight = 40;
-			s.scale = (460,200);
+			s.scale = (470,200);
 			s.padding = 0;
 			s.sPush = 1;
 			s.vspace = -1;
-			break;
-		case STATREPORT:
-			s.fnt = "STATBGGS";
-			s.tHeight = 2;
-			s.bHeight = 77;
-			s.scale = (640,400);
-			s.padding = 0;
-			s.sPush = 2;
-			s.vspace = 1;
-			break;
-		case MM2:
-			s.fnt = "MM2FONTO";
-			s.tHeight = 2;
-			s.bHeight = 86;
-			s.scale = (700,450);
-			s.padding = 10;
-			s.sPush = 2;
-			s.vspace = 1;
-			break;
-		case SOLIDFONT:
-			s.fnt = "SOLID";
-			s.tHeight = 2;
-			s.bHeight = 87;
-			s.scale = (910,450);
-			s.padding = 10;
-			s.sPush = 2;
-			s.vspace = 1;
-			break;
-		case ZDOOM:
-			s.fnt = "ZDOOM";
-			s.tHeight = 2;
-			s.bHeight = 90;
-			s.scale = (910,450);
-			s.padding = 10;
-			s.sPush = 2;
-			s.vspace = 1;
 			break;
 		}
 	}

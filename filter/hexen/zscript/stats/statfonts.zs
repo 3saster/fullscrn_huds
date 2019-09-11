@@ -4,11 +4,7 @@ extend Class SpecialHexenStatusBar
 	{
 		OLDFONT = 0,
 		NEWCONFONT = 1,
-		SMALFONT = 2,
-		STATREPORT = 3,
-		MM2 = 4,
-		SOLIDFONT = 5,
-		ZDOOM = 6
+		SMALLFNT = 2,
 	}
 	
 	struct StatFont
@@ -41,62 +37,22 @@ extend Class SpecialHexenStatusBar
 		case NEWCONFONT:
 			s.fnt = NewConsoleFont;
 			s.tHeight = 2;
-			s.bHeightL[0] = 100; s.bHeightL[1] = 79;
-			s.bHeightR[0] = 100; s.bHeightR[1] = 79;
+			s.bHeightL[0] = 102; s.bHeightL[1] = 80;
+			s.bHeightR[0] = 102; s.bHeightR[1] = 80;
 			s.scale = (650,400);
 			s.padding = 0;
 			s.sPush = 2;
 			s.vspace = -3;
 			break;
-		case SMALFONT:
+		case SMALLFNT:
 			s.fnt = SMALLFONT;
-			s.tHeight = 0;
-			s.bHeightL[0] = 51; s.bHeightL[1] = 42;
-			s.bHeightR[0] = 51; s.bHeightR[1] = 42;
-			s.scale = (460,200);
+			s.tHeight = 2;
+			s.bHeightL[0] = 76; s.bHeightL[1] = 59;
+			s.bHeightR[0] = 76; s.bHeightR[1] = 59;
+			s.scale = (580,300);
 			s.padding = 0;
-			s.sPush = 1;
+			s.sPush = 2;
 			s.vspace = -3;
-			break;
-		case STATREPORT:
-			s.fnt = "STATBGGS";
-			s.tHeight = 2; 
-			s.bHeightL[0] = 100; s.bHeightL[1] = 78;
-			s.bHeightR[0] = 100; s.bHeightR[1] = 78;
-			s.scale = (640,400);
-			s.padding = 0;
-			s.sPush = 2;
-			s.vspace = 1;
-			break;
-		case MM2:
-			s.fnt = "MM2FONTO";
-			s.tHeight = 2;
-			s.bHeightL[0] = 110; s.bHeightL[1] = 88;
-			s.bHeightR[0] = 110; s.bHeightR[1] = 88;
-			s.scale = (700,450);
-			s.padding = 10;
-			s.sPush = 2;
-			s.vspace = 1;
-			break;
-		case SOLIDFONT:
-			s.fnt = "SOLID";
-			s.tHeight = 2;
-			s.bHeightL[0] = 110; s.bHeightL[1] = 88;
-			s.bHeightR[0] = 110; s.bHeightR[1] = 88;
-			s.scale = (910,450);
-			s.padding = 10;
-			s.sPush = 2;
-			s.vspace = 1;
-			break;
-		case ZDOOM:
-			s.fnt = "ZDOOM";
-			s.tHeight = 2;
-			s.bHeightL[0] = 110; s.bHeightL[1] = 92;
-			s.bHeightR[0] = 110; s.bHeightR[1] = 92;
-			s.scale = (910,450);
-			s.padding = 10;
-			s.sPush = 2;
-			s.vspace = 1;
 			break;
 		}
 	}
