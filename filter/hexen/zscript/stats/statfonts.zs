@@ -4,9 +4,8 @@ extend Class SpecialHexenStatusBar
 	{
 		OLDFONT = 0,
 		NEWCONFONT = 1,
-		SMALLFNT = 2,
-		STATREPORT = 3,
-		MEMENTWO = 4
+		STATREPORT = 2,
+		MEMENTWO = 3
 	}
 	
 	struct StatFont
@@ -46,23 +45,13 @@ extend Class SpecialHexenStatusBar
 			s.sPush = 2;
 			s.vspace = -3;
 			break;
-		case SMALLFNT:
-			s.fnt = SMALLFONT;
-			s.tHeight = 2;
-			s.bHeightL[0] = 76; s.bHeightL[1] = 59;
-			s.bHeightR[0] = 76; s.bHeightR[1] = 59;
-			s.scale = (580,300);
-			s.padding = 0;
-			s.sPush = 2;
-			s.vspace = -3;
-			break;
 		case STATREPORT:
 			s.fnt = "STATUSRP";
 			s.tHeight = 1;
 			s.bHeightL[0] = 50; s.bHeightL[1] = 39;
 			s.bHeightR[0] = 50; s.bHeightR[1] = 39;
 			s.scale = (460,200);
-			s.padding = 0;
+			s.padding = 6;
 			s.sPush = 1;
 			s.vspace = 0;
 			break;

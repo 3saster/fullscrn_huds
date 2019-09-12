@@ -22,9 +22,8 @@ OptionValue "LevelStatsFont"
 {
 	0, "Default"
 	1, "Console Font"
-	2, "Smallfont"
-	3, "Status Report"
-	4, "Memento Mori 2"
+	2, "Status Report"
+	3, "Memento Mori 2"
 }
 
 OptionValue "LevelStatsPosition"

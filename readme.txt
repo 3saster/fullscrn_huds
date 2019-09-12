@@ -94,7 +94,7 @@ Tested With          : GZDoom
 > Version 5.X.X (XXX XX, 2019)
   NOTE: Now requires GZDoom 4.2.0 (or higher), but also works with LZDoom 3.8.3 (or higher)
   [ALL] Level stats: Available fonts are now "Default", "Console Font", "Memento Mori 2", 
-                     "Smallfont" (new) and "Status Report" (new)
+                     and "Status Report" (new)
   [ALL] Level stats: Interpolation added
   [ALL] Level stats: Realignments/scaling adjustments for all font types
   [ALL] Level stats: Fixed incorrect stats order in bottom-right corner
