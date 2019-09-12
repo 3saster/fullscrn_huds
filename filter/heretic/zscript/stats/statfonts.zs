@@ -5,6 +5,8 @@ extend Class SpecialHereticStatusBar
 		OLDFONT = 0,
 		NEWCONFONT = 1,
 		SMALLFNT = 2,
+		STATREPORT = 3,
+		MEMENTWO = 4
 	}
 	
 	struct StatFont
@@ -27,8 +29,8 @@ extend Class SpecialHereticStatusBar
 		case OLDFONT:
 			s.fnt = "OLDFONT";
 			s.tHeight = 2;
-			s.bHeightL[0] = 48; s.bHeightL[1] = 36;
-			s.bHeightR[0] = 48; s.bHeightR[1] = 39;
+			s.bHeightL[0] = 49; s.bHeightL[1] = 36;
+			s.bHeightR[0] = 49; s.bHeightR[1] = 39;
 			s.scale = (320,200);
 			s.padding = 0;
 			s.sPush = 1;
@@ -37,8 +39,8 @@ extend Class SpecialHereticStatusBar
 		case NEWCONFONT:
 			s.fnt = NewConsoleFont;
 			s.tHeight = 2;
-			s.bHeightL[0] = 100; s.bHeightL[1] = 73;
-			s.bHeightR[0] = 100; s.bHeightR[1] = 79;
+			s.bHeightL[0] = 100; s.bHeightL[1] = 74;
+			s.bHeightR[0] = 100; s.bHeightR[1] = 80;
 			s.scale = (650,400);
 			s.padding = 0;
 			s.sPush = 2;
@@ -47,12 +49,32 @@ extend Class SpecialHereticStatusBar
 		case SMALLFNT:
 			s.fnt = SMALLFONT;
 			s.tHeight = 2;
-			s.bHeightL[0] = 74; s.bHeightL[1] = 54;
-			s.bHeightR[0] = 74; s.bHeightR[1] = 58;
+			s.bHeightL[0] = 74; s.bHeightL[1] = 55;
+			s.bHeightR[0] = 74; s.bHeightR[1] = 59;
 			s.scale = (580,300);
 			s.padding = 0;
 			s.sPush = 2;
 			s.vspace = -3;
+			break;
+		case STATREPORT:
+			s.fnt = "STATUSRP";
+			s.tHeight = 1;
+			s.bHeightL[0] = 49; s.bHeightL[1] = 36;
+			s.bHeightR[0] = 49; s.bHeightR[1] = 39;
+			s.scale = (460,200);
+			s.padding = 0;
+			s.sPush = 1;
+			s.vspace = 0;
+			break;
+		case MEMENTWO:
+			s.fnt = "MM2FONTO";
+			s.tHeight = 2;
+			s.bHeightL[0] = 99; s.bHeightL[1] = 72;
+			s.bHeightR[0] = 99; s.bHeightR[1] = 78;
+			s.scale = (800,400);
+			s.padding = 10;
+			s.sPush = 2;
+			s.vspace = 2;
 			break;
 		}
 	}

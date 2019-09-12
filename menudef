@@ -23,6 +23,8 @@ OptionValue "LevelStatsFont"
 	0, "Default"
 	1, "Console Font"
 	2, "Smallfont"
+	3, "Status Report"
+	4, "Memento Mori 2"
 }
 
 OptionValue "LevelStatsPosition"
@@ -60,10 +62,10 @@ ListMenu "FullscreenCreditsMenu"
 	StaticText -64,	 84, "Doorhenge", red
 	StaticText -64,	 96, "DTDsphere", red
 	StaticText -64,	108, "Hexereticdoom", red
-	StaticText -64,	120, "m8f", red
-	StaticText -64,	132, "MaxED", red
-	StaticText -64,	144, "neoworm", red
-	StaticText -64,	156, "Jimmy", red
+	StaticText -64,	120, "Jimmy", red
+	StaticText -64,	132, "m8f", red
+	StaticText -64,	144, "MaxED", red
+	StaticText -64,	156, "neoworm", red
 	StaticText  80,	 12, "Original SBARINFO coding / idea", green
 	StaticText  80,	 24, "ZScript coding", green	
 	StaticText  80,	 48, "Original Doom GFX", green
@@ -72,8 +74,8 @@ ListMenu "FullscreenCreditsMenu"
 	StaticText  80,	 84, "Widescreen Heretic status bar", green
 	StaticText  80,	 96, "Project initiator - special thanks!", green
 	StaticText  80,	108, "Level stats graphics", green
-	StaticText  80,	120, "ACS coding support / split status bar for Doom", green
-	StaticText  80,	132, "Split status bars for Heretic/Hexen", green
-	StaticText  80,	144, "Widescreen Hexen status bar", green
-	StaticText  80,	156, "Various additional fonts", green
+	StaticText  80,	120, "'MemenTwo' and 'Status Report' fonts", green
+	StaticText  80,	132, "ACS coding support / split bar for Doom", green
+	StaticText  80,	144, "Split status bars for Heretic/Hexen", green
+	StaticText  80,	156, "Widescreen Hexen status bar", green
 }

@@ -33,7 +33,7 @@ Additional Info      : 1) Only works with GZDoom and compatible sourceports.
                                   + Display in %, countdowns or fraction (+ time)
                                   + Position (top left/right, bottom left/right)
                                   + Toggle any stat (kills, secrets, items, time)
-				  + Choose between 3 different fonts
+				  + Choose between 5 different fonts
                        4) Adds 12-16 CVARS to your GZDoom ini, starting with "fullhud_" 
 
 Known issues         : [LZDOOM] Stats using "Console Font" may appear in wrong position (too high)
@@ -48,12 +48,11 @@ Additional Credits to: id Software .................. Original Doom GFX
                        Doorhenge .................... Widescreen Heretic status bar
 		       DTDsphere .................... Project initiator
 		       Hexereticdoom ................ Level stats graphics
-                       jpalomo ...................... SBARINFO code base for Strife
+                       Jimmy ........................ "MemenTwo" and "Status Report" fonts
                        m8f .......................... ACS coding support
                                                       Split status bar for Doom
                        MaxED ........................ Split status bars for Heretic/Hexen
                        neoworm ...................... Widescreen Hexen status bar
-                       Jimmy ........................ Various Addition Fonts
   
 ===========================================================================
 * What is included *
@@ -94,9 +93,10 @@ Tested With          : GZDoom
 
 > Version 5.X.X (XXX XX, 2019)
   NOTE: Now requires GZDoom 4.2.0 (or higher), but also works with LZDoom 3.8.3 (or higher)
-  [ALL] Level stats: Three main fonts to choose from now - "Default", "Console Font" and "Smallfont" (new)
+  [ALL] Level stats: Available fonts are now "Default", "Console Font", "Memento Mori 2", 
+                     "Smallfont" (new) and "Status Report" (new)
   [ALL] Level stats: Interpolation added
-  [ALL] Level stats: Realignments for all font types
+  [ALL] Level stats: Realignments/scaling adjustments for all font types
   [ALL] Level stats: Fixed incorrect stats order in bottom-right corner
   [HARMONY] Ammo counters now work correctly
 

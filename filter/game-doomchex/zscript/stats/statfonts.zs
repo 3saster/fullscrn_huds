@@ -5,6 +5,8 @@ extend Class SpecialDoomStatusBar
 		OLDFONT = 0,
 		NEWCONFONT = 1,
 		SMALLFNT = 2,
+		STATREPORT = 3,
+		MEMENTWO = 4
 	}
 	
 	struct StatFont
@@ -49,6 +51,24 @@ extend Class SpecialDoomStatusBar
 			s.padding = 0;
 			s.sPush = 1;
 			s.vspace = -1;
+			break;
+		case STATREPORT:
+			s.fnt = "STATUSRP";
+			s.tHeight = 1;
+			s.bHeight = 39;
+			s.scale = (460,200);
+			s.padding = 0;
+			s.sPush = 1;
+			s.vspace = 0;
+			break;
+		case MEMENTWO:
+			s.fnt = "MM2FONTO";
+			s.tHeight = 2;
+			s.bHeight = 79;
+			s.scale = (800,400);
+			s.padding = 10;
+			s.sPush = 2;
+			s.vspace = 2;
 			break;
 		}
 	}
