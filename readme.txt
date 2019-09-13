@@ -16,7 +16,8 @@ Description          : Fullscreen versions for the status bars of Doom-based
                        Harmony), Heretic and Hexen with optional transparency 
                        and level stats display
 
-Additional Info      : 1) Only works with GZDoom 4.2.0+, LZDoom 3.8.3+, and other equivalent ports.
+Additional Info      : 1) Only works with GZDoom 4.2.0+, LZDoom 3.8.3+ and other 
+                          equivalent ports.
                        2) Adds new option menu under "HUD Options" called
                           "Fullscreen Status Bar" (at the bottom). 
                        3) Available options:
@@ -33,11 +34,11 @@ Additional Info      : 1) Only works with GZDoom 4.2.0+, LZDoom 3.8.3+, and othe
                                   + Display in %, countdowns or fraction (+ time)
                                   + Position (top left/right, bottom left/right)
                                   + Toggle any stat (kills, secrets, items, time)
-				  + Choose between 5 different fonts
+				  + Choose between 4 different fonts
                        4) Adds 12-16 CVARS to your GZDoom ini, starting with "fullhud_" 
 
-Known issues         : [CHEX] Logo replacement will only look good if default STBAR graphics are
-                              used (with blue background)
+Known issues         : [CHEX] Logo replacement will only look good if default STBAR graphics 
+                              are used (with blue background)
                        
 
 Additional Credits to: id Software .................. Original Doom GFX
@@ -81,7 +82,7 @@ Difficulty Settings  : Not implemented
 * Construction *
 
 Base                 : Original graphics from IWADs
-Build Time           : 14+ days
+Build Time           : Too long
 Editor(s) used       : SLADE, paint.net
 Known Bugs           : None
 May Not Run With     : Vanilla executables (not compatible)
@@ -91,9 +92,8 @@ Tested With          : GZDoom
 * CHANGELOG *
 
 > Version 5.X.X (XXX XX, 2019)
-  NOTE: Now requires GZDoom 4.2.0 (or higher), but also works with LZDoom 3.8.3 (or higher)
-  [ALL] Level stats: Available fonts are now "Default", "Console Font", "Memento Mori 2", 
-                     and "Status Report" (new)
+  NOTE: Now requires GZDoom 4.2.0+ or LZDoom 3.8.3+
+  [ALL] Level stats: Available fonts are now "Default", "Console Font", "Memento Mori 2" and "Status Report" (new)
   [ALL] Level stats: Interpolation added
   [ALL] Level stats: Realignments/scaling adjustments for all font types
   [ALL] Level stats: Fixed incorrect stats order in bottom-right corner
