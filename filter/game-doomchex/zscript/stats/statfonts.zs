@@ -54,7 +54,7 @@ extend Class SpecialDoomStatusBar
 		case MEMENTWO:
 			s.fnt = "MM2FONTO";
 			s.tHeight = 2;
-			s.bHeight = 79;
+			s.bHeight = 78;
 			s.scale = (800,400);
 			s.padding = 10;
 			s.sPush = 2;
