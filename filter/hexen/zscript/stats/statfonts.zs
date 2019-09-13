@@ -36,14 +36,14 @@ extend Class SpecialHexenStatusBar
 			s.vspace = 1;
 			break;
 		case NEWCONFONT:
-			s.fnt = NewConsoleFont;
+			s.fnt = "NEWCONFONT";
 			s.tHeight = 2;
-			s.bHeightL[0] = 102; s.bHeightL[1] = 80;
-			s.bHeightR[0] = 102; s.bHeightR[1] = 80;
+			s.bHeightL[0] = 99; s.bHeightL[1] = 77;
+			s.bHeightR[0] = 99; s.bHeightR[1] = 77;
 			s.scale = (650,400);
 			s.padding = 0;
 			s.sPush = 2;
-			s.vspace = -3;
+			s.vspace = -1;
 			break;
 		case STATREPORT:
 			s.fnt = "STATUSRP";

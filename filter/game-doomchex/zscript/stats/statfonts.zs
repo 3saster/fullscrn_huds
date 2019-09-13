@@ -34,13 +34,13 @@ extend Class SpecialDoomStatusBar
 			s.vspace = 1;
 			break;
 		case NEWCONFONT:
-			s.fnt = NewConsoleFont;
+			s.fnt = "NEWCONFONT";
 			s.tHeight = 2;
-			s.bHeight = 80;
+			s.bHeight = 77;
 			s.scale = (650,400);
 			s.padding = 0;
 			s.sPush = 1;
-			s.vspace = -3;
+			s.vspace = -1;
 			break;
 		case STATREPORT:
 			s.fnt = "STATUSRP";

@@ -16,7 +16,7 @@ Description          : Fullscreen versions for the status bars of Doom-based
                        Harmony), Heretic and Hexen with optional transparency 
                        and level stats display
 
-Additional Info      : 1) Only works with GZDoom and compatible sourceports.
+Additional Info      : 1) Only works with GZDoom 4.2.0+, LZDoom 3.8.3+, and other equivalent ports.
                        2) Adds new option menu under "HUD Options" called
                           "Fullscreen Status Bar" (at the bottom). 
                        3) Available options:
@@ -36,8 +36,7 @@ Additional Info      : 1) Only works with GZDoom and compatible sourceports.
 				  + Choose between 5 different fonts
                        4) Adds 12-16 CVARS to your GZDoom ini, starting with "fullhud_" 
 
-Known issues         : [LZDOOM] Stats using "Console Font" may appear in wrong position (too high)
-                       [CHEX] Logo replacement will only look good if default STBAR graphics are
+Known issues         : [CHEX] Logo replacement will only look good if default STBAR graphics are
                               used (with blue background)
                        
 
