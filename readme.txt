@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.0.2)
+Title                : Fullscreen Status Bar Mod (v5.X.X)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : 09/16/2019
+Release date         : XX/XX/2019
 Author               : NightFright
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -90,6 +90,9 @@ Tested With          : GZDoom
 
 
 * CHANGELOG *
+
+> Version 5.X.X (XXX XX, 2019)
+  [ALL] Level stats: Fixed stats going up from 0 after loading savegame
 
 > Version 5.0.2 (Sep 16, 2019)
   NOTE: Now requires GZDoom 4.2.0+ or LZDoom 3.8.3+

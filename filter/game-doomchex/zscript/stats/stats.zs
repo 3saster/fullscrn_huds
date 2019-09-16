@@ -52,23 +52,12 @@ extend Class SpecialDoomStatusBar
 		siKillsF   = DynamicValueInterpolator.Create(0, 0.25, 1, 100000);
 		siSecretsF = DynamicValueInterpolator.Create(0, 0.25, 1, 100000);
 		siItemsF   = DynamicValueInterpolator.Create(0, 0.25, 1, 100000);
-
-		prevTickMap = level.MapName;
 	}
 
 	void statNewGame()
 	{
-		siKillsP  .Reset(0);
-		siSecretsP.Reset(0);
-		siItemsP  .Reset(0);
-
-		siKillsC  .Reset(Level.total_monsters);
-		siSecretsC.Reset(Level.total_secrets);
-		siItemsC  .Reset(Level.total_items);
-
-		siKillsF  .Reset(0);
-		siSecretsF.Reset(0);
-		siItemsF  .Reset(0);
+		// Act as if entering new map
+		prevTickMap = "";
 	}
 
 	void statTick()
