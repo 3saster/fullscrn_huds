@@ -25,16 +25,16 @@ Additional Info      : 1) Only works with GZDoom 4.2.0+, LZDoom 3.8.3+ and other
                              - Status bar scale (recommended for 1920x1080: 3)
                              - Opaque or transparent rendering
                              - Boom HUD colors for Ammo/Health/Armor
-			     - Indicate Berserk mode in Doom/HacX
+                             - Indicate Berserk mode in Doom/HacX
                              - Chex status bar with ARMS display and ammo overview
                              - Mugshot used for active inventory item on/off
                              - ARMS display for split bar on/off
                              - Show or hide automap status bar
                              - Level stats fully customizable:
                                   + Display in %, countdowns or fraction (+ time)
-                                  + Position (top left/right, bottom left/right)
+                                  + Position (top left/right, center left/right, bottom left/right)
                                   + Toggle any stat (kills, secrets, items, time)
-				  + Choose between 4 different fonts
+                                  + Choose between 4 different fonts
                        4) Adds 12-16 CVARS to your GZDoom ini, starting with "fullhud_" 
 
 Known issues         : [CHEX] Logo replacement will only look good if default STBAR graphics 
@@ -44,10 +44,10 @@ Known issues         : [CHEX] Logo replacement will only look good if default ST
 Additional Credits to: id Software .................. Original Doom GFX
                        Raven Software ............... Original Heretic/Hexen GFX
                        3saster ...................... ZScript coding
-		       bangstk ...................... Code for widescreen status bars
+                       bangstk ...................... Code for widescreen status bars
                        Doorhenge .................... Widescreen Heretic status bar
-		       DTDsphere .................... Project initiator
-		       Hexereticdoom ................ Level stats graphics
+                       DTDsphere .................... Project initiator
+                       Hexereticdoom ................ Level stats graphics
                        Jimmy ........................ "MemenTwo" and "Status Report" fonts
                        m8f .......................... ACS coding support
                                                       Split status bar for Doom
@@ -93,6 +93,7 @@ Tested With          : GZDoom
 
 > Version 5.X.X (XXX XX, 2019)
   [ALL] Level stats: Fixed stats going up from 0 after loading savegame
+  [ALL] Level stats: Added center left/right options
 
 > Version 5.0.2 (Sep 16, 2019)
   NOTE: Now requires GZDoom 4.2.0+ or LZDoom 3.8.3+

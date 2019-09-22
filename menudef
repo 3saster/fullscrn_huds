@@ -31,8 +31,10 @@ OptionValue "LevelStatsPosition"
 	0, "Off"
 	1, "Top left"
 	2, "Top right"
-	3, "Bottom left"
-	4, "Bottom right"
+	3, "Center left"
+	4, "Center right"
+	5, "Bottom left"
+	6, "Bottom right"
 }
 
 OptionValue "Colors"

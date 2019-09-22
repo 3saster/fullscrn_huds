@@ -20,8 +20,10 @@ extend Class SpecialHexenStatusBar
 		OFF = 0,
 		TOPLEFT = 1,
 		TOPRIGHT = 2,
-		BOTTOMLEFT = 3,
-		BOTTOMRIGHT = 4
+		CENTERLEFT = 3,
+		CENTERRIGHT = 4,
+		BOTTOMLEFT = 5,
+		BOTTOMRIGHT = 6
 	}
 	
 	enum OpaqueValues
@@ -214,7 +216,7 @@ extend Class SpecialHexenStatusBar
 		int timepos = statTime.getInt();
 		
 		// Make each block have the same length
-		int maxlength[5] = {0,0,0,0,0};
+		int maxlength[7] = {0,0,0,0,0,0,0};
 		maxlength[killpos]   = max(maxlength[killpos],  fnt.StringWidth(kills));
 		maxlength[secretpos] = max(maxlength[secretpos],fnt.StringWidth(secrets));
 		maxlength[itempos]   = max(maxlength[itempos],  fnt.StringWidth(items));
@@ -225,6 +227,8 @@ extend Class SpecialHexenStatusBar
 		
 		int sPush = sfnt.sPush;
 		int tHeight = sfnt.tHeight;
+		Vector2 scale = GetHUDScale();
+		int VirtualHeight = floor(sfnt.scale.y  * 7.2/scale.y * Screen.GetHeight()/1440);
 		// Top Left
 		int topLeftTotal = 0;
 		if(killpos   == TOPLEFT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (sPush,tHeight+textSize*topLeftTotal++) ,kills,alphaFloat);
@@ -239,6 +243,30 @@ extend Class SpecialHexenStatusBar
 		if(secretpos == TOPRIGHT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(secrets),conOffset+tHeight+textSize*topRightTotal++),secrets,alphaFloat);
 		if(itempos   == TOPRIGHT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(items),  conOffset+tHeight+textSize*topRightTotal++)  ,items,alphaFloat);
 		if(timepos   == TOPRIGHT && statsType.GetInt()) DrawStatLine(sfnt,    Font.CR_WHITE, (-sPush-fnt.StringWidth(time),   conOffset+tHeight+textSize*topRightTotal++)   ,time,alphaFloat);
+		// Center Left
+		int clTotal = 0;
+		if(itempos   == CENTERLEFT) clTotal++;
+		if(secretpos == CENTERLEFT) clTotal++;
+		if(killpos   == CENTERLEFT) clTotal++;
+		if(timepos   == CENTERLEFT) clTotal++;
+		int clHeight = VirtualHeight/2 - textSize/2*clTotal;
+		int centerLeftTotal = 0;
+		if(killpos   == CENTERLEFT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (sPush,clHeight+textSize*centerLeftTotal++) ,kills,alphaFloat);
+		if(secretpos == CENTERLEFT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (sPush,clHeight+textSize*centerLeftTotal++) ,secrets,alphaFloat);
+		if(itempos   == CENTERLEFT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (sPush,clHeight+textSize*centerLeftTotal++) ,items,alphaFloat);
+		if(timepos   == CENTERLEFT && statsType.GetInt()) DrawStatLine(sfnt,    Font.CR_WHITE, (sPush,clHeight+textSize*centerLeftTotal++) ,time,alphaFloat);
+		// Center Right
+		int crTotal = 0;
+		if(itempos   == CENTERRIGHT) crTotal++;
+		if(secretpos == CENTERRIGHT) crTotal++;
+		if(killpos   == CENTERRIGHT) crTotal++;
+		if(timepos   == CENTERRIGHT) crTotal++;
+		int crHeight = VirtualHeight/2 - textSize/2*crTotal;
+		int centerRightTotal = 0;
+		if(killpos   == CENTERRIGHT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(kills),  crHeight+textSize*centerRightTotal++) ,kills,alphaFloat);
+		if(secretpos == CENTERRIGHT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(secrets),crHeight+textSize*centerRightTotal++) ,secrets,alphaFloat);
+		if(itempos   == CENTERRIGHT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(items),  crHeight+textSize*centerRightTotal++) ,items,alphaFloat);
+		if(timepos   == CENTERRIGHT && statsType.GetInt()) DrawStatLine(sfnt,    Font.CR_WHITE, (-sPush-fnt.StringWidth(time),   crHeight+textSize*centerRightTotal++) ,time,alphaFloat);
 		// Bottom Left
 		int bottomLeftTotal = 0;
 		int bHeightL =  !splitHUD.getint() || state == HUD_StatusBar  ?  sfnt.bHeightL[0] : sfnt.bHeightL[1];
