@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.X.X)
+Title                : Fullscreen Status Bar Mod (v5.0.3)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : XX/XX/2019
+Release date         : 09/23/2019
 Author               : NightFright
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -16,7 +16,7 @@ Description          : Fullscreen versions for the status bars of Doom-based
                        Harmony), Heretic and Hexen with optional transparency 
                        and level stats display
 
-Additional Info      : 1) Only works with GZDoom 4.2.0+, LZDoom 3.8.3+ and other 
+Additional Info      : 1) Only works with GZDoom 4.2.0+, LZDoom 3.83+ and other 
                           equivalent ports.
                        2) Adds new option menu under "HUD Options" called
                           "Fullscreen Status Bar" (at the bottom). 
@@ -32,7 +32,7 @@ Additional Info      : 1) Only works with GZDoom 4.2.0+, LZDoom 3.8.3+ and other
                              - Show or hide automap status bar
                              - Level stats fully customizable:
                                   + Display in %, countdowns or fraction (+ time)
-                                  + Position (top left/right, center left/right, bottom left/right)
+                                  + 6 positions (top left/right, center left/right, bottom left/right)
                                   + Toggle any stat (kills, secrets, items, time)
                                   + Choose between 4 different fonts
                        4) Adds 12-16 CVARS to your GZDoom ini, starting with "fullhud_" 
@@ -91,12 +91,12 @@ Tested With          : GZDoom
 
 * CHANGELOG *
 
-> Version 5.X.X (XXX XX, 2019)
-  [ALL] Level stats: Fixed stats going up from 0 after loading savegame
-  [ALL] Level stats: Added center left/right options
+> Version 5.0.3 (Sep 23, 2019)
+  [ALL] Level stats: Fixed stats counting up from 0 after loading savegame
+  [ALL] Level stats: Added center left/right positioning
 
 > Version 5.0.2 (Sep 16, 2019)
-  NOTE: Now requires GZDoom 4.2.0+ or LZDoom 3.8.3+
+  NOTE: Now requires GZDoom 4.2.0+ or LZDoom 3.83+
   [ALL] Level stats: Available fonts are now "Default", "Console Font", "Memento Mori 2" and "Status Report" (new)
   [ALL] Level stats: Interpolation added
   [ALL] Level stats: Realignments/scaling adjustments for all font types
