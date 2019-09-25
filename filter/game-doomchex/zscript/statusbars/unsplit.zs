@@ -115,7 +115,7 @@ extend Class SpecialDoomStatusBar
 				DrawInventoryIcon(CPlayer.mo.InvSel, (0, -16), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_CENTER, alpha:alphaFloatGraph);
 				if (CPlayer.mo.InvSel.Amount > 1)
 				{
-					DrawString(mAmountFont, FormatNumber(CPlayer.mo.InvSel.Amount), (9, -2-mIndexFontF.mFont.GetHeight()), DI_SCREEN_CENTER_BOTTOM, Font.CR_GOLD, alpha:alphaFloatNum);
+					DrawString(mAmountFont, FormatNumber(CPlayer.mo.InvSel.Amount), (15, -2-mIndexFontF.mFont.GetHeight()), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM, Font.CR_GOLD, alpha:alphaFloatNum);
 				}
 			}
 			else
@@ -134,7 +134,7 @@ extend Class SpecialDoomStatusBar
 				DrawInventoryIcon(CPlayer.mo.InvSel, (180, -16), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_CENTER, alpha:alphaFloatGraph);
 				if (CPlayer.mo.InvSel.Amount > 1)
 				{
-					DrawString(mAmountFont, FormatNumber(CPlayer.mo.InvSel.Amount), (189, -2-mIndexFontF.mFont.GetHeight()), DI_SCREEN_CENTER_BOTTOM, Font.CR_GOLD, alpha:alphaFloatNum);
+					DrawString(mAmountFont, FormatNumber(CPlayer.mo.InvSel.Amount), (195, -2-mIndexFontF.mFont.GetHeight()), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM, Font.CR_GOLD, alpha:alphaFloatNum);
 				}
 			}
 		}

@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.0.3)
+Title                : Fullscreen Status Bar Mod (v5.X.X)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : 09/23/2019
+Release date         : XX/XX/2019
 Author               : NightFright
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -90,6 +90,9 @@ Tested With          : GZDoom
 
 
 * CHANGELOG *
+
+> Version 5.X.X (XXX XX, 2019)
+  [DOOM/CHEX/HACX/HARMONY] Inventory: Amount is now properly right-justified and moved to the correct spot
 
 > Version 5.0.3 (Sep 23, 2019)
   [ALL] Level stats: Fixed stats counting up from 0 after loading savegame
