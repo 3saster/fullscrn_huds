@@ -121,7 +121,7 @@ extend Class SpecialHexenStatusBar
 		else 
 		{
 			// Use partial transparency to prevent the foreground from being shown
-			int partTrans = trans == 0 ? 0 : 255*(0.4 + 0.6*trans);
+			int partTrans = int( trans == 0 ? 0 : 255*(0.4 + 0.6*trans) );
 			Fill(color(partTrans,0,0,0), position.X + Clip[0], position.Y + Clip[1], texsize.X - Clip[0] - Clip[2], texsize.Y - Clip[1] - Clip[3], flags);
 			Fill(color(partTrans,0,0,0), position.X + Clip[0], position.Y + Clip[1], texsize.X - Clip[0] - Clip[2], texsize.Y - Clip[1] - Clip[3], flags);
 		}

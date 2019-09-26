@@ -124,11 +124,11 @@ extend Class SpecialHexenStatusBar
 		Vector2 scale = GetHUDScale();
 		
 		// These values are jury-rigged; they were initially designed for my personal settings before becoming generic
-		int VirtualWidth  = floor(sfnt.scale.x * 6.0/scale.x * Screen.GetWidth() /2560);
-		int VirtualHeight = floor(sfnt.scale.y  * 7.2/scale.y * Screen.GetHeight()/1440);
+		int VirtualWidth  = int(sfnt.scale.x * 6.0/scale.x * Screen.GetWidth() /2560);
+		int VirtualHeight = int(sfnt.scale.y  * 7.2/scale.y * Screen.GetHeight()/1440);
 		
-		int posX = pos.x >= 0 ? pos.x : VirtualWidth  + pos.x;
-		int posY = pos.y >= 0 ? pos.y : VirtualHeight + pos.y;
+		int posX = int( pos.x >= 0 ? pos.x : VirtualWidth  + pos.x );
+		int posY = int( pos.y >= 0 ? pos.y : VirtualHeight + pos.y );
 
 		screen.DrawText(sfnt.fnt, cr, posX, posY, text, 
 			DTA_KeepRatio, true,
@@ -228,7 +228,7 @@ extend Class SpecialHexenStatusBar
 		int sPush = sfnt.sPush;
 		int tHeight = sfnt.tHeight;
 		Vector2 scale = GetHUDScale();
-		int VirtualHeight = floor(sfnt.scale.y  * 7.2/scale.y * Screen.GetHeight()/1440);
+		int VirtualHeight = int(sfnt.scale.y  * 7.2/scale.y * Screen.GetHeight()/1440);
 		// Top Left
 		int topLeftTotal = 0;
 		if(killpos   == TOPLEFT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (sPush,tHeight+textSize*topLeftTotal++) ,kills,alphaFloat);
