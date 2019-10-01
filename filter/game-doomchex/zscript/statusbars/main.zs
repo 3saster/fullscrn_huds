@@ -78,18 +78,18 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		setAmmoNames();
 
 		// Find last loaded STBAR Lump
-		int lastLump = Wads.FindLump("STBAR");
-		int nextLump =  Wads.FindLump("STBAR",lastLump+1);
+		int lastLump = Wads.FindLump("STBAR",0,1);
+		int nextLump =  Wads.FindLump("STBAR",lastLump+1,1);
 		while( nextLump != -1 )
 		{
 			lastLump = nextLump;
-			nextLump = Wads.FindLump("STBAR",lastLump+1);
+			nextLump = Wads.FindLump("STBAR",lastLump+1,1);
 		}
 		// Hash the value of the STBAR lump
 		STBAR_HASH = Hash(Wads.ReadLump(lastLump));
 
 		// Uncomment this to print the STBAR Hash in the console
-		//console.printf("\nSTBAR Hash is: %08X",STBAR_HASH);
+		//console.printf("\nSTBAR Hash is: 0x%08X",STBAR_HASH);
 
 		setSTBARNames();
 	}

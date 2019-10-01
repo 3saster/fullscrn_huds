@@ -27,7 +27,7 @@ extend Class SpecialDoomStatusBar
 			HUD_RIGHT = "HUD_RIGHT_EVET";
 			break;
 
-		case 0xAA126044: // Neural Upscale 2X Pack
+		case 0xDF842DC3: // Neural Upscale 2X Pack
 			HUD_SMP   = "HUD_SMP_NEURAL";
 			HUD_DM    = "HUD_DM_NEURAL";
 			HUD_LEFT  = "HUD_LEFT_NEURAL";
@@ -37,9 +37,10 @@ extend Class SpecialDoomStatusBar
 
     // MurmurHash2, by Austin Appleby, modified by 3saster
     // I'd use something like MD5, but that's much harder to implement...
-    int Hash ( string key, uint seed = 0x1de319fa )
+    int Hash (string key)
     {
         int len = key.length();
+        uint seed = 0x1de319fa;
         
         // 'm' and 'r' are mixing constants generated offline.
         // They're not really 'magic', they just happen to work well.
