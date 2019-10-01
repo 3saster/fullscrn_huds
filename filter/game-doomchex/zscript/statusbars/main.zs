@@ -22,6 +22,9 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	InventoryBarState diparms_sbar;
 	HUDFont mIndexFontF; // For Chex
 	
+	// A hash to identify which STBAR is loaded
+	uint STBAR_HASH;
+
 	enum OpaqueValues
 	{
 		OP_NONE = 0,
@@ -67,6 +70,20 @@ Class SpecialDoomStatusBar : DoomStatusBar
 
 		statInit();
 		setAmmoNames();
+
+		// Find last loaded STBAR Lump
+		int lastLump = Wads.FindLump("STBAR");
+		int nextLump =  Wads.FindLump("STBAR",lastLump+1);
+		while( nextLump != -1 )
+		{
+			lastLump = nextLump;
+			nextLump = Wads.FindLump("STBAR",lastLump+1);
+		}
+		// Hash the value of the STBAR lump
+		STBAR_HASH = Hash(Wads.ReadLump(lastLump));
+
+		// Uncomment this to print the STBAR Hash in the console
+		//console.printf("\nSTBAR Hash is: %08x",STBAR_HASH);
 	}
 
 	override void NewGame()
