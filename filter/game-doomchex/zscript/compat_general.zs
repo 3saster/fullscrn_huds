@@ -36,6 +36,8 @@ extend Class SpecialDoomStatusBar
 			STYSNUM   = "MM2_NUM";
 			fnt = "INDEXFONT_MM2";
 			mIndexFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft);
+			fnt = "HUDFONT_MM2";
+			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
 			break;
 
 		case 0x0D8A3598: // Back to Saturn X Episode 1
