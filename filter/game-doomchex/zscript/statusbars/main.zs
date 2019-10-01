@@ -31,6 +31,10 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	string HUD_SMP;
 	string HUD_DM;
 
+	// Strings describing certain font-related things
+	string STYSNUM;
+	string STGNUM;
+
 	enum OpaqueValues
 	{
 		OP_NONE = 0,
@@ -152,5 +156,13 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		{
 			DrawImage("BERSERK", (split ? 138-isHacX(1)-isFreeDoom(3) : 14-isHacX(2)-isFreeDoom(3), -1), split ? DI_SCREEN_LEFT_BOTTOM : DI_SCREEN_CENTER_BOTTOM, alphaFloat);
 		}
+	}
+
+	// ================================
+	// Concatenate two strings together
+	// ================================
+	string concat(string s1, string s2)
+	{
+		return string.format("%s%s",s1,s2);
 	}
 }

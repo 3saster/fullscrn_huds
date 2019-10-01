@@ -27,17 +27,6 @@ extend Class SpecialDoomStatusBar
 		return output;
 	}
 	
-	// If Chex, change arms to match chexfont (this allows the normal HUD to work)
-	string chexName(string input)
-	{
-		if(isChex())
-		{
-			input.replace("STY","CTY");
-			input.replace("STG","CTG");
-		}
-		return input;
-	}
-	
 	// ===============================
 	// Wrapper to add offsets for HacX
 	// ===============================

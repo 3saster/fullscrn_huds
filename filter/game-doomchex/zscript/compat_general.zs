@@ -7,6 +7,9 @@ extend Class SpecialDoomStatusBar
 		HUD_DM    = "HUD_DM";
 		HUD_LEFT  = "HUD_LEFT";
 		HUD_RIGHT = "HUD_RIGHT";
+		STYSNUM   = "STYSNUM";
+		STGNUM    = "STGNUM";
+
 
 		// Deal with compatibility with certain PWADS
 		switch(STBAR_HASH)
@@ -27,11 +30,24 @@ extend Class SpecialDoomStatusBar
 			HUD_RIGHT = "HUD_RIGHT_EVET";
 			break;
 
+		case 0xB43917B8: // Memento Mori 2
+			HUD_LEFT  = "HUD_LEFT_MM2";
+			HUD_RIGHT = "HUD_RIGHT_MM2";
+			STYSNUM   = "MM2_NUM";
+			break;
+
 		case 0xDF842DC3: // Neural Upscale 2X Pack
 			HUD_SMP   = "HUD_SMP_NEURAL";
 			HUD_DM    = "HUD_DM_NEURAL";
 			HUD_LEFT  = "HUD_LEFT_NEURAL";
 			HUD_RIGHT = "HUD_RIGHT_NEURAL";
+			break;
+		}
+
+		if( isChex() )
+		{
+			STYSNUM   = "CTYSNUM";
+			STGNUM    = "CTGNUM";
 		}
 	}
 
