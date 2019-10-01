@@ -9,11 +9,11 @@ extend Class SpecialDoomStatusBar
 		double alphaFloatGraph = alphaO == OP_NUMGRAPH ? 1 : alphaFloat;
 		
 		// Draw left side
-		DrawImage(addArms("HUD_LEFT"), (71.5, 0), DI_SCREEN_LEFT_BOTTOM, alphaFloat);
+		DrawImage(addArms(HUD_LEFT), (71.5, 0), DI_SCREEN_LEFT_BOTTOM, alphaFloat);
 		if(multiplayer) DrawImage("STFBANY", (107, -32), DI_SCREEN_LEFT_BOTTOM|DI_TRANSLATABLE|DI_ITEM_OFFSETS, alphaFloat);
 
 		// Draw right side
-		DrawImage(addArms("HUD_RIGHT"), (-71.5, 0), DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
+		DrawImage(addArms(HUD_RIGHT), (-71.5, 0), DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
 		
 		// Draw Percent Symbols
 		int percentColor = GetPercentColor();

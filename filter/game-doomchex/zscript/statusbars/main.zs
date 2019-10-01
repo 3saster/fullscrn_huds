@@ -25,6 +25,12 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	// A hash to identify which STBAR is loaded
 	uint STBAR_HASH;
 
+	// Strings describing the components of the STBAR
+	string HUD_LEFT;
+	string HUD_RIGHT;
+	string HUD_SMP;
+	string HUD_DM;
+
 	enum OpaqueValues
 	{
 		OP_NONE = 0,
@@ -84,6 +90,8 @@ Class SpecialDoomStatusBar : DoomStatusBar
 
 		// Uncomment this to print the STBAR Hash in the console
 		//console.printf("\nSTBAR Hash is: %08x",STBAR_HASH);
+
+		setSTBARNames();
 	}
 
 	override void NewGame()

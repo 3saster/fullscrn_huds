@@ -1,5 +1,32 @@
 extend Class SpecialDoomStatusBar
 {
+	void setSTBARNames()
+	{
+		switch(STBAR_HASH)
+		{
+		case 0x0b3cb286: // Alien Vendetta
+			//console.printf("This is Alien Vendetta.");
+			HUD_SMP   = "HUD_SMP";
+			HUD_DM    = "HUD_DM";
+			HUD_LEFT  = "HUD_LEFT_AVACT";
+			HUD_RIGHT = "HUD_RIGHT_AVACT";
+			break;
+		case 0xabeed637: // Avactor
+			//console.printf("This is Avactor.");
+			HUD_SMP   = "HUD_SMP";
+			HUD_DM    = "HUD_DM";
+			HUD_LEFT  = "HUD_LEFT_AVACT";
+			HUD_RIGHT = "HUD_RIGHT_AVACT";
+			break;
+		default:
+			HUD_SMP   = "HUD_SMP";
+			HUD_DM    = "HUD_DM";
+			HUD_LEFT  = "HUD_LEFT";
+			HUD_RIGHT = "HUD_RIGHT";
+			break;
+		}
+	}
+
     // MurmurHash2, by Austin Appleby, modified by 3saster
     // I'd use something like MD5, but that's much harder to implement...
     int Hash ( string key, uint seed = 0x1de319fa )
