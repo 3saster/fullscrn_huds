@@ -34,6 +34,8 @@ extend Class SpecialDoomStatusBar
 			HUD_LEFT  = "HUD_LEFT_MM2";
 			HUD_RIGHT = "HUD_RIGHT_MM2";
 			STYSNUM   = "MM2_NUM";
+			Font fnt = "INDEXFONT_MM2";
+			mIndexFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft);
 			break;
 
 		case 0xDF842DC3: // Neural Upscale 2X Pack
