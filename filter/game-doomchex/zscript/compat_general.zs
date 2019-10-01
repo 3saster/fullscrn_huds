@@ -2,27 +2,22 @@ extend Class SpecialDoomStatusBar
 {
 	void setSTBARNames()
 	{
+		// Defaults
+		HUD_SMP   = "HUD_SMP";
+		HUD_DM    = "HUD_DM";
+		HUD_LEFT  = "HUD_LEFT";
+		HUD_RIGHT = "HUD_RIGHT";
+
+		// Deal with compatibility with certain PWADS
 		switch(STBAR_HASH)
 		{
 		case 0x0b3cb286: // Alien Vendetta
-			//console.printf("This is Alien Vendetta.");
-			HUD_SMP   = "HUD_SMP";
-			HUD_DM    = "HUD_DM";
-			HUD_LEFT  = "HUD_LEFT_AVACT";
-			HUD_RIGHT = "HUD_RIGHT_AVACT";
+			HUD_LEFT  = "HUD_LEFT_AV";
+			HUD_RIGHT = "HUD_RIGHT_AV";
 			break;
 		case 0xabeed637: // Avactor
-			//console.printf("This is Avactor.");
-			HUD_SMP   = "HUD_SMP";
-			HUD_DM    = "HUD_DM";
 			HUD_LEFT  = "HUD_LEFT_AVACT";
 			HUD_RIGHT = "HUD_RIGHT_AVACT";
-			break;
-		default:
-			HUD_SMP   = "HUD_SMP";
-			HUD_DM    = "HUD_DM";
-			HUD_LEFT  = "HUD_LEFT";
-			HUD_RIGHT = "HUD_RIGHT";
 			break;
 		}
 	}
