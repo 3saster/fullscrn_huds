@@ -89,7 +89,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		STBAR_HASH = Hash(Wads.ReadLump(lastLump));
 
 		// Uncomment this to print the STBAR Hash in the console
-		//console.printf("\nSTBAR Hash is: %08x",STBAR_HASH);
+		//console.printf("\nSTBAR Hash is: %08X",STBAR_HASH);
 
 		setSTBARNames();
 	}

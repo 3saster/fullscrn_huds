@@ -11,14 +11,27 @@ extend Class SpecialDoomStatusBar
 		// Deal with compatibility with certain PWADS
 		switch(STBAR_HASH)
 		{
-		case 0x0b3cb286: // Alien Vendetta
+		case 0x0B3CB286: // Alien Vendetta
 			HUD_LEFT  = "HUD_LEFT_AV";
 			HUD_RIGHT = "HUD_RIGHT_AV";
 			break;
-		case 0xabeed637: // Avactor
+
+		case 0xABEED637: // Avactor
 			HUD_LEFT  = "HUD_LEFT_AVACT";
 			HUD_RIGHT = "HUD_RIGHT_AVACT";
 			break;
+
+		case 0x2DB89823: // Eviternity
+		case 0x4F9D3A57: // Epic 2
+			HUD_LEFT  = "HUD_LEFT_EVET";
+			HUD_RIGHT = "HUD_RIGHT_EVET";
+			break;
+
+		case 0xAA126044: // Neural Upscale 2X Pack
+			HUD_SMP   = "HUD_SMP_NEURAL";
+			HUD_DM    = "HUD_DM_NEURAL";
+			HUD_LEFT  = "HUD_LEFT_NEURAL";
+			HUD_RIGHT = "HUD_RIGHT_NEURAL";
 		}
 	}
 
