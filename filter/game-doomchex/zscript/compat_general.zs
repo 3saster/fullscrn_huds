@@ -46,6 +46,8 @@ extend Class SpecialDoomStatusBar
 			STGNUM    = "BTSX1_";
 			fnt = "INDEXFONT_BTSX1";
 			mIndexFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft);
+			fnt = "HUDFONT_BTSX";
+			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
 			break;
 
 		case 0x67E84763: // Back to Saturn X Episode 2
@@ -55,6 +57,8 @@ extend Class SpecialDoomStatusBar
 			STGNUM    = "BTSX1_";
 			fnt = "INDEXFONT_BTSX2";
 			mIndexFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft);
+			fnt = "HUDFONT_BTSX";
+			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
 			break;
 
 		case 0xDF842DC3: // Neural Upscale 2X Pack
