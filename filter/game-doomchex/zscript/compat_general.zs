@@ -10,7 +10,7 @@ extend Class SpecialDoomStatusBar
 		STYSNUM   = "STYSNUM";
 		STGNUM    = "STGNUM";
 
-
+		Font fnt;
 		// Deal with compatibility with certain PWADS
 		switch(STBAR_HASH)
 		{
@@ -34,7 +34,26 @@ extend Class SpecialDoomStatusBar
 			HUD_LEFT  = "HUD_LEFT_MM2";
 			HUD_RIGHT = "HUD_RIGHT_MM2";
 			STYSNUM   = "MM2_NUM";
-			Font fnt = "INDEXFONT_MM2";
+			fnt = "INDEXFONT_MM2";
+			mIndexFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft);
+			break;
+
+		case 0x0D8A3598: // Back to Saturn X Episode 1
+		                 // Doom 4 Vanilla
+			HUD_LEFT  = "HUD_LEFT_BTSX";
+			HUD_RIGHT = "HUD_RIGHT_BTSX";
+			STYSNUM   = "BTSX1_N";
+			STGNUM    = "BTSX1_";
+			fnt = "INDEXFONT_BTSX1";
+			mIndexFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft);
+			break;
+
+		case 0x67E84763: // Back to Saturn X Episode 2
+			HUD_LEFT  = "HUD_LEFT_BTSX";
+			HUD_RIGHT = "HUD_RIGHT_BTSX";
+			STYSNUM   = "BTSX2_N";
+			STGNUM    = "BTSX1_";
+			fnt = "INDEXFONT_BTSX2";
 			mIndexFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft);
 			break;
 
