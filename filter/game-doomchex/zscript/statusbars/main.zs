@@ -20,8 +20,22 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	transient CVAR statTime;
 	
 	InventoryBarState diparms_sbar;
-	HUDFont mIndexFontF; // For Chex
+	HUDFont mHUDFontF;
+	HUDFont mIndexFontF;
 	
+	// A hash to identify which STBAR is loaded
+	uint STBAR_HASH;
+
+	// Strings describing the components of the STBAR
+	string HUD_LEFT;
+	string HUD_RIGHT;
+	string HUD_SMP;
+	string HUD_DM;
+
+	// Strings describing certain font-related things
+	string STYSNUM;
+	string STGNUM;
+
 	enum OpaqueValues
 	{
 		OP_NONE = 0,
@@ -55,6 +69,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		diparms_sbar = InventoryBarState.CreateNoBox(mIndexFont, boxsize:(31, 31), arrowoffs:(0,-10));
 		
 		mIndexFontF = mIndexFont;
+		mHUDFontF = mHUDFont;
 		// Chex has a really weird font
 		if(isChex())
 		{
@@ -67,6 +82,22 @@ Class SpecialDoomStatusBar : DoomStatusBar
 
 		statInit();
 		setAmmoNames();
+
+		// Find last loaded STBAR Lump
+		int lastLump = Wads.FindLump("STBAR",0,1);
+		int nextLump =  Wads.FindLump("STBAR",lastLump+1,1);
+		while( nextLump != -1 )
+		{
+			lastLump = nextLump;
+			nextLump = Wads.FindLump("STBAR",lastLump+1,1);
+		}
+		// Hash the value of the STBAR lump
+		STBAR_HASH = Hash(Wads.ReadLump(lastLump));
+
+		// Uncomment this to print the STBAR Hash in the console
+		//console.printf("\nSTBAR Hash is: 0x%08X",STBAR_HASH);
+
+		setSTBARNames();
 	}
 
 	override void NewGame()
@@ -127,5 +158,13 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		{
 			DrawImage("BERSERK", (split ? 138-isHacX(1)-isFreeDoom(3) : 14-isHacX(2)-isFreeDoom(3), -1), split ? DI_SCREEN_LEFT_BOTTOM : DI_SCREEN_CENTER_BOTTOM, alphaFloat);
 		}
+	}
+
+	// ================================
+	// Concatenate two strings together
+	// ================================
+	string concat(string s1, string s2)
+	{
+		return string.format("%s%s",s1,s2);
 	}
 }

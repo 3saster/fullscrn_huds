@@ -9,11 +9,11 @@ extend Class SpecialDoomStatusBar
 		double alphaFloatGraph = alphaO == OP_NUMGRAPH ? 1 : alphaFloat;
 		
 		// Draw left side
-		DrawImage(addArms("HUD_LEFT"), (71.5, 0), DI_SCREEN_LEFT_BOTTOM, alphaFloat);
+		DrawImage(addArms(HUD_LEFT), (71.5, 0), DI_SCREEN_LEFT_BOTTOM, alphaFloat);
 		if(multiplayer) DrawImage("STFBANY", (107, -32), DI_SCREEN_LEFT_BOTTOM|DI_TRANSLATABLE|DI_ITEM_OFFSETS, alphaFloat);
 
 		// Draw right side
-		DrawImage(addArms("HUD_RIGHT"), (-71.5, 0), DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
+		DrawImage(addArms(HUD_RIGHT), (-71.5, 0), DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
 		
 		// Draw Percent Symbols
 		int percentColor = GetPercentColor();
@@ -84,21 +84,21 @@ extend Class SpecialDoomStatusBar
 		{
 			if(!isHacX())
 			{
-				DrawImage(CPlayer.HasWeaponsInSlot(2)? chexName("STYSNUM2") : chexName("STGNUM2"), (108+0*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-				DrawImage(CPlayer.HasWeaponsInSlot(3)? chexName("STYSNUM3") : chexName("STGNUM3"), (108+1*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-				DrawImage(CPlayer.HasWeaponsInSlot(4)? chexName("STYSNUM4") : chexName("STGNUM4"), (108+2*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-				DrawImage(CPlayer.HasWeaponsInSlot(5)? chexName("STYSNUM5") : chexName("STGNUM5"), (108+3*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-				DrawImage(CPlayer.HasWeaponsInSlot(6)? chexName("STYSNUM6") : chexName("STGNUM6"), (108+4*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-				DrawImage(CPlayer.HasWeaponsInSlot(7)? chexName("STYSNUM7") : chexName("STGNUM7"), (108+5*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+				DrawImage(CPlayer.HasWeaponsInSlot(2)? concat(STYSNUM,"2") : concat(STGNUM,"2"), (108+0*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+				DrawImage(CPlayer.HasWeaponsInSlot(3)? concat(STYSNUM,"3") : concat(STGNUM,"3"), (108+1*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+				DrawImage(CPlayer.HasWeaponsInSlot(4)? concat(STYSNUM,"4") : concat(STGNUM,"4"), (108+2*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+				DrawImage(CPlayer.HasWeaponsInSlot(5)? concat(STYSNUM,"5") : concat(STGNUM,"5"), (108+3*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+				DrawImage(CPlayer.HasWeaponsInSlot(6)? concat(STYSNUM,"6") : concat(STGNUM,"6"), (108+4*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+				DrawImage(CPlayer.HasWeaponsInSlot(7)? concat(STYSNUM,"7") : concat(STGNUM,"7"), (108+5*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
 			}
 			else // HacX font is backwards if not on the display
 			{
-				DrawImage(CPlayer.HasWeaponsInSlot(2)? chexName("STGNUM2") : chexName("STYSNUM2"), (108+0*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-				DrawImage(CPlayer.HasWeaponsInSlot(3)? chexName("STGNUM3") : chexName("STYSNUM3"), (108+1*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-				DrawImage(CPlayer.HasWeaponsInSlot(4)? chexName("STGNUM4") : chexName("STYSNUM4"), (108+2*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-				DrawImage(CPlayer.HasWeaponsInSlot(5)? chexName("STGNUM5") : chexName("STYSNUM5"), (108+3*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-				DrawImage(CPlayer.HasWeaponsInSlot(6)? chexName("STGNUM6") : chexName("STYSNUM6"), (108+4*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-				DrawImage(CPlayer.HasWeaponsInSlot(7)? chexName("STGNUM7") : chexName("STYSNUM7"), (108+5*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+				DrawImage(CPlayer.HasWeaponsInSlot(2)? concat(STGNUM,"2") : concat(STYSNUM,"2"), (108+0*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+				DrawImage(CPlayer.HasWeaponsInSlot(3)? concat(STGNUM,"3") : concat(STYSNUM,"3"), (108+1*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+				DrawImage(CPlayer.HasWeaponsInSlot(4)? concat(STGNUM,"4") : concat(STYSNUM,"4"), (108+2*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+				DrawImage(CPlayer.HasWeaponsInSlot(5)? concat(STGNUM,"5") : concat(STYSNUM,"5"), (108+3*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+				DrawImage(CPlayer.HasWeaponsInSlot(6)? concat(STGNUM,"6") : concat(STYSNUM,"6"), (108+4*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+				DrawImage(CPlayer.HasWeaponsInSlot(7)? concat(STGNUM,"7") : concat(STYSNUM,"7"), (108+5*6, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
 			}
 		}
 		

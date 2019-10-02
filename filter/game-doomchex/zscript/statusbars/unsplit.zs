@@ -13,17 +13,17 @@ extend Class SpecialDoomStatusBar
 		{
 			if(deathmatch || teamplay)
 			{
-				DrawImage(addArms("HUD_DM"), (0, 0), DI_SCREEN_CENTER_BOTTOM, alphaFloat);
+				DrawImage(addArms(HUD_DM), (0, 0), DI_SCREEN_CENTER_BOTTOM, alphaFloat);
 			}
 			else
 			{
-				DrawImage(addArms("HUD_SMP"), (0, 0), DI_SCREEN_CENTER_BOTTOM, alphaFloat);
+				DrawImage(addArms(HUD_SMP), (0, 0), DI_SCREEN_CENTER_BOTTOM, alphaFloat);
 			}
 			DrawImage("STFBANY", (-17, -32), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS|DI_TRANSLATABLE, alphaFloat);
 		}
 		else
 		{
-			DrawImage(addArms("HUD_SMP"), (0, 0), DI_SCREEN_CENTER_BOTTOM, alphaFloat);
+			DrawImage(addArms(HUD_SMP), (0, 0), DI_SCREEN_CENTER_BOTTOM, alphaFloat);
 		}
 		
 		// Draw Percent Symbols
@@ -98,12 +98,12 @@ extend Class SpecialDoomStatusBar
 		// Draw Arms
 		else if(!chexArms || chexArms.getInt())
 		{
-			DrawImage(CPlayer.HasWeaponsInSlot(2)? chexName("STYSNUM2") : chexName("STGNUM2"), (-49, -28), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-			DrawImage(CPlayer.HasWeaponsInSlot(3)? chexName("STYSNUM3") : chexName("STGNUM3"), (-37, -28), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-			DrawImage(CPlayer.HasWeaponsInSlot(4)? chexName("STYSNUM4") : chexName("STGNUM4"), (-25, -28), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-			DrawImage(CPlayer.HasWeaponsInSlot(5)? chexName("STYSNUM5") : chexName("STGNUM5"), (-49, -18), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-			DrawImage(CPlayer.HasWeaponsInSlot(6)? chexName("STYSNUM6") : chexName("STGNUM6"), (-37, -18), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-			DrawImage(CPlayer.HasWeaponsInSlot(7)? chexName("STYSNUM7") : chexName("STGNUM7"), (-25, -18), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+			DrawImage(CPlayer.HasWeaponsInSlot(2)? concat(STYSNUM,"2") : concat(STGNUM,"2"), (-49, -28), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+			DrawImage(CPlayer.HasWeaponsInSlot(3)? concat(STYSNUM,"3") : concat(STGNUM,"3"), (-37, -28), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+			DrawImage(CPlayer.HasWeaponsInSlot(4)? concat(STYSNUM,"4") : concat(STGNUM,"4"), (-25, -28), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+			DrawImage(CPlayer.HasWeaponsInSlot(5)? concat(STYSNUM,"5") : concat(STGNUM,"5"), (-49, -18), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+			DrawImage(CPlayer.HasWeaponsInSlot(6)? concat(STYSNUM,"6") : concat(STGNUM,"6"), (-37, -18), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+			DrawImage(CPlayer.HasWeaponsInSlot(7)? concat(STYSNUM,"7") : concat(STGNUM,"7"), (-25, -18), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
 		}
 		
 		// Draw Mugshot/Inventory (Overwrite Mugshot)
