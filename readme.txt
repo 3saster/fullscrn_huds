@@ -93,6 +93,16 @@ Tested With          : GZDoom
 
 > Version 5.X.X (XXX XX, 2019)
   [DOOM/CHEX/HACX/HARMONY] Inventory: Amount is now properly right-justified and moved to the correct spot
+  [ALL] Compatibility with certain PWADs is now automatic; a compatibility patch is no longer needed. This currently
+        includes
+		   - Alien Vendetta
+		   - Avactor
+		   - Eviternity
+		   - Epic 2
+		   - Memento Mori 2
+		   - Back to Saturn X episodes 1 & 2
+		   - Doom 4 Vanilla
+		   - Doom Neural Upscale 2X
 
 > Version 5.0.3 (Sep 23, 2019)
   [ALL] Level stats: Fixed stats counting up from 0 after loading savegame
