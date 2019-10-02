@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.X.X)
+Title                : Fullscreen Status Bar Mod (v5.1.0)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : XX/XX/2019
+Release date         : 10/02/2019
 Author               : NightFright
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -18,9 +18,11 @@ Description          : Fullscreen versions for the status bars of Doom-based
 
 Additional Info      : 1) Only works with GZDoom 4.2.0+, LZDoom 3.83+ and other 
                           equivalent ports.
-                       2) Adds new option menu under "HUD Options" called
+                       2) Please make sure to load this file AFTER any mod altering
+                          status bars to guarantee maximum compatibility.
+                       3) Adds new option menu under "HUD Options" called
                           "Fullscreen Status Bar" (at the bottom). 
-                       3) Available options:
+                       4) Available options:
                              - Standard status bar or split version
                              - Status bar scale (recommended for 1920x1080: 3)
                              - Opaque or transparent rendering
@@ -35,7 +37,7 @@ Additional Info      : 1) Only works with GZDoom 4.2.0+, LZDoom 3.83+ and other
                                   + 6 positions (top left/right, center left/right, bottom left/right)
                                   + Toggle any stat (kills, secrets, items, time)
                                   + Choose between 4 different fonts
-                       4) Adds 12-16 CVARS to your GZDoom ini, starting with "fullhud_" 
+                       5) Adds 12-16 CVARS to your GZDoom ini, starting with "fullhud_" 
 
 Known issues         : [CHEX] Logo replacement will only look good if default STBAR graphics 
                               are used (with blue background)
@@ -91,18 +93,11 @@ Tested With          : GZDoom
 
 * CHANGELOG *
 
-> Version 5.X.X (XXX XX, 2019)
+> Version 5.1.0 (Oct 2, 2019)
+  [ALL] Automatic compatibility with selected PWADs which needed separate fixes before. Currently included:
+        Alien Vendetta, Avactor, Back to Saturn X Ep.1+2, Doom 4 Vanilla, Doom Neural Upscale 2X, Epic 2, 
+        Eviternity and Memento Mori 2
   [DOOM/CHEX/HACX/HARMONY] Inventory: Amount is now properly right-justified and moved to the correct spot
-  [ALL] Compatibility with certain PWADs is now automatic; a compatibility patch is no longer needed. This currently
-        includes
-           - Alien Vendetta
-           - Avactor
-           - Eviternity
-           - Epic 2
-           - Memento Mori 2
-           - Back to Saturn X episodes 1 & 2
-           - Doom 4 Vanilla
-           - Doom Neural Upscale 2X
 
 > Version 5.0.3 (Sep 23, 2019)
   [ALL] Level stats: Fixed stats counting up from 0 after loading savegame

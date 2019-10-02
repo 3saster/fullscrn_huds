@@ -54,7 +54,7 @@ OptionValue "Opaque"
 ListMenu "FullscreenCreditsMenu"
 {
 	Font "SmallFont"
-	StaticText -64,	  0, "Version 5.0.3", gold
+	StaticText -64,	  0, "Version 5.1.0", gold
 	StaticText -64,	 12, "NightFright", red
 	StaticText -64,	 24, "3saster", red
 	StaticText -64,	 48, "id Software", red
