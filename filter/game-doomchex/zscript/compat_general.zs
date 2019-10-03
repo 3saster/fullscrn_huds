@@ -9,6 +9,7 @@ extend Class SpecialDoomStatusBar
 		HUD_RIGHT = "HUD_RIGHT";
 		STYSNUM   = "STYSNUM";
 		STGNUM    = "STGNUM";
+		ARMS_OFFSET = 0;
 
 		Font fnt;
 		// Deal with compatibility with certain PWADS
@@ -68,6 +69,15 @@ extend Class SpecialDoomStatusBar
 			HUD_DM    = "HUD_DM_NEURAL";
 			HUD_LEFT  = "HUD_LEFT_NEURAL";
 			HUD_RIGHT = "HUD_RIGHT_NEURAL";
+			break;
+
+		case 0xF1837667: // Eternal Doom
+			HUD_LEFT  = "HUD_LEFT_ETERNAL";
+			HUD_RIGHT = "HUD_RIGHT_ETERNAL";
+			STYSNUM = "ETE_NUM";
+			ARMS_OFFSET = -2.5;
+			fnt = "HUDFONT_ETERNAL";
+			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
 			break;
 		}
 

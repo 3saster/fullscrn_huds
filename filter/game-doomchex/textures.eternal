@@ -1,0 +1,9 @@
+// Split bar panels
+Graphic "HUD_LEFT_ETERNAL", 185, 32 
+{
+    	Patch "HUDL_ETE", 21, 0
+}
+Graphic "HUD_RIGHT_ETERNAL", 147, 32 
+{
+    	Patch "HUDR_ETE", 0, 0
+}

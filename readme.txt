@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.1.0)
+Title                : Fullscreen Status Bar Mod (v5.X.X)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : 10/02/2019
+Release date         : XX/XX/2019
 Author               : NightFright
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -92,6 +92,9 @@ Tested With          : GZDoom
 
 
 * CHANGELOG *
+
+> Version 5.X.X (XXX XX, 2019)
+  [ALL] Automatic compatibility added for Eternal Doom
 
 > Version 5.1.0 (Oct 2, 2019)
   [ALL] Automatic compatibility with selected PWADs which needed separate fixes before. Currently included:
