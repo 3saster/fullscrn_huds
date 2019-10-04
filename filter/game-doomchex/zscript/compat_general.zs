@@ -79,6 +79,12 @@ extend Class SpecialDoomStatusBar
 			fnt = "HUDFONT_ETERNAL";
 			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
 			break;
+
+		case 0xC901D1A0: // Tangerine Nightmare
+			HUD_LEFT  = "HUD_LEFT_TN";
+			HUD_RIGHT = "HUD_RIGHT_TN";
+			STGNUM = "STG_TN";
+			break;
 		}
 
 		if( isChex() )

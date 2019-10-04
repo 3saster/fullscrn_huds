@@ -94,7 +94,7 @@ Tested With          : GZDoom
 * CHANGELOG *
 
 > Version 5.X.X (XXX XX, 2019)
-  [ALL] Automatic compatibility added for Eternal Doom
+  [ALL] Automatic compatibility added for Eternal Doom, Tangerine Nightmare
 
 > Version 5.1.0 (Oct 2, 2019)
   [ALL] Automatic compatibility with selected PWADs which needed separate fixes before. Currently included:
