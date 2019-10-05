@@ -1,0 +1,5 @@
+// Split bar panels
+Graphic "HUD_LEFT_DYSTOPIA", 143, 32 
+{
+    	Patch "ST_DYSTL", 0, 0
+}

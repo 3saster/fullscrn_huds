@@ -85,6 +85,10 @@ extend Class SpecialDoomStatusBar
 			HUD_RIGHT = "HUD_RIGHT_TN";
 			STGNUM = "STG_TN";
 			break;
+
+		case 0xC0A46A33: // Dystopia 3
+			HUD_LEFT = "HUD_LEFT_DYSTOPIA";
+			break;
 		}
 
 		if( isChex() )

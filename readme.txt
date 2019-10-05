@@ -55,6 +55,7 @@ Additional Credits to: id Software .................. Original Doom GFX
                                                       Split status bar for Doom
                        MaxED ........................ Split status bars for Heretic/Hexen
                        neoworm ...................... Widescreen Hexen status bar
+                       Kinsie ....................... Dystopia 3 compatibility
   
 ===========================================================================
 * What is included *
@@ -94,7 +95,7 @@ Tested With          : GZDoom
 * CHANGELOG *
 
 > Version 5.X.X (XXX XX, 2019)
-  [ALL] Automatic compatibility added for Eternal Doom, Tangerine Nightmare
+  [ALL] Automatic compatibility added for Eternal Doom, Tangerine Nightmare, Dystopia 3
 
 > Version 5.1.0 (Oct 2, 2019)
   [ALL] Automatic compatibility with selected PWADs which needed separate fixes before. Currently included:
