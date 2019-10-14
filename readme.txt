@@ -4,7 +4,7 @@ Advanced engine needed  : GZDoom
 Title                : Fullscreen Status Bar Mod (v5.X.X)
 Filename             : FULLSCRN_HUDS.PK3
 Release date         : XX/XX/2019
-Author               : NightFright
+Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
                        Mapinfo Pack for Doom II PWADs
@@ -51,11 +51,11 @@ Additional Credits to: id Software .................. Original Doom GFX
                        DTDsphere .................... Project initiator
                        Hexereticdoom ................ Level stats graphics
                        Jimmy ........................ "MemenTwo" and "Status Report" fonts
+                       Kinsie ....................... Dystopia 3 compatibility
                        m8f .......................... ACS coding support
                                                       Split status bar for Doom
                        MaxED ........................ Split status bars for Heretic/Hexen
                        neoworm ...................... Widescreen Hexen status bar
-                       Kinsie ....................... Dystopia 3 compatibility
   
 ===========================================================================
 * What is included *

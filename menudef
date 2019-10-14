@@ -54,7 +54,7 @@ OptionValue "Opaque"
 ListMenu "FullscreenCreditsMenu"
 {
 	Font "SmallFont"
-	StaticText -64,	  0, "Version 5.1.0", gold
+	StaticText -64,	  0, "Version 5.X.X", gold
 	StaticText -64,	 12, "NightFright", red
 	StaticText -64,	 24, "3saster", red
 	StaticText -64,	 48, "id Software", red
@@ -64,10 +64,10 @@ ListMenu "FullscreenCreditsMenu"
 	StaticText -64,	 96, "DTDsphere", red
 	StaticText -64,	108, "Hexereticdoom", red
 	StaticText -64,	120, "Jimmy", red
-	StaticText -64,	132, "m8f", red
-	StaticText -64,	144, "MaxED", red
-	StaticText -64,	156, "neoworm", red
-	StaticText -64,	168, "Kinsie", red
+	StaticText -64,	132, "Kinsie", red
+	StaticText -64,	144, "m8f", red
+	StaticText -64,	156, "MaxED", red
+	StaticText -64,	168, "neoworm", red
 	StaticText  80,	 12, "Original SBARINFO coding / idea", green
 	StaticText  80,	 24, "ZScript coding", green	
 	StaticText  80,	 48, "Original Doom GFX", green
@@ -77,8 +77,8 @@ ListMenu "FullscreenCreditsMenu"
 	StaticText  80,	 96, "Project initiator - special thanks!", green
 	StaticText  80,	108, "Level stats graphics", green
 	StaticText  80,	120, "'MemenTwo' and 'Status Report' fonts", green
-	StaticText  80,	132, "ACS coding support / split bar for Doom", green
-	StaticText  80,	144, "Split status bars for Heretic/Hexen", green
-	StaticText  80,	156, "Widescreen Hexen status bar", green
-	StaticText  80,	168, "Dystopia 3 compatibility", green
+	StaticText  80,	132, "Dystopia 3 compatibility", green
+	StaticText  80,	144, "ACS coding support / split bar for Doom", green
+	StaticText  80,	156, "Split status bars for Heretic/Hexen", green
+	StaticText  80,	168, "Widescreen Hexen status bar", green
 }
