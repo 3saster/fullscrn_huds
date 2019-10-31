@@ -1,7 +1,7 @@
 ===========================================================================
 Advanced engine needed  : GZDoom
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.1.1)
+Title                : Fullscreen Status Bar Mod (v5.X.X)
 Filename             : FULLSCRN_HUDS.PK3
 Release date         : 10/31/2019
 Authors              : NightFright / 3saster
@@ -93,6 +93,9 @@ Tested With          : GZDoom
 
 
 * CHANGELOG *
+
+> Version 5.X.X (XXX XX, 2019)
+  [HERETIC] Split mode: Arms numbers are no longer blocked by level stats
 
 > Version 5.1.1 (Oct 31, 2019)
   [ALL] Automatic compatibility added for Eternal Doom, Tangerine Nightmare, Dystopia 3
