@@ -14,14 +14,7 @@ OptionMenu "FullscreenStatusbarOptions"
    	StaticText ""
    	StaticText  "Optional Settings", "gold"
 	Option "Use Boom HUD colors", "fullhud_boomcolors", "OnOff"
- 	IfGame(Heretic)
-	{
-		Option "Hide status bar on automap", "fullhud_automaphide", "OnOff"
-	}
- 	IfGame(Hexen)
-	{
-		Option "Inventory as icons on automap", "fullhud_automaphide", "OnOff"
-	}
+	Option "Inventory as icons on automap", "fullhud_automaphide", "OnOff"
    	StaticText ""
    	StaticText  "Level Stats", "gold"
 	Option "Stats display", "fullhud_stats_type", "LevelStats"

@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.X.X)
+Title                : Fullscreen Status Bar Mod (v5.1.1)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : XX/XX/2019
+Release date         : 10/31/2019
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -30,7 +30,7 @@ Additional Info      : 1) Only works with GZDoom 4.2.0+, LZDoom 3.83+ and other
                              - Indicate Berserk mode in Doom/HacX
                              - Chex status bar with ARMS display and ammo overview
                              - Mugshot used for active inventory item on/off
-                             - ARMS display for split bar on/off
+                             - ARMS display for split bar on/off (Doom/Heretic)
                              - Show or hide automap status bar
                              - Level stats fully customizable:
                                   + Display in %, countdowns or fraction (+ time)
@@ -94,8 +94,9 @@ Tested With          : GZDoom
 
 * CHANGELOG *
 
-> Version 5.X.X (XXX XX, 2019)
+> Version 5.1.1 (Oct 31, 2019)
   [ALL] Automatic compatibility added for Eternal Doom, Tangerine Nightmare, Dystopia 3
+  [HERETIC] Split mode: Added support for arms numbers (default: off)
 
 > Version 5.1.0 (Oct 2, 2019)
   [ALL] Automatic compatibility with selected PWADs which needed separate fixes before. Currently included:

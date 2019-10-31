@@ -50,7 +50,18 @@ extend Class SpecialHereticStatusBar
 				DrawImage("COOP_COL", (1, -1), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM|DI_TRANSLATABLE, alphaFloat);
 			}
 		}
-		
+
+		// Draw Split Arms over ammo display if CVAR is on
+		if(splitArms.GetInt())
+		{
+			DrawImage(CPlayer.HasWeaponsInSlot(2)? concat(SMALLIN,"2") : concat(SMALLGR,"2"), (-81+0*6, -38), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+			DrawImage(CPlayer.HasWeaponsInSlot(3)? concat(SMALLIN,"3") : concat(SMALLGR,"3"), (-81+1*6, -38), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+			DrawImage(CPlayer.HasWeaponsInSlot(4)? concat(SMALLIN,"4") : concat(SMALLGR,"4"), (-81+2*6, -38), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+			DrawImage(CPlayer.HasWeaponsInSlot(5)? concat(SMALLIN,"5") : concat(SMALLGR,"5"), (-81+3*6, -38), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+			DrawImage(CPlayer.HasWeaponsInSlot(6)? concat(SMALLIN,"6") : concat(SMALLGR,"6"), (-81+4*6, -38), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+			DrawImage(CPlayer.HasWeaponsInSlot(7)? concat(SMALLIN,"7") : concat(SMALLGR,"7"), (-81+5*6, -38), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+		}
+
 		// Draw Inventory
 		if (CPlayer.mo.InvSel != null && !Level.NoInventoryBar)
 		{
