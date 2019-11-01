@@ -18,6 +18,7 @@ extend Class SpecialHereticStatusBar
 		vector2 scale; // Scaling for the text; larger x-values shrink horizontally, larger y-values shrink vertically
 		int padding; // Space padding to add
 		int vspace; // Space between stats
+		int armsOffset; // Offset if arms are displayed
 	}
 	
 	void GetStatFont(out statFont s)
@@ -34,6 +35,7 @@ extend Class SpecialHereticStatusBar
 			s.padding = 0;
 			s.sPush = 1;
 			s.vspace = 1;
+			s.armsOffset = 6;
 			break;
 		case NEWCONFONT:
 			s.fnt = "NEWCONFONT";
@@ -44,6 +46,7 @@ extend Class SpecialHereticStatusBar
 			s.padding = 0;
 			s.sPush = 2;
 			s.vspace = -1;
+			s.armsOffset = 13;
 			break;
 		case STATREPORT:
 			s.fnt = "STATUSRP";
@@ -54,6 +57,7 @@ extend Class SpecialHereticStatusBar
 			s.padding = 6;
 			s.sPush = 1;
 			s.vspace = 0;
+			s.armsOffset = 7;
 			break;
 		case MEMENTWO:
 			s.fnt = "MM2FONTO";
@@ -64,6 +68,7 @@ extend Class SpecialHereticStatusBar
 			s.padding = 10;
 			s.sPush = 2;
 			s.vspace = 2;
+			s.armsOffset = 12;
 			break;
 		}
 	}
