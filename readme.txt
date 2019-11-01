@@ -96,6 +96,7 @@ Tested With          : GZDoom
 
 > Version 5.X.X (XXX XX, 2019)
   [HERETIC] Split mode: Arms numbers are no longer blocked by level stats
+  [ALL] Automatic compatibility added for Sunlust
 
 > Version 5.1.1 (Oct 31, 2019)
   [ALL] Automatic compatibility added for Eternal Doom, Tangerine Nightmare, Dystopia 3

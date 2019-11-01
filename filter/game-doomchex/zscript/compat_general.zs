@@ -31,6 +31,11 @@ extend Class SpecialDoomStatusBar
 			HUD_RIGHT = "HUD_RIGHT_EVET";
 			break;
 
+		case 0x41195678: // Sunlust
+			HUD_LEFT  = "HUD_LEFT_SUNLUST";
+			HUD_RIGHT = "HUD_RIGHT_SUNLUST";
+			break;
+
 		case 0xB43917B8: // Memento Mori 2
 			HUD_LEFT  = "HUD_LEFT_MM2";
 			HUD_RIGHT = "HUD_RIGHT_MM2";
