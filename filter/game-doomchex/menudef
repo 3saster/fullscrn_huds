@@ -25,6 +25,8 @@ OptionMenu "FullscreenStatusbarOptions"
 	Option "Show arms on split bar", "fullhud_splitarms", "OnOff", "fullhud_split"	
 	Option "Inventory items can replace mugshot", "fullhud_invovermug", "OnOff"
 	Option "Hide status bar on automap", "fullhud_automaphide", "OnOff"
+	Option "Interpolate health and armor", "fullhud_interpolate_health_armor", "OnOff"
+
    	StaticText ""
    	StaticText  "Level Stats", "gold"
 	Option "Stats display", "fullhud_stats_type", "LevelStats"

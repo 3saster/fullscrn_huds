@@ -18,6 +18,8 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	transient CVAR statSecrets;
 	transient CVAR statItems;
 	transient CVAR statTime;
+
+	transient CVAR interpolateHealthArmor;
 	
 	InventoryBarState diparms_sbar;
 	HUDFont mIndexFontF;
@@ -37,6 +39,9 @@ Class SpecialDoomStatusBar : DoomStatusBar
 
 	// Offset for Split Arms
 	double ARMS_OFFSET;
+
+	LinearValueInterpolator healthInterpolator;
+	LinearValueInterpolator armorInterpolator;
 
 	enum OpaqueValues
 	{
@@ -67,6 +72,8 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		statSecrets    = CVar.FindCVar("fullhud_stats_secrets");
 		statItems      = CVar.FindCVar("fullhud_stats_items");
 		statTime       = CVar.FindCVar("fullhud_stats_time");
+
+		interpolateHealthArmor = CVar.FindCVar("fullhud_interpolate_health_armor");
 
 		diparms_sbar = InventoryBarState.CreateNoBox(mIndexFont, boxsize:(31, 31), arrowoffs:(0,-10));
 		
@@ -99,6 +106,9 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		//console.printf("\nSTBAR Hash is: 0x%08X",STBAR_HASH);
 
 		setSTBARNames();
+
+		healthInterpolator = LinearValueInterpolator.Create(0, 10);
+		armorInterpolator  = LinearValueInterpolator.Create(0, 10);
 	}
 
 	override void NewGame()
@@ -111,6 +121,9 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	override void Tick()
 	{
 		Super.Tick();
+
+		healthInterpolator.Update(CPlayer.health);
+		armorInterpolator.Update(GetArmorAmount());
 
 		statTick();
 	}
@@ -167,5 +180,17 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	string concat(string s1, string s2)
 	{
 		return string.format("%s%s",s1,s2);
+	}
+
+	string getHealthString()
+	{
+		int healthValue = interpolateHealthArmor.GetBool() ? healthInterpolator.GetValue() : CPlayer.health;
+		return FormatNumber(healthValue, 3);
+	}
+
+	string getArmorString()
+	{
+		int armorValue = interpolateHealthArmor.GetBool() ? armorInterpolator.GetValue() : GetArmorAmount();
+		return FormatNumber(armorValue, 3);
 	}
 }

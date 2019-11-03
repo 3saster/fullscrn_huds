@@ -30,11 +30,11 @@ extend Class SpecialDoomStatusBar
 		
 		// Draw Health
 		int healthColor = GetHealthColor();
-		DrawString(mHUDFont, FormatNumber(CPlayer.health, 3), (90+isChex(1), -29), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_LEFT_BOTTOM, translation: healthColor, alpha:alphaFloatNum);
+		DrawString(mHUDFont, getHealthString(), (90+isChex(1), -29), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_LEFT_BOTTOM, translation: healthColor, alpha:alphaFloatNum);
 		
 		// Draw Armor
 		int armorColor = GetArmorColor();
-		DrawString(mHUDFont, FormatNumber(GetArmorAmount(), 3), (-99+isChex(2), -29), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_RIGHT_BOTTOM, translation:armorColor, alpha:alphaFloatNum);
+		DrawString(mHUDFont, getArmorString(), (-99+isChex(2), -29), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_RIGHT_BOTTOM, translation:armorColor, alpha:alphaFloatNum);
 
 		// Draw Keys
 		bool locks[6];
