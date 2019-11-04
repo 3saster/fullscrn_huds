@@ -124,6 +124,15 @@ extend Class SpecialHexenStatusBar
 		int armorColor = getArmorColor();
 		DrawString(mHUDFont, FormatNumber(GetArmorSavePercent() / 5, 2), (-7, -17), DI_SCREEN_RIGHT_BOTTOM|DI_TEXT_ALIGN_RIGHT, armorColor, alpha:alphaFloatNum);
 		
+		// Draw Split Arms over ammo display if CVAR is on
+		if(splitArms.GetInt())
+		{
+			DrawImage(CPlayer.HasWeaponsInSlot(1)? concat(SMALLIN,"1") : concat(SMALLGR,"1"), (96, -29+0*7), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+			DrawImage(CPlayer.HasWeaponsInSlot(2)? concat(SMALLIN,"2") : concat(SMALLGR,"2"), (96, -29+1*7), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+			DrawImage(CPlayer.HasWeaponsInSlot(3)? concat(SMALLIN,"3") : concat(SMALLGR,"3"), (96, -29+2*7), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+			DrawImage(CPlayer.HasWeaponsInSlot(4)? concat(SMALLIN,"4") : concat(SMALLGR,"4"), (96, -29+3*7), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+		}
+
 		// Draw Inventory Bar
 		if (isInventoryBarVisible())
 		{
@@ -132,6 +141,7 @@ extend Class SpecialHexenStatusBar
 				itemCount++;
 			DrawInventoryBarTrans(diparms_sbar, (0, -1), max(itemCount,1), DI_SCREEN_CENTER_BOTTOM, bgalpha:alphaFloat, fgalpha:alphaFloatGraph, numalpha: alphaFloatNum);
 		}
+
 		// Draw Inventory
 		else if (CPlayer.mo.InvSel != null)
 		{

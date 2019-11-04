@@ -5,6 +5,7 @@ Class SpecialHexenStatusBar : HexenStatusBar
 	transient CVar alphaOpaque;
 	
 	transient CVAR boomColors;
+	transient CVAR splitArms;
 	transient CVAR automapHide;
 	
 	transient CVAR statsType;
@@ -16,6 +17,10 @@ Class SpecialHexenStatusBar : HexenStatusBar
 	transient CVAR statTime;
 
 	int chainWig; // wiggle is private...
+
+	// Strings describing certain font-related things
+	string SMALLIN;
+	string SMALLGR;
 	
 	override void Init()
 	{
@@ -26,6 +31,7 @@ Class SpecialHexenStatusBar : HexenStatusBar
 		alphaOpaque = CVar.FindCVar("fullhud_opaque");
 		
 		boomColors  = CVar.FindCVar("fullhud_boomcolors");
+		splitArms   = CVar.FindCVar("fullhud_splitarms");
 		automapHide = CVar.FindCVar("fullhud_automaphide");
 		
 		statsType      = CVar.FindCVar("fullhud_stats_type");
@@ -35,6 +41,9 @@ Class SpecialHexenStatusBar : HexenStatusBar
 		statSecrets    = CVar.FindCVar("fullhud_stats_secrets");
 		statItems      = CVar.FindCVar("fullhud_stats_items");
 		statTime       = CVar.FindCVar("fullhud_stats_time");
+
+		SMALLIN = "SMALLIN";
+		SMALLGR = "SMALLGR";
 
 		statInit();
 	}
@@ -97,5 +106,13 @@ Class SpecialHexenStatusBar : HexenStatusBar
 			DrawSplit();
 		else
 			DrawUnsplit();
+	}
+
+	// ================================
+	// Concatenate two strings together
+	// ================================
+	string concat(string s1, string s2)
+	{
+		return string.format("%s%s",s1,s2);
 	}
 }
