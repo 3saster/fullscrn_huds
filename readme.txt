@@ -27,7 +27,7 @@ Additional Info      : 1) Only works with GZDoom 4.2.3+, LZDoom 3.83+ and other
                           "Fullscreen Status Bar" (at the bottom). 
                        4) Available options:
                              - Standard status bar or split version
-							 - Can override other custom statusbars loaded after (ideal for autoload)
+                             - Can override other custom statusbars loaded after (ideal for autoload)
                              - Status bar scale (recommended for 1920x1080: 3)
                              - Opaque or transparent rendering
                              - Boom HUD colors for Ammo/Health/Armor
@@ -45,8 +45,11 @@ Additional Info      : 1) Only works with GZDoom 4.2.3+, LZDoom 3.83+ and other
 
 Known issues         : [CHEX] Logo replacement will only look good if default STBAR graphics 
                               are used (with blue background)
-					   [DOOM/CHEX/HACX] The mugshot may appear dead when changing the "Force HUD Override"
-					          option. This is purely visual, and will fix itself as soon as the menu is exitted
+                       [DOOM/CHEX/HACX] The mugshot may appear dead when changing the "Force HUD Override"
+                              option. This is purely visual, and will fix itself as soon as the menu is exited
+                       [LZDOOM] The "Force HUD Override" option may cause crashes when exitting LZDoom. It is
+                                recommended that on LZDoom, you should load this mod last instead, as in previous
+                                versions.
                        
 
 Additional Credits to: id Software .................. Original Doom GFX
