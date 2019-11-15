@@ -45,7 +45,7 @@ extend Class SpecialHereticStatusBar
 			[a1,a2] = GetCurrentAmmo();
 			if (a1 != null)
 			{
-				if(a2 == null)
+				if(a2 == null || a1 == a2)
 				{
 					int ammoColor = GetAmmoColor(a1);
 					DrawString(mHUDFont, FormatNumber(a1.Amount, 3), (-21.5+offset, -38), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_CENTER_BOTTOM, translation: ammoColor, alpha:alphaFloatNum);

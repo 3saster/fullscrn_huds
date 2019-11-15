@@ -36,7 +36,7 @@ extend Class SpecialDoomStatusBar
 		[a1,a2] = GetCurrentAmmo();
 		if (a1 != null)
 		{
-			if(a2 == null)
+			if(a2 == null || a1 == a2)
 			{
 				int ammoColor = GetAmmoColor(a1);
 				DrawString(mHUDFont, FormatNumber(a1.Amount, 3), (-116+isChex(4), -29), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_CENTER_BOTTOM, translation: ammoColor, alpha:alphaFloatNum);

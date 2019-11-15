@@ -47,6 +47,16 @@ extend Class SpecialDoomStatusBar
 		return 0;
 	}
 	
+	// ======================================
+	// Wrapper to add offsets for Pirate Doom
+	// ======================================
+	float isPirateDoom(float offset = 1.0)
+	{
+		if( Wads.CheckNumForName("0097",0)!=-1 && Wads.CheckNumForName("INTROPIA",0)!=-1 && Wads.CheckNumForName("BARNAC",0)!=-1 && Wads.CheckNumForName("MAP59",0)!=-1)
+			return offset;
+		return 0;
+	}
+
 	Array<String> ammoNames;
 	// ===========================================
 	// Override to ensure standard HUD still works
@@ -69,7 +79,9 @@ extend Class SpecialDoomStatusBar
 	void setAmmoNames()
 	{
 		string ammoString;
-		if( isHacX() )
+		if( isPirateDoom() )
+			ammoString = "Bullets, Shell, ballammo, dynamiteammo";
+		else if( isHacX() )
 			ammoString = "HacxRounds, HacxCartridges, HacxTorpedo, HacxMolecules";
 		else if ( isHarmony() )
 			ammoString = "MinigunAmmo, Shells, TimeBombAmmo, ChaosBarsAmmo";

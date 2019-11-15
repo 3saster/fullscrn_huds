@@ -71,7 +71,7 @@ extend Class SpecialHexenStatusBar
 			if (ammo1 != null && !(ammo1 is "Mana1") && !(ammo1 is "Mana2"))
 			{
 				DrawImage("HAMOBACK", (-83, -36), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloat);
-				if (ammo2 != null)
+				if (ammo2 != null && ammo1 != ammo2)
 				{
 					DrawTexture(ammo1.icon, (-71, -28), DI_ITEM_CENTER|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 					DrawTexture(ammo2.icon, (-47, -28), DI_ITEM_CENTER|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);

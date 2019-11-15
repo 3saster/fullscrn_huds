@@ -106,6 +106,7 @@ Tested With          : GZDoom
   [DOOM/CHEX/HACX/HERETIC] Now displays secondary ammo if the weapon has it
   [ALL] Added "Force HUD Override" option. This will override any other custom HUD and use this HUD, regardless
         of load order (this is intended for autoloading in particular)
+  [DOOM] Automatic compatibility added for Pirate Doom
   
 > Version 5.1.2 (Nov 4, 2019)
   [ALL] MENUDEF: Code optimization (now only HacX needs two files, all other games just one)
