@@ -1,4 +1,4 @@
-version "4.2.0"
+version "4.2.3"
 
 // The main status bars (split and unsplit)
 #include "zscript/statusbars/main.zs"

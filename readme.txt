@@ -16,7 +16,7 @@ Description          : Fullscreen versions for the status bars of Doom-based
                        Harmony), Heretic and Hexen with optional transparency 
                        and level stats display
 
-Additional Info      : 1) Only works with GZDoom 4.2.0+, LZDoom 3.83+ and other 
+Additional Info      : 1) Only works with GZDoom 4.2.3+, LZDoom 3.83+ and other
                           equivalent ports.
 					   2) If fullscreen_huds.pk3 is loaded, you are in fullscreen,
                           and you do not see the correct HUD, another mod may be
@@ -101,6 +101,7 @@ Tested With          : GZDoom
 * CHANGELOG *
 
 > Version 5.X.X (XXX X, 2019)
+  NOTE: Now requires GZDoom 4.2.3+. This prevents a segfault that can occur from the new "Force HUD Override" option.
   [DOOM/CHEX/HACX/HERETIC] Now displays secondary ammo if the weapon has it
   [ALL] Added "Force HUD Override" option. This will override any other custom HUD and use this HUD, regardless
         of load order (this is intended for autoloading in particular)
