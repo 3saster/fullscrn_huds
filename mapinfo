@@ -1,0 +1,4 @@
+GameInfo
+{ 
+	EventHandlers = "Statusbar_Overrider"
+}

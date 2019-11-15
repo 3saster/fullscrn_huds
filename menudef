@@ -59,6 +59,7 @@ OptionMenu "FullscreenStatusbarOptions"
    	StaticText "General Settings", "gold"
 	Option "Fullscreen", "screenblocks", "FullscreenMode"
    	ScaleSlider "Scaling", "hud_scale", -1.0, 8.0, 1.0, "$SCALEMNU_USEUI", "$SCALEMNU_USEFS"
+	Option "Force HUD Override", "fullhud_override", "OnOff"
 	StaticText ""
    	StaticText "Status Bar Appearance", "gold"
    	Option "Split bar", "fullhud_split", "OnOff"
@@ -111,7 +112,7 @@ OptionMenu "FullscreenStatusbarOptions"
 ListMenu "FullscreenCreditsMenu"
 {
 	Font "SmallFont"
-	StaticText -64,	  0, "Version 5.1.2", gold
+	StaticText -64,	  0, "Version 5.X.X", gold
 	StaticText -64,	 12, "NightFright", red
 	StaticText -64,	 24, "3saster", red
 	StaticText -64,	 48, "id Software", red

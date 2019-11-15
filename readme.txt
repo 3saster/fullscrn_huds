@@ -1,7 +1,7 @@
 ===========================================================================
 Advanced engine needed  : GZDoom
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.1.2)
+Title                : Fullscreen Status Bar Mod (v5.X.X)
 Filename             : FULLSCRN_HUDS.PK3
 Release date         : 11/04/2019
 Authors              : NightFright / 3saster
@@ -18,12 +18,18 @@ Description          : Fullscreen versions for the status bars of Doom-based
 
 Additional Info      : 1) Only works with GZDoom 4.2.0+, LZDoom 3.83+ and other 
                           equivalent ports.
+					   2) If fullscreen_huds.pk3 is loaded, you are in fullscreen,
+					      and you do not see the correct HUD, another mod may be
+						  overwritting it. To use this HUD, turn the "Force HUD
+						  Override" option in the settings on. This will force
+						  this HUD to be used.
                        2) Please make sure to load this file AFTER any mod altering
                           status bars to guarantee maximum compatibility.
                        3) Adds new option menu under "HUD Options" called
                           "Fullscreen Status Bar" (at the bottom). 
                        4) Available options:
                              - Standard status bar or split version
+							 - Can override other custom statusbars loaded after (ideal for autoload)
                              - Status bar scale (recommended for 1920x1080: 3)
                              - Opaque or transparent rendering
                              - Boom HUD colors for Ammo/Health/Armor
@@ -41,6 +47,8 @@ Additional Info      : 1) Only works with GZDoom 4.2.0+, LZDoom 3.83+ and other
 
 Known issues         : [CHEX] Logo replacement will only look good if default STBAR graphics 
                               are used (with blue background)
+					   [DOOM/CHEX/HACX] The mugshot may appear dead when changing the "Force HUD Override"
+					          option. This is purely visual, and will fix itself as soon as the menu is exitted
                        
 
 Additional Credits to: id Software .................. Original Doom GFX
@@ -94,6 +102,10 @@ Tested With          : GZDoom
 
 * CHANGELOG *
 
+> Version 5.X.X (XXX X, 2019)
+  [ALL] Added "Force HUD Override" option. This will override any other custom HUD and use this HUD, regardless
+        of load order (this is intended for autoloading in particular)
+  
 > Version 5.1.2 (Nov 4, 2019)
   [ALL] MENUDEF: Code optimization (now only HacX needs two files, all other games just one)
   [DOOM] Automatic compatibility added for Sunlust
