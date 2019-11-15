@@ -18,7 +18,7 @@ Description          : Fullscreen versions for the status bars of Doom-based
 
 Additional Info      : 1) Only works with GZDoom 4.2.3+, LZDoom 3.83+ and other
                           equivalent ports.
-					   2) If fullscreen_huds.pk3 is loaded, you are in fullscreen,
+                       2) If fullscreen_huds.pk3 is loaded, you are in fullscreen,
                           and you do not see the correct HUD, another mod may be
                           overwriting it. To use this HUD, turn the "Force HUD
                           Override" option in the settings on. This will force
