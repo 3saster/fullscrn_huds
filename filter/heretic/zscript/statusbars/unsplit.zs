@@ -41,12 +41,25 @@ extend Class SpecialHereticStatusBar
 			}
 			
 			// Draw Current Ammo Counter
-			Inventory a1 = GetCurrentAmmo();
+			Inventory a1,a2;
+			[a1,a2] = GetCurrentAmmo();
 			if (a1 != null)
 			{
-				int ammoColor = GetAmmoColor(a1);
-				DrawString(mHUDFont, FormatNumber(a1.Amount, 3), (-21.5+offset, -38), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_CENTER_BOTTOM, translation: ammoColor, alpha:alphaFloatNum);
-				DrawTexture(a1.icon, (-34.5+offset, -20), DI_ITEM_CENTER|DI_SCREEN_CENTER_BOTTOM, alphaFloatNum);
+				if(a2 == null)
+				{
+					int ammoColor = GetAmmoColor(a1);
+					DrawString(mHUDFont, FormatNumber(a1.Amount, 3), (-21.5+offset, -38), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_CENTER_BOTTOM, translation: ammoColor, alpha:alphaFloatNum);
+					DrawTexture(a1.icon, (-34.5+offset, -20), DI_ITEM_CENTER|DI_SCREEN_CENTER_BOTTOM, alphaFloatNum);
+				}
+				else
+				{
+					int ammoColor1 = GetAmmoColor(a1);
+					int ammoColor2 = GetAmmoColor(a2);
+					DrawString(mIndexFont, FormatNumber(a1.Amount, 3), (-20.5+offset, -35), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM, translation: ammoColor1, alpha:alphaFloatNum);
+					DrawString(mIndexFont, FormatNumber(a2.Amount, 3), (-20.5+offset, -23), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM, translation: ammoColor2, alpha:alphaFloatNum);
+					DrawTexture(a1.icon, (-42.5+offset, -31), DI_ITEM_CENTER|DI_SCREEN_CENTER_BOTTOM, alphaFloatNum);
+					DrawTexture(a2.icon, (-42.5+offset, -20), DI_ITEM_CENTER|DI_SCREEN_CENTER_BOTTOM, alphaFloatNum);
+				}
 			}
 			
 			// Draw Armor

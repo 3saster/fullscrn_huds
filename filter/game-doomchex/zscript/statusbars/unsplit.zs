@@ -32,11 +32,22 @@ extend Class SpecialDoomStatusBar
 		DrawString(mHUDFont, "%", (61+isChex(2),  -29), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_TOP|DI_NOSHADOW, translation: percentColor, alpha:alphaFloatNum);
 		
 		// Draw Current Ammo Counter
-		Inventory a1 = GetCurrentAmmo();
+		Inventory a1, a2;
+		[a1,a2] = GetCurrentAmmo();
 		if (a1 != null)
 		{
-			int ammoColor = GetAmmoColor(a1);
-			DrawString(mHUDFont, FormatNumber(a1.Amount, 3), (-116+isChex(4), -29), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_CENTER_BOTTOM, translation: ammoColor, alpha:alphaFloatNum);
+			if(a2 == null)
+			{
+				int ammoColor = GetAmmoColor(a1);
+				DrawString(mHUDFont, FormatNumber(a1.Amount, 3), (-116+isChex(4), -29), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_CENTER_BOTTOM, translation: ammoColor, alpha:alphaFloatNum);
+			}
+			else
+			{
+				int ammoColor1 = GetAmmoColor(a1);
+				int ammoColor2 = GetAmmoColor(a2);
+				DrawString(mSmallFont, FormatNumber(a1.Amount, 3), (-116+isChex(2.5), -29), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM, translation: ammoColor1, alpha:alphaFloatNum);
+				DrawString(mSmallFont, FormatNumber(a2.Amount, 3), (-116+isChex(2.5), -20), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM, translation: ammoColor2, alpha:alphaFloatNum);
+			}
 		}
 		
 		// Draw Health

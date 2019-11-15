@@ -16,12 +16,25 @@ extend Class SpecialHereticStatusBar
 		DrawImage("BAR_RGHT", (-1, -1), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_RIGHT_BOTTOM, alphaFloat);
 		
 		// Draw Current Ammo Counter
-		Inventory a1 = GetCurrentAmmo();
+		Inventory a1,a2;
+		[a1,a2] = GetCurrentAmmo();
 		if (a1 != null)
 		{
-			int ammoColor = GetAmmoColor(a1);
-			DrawString(mHUDFont, FormatNumber(a1.Amount, 3), (-51, -29), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_RIGHT_BOTTOM, translation: ammoColor, alpha:alphaFloatNum);
-			DrawTexture(a1.icon, (-64, -11), DI_ITEM_CENTER|DI_SCREEN_RIGHT_BOTTOM, alphaFloatNum);
+			if(a2 == null)
+			{
+				int ammoColor = GetAmmoColor(a1);
+				DrawString(mHUDFont, FormatNumber(a1.Amount, 3), (-51, -29), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_RIGHT_BOTTOM, translation: ammoColor, alpha:alphaFloatNum);
+				DrawTexture(a1.icon, (-64, -11), DI_ITEM_CENTER|DI_SCREEN_RIGHT_BOTTOM, alphaFloatNum);
+			}
+			else
+			{
+				int ammoColor1 = GetAmmoColor(a1);
+				int ammoColor2 = GetAmmoColor(a2);
+				DrawString(mIndexFont, FormatNumber(a1.Amount, 3), (-50, -26), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM, translation: ammoColor1, alpha:alphaFloatNum);
+				DrawString(mIndexFont, FormatNumber(a2.Amount, 3), (-50, -14), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM, translation: ammoColor2, alpha:alphaFloatNum);
+				DrawTexture(a1.icon, (-72, -22), DI_ITEM_CENTER|DI_SCREEN_RIGHT_BOTTOM, alphaFloatNum);
+				DrawTexture(a2.icon, (-72, -11), DI_ITEM_CENTER|DI_SCREEN_RIGHT_BOTTOM, alphaFloatNum);
+			}
 		}
 		
 		// Draw Health

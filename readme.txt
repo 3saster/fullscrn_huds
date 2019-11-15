@@ -103,6 +103,7 @@ Tested With          : GZDoom
 * CHANGELOG *
 
 > Version 5.X.X (XXX X, 2019)
+  [DOOM/CHEX/HACX/HERETIC] Now displays secondary ammo if the weapon has it
   [ALL] Added "Force HUD Override" option. This will override any other custom HUD and use this HUD, regardless
         of load order (this is intended for autoloading in particular)
   

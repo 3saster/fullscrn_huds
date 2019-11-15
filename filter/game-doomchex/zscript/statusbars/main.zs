@@ -20,6 +20,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	transient CVAR statTime;
 	
 	InventoryBarState diparms_sbar;
+	HUDFont mSmallFont;
 	HUDFont mIndexFontF;
 	
 	// A hash to identify which STBAR is loaded
@@ -70,6 +71,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 
 		diparms_sbar = InventoryBarState.CreateNoBox(mIndexFont, boxsize:(31, 31), arrowoffs:(0,-10));
 		
+		mSmallFont = HUDFont.Create(SmallFont, SmallFont.GetCharWidth("0"), Mono_CellCenter, 1, 1);
 		mIndexFontF = mIndexFont;
 		// Chex has a really weird font
 		if(isChex())
