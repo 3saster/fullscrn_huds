@@ -48,8 +48,8 @@ Known issues         : [CHEX] Logo replacement will only look good if default ST
                        [DOOM/CHEX/HACX] The mugshot may appear dead when changing the "Force HUD Override"
                               option. This is purely visual, and will fix itself as soon as the menu is exited
                        [LZDOOM] The "Force HUD Override" option may cause crashes when exitting LZDoom. It is
-                                recommended that on LZDoom, you should load this mod last instead, as in previous
-                                versions.
+                              recommended that on LZDoom, you should load this mod last instead, as in previous
+                              versions.
                        
 
 Additional Credits to: id Software .................. Original Doom GFX
@@ -106,7 +106,9 @@ Tested With          : GZDoom
 > Version 5.X.X (XXX X, 2019)
   NOTE: Now requires GZDoom 4.2.4+. This prevents a segfault that can occur from the new "Force HUD Override" option.
         As noted in known issues above, it is recommended you avoid using this option in LZDoom, at least for now.
-  [DOOM/CHEX/HACX/HERETIC] Now displays secondary ammo if the weapon has it
+  [ALL] Stats: Added powerup timers as an option. At the moment, works with exactly the same mods as Tekish's
+        LevelInfo 1.22, while more can be added as needed.
+  [DOOM/CHEX/HACX/HERETIC] Now displays secondary ammo if the weapon has it (Hexen already did this)
   [ALL] Added "Force HUD Override" option. This will override any other custom HUD and use this HUD, regardless
         of load order (this is intended for autoloading in particular)
   [DOOM] Automatic compatibility added for Pirate Doom

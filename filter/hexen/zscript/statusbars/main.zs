@@ -15,6 +15,7 @@ Class SpecialHexenStatusBar : HexenStatusBar
 	transient CVAR statSecrets;
 	transient CVAR statItems;
 	transient CVAR statTime;
+	transient CVAR statPowerups;
 
 	int chainWig; // wiggle is private...
 
@@ -41,6 +42,7 @@ Class SpecialHexenStatusBar : HexenStatusBar
 		statSecrets    = CVar.FindCVar("fullhud_stats_secrets");
 		statItems      = CVar.FindCVar("fullhud_stats_items");
 		statTime       = CVar.FindCVar("fullhud_stats_time");
+		statPowerups   = CVar.FindCVar("fullhud_stats_powerups");
 
 		SMALLIN = "SMALLIN";
 		SMALLGR = "SMALLGR";
@@ -52,6 +54,8 @@ Class SpecialHexenStatusBar : HexenStatusBar
 	{
 		Super.NewGame();
 
+		PowerupNames.clear();
+		PowerupDisplay.clear();
 		statNewGame();
 	}
 
@@ -75,6 +79,7 @@ Class SpecialHexenStatusBar : HexenStatusBar
 		
 		StatFont sfnt;
 		getStatFont(sfnt);
+		if(PowerupNames.size() == 0) setPowerupNames();
 		
 		if (state == HUD_StatusBar)
 		{

@@ -18,6 +18,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	transient CVAR statSecrets;
 	transient CVAR statItems;
 	transient CVAR statTime;
+	transient CVAR statPowerups;
 	
 	InventoryBarState diparms_sbar;
 	HUDFont mSmallFont;
@@ -68,6 +69,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		statSecrets    = CVar.FindCVar("fullhud_stats_secrets");
 		statItems      = CVar.FindCVar("fullhud_stats_items");
 		statTime       = CVar.FindCVar("fullhud_stats_time");
+		statPowerups   = CVar.FindCVar("fullhud_stats_powerups");
 
 		diparms_sbar = InventoryBarState.CreateNoBox(mIndexFont, boxsize:(31, 31), arrowoffs:(0,-10));
 		
@@ -106,7 +108,9 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	override void NewGame()
 	{
 		Super.NewGame();
-
+		
+		PowerupNames.clear();
+		PowerupDisplay.clear();
 		statNewGame();
 	}
 
@@ -123,6 +127,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 
 		StatFont sfnt;
 		getStatFont(sfnt);
+		if(PowerupNames.size() == 0) setPowerupNames();
 		
 		if (state == HUD_StatusBar)
 		{

@@ -13,8 +13,8 @@ version "4.2.4"
 #include "zscript/boomcolors.zs"
 
 // Compatibility for doom-based IWADs & PWADs
-#include "zscript/compat_iwad.zs"
-#include "zscript/compat_general.zs"
+#include "zscript/compat_functions.zs"
+#include "zscript/compat.zs"
 
 // Functions that lack transparency natively
 #include "zscript/trans.zs"
