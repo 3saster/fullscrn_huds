@@ -241,22 +241,37 @@ extend Class SpecialDoomStatusBar
 			return;
 		}
 
-		// Doom, Heretic, Hexen, Strife
-		// PowerupNames.Push("PowerStrength");			PowerupDisplay.Push("Berserk");
-		PowerupNames.Push("PowerScanner");			PowerupDisplay.Push("Detect");
-		PowerupNames.Push("PowerSpeed");			PowerupDisplay.Push("Speed");
-		PowerupNames.Push("PowerFlight");			PowerupDisplay.Push("Flight");
-		PowerupNames.Push("PowerInvisibility");			PowerupDisplay.Push("Blur");
-		PowerupNames.Push("PowerGhost");			PowerupDisplay.Push("Blur");
-		PowerupNames.Push("PowerShadow");			PowerupDisplay.Push("Blur");
-		PowerupNames.Push("PowerInvulnerable");			PowerupDisplay.Push("God");
-		PowerupNames.Push("PowerLightamp");			PowerupDisplay.Push("Light");
-		PowerupNames.Push("PowerTorch");			PowerupDisplay.Push("Light");
-		PowerupNames.Push("PowerWeaponlevel2");			PowerupDisplay.Push("Power");
-		PowerupNames.Push("PowerMinotaur");			PowerupDisplay.Push("Ally");
-		PowerupNames.Push("PowerIronfeet");			PowerupDisplay.Push("Suit");
-		PowerupNames.Push("PowerMask");				PowerupDisplay.Push("Suit");
-		PowerupNames.Push("PowerTargeter");			PowerupDisplay.Push("Target");
+		// Doom
+		// PowerupNames.Push("PowerStrength");      PowerupDisplay.Push("Berserk"); // Berserk (Doom)
+		PowerupNames.Push("PowerInvisibility");  PowerupDisplay.Push("Blur");   // BlurSphere (Doom)
+		PowerupNames.Push("PowerLightamp");      PowerupDisplay.Push("Light");  // Infrared (Doom)
+		PowerupNames.Push("PowerIronfeet");      PowerupDisplay.Push("Suit");   // Radsuit (Doom)
+		// Heretic
+		PowerupNames.Push("PowerGhost");         PowerupDisplay.Push("Ghost");  // ArtiInvisibility (Heretic)
+		PowerupNames.Push("PowerWeaponlevel2");  PowerupDisplay.Push("Power");  // ArtiTomeOfPower (Heretic)
+		// Hexen
+		PowerupNames.Push("PowerMinotaur");      PowerupDisplay.Push("Ally");   // ArtiDarkServant (Hexen)
+		PowerupNames.Push("PowerSpeed");         PowerupDisplay.Push("Speed");  // ArtiSpeedBoots (Hexen)
+		// Strife
+		PowerupNames.Push("PowerShadow");        PowerupDisplay.Push("Shadow"); // ShadowArmor (Strife)
+		PowerupNames.Push("PowerMask");          PowerupDisplay.Push("Suit");   // EnvironmentalSuit (Strife)
+		PowerupNames.Push("PowerTargeter");      PowerupDisplay.Push("Target"); // Targeter (Strife)
+		PowerupNames.Push("PowerScanner");       PowerupDisplay.Push("Scan");   // Scanner (Strife)
+		// Shared
+		switch(gameinfo.gametype)
+		{
+		case GAME_Doom:
+		default:
+			PowerupNames.Push("PowerInvulnerable"); PowerupDisplay.Push("God"); break;    // InvulnerabilitySphere (Doom)
+		case GAME_Heretic:
+		case GAME_Hexen:
+			PowerupNames.Push("PowerInvulnerable"); PowerupDisplay.Push("Immune"); break; // ArtiInvulnerability/ArtiInvulnerability2 (Heretic/Hexen)
+		}
+		if(!level.infinite_flight)
+		{
+			PowerupNames.Push("PowerFlight"); PowerupDisplay.Push("Flight"); // ArtiFly (Heretic/Hexen)
+		}
+		PowerupNames.Push("PowerTorch"); PowerupDisplay.Push("Light"); // ArtiTorch (Heretic/Hexen)
 		return;
 	}
 }
