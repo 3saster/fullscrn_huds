@@ -260,7 +260,7 @@ extend Class SpecialHereticStatusBar
 		// Top Right
 		// This needs special handling for vid_fps
 		int conOffset = vid_fps ?  GetConSize()+2 : 0;
-		int topRightTotal = 0;
+		topRightTotal = 0;
 		if(killpos   == TOPRIGHT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(kills),  conOffset+tHeight+textSize*topRightTotal++)  ,kills,alphaFloat);
 		if(secretpos == TOPRIGHT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(secrets),conOffset+tHeight+textSize*topRightTotal++),secrets,alphaFloat);
 		if(itempos   == TOPRIGHT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(items),  conOffset+tHeight+textSize*topRightTotal++)  ,items,alphaFloat);
@@ -323,6 +323,43 @@ extend Class SpecialHereticStatusBar
 		if(powerpos  == BOTTOMRIGHT)
 			for(int i = 0; i < PowerupStrings.size(); i++)	
 				DrawStatLine(sfnt,    Font.CR_YELLOW, (-sPush-fnt.StringWidth(PowerupStrings[i]),   -bHeightR-textSize*bottomRightTotal++)   ,PowerupStrings[i],alphaFloat);
+	}
+
+	// =====================================================
+	// Override to prevent powerups from blocking stats
+	// =====================================================
+	int topRightTotal; // This is global to make this convenient
+	override void DrawPowerups ()
+	{
+		StatFont sfnt;
+		getStatFont(sfnt);
+		double textSize = (sfnt.fnt.GetHeight() + sfnt.vspace) * 200.0/sfnt.scale.y;
+		int totalSize = int( textSize*topRightTotal + (topRightTotal ? sfnt.tHeight : 0) );
+
+		Vector2 pos = (-20, POWERUPICONSIZE * 5 / 4);
+		double maxpos = screen.GetWidth() / 2;
+		for (let iitem = CPlayer.mo.Inv; iitem != NULL; iitem = iitem.Inv)
+		{
+			let item = Powerup(iitem);
+			if (item != null)
+			{
+				let icon = item.GetPowerupIcon();
+				if (icon.IsValid() && !item.IsBlinking())
+				{
+					// If stats overlap, move it down
+					while(pos.y - POWERUPICONSIZE < totalSize )
+						pos.y += textSize;
+					// Each icon gets a 32x32 block.
+					DrawTexture(icon, pos, DI_SCREEN_RIGHT_TOP, 1.0, (POWERUPICONSIZE, POWERUPICONSIZE));
+					pos.x -= POWERUPICONSIZE;
+					if (pos.x < -maxpos)
+					{
+						pos.x = -20;
+						pos.y += (POWERUPICONSIZE) * 3 / 2;
+					}
+				}
+			}
+		}
 	}
 
 	// ===================================

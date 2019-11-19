@@ -113,6 +113,7 @@ Tested With          : GZDoom
   [DOOM/CHEX/HACX/HERETIC] Secondary ammo now displayed if required (Hexen already did this)
   [DOOM] Automatic compatibility added for Pirate Doom
   [CHEX] Berserk mode indicator CVAR from Doom no longer saved to ini
+  [ALL] Inventory icons, such as when the tome of power is active, no longer block stats
   
 > Version 5.1.2 (Nov 4, 2019)
   [ALL] MENUDEF: Code optimization (now only HacX needs two files, all other games just one)
