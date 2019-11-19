@@ -139,8 +139,8 @@ extend Class SpecialDoomStatusBar
 		{
 			// PowerupNames.Push("PowerStrength");		PowerupDisplay.Push("Berserk");
 			PowerupNames.Push("ArgPowerHasteSpeed");	PowerupDisplay.Push("Speed");
-			PowerupNames.Push("PowerInvisibility");		PowerupDisplay.Push("Blur");
-			PowerupNames.Push("ArgPowerInvuln");		PowerupDisplay.Push("God");
+			PowerupNames.Push("PowerInvisibility");		PowerupDisplay.Push("Hidden");
+			PowerupNames.Push("ArgPowerInvuln");		PowerupDisplay.Push("Immune");
 			PowerupNames.Push("PowerLightamp");		PowerupDisplay.Push("Light");
 			PowerupNames.Push("ArgPowerQuadDamage");	PowerupDisplay.Push("Quad");
 			PowerupNames.Push("ArgPowerRegen");		PowerupDisplay.Push("Regen");
@@ -151,7 +151,7 @@ extend Class SpecialDoomStatusBar
 		// Ashes 2063
 		if (pclass == "Scavenger")
 		{
-			PowerupNames.Push("PowerInvulnerable");		PowerupDisplay.Push("God");
+			PowerupNames.Push("PowerInvulnerable");		PowerupDisplay.Push("Immune");
 			PowerupNames.Push("PowerDoubleFiringSpeed");	PowerupDisplay.Push("Rage");
 			PowerupNames.Push("PowerRegeneration");		PowerupDisplay.Push("Regen");
 			PowerupNames.Push("PowerIronfeet");		PowerupDisplay.Push("Suit");
@@ -163,8 +163,8 @@ extend Class SpecialDoomStatusBar
 		if (pclass == "BDoomer" || pclass == "Doomer2" || pclass == "TacticalDoomer" || (pclass == "Purist" && CPlayer.mo.findinventory(s)))
 		{
 			// PowerupNames.Push("PowerStrength");		PowerupDisplay.Push("Berserk");
-			PowerupNames.Push("PowerInvisibility");		PowerupDisplay.Push("Blur");
-			PowerupNames.Push("PowerInvulnerable");		PowerupDisplay.Push("God");
+			PowerupNames.Push("PowerInvisibility");		PowerupDisplay.Push("Hidden");
+			PowerupNames.Push("PowerInvulnerable");		PowerupDisplay.Push("Immune");
 			PowerupNames.Push("PowerTransformBaron");	PowerupDisplay.Push("Morph");
 			PowerupNames.Push("PowerTransformRevenant");	PowerupDisplay.Push("Morph");
 			PowerupNames.Push("PowerTorch");		PowerupDisplay.Push("Light");
@@ -177,8 +177,8 @@ extend Class SpecialDoomStatusBar
 		{
 			PowerupNames.Push("PowerD4Strength");		PowerupDisplay.Push("Berserk");
 			PowerupNames.Push("PowerD4Speed");		PowerupDisplay.Push("Speed");
-			PowerupNames.Push("PowerD4Invisibility");	PowerupDisplay.Push("Blur");
-			PowerupNames.Push("PowerD4Invulnerable");	PowerupDisplay.Push("God");
+			PowerupNames.Push("PowerD4Invisibility");	PowerupDisplay.Push("Hidden");
+			PowerupNames.Push("PowerD4Invulnerable");	PowerupDisplay.Push("Immune");
 			PowerupNames.Push("PowerLightamp");		PowerupDisplay.Push("Light");
 			PowerupNames.Push("PowerQDamage");		PowerupDisplay.Push("Quad");
 			PowerupNames.Push("PowerD4Regeneration");	PowerupDisplay.Push("Regen");
@@ -191,8 +191,8 @@ extend Class SpecialDoomStatusBar
 		if (pclass == "64DoomPlayer" && !CPlayer.mo.findinventory(s))
 		{
 			// PowerupNames.Push("PowerStrength");		PowerupDisplay.Push("Berserk");
-			PowerupNames.Push("PowerInvisibility");		PowerupDisplay.Push("Blur");
-			PowerupNames.Push("PowerInvulnerable");		PowerupDisplay.Push("God");
+			PowerupNames.Push("PowerInvisibility");		PowerupDisplay.Push("Hidden");
+			PowerupNames.Push("PowerInvulnerable");		PowerupDisplay.Push("Immune");
 			PowerupNames.Push("64PowerLightAmp");		PowerupDisplay.Push("Light");
 			PowerupNames.Push("PowerIronfeet");		PowerupDisplay.Push("Suit");
 			return;
@@ -202,8 +202,8 @@ extend Class SpecialDoomStatusBar
 		if (pclass == "CaptainBlazkowicz")
 		{
 			PowerupNames.Push("PowerWrath");		PowerupDisplay.Push("Berserk");
-			PowerupNames.Push("PowerPsyche");		PowerupDisplay.Push("Blur");
-			PowerupNames.Push("PowerBattleSuit");		PowerupDisplay.Push("God");
+			PowerupNames.Push("PowerPsyche");		PowerupDisplay.Push("Hidden");
+			PowerupNames.Push("PowerBattleSuit");		PowerupDisplay.Push("Immune");
 			PowerupNames.Push("PowerLightamp");		PowerupDisplay.Push("Light");
 			PowerupNames.Push("PowerQuadDamage");		PowerupDisplay.Push("Quad");
 			PowerupNames.Push("PowerQ3Regeneration");	PowerupDisplay.Push("Regen");
@@ -216,8 +216,8 @@ extend Class SpecialDoomStatusBar
 		if (pclass == "FKPlayer" && CPlayer.mo.findinventory(s))
 		{
 			PowerupNames.Push("PowerHaste");		PowerupDisplay.Push("Speed");
-			PowerupNames.Push("PowerInvisibility");		PowerupDisplay.Push("Blur");
-			PowerupNames.Push("PowerInvulnerable");		PowerupDisplay.Push("God");
+			PowerupNames.Push("PowerInvisibility");		PowerupDisplay.Push("Hidden");
+			PowerupNames.Push("PowerInvulnerable");		PowerupDisplay.Push("Immune");
 			PowerupNames.Push("PowerLightAmp");		PowerupDisplay.Push("Light");
 			PowerupNames.Push("PowerQuadDamage");		PowerupDisplay.Push("Quad");
 			PowerupNames.Push("PowerIronfeet");		PowerupDisplay.Push("Suit");
@@ -231,8 +231,8 @@ extend Class SpecialDoomStatusBar
 			// PowerupNames.Push("PowerStrength");		PowerupDisplay.Push("Berserk");
 			PowerupNames.Push("PowerDoubleDamage");		PowerupDisplay.Push("Damage");
 			PowerupNames.Push("PowerSpeed");		PowerupDisplay.Push("Speed");
-			PowerupNames.Push("PowerInvisibility");		PowerupDisplay.Push("Blur");
-			PowerupNames.Push("PowerInvulnerable");		PowerupDisplay.Push("God");
+			PowerupNames.Push("PowerInvisibility");		PowerupDisplay.Push("Hidden");
+			PowerupNames.Push("PowerInvulnerable");		PowerupDisplay.Push("Immune");
 			PowerupNames.Push("PowerLightAmp");		PowerupDisplay.Push("Light");
 			PowerupNames.Push("DemonVision");		PowerupDisplay.Push("Morph");
 			PowerupNames.Push("PowerDoubleFiringSpeed");	PowerupDisplay.Push("Rage");
@@ -243,7 +243,7 @@ extend Class SpecialDoomStatusBar
 
 		// Doom
 		// PowerupNames.Push("PowerStrength");      PowerupDisplay.Push("Berserk"); // Berserk (Doom)
-		PowerupNames.Push("PowerInvisibility");  PowerupDisplay.Push("Blur");   // BlurSphere (Doom)
+		PowerupNames.Push("PowerInvisibility");  PowerupDisplay.Push("Hidden");   // BlurSphere (Doom)
 		PowerupNames.Push("PowerLightamp");      PowerupDisplay.Push("Light");  // Infrared (Doom)
 		PowerupNames.Push("PowerIronfeet");      PowerupDisplay.Push("Suit");   // Radsuit (Doom)
 		// Heretic
@@ -258,20 +258,12 @@ extend Class SpecialDoomStatusBar
 		PowerupNames.Push("PowerTargeter");      PowerupDisplay.Push("Target"); // Targeter (Strife)
 		PowerupNames.Push("PowerScanner");       PowerupDisplay.Push("Scan");   // Scanner (Strife)
 		// Shared
-		switch(gameinfo.gametype)
-		{
-		case GAME_Doom:
-		default:
-			PowerupNames.Push("PowerInvulnerable"); PowerupDisplay.Push("God"); break;    // InvulnerabilitySphere (Doom)
-		case GAME_Heretic:
-		case GAME_Hexen:
-			PowerupNames.Push("PowerInvulnerable"); PowerupDisplay.Push("Immune"); break; // ArtiInvulnerability/ArtiInvulnerability2 (Heretic/Hexen)
-		}
+		PowerupNames.Push("PowerInvulnerable"); PowerupDisplay.Push("Immune"); // InvulnerabilitySphere (Doom), ArtiInvulnerability/ArtiInvulnerability2 (Heretic/Hexen)
 		if(!level.infinite_flight)
 		{
 			PowerupNames.Push("PowerFlight"); PowerupDisplay.Push("Flight"); // ArtiFly (Heretic/Hexen)
 		}
-		PowerupNames.Push("PowerTorch"); PowerupDisplay.Push("Light"); // ArtiTorch (Heretic/Hexen)
+		PowerupNames.Push("PowerTorch"); PowerupDisplay.Push("Torch"); // ArtiTorch (Heretic/Hexen)
 		return;
 	}
 }

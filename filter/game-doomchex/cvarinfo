@@ -1,5 +1,2 @@
 user bool fullhud_splitarms   = true;
 user bool fullhud_invovermug  = true;
-user bool fullhud_showberserk = false;
-
-

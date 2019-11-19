@@ -1,12 +1,13 @@
 ===========================================================================
-Advanced engine needed  : GZDoom
+Advanced engine needed  : GZDoom 4.2.4+ / LZDoom 3.83+
 ===========================================================================
 Title                : Fullscreen Status Bar Mod (v5.X.X)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : 11/04/2019
+Release date         : XX/XX/XXXX
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
+		       H!Zone for ZDoom
                        Mapinfo Pack for Doom II PWADs
                        Perk Smooth Weapons Enhanced
                        Widescreen HUDs for Doom/Doom II PWADs
@@ -18,17 +19,16 @@ Description          : Fullscreen versions for the status bars of Doom-based
 
 Additional Info      : 1) Only works with GZDoom 4.2.4+, LZDoom 3.83+ and other
                           equivalent ports.
-                       2) If this mod is loaded, you are in fullscreen,
-                          and you do not see the correct HUD, another mod may be
-                          overwriting it. To use this HUD, turn the "Force HUD
-                          Override" option in the settings on. This will force
-                          this HUD to be used.
+                       2) If this mod is loaded and fullscreen mode is used while
+                          the correct HUD is still not shown, it may be overwritten
+                          by another mod. To make sure this HUD is used in such cases,
+                          turn on the "Force HUD override" option in the settings menu.
                        3) Adds new option menu under "HUD Options" called
                           "Fullscreen Status Bar" (at the bottom). 
                        4) Available options:
                              - Standard status bar or split version
-                             - Can override other custom statusbars loaded after (ideal for autoload)
                              - Status bar scale (recommended for 1920x1080: 3)
+                             - Override for other custom statusbars loaded afterwards (for autoload)
                              - Opaque or transparent rendering
                              - Boom HUD colors for Ammo/Health/Armor
                              - Indicate Berserk mode in Doom/HacX
@@ -41,15 +41,16 @@ Additional Info      : 1) Only works with GZDoom 4.2.4+, LZDoom 3.83+ and other
                                   + 6 positions (top left/right, center left/right, bottom left/right)
                                   + Toggle any stat (kills, secrets, items, time)
                                   + Choose between 4 different fonts
-                       5) Adds 12-16 CVARS to your GZDoom ini, starting with "fullhud_" 
+                                  + Optionally show countdowns for active powerups
+                       5) Adds 15-17 CVARS to your GZDoom ini, starting with "fullhud_" 
 
 Known issues         : [CHEX] Logo replacement will only look good if default STBAR graphics 
                               are used (with blue background)
-                       [DOOM/CHEX/HACX] The mugshot may appear dead when changing the "Force HUD Override"
-                              option. This is purely visual, and will fix itself as soon as the menu is exited
-                       [LZDOOM] The "Force HUD Override" option may cause crashes when exitting LZDoom. It is
-                              recommended that on LZDoom, you should load this mod last instead, as in previous
-                              versions.
+                       [DOOM/CHEX/HACX] Mugshot may switch to dead state when changing the 
+                                        "Force HUD override" option. This is a purely visual glitch
+                                        and will fix itself after leaving the menu
+                       [LZDOOM] "Force HUD override" option may cause crashes when exiting LZDoom. 
+                                LZDoom users should load this mod last instead (like in previous versions)
                        
 
 Additional Credits to: id Software .................. Original Doom GFX
@@ -103,15 +104,15 @@ Tested With          : GZDoom
 
 * CHANGELOG *
 
-> Version 5.X.X (XXX X, 2019)
-  NOTE: Now requires GZDoom 4.2.4+. This prevents a segfault that can occur from the new "Force HUD Override" option.
-        As noted in known issues above, it is recommended you avoid using this option in LZDoom, at least for now.
-  [ALL] Stats: Added powerup timers as an option. At the moment, works with exactly the same mods as Tekish's
-        LevelInfo 1.22, while more can be added as needed.
-  [DOOM/CHEX/HACX/HERETIC] Now displays secondary ammo if the weapon has it (Hexen already did this)
-  [ALL] Added "Force HUD Override" option. This will override any other custom HUD and use this HUD, regardless
-        of load order (this is intended for autoloading in particular)
+> Version 5.X.X (XXX XX, 2019)
+  NOTE: Now requires GZDoom 4.2.4+. This prevents a segfault that can occur with "Force HUD override" active.
+        It is recommended to avoid activating this option in LZDoom (at least for now)
+  [ALL] General Settings: "Force HUD override" option added. This will override any other custom HUD and 
+                          use this HUD instead, regardless of load order (intended for autoload in particular)
+  [ALL] Stats: "Powerup timers" option added. Works exactly the same as in LevelInfo v1.22 by Tekish (for now)
+  [DOOM/CHEX/HACX/HERETIC] Secondary ammo now displayed if required (Hexen already did this)
   [DOOM] Automatic compatibility added for Pirate Doom
+  [CHEX] Berserk mode indicator CVAR from Doom no longer saved to ini
   
 > Version 5.1.2 (Nov 4, 2019)
   [ALL] MENUDEF: Code optimization (now only HacX needs two files, all other games just one)
