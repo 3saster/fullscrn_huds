@@ -115,6 +115,7 @@ Tested With          : GZDoom
   [DOOM] Automatic compatibility added for Pirate Doom
   [CHEX] Berserk mode indicator CVAR from Doom no longer saved to ini
   [HACX] No longer uses modified STBAR lump, but instead adds a small black patch to cover mugshot background
+  [ALL] Fixed stats in top-right not moving correctly when the vid_fps CVAR is on
   
 > Version 5.1.2 (Nov 4, 2019)
   [ALL] MENUDEF: Code optimization (now only HacX needs two files, all other games just one)

@@ -118,7 +118,7 @@ extend Class SpecialDoomStatusBar
 		
 		// These values are jury-rigged; they were initially designed for my personal settings before becoming generic
 		int VirtualWidth  = int(sfnt.scale.x * 6.0/scale.x * Screen.GetWidth() /2560);
-		int VirtualHeight = int(sfnt.scale.y  * 7.2/scale.y * Screen.GetHeight()/1440);
+		int VirtualHeight = int(sfnt.scale.y * 7.2/scale.y * Screen.GetHeight()/1440);
 		
 		int posX = int( pos.x >= 0 ? pos.x : VirtualWidth  + pos.x );
 		int posY = int( pos.y >= 0 ? pos.y : VirtualHeight + pos.y );
@@ -241,7 +241,7 @@ extend Class SpecialDoomStatusBar
 		int tHeight = sfnt.tHeight;
 		int bHeight = sfnt.bHeight;
 		Vector2 scale = GetHUDScale();
-		int VirtualHeight = int(sfnt.scale.y  * 7.2/scale.y * Screen.GetHeight()/1440);
+		int VirtualHeight = int(sfnt.scale.y * 7.2/scale.y * Screen.GetHeight()/1440);
 		// Top Left
 		int topLeftTotal = 0;
 		if(killpos   == TOPLEFT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (sPush,tHeight+textSize*topLeftTotal++) ,kills,alphaFloat);
@@ -253,7 +253,7 @@ extend Class SpecialDoomStatusBar
 				DrawStatLine(sfnt,    Font.CR_YELLOW, (sPush,tHeight+textSize*topLeftTotal++) ,PowerupStrings[i],alphaFloat);
 		// Top Right
 		// This needs special handling for vid_fps
-		int conOffset = vid_fps ?  GetConSize()+2 : 0;
+		int conOffset = vid_fps ? GetConSize() * VirtualHeight/Screen.GetHeight() : 0;
 		topRightTotal = 0;
 		if(killpos   == TOPRIGHT) DrawStatLine(sfnt, killComp    ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(kills),  conOffset+tHeight+textSize*topRightTotal++)  ,kills,alphaFloat);
 		if(secretpos == TOPRIGHT) DrawStatLine(sfnt, secretComp  ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(secrets),conOffset+tHeight+textSize*topRightTotal++),secrets,alphaFloat);
@@ -371,7 +371,7 @@ extend Class SpecialDoomStatusBar
 		int vmax = screen.GetHeight() / 400;
 		int hmax = screen.GetWidth() / 640;
 		int max = MAX(vmax, hmax);
-		return NewConsoleFont.GetHeight()*MAX(1, MIN(scaleval, max))/4;
+		return NewConsoleFont.GetHeight()*MAX(1, MIN(scaleval, max));
 	}
 	
 	// ==========================================================
