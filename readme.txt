@@ -107,6 +107,7 @@ Tested With          : GZDoom
 > Version 5.X.X (XXX XX, 2019)
   NOTE: Now requires GZDoom 4.2.4+. This prevents a segfault that can occur with "Force HUD override" active.
         It is recommended to avoid activating this option in LZDoom (at least for now)
+  [ALL] MENUDEF: Reorganization into submenus ("General Settings", "Optional Settings", "Stats")
   [ALL] General Settings: "Force HUD override" option added. This will override any other custom HUD and 
                           use this HUD instead, regardless of load order (intended for autoload in particular)
   [ALL] Stats: "Powerup timers" option added. Works exactly the same as in LevelInfo v1.22 by Tekish (for now)

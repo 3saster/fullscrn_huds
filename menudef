@@ -53,20 +53,32 @@ OptionValue "Opaque"
 
 OptionMenu "FullscreenStatusbarOptions"
 {
-   	Position -15
    	Title "Fullscreen Status Bar"
    	StaticText ""
-   	StaticText "General Settings", "gold"
+	Submenu "General Settings", "GeneralSettings"
+	Submenu "Optional Settings", "OptionalSettings"
+	Submenu "Stats", "StatsSettings"
+   	StaticText ""
+	Submenu "Credits/About", "FullscreenCredits"
+}
+
+OptionMenu "GeneralSettings"
+{
+   	Title "General Settings"
+   	StaticText ""
 	Option "Fullscreen", "screenblocks", "FullscreenMode"
    	ScaleSlider "Scaling", "hud_scale", -1.0, 8.0, 1.0, "$SCALEMNU_USEUI", "$SCALEMNU_USEFS"
 	Option "Force HUD override", "fullhud_override", "OnOff"
-	StaticText ""
-   	StaticText "Status Bar Appearance", "gold"
+   	StaticText ""
    	Option "Split bar", "fullhud_split", "OnOff"
 	Slider "Transparency", "fullhud_trans", 0, 1, 0.1
 	Option "Opaque elements", "fullhud_opaque", "Opaque"
+}
+
+OptionMenu "OptionalSettings"
+{
+   	Title "Optional Settings"
    	StaticText ""
-   	StaticText  "Optional Settings", "gold"
 	Option "Use Boom HUD colors", "fullhud_boomcolors", "OnOff"
 	IfGame(Doom) 
 	{
@@ -89,11 +101,16 @@ OptionMenu "FullscreenStatusbarOptions"
 	{
 		Option "Keys/armor as panels on automap", "fullhud_automaphide", "OnOff"
 	}
+}
+
+OptionMenu "StatsSettings"
+{
+   	Title "Stats"
    	StaticText ""
-   	StaticText  "Stats", "gold"
 	Option "Stats display", "fullhud_stats_type", "LevelStats"
 	Option "Stats font", "fullhud_stats_font", "LevelStatsFont"
 	Option "Completion color", "fullhud_stats_comp", "Colors", "fullhud_stats_type"
+   	StaticText ""
 	IfGame(Doom, Heretic, Hexen)
 	{
 		Option "Kill counter", "fullhud_stats_kills", "LevelStatsPosition", "fullhud_stats_type"
@@ -106,14 +123,12 @@ OptionMenu "FullscreenStatusbarOptions"
 	Option "Item counter", "fullhud_stats_items", "LevelStatsPosition", "fullhud_stats_type"
 	Option "Level time", "fullhud_stats_time", "LevelStatsPosition", "fullhud_stats_type"
 	Option "Powerup timers", "fullhud_stats_powerups", "LevelStatsPosition", "fullhud_stats_type"
-	StaticText ""
-	Submenu "Credits/About", "FullscreenCreditsMenu"
 }
 
-ListMenu "FullscreenCreditsMenu"
+ListMenu "FullscreenCredits"
 {
 	Font "SmallFont"
-	StaticText -64,	  0, "Version 5.X.X", gold
+	StaticText -64,	  0, "Version 5.1.3", gold
 	StaticText -64,	 12, "NightFright", red
 	StaticText -64,	 24, "3saster", red
 	StaticText -64,	 48, "id Software", red
