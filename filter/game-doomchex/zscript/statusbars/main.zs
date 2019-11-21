@@ -167,7 +167,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	// =================================
 	void drawBerserk(float alphaFloat, bool split = 0)
 	{
-		if(berserkShow.GetInt() && CPlayer.mo.FindInventory("PowerStrength"))
+		if(berserkShow && berserkShow.GetInt() && CPlayer.mo.FindInventory("PowerStrength"))
 		{
 			DrawImage("BERSERK", (split ? 138-isHacX(1)-isFreeDoom(3) : 14-isHacX(2)-isFreeDoom(3), -1), split ? DI_SCREEN_LEFT_BOTTOM : DI_SCREEN_CENTER_BOTTOM, alphaFloat);
 		}
