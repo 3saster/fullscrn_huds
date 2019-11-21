@@ -110,10 +110,11 @@ Tested With          : GZDoom
   [ALL] General Settings: "Force HUD override" option added. This will override any other custom HUD and 
                           use this HUD instead, regardless of load order (intended for autoload in particular)
   [ALL] Stats: "Powerup timers" option added. Works exactly the same as in LevelInfo v1.22 by Tekish (for now)
+  [ALL] Active powerup icons (e.g. Tome of Power or Wings of Wrath) no longer block stats
   [DOOM/CHEX/HACX/HERETIC] Secondary ammo now displayed if required (Hexen already did this)
   [DOOM] Automatic compatibility added for Pirate Doom
   [CHEX] Berserk mode indicator CVAR from Doom no longer saved to ini
-  [ALL] Inventory icons, such as when the tome of power is active, no longer block stats
+  [HACX] No longer uses modified STBAR lump, but instead adds a small black patch to cover mugshot background
   
 > Version 5.1.2 (Nov 4, 2019)
   [ALL] MENUDEF: Code optimization (now only HacX needs two files, all other games just one)
