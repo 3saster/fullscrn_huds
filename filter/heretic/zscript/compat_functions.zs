@@ -1,5 +1,15 @@
 extend Class SpecialHereticStatusBar
 {
+	// =================================
+	// Wrapper to add offsets for LZDoom
+	// =================================
+	float isLZDoom(float offset = 1.0)
+	{
+		if(borderless)
+			return offset;
+		return 0;
+	}
+
     // MurmurHash2, by Austin Appleby, modified by 3saster
     // I'd use something like MD5, but that's much harder to implement...
     int Hash (string key)

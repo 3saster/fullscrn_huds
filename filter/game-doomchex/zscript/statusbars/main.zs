@@ -19,7 +19,10 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	transient CVAR statItems;
 	transient CVAR statTime;
 	transient CVAR statPowerups;
-	
+
+	//Trick to check for LZDoom...
+	transient CVAR borderless;
+
 	InventoryBarState diparms_sbar;
 	HUDFont mSmallFont;
 	HUDFont mIndexFontF;
@@ -70,6 +73,8 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		statItems      = CVar.FindCVar("fullhud_stats_items");
 		statTime       = CVar.FindCVar("fullhud_stats_time");
 		statPowerups   = CVar.FindCVar("fullhud_stats_powerups");
+
+		borderless     = CVar.FindCVar("win_borderless");
 
 		diparms_sbar = InventoryBarState.CreateNoBox(mIndexFont, boxsize:(31, 31), arrowoffs:(0,-10));
 		

@@ -17,6 +17,9 @@ Class SpecialHexenStatusBar : HexenStatusBar
 	transient CVAR statTime;
 	transient CVAR statPowerups;
 
+	//Trick to check for LZDoom...
+	transient CVAR borderless;
+
 	int chainWig; // wiggle is private...
 
 	// Strings describing certain font-related things
@@ -43,6 +46,8 @@ Class SpecialHexenStatusBar : HexenStatusBar
 		statItems      = CVar.FindCVar("fullhud_stats_items");
 		statTime       = CVar.FindCVar("fullhud_stats_time");
 		statPowerups   = CVar.FindCVar("fullhud_stats_powerups");
+
+		borderless     = CVar.FindCVar("win_borderless");
 
 		SMALLIN = "SMALLIN";
 		SMALLGR = "SMALLGR";

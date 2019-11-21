@@ -1,5 +1,15 @@
 extend Class SpecialDoomStatusBar
 {
+	// =================================
+	// Wrapper to add offsets for LZDoom
+	// =================================
+	float isLZDoom(float offset = 1.0)
+	{
+		if(borderless)
+			return offset;
+		return 0;
+	}
+
 	// ===================================
 	// Wrapper to add offsets for Freedoom
 	// ===================================

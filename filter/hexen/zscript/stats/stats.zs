@@ -364,20 +364,22 @@ extend Class SpecialHexenStatusBar
 	// ===================================
 	int GetConSize()
 	{
+		bool LZDoom = isLZDoom();
+
 		int scaleval;
-		if (con_scale > 0) scaleval = (con_scale+1) / 2;
+		if (con_scale > 0) scaleval = !LZDoom ? (con_scale+1) / 2 : con_scale;
 		else if (uiscale == 0)
 		{
 			// Default should try to scale to 640x400
-			int vscale = screen.GetHeight() / 800;
-			int hscale = screen.GetWidth() / 1280;
+			int vscale = screen.GetHeight() / (!LZDoom ? 800 : 400);
+			int hscale = screen.GetWidth() / (!LZDoom ? 1280 : 640);
 			scaleval = clamp(vscale, 1, hscale);
 		}
-		else scaleval = (uiscale+1) / 2;
+		else scaleval = !LZDoom ? (uiscale+1) / 2 : uiscale;
 
 		// block scales that result in something larger than the current screen.
-		int vmax = screen.GetHeight() / 400;
-		int hmax = screen.GetWidth() / 640;
+		int vmax = screen.GetHeight() / (!LZDoom ? 400 : 200);
+		int hmax = screen.GetWidth() / (!LZDoom ? 640 : 320);
 		int max = MAX(vmax, hmax);
 		return NewConsoleFont.GetHeight()*MAX(1, MIN(scaleval, max));
 	}
