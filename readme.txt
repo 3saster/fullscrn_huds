@@ -17,7 +17,7 @@ Description          : Fullscreen versions for the status bars of Doom-based
                        Harmony), Heretic and Hexen with optional transparency 
                        and level stats display
 
-Additional Info      : 1) Only works with GZDoom 4.2.4+, LZDoom 3.83+ and other
+Additional Info      : 1) Only works with GZDoom 4.2.5+, LZDoom 3.84+ and other
                           equivalent ports.
                        2) If this mod is loaded and fullscreen mode is used while
                           the correct HUD is still not shown, it may be overwritten
@@ -105,6 +105,8 @@ Tested With          : GZDoom
 * CHANGELOG *
 
 > Version 5.x.x (xxx xx, xxxx)
+  NOTE: Now requires GZDoom 4.2.5+ or LZDoom 3.84+. This is due to a major internal restructure that makes many parts of the code
+        (especially the stats) MUCH easier to maintain, using the almighty mixins
 
 > Version 5.1.3 (Nov 22, 2019)
   NOTE: Now requires GZDoom 4.2.4+. This prevents a segfault that can occur with "Force HUD override" active.

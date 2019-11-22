@@ -1,0 +1,1 @@
+// Deliberately empty; helps avoid a crash with unknown IWADs

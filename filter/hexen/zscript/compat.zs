@@ -1,5 +1,7 @@
 extend Class SpecialHexenStatusBar
 {
+	mixin CompatFunctions;
+
 	Array<String> PowerupNames;   // Actual Name of the powerup
 	Array<String> PowerupDisplay; // Name to display on stats
 	// =============================

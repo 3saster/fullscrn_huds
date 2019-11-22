@@ -25,6 +25,15 @@ Class SpecialHereticStatusBar : HereticStatusBar
 	// Strings describing certain font-related things
 	string SMALLIN;
 	string SMALLGR;
+
+	mixin TransFunctions;
+
+	enum OpaqueValues
+	{
+		OP_NONE = 0,
+		OP_NUM = 1,
+		OP_NUMGRAPH = 2,
+	}
 	
 	override void Init()
 	{

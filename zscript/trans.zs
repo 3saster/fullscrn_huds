@@ -1,4 +1,4 @@
-extend Class SpecialHexenStatusBar
+mixin Class TransFunctions
 {
 	// ======================================
 	// Same as DrawGem, but with transparency
