@@ -1,5 +1,7 @@
 extend Class SpecialDoomStatusBar
 {
+	mixin Stats;
+
 	enum FontValues
 	{
 		OLDFONT = 0,

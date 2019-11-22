@@ -1,5 +1,7 @@
 extend Class SpecialHereticStatusBar
 {
+	mixin Stats;
+
 	enum FontValues
 	{
 		OLDFONT = 0,

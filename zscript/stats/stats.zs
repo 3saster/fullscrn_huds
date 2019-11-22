@@ -1,4 +1,4 @@
-extend Class SpecialHexenStatusBar
+mixin Class Stats
 {
 	enum StatsTypeValues
 	{

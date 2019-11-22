@@ -1,5 +1,7 @@
 extend Class SpecialHexenStatusBar
 {
+	mixin Stats;
+
 	enum FontValues
 	{
 		OLDFONT = 0,
