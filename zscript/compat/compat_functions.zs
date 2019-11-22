@@ -1,4 +1,4 @@
-extend Class SpecialDoomStatusBar
+mixin Class CompatFunctions
 {
 	// =================================
 	// Wrapper to add offsets for LZDoom
@@ -104,21 +104,5 @@ extend Class SpecialDoomStatusBar
         h ^= h >> 15;
 
         return h;
-    } 
-	
-	Array<String> ammoNames;
-	// ===========================================
-	// Override to ensure standard HUD still works
-	// ===========================================
-	override void DrawBarAmmo()
-	{
-		int amt1, maxamt;
-		
-		for(int i = 0; i < ammoNames.size(); i++)
-		{
-			[amt1, maxamt] = GetAmount(ammoNames[i]);
-			DrawString(mIndexFont, FormatNumber(amt1, 3), (288, 173+6*i), DI_TEXT_ALIGN_RIGHT);
-			DrawString(mIndexFont, FormatNumber(maxamt, 3), (314, 173+6*i), DI_TEXT_ALIGN_RIGHT);
-		}
-	}
+    }
 }

@@ -10,5 +10,4 @@
 #include "zscript/boomcolors.zs"
 
 // Compatibility for doom-based IWADs & PWADs
-#include "zscript/compat_functions.zs"
 #include "zscript/compat.zs"
