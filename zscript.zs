@@ -8,3 +8,6 @@ version "4.2.4"
 
 // The general stats (see statfonts.zs in each filter for specific gamefont behaviour)
 #include "zscript/stats/stats.zs"
+
+// Transparent versions of some standard functions
+#include "zscript/trans.zs"

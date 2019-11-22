@@ -49,7 +49,9 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		OP_NUM = 1,
 		OP_NUMGRAPH = 2,
 	}
-	
+
+	mixin TransFunctions;
+
 	override void Init()
 	{
 		Super.Init();

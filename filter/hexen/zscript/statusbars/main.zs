@@ -25,7 +25,9 @@ Class SpecialHexenStatusBar : HexenStatusBar
 	// Strings describing certain font-related things
 	string SMALLIN;
 	string SMALLGR;
-	
+
+	mixin TransFunctions;
+
 	enum OpaqueValues
 	{
 		OP_NONE = 0,

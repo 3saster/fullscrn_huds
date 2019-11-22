@@ -9,9 +9,6 @@
 // Boom colors
 #include "zscript/boomcolors.zs"
 
-// Functions that lack transparency natively
-#include "zscript/trans.zs"
-
 // Compatibility for PWADs/mods
 #include "zscript/compat_functions.zs"
 #include "zscript/compat.zs"
