@@ -163,7 +163,16 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		else
 			DrawUnsplit();
 	}
-	
+
+	// =======================
+	// Add arms for Chex Quest
+	// =======================
+	string addArms(string input)
+	{
+		string output = string.format("%s%s", input, chexArms && chexArms.GetInt() ? "_ARMS" : "");
+		return output;
+	}
+
 	// =================================
 	// Draw Berserk Symbol if CVAR is on
 	// =================================

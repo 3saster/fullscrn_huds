@@ -28,15 +28,6 @@ mixin Class CompatFunctions
 		return gameinfo.gametype & GAME_Chex ? offset : 0;
 	}
 	
-	// =======================
-	// Add arms for Chex Quest
-	// =======================
-	string addArms(string input)
-	{
-		string output = string.format("%s%s", input, chexArms && chexArms.GetInt() ? "_ARMS" : "");
-		return output;
-	}
-	
 	// ===============================
 	// Wrapper to add offsets for HacX
 	// ===============================
