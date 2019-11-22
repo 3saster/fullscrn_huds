@@ -25,7 +25,7 @@ extend Class SpecialDoomStatusBar
 		BOTTOMLEFT = 5,
 		BOTTOMRIGHT = 6
 	}
-	
+
 	DynamicValueInterpolator siKillsP;
 	DynamicValueInterpolator siSecretsP;
 	DynamicValueInterpolator siItemsP;
@@ -128,7 +128,7 @@ extend Class SpecialDoomStatusBar
 			DTA_VirtualWidth, VirtualWidth, DTA_VirtualHeight, VirtualHeight, DTA_Alpha, alpha);
 	}
 	
-	protected virtual void DrawLevelStats (statFont sfnt)
+	protected virtual void DrawLevelStats (statFont sfnt, int state = HUD_StatusBar)
 	{
 		int alphaO = alphaOpaque.GetInt();
 		double alphaFloat = alphaO == OP_NUM || alphaO == OP_NUMGRAPH ? 1 : 1-alphaValue.getfloat();
@@ -239,7 +239,6 @@ extend Class SpecialDoomStatusBar
 		
 		int sPush = sfnt.sPush;
 		int tHeight = sfnt.tHeight;
-		int bHeight = sfnt.bHeight;
 		Vector2 scale = GetHUDScale();
 		int VirtualHeight = int(sfnt.scale.y * 7.2/scale.y * Screen.GetHeight()/1440);
 		// Top Left
@@ -255,13 +254,13 @@ extend Class SpecialDoomStatusBar
 		// This needs special handling for vid_fps
 		int conOffset = vid_fps ? GetConSize() * VirtualHeight/Screen.GetHeight() : 0;
 		topRightTotal = 0;
-		if(killpos   == TOPRIGHT) DrawStatLine(sfnt, killComp    ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(kills),  conOffset+tHeight+textSize*topRightTotal++)  ,kills,alphaFloat);
-		if(secretpos == TOPRIGHT) DrawStatLine(sfnt, secretComp  ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(secrets),conOffset+tHeight+textSize*topRightTotal++),secrets,alphaFloat);
-		if(itempos   == TOPRIGHT) DrawStatLine(sfnt, itemComp    ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(items),  conOffset+tHeight+textSize*topRightTotal++)  ,items,alphaFloat);
-		if(timepos   == TOPRIGHT && statsType.GetInt()) DrawStatLine(sfnt,     Font.CR_WHITE, (-sPush-fnt.StringWidth(time),   conOffset+tHeight+textSize*topRightTotal++)   ,time,alphaFloat);
+		if(killpos   == TOPRIGHT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(kills),  conOffset+tHeight+textSize*topRightTotal++)  ,kills,alphaFloat);
+		if(secretpos == TOPRIGHT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(secrets),conOffset+tHeight+textSize*topRightTotal++),secrets,alphaFloat);
+		if(itempos   == TOPRIGHT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(items),  conOffset+tHeight+textSize*topRightTotal++)  ,items,alphaFloat);
+		if(timepos   == TOPRIGHT && statsType.GetInt()) DrawStatLine(sfnt,    Font.CR_WHITE, (-sPush-fnt.StringWidth(time),   conOffset+tHeight+textSize*topRightTotal++)   ,time,alphaFloat);
 		if(powerpos  == TOPRIGHT)
 			for(int i = 0; i < PowerupStrings.size(); i++)	
-				DrawStatLine(sfnt,     Font.CR_YELLOW, (-sPush-fnt.StringWidth(PowerupStrings[i]),   conOffset+tHeight+textSize*topRightTotal++)   ,PowerupStrings[i],alphaFloat);
+				DrawStatLine(sfnt,    Font.CR_YELLOW, (-sPush-fnt.StringWidth(PowerupStrings[i]),   conOffset+tHeight+textSize*topRightTotal++)   ,PowerupStrings[i],alphaFloat);
 		// Center Left
 		int clTotal = 0;
 		if(itempos   == CENTERLEFT) clTotal++;
@@ -296,22 +295,27 @@ extend Class SpecialDoomStatusBar
 				DrawStatLine(sfnt,    Font.CR_YELLOW, (-sPush-fnt.StringWidth(PowerupStrings[i]),   crHeight+textSize*centerRightTotal++) ,PowerupStrings[i],alphaFloat);
 		// Bottom Left
 		int bottomLeftTotal = 0;
-		if(itempos   == BOTTOMLEFT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (sPush,-bHeight-textSize*bottomLeftTotal++) ,items,alphaFloat);
-		if(secretpos == BOTTOMLEFT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (sPush,-bHeight-textSize*bottomLeftTotal++) ,secrets,alphaFloat);
-		if(killpos   == BOTTOMLEFT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (sPush,-bHeight-textSize*bottomLeftTotal++) ,kills,alphaFloat);
-		if(timepos   == BOTTOMLEFT && statsType.GetInt()) DrawStatLine(sfnt,    Font.CR_WHITE, (sPush,-bHeight-textSize*bottomLeftTotal++) ,time,alphaFloat);
+		int bHeightL =  !splitHUD.getint() || state == HUD_StatusBar  ?  sfnt.bHeightL[0] : sfnt.bHeightL[1];
+		if(itempos   == BOTTOMLEFT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (sPush,-bHeightL-textSize*bottomLeftTotal++) ,items,alphaFloat);
+		if(secretpos == BOTTOMLEFT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (sPush,-bHeightL-textSize*bottomLeftTotal++) ,secrets,alphaFloat);
+		if(killpos   == BOTTOMLEFT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (sPush,-bHeightL-textSize*bottomLeftTotal++) ,kills,alphaFloat);
+		if(timepos   == BOTTOMLEFT && statsType.GetInt()) DrawStatLine(sfnt,    Font.CR_WHITE, (sPush,-bHeightL-textSize*bottomLeftTotal++) ,time,alphaFloat);
 		if(powerpos  == BOTTOMLEFT)
 			for(int i = 0; i < PowerupStrings.size(); i++)	
-				DrawStatLine(sfnt,    Font.CR_YELLOW, (sPush,-bHeight-textSize*bottomLeftTotal++) ,PowerupStrings[i],alphaFloat);
+				DrawStatLine(sfnt,    Font.CR_YELLOW, (sPush,-bHeightL-textSize*bottomLeftTotal++) ,PowerupStrings[i],alphaFloat);
 		// Bottom Right
 		int bottomRightTotal = 0;
-		if(itempos   == BOTTOMRIGHT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(items),  -bHeight-textSize*bottomRightTotal++)  ,items,alphaFloat);
-		if(secretpos == BOTTOMRIGHT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(secrets),-bHeight-textSize*bottomRightTotal++),secrets,alphaFloat);
-		if(killpos   == BOTTOMRIGHT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(kills),  -bHeight-textSize*bottomRightTotal++)  ,kills,alphaFloat);
-		if(timepos   == BOTTOMRIGHT && statsType.GetInt()) DrawStatLine(sfnt,    Font.CR_WHITE, (-sPush-fnt.StringWidth(time),   -bHeight-textSize*bottomRightTotal++)   ,time,alphaFloat);
+		int bHeightR =  !splitHUD.getint() || state == HUD_StatusBar  ?  sfnt.bHeightR[0] : sfnt.bHeightR[1];
+		// Split arms block stats in Heretic, move them up in this case.
+		if( (gameinfo.gametype & GAME_Heretic) && splitHUD.getint() && splitArms.getint() && state == HUD_Fullscreen)
+			bHeightR += sfnt.armsOffset;
+		if(itempos   == BOTTOMRIGHT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(items),  -bHeightR-textSize*bottomRightTotal++)  ,items,alphaFloat);
+		if(secretpos == BOTTOMRIGHT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(secrets),-bHeightR-textSize*bottomRightTotal++),secrets,alphaFloat);
+		if(killpos   == BOTTOMRIGHT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(kills),  -bHeightR-textSize*bottomRightTotal++)  ,kills,alphaFloat);
+		if(timepos   == BOTTOMRIGHT && statsType.GetInt()) DrawStatLine(sfnt,    Font.CR_WHITE, (-sPush-fnt.StringWidth(time),   -bHeightR-textSize*bottomRightTotal++)   ,time,alphaFloat);
 		if(powerpos  == BOTTOMRIGHT)
 			for(int i = 0; i < PowerupStrings.size(); i++)	
-				DrawStatLine(sfnt,    Font.CR_YELLOW, (-sPush-fnt.StringWidth(PowerupStrings[i]),   -bHeight-textSize*bottomRightTotal++)   ,PowerupStrings[i],alphaFloat);
+				DrawStatLine(sfnt,    Font.CR_YELLOW, (-sPush-fnt.StringWidth(PowerupStrings[i]),   -bHeightR-textSize*bottomRightTotal++)   ,PowerupStrings[i],alphaFloat);
 	}
 
 	// =====================================================
@@ -350,7 +354,7 @@ extend Class SpecialDoomStatusBar
 			}
 		}
 	}
-	
+
 	// ===================================
 	// Helper Function to get vid_fps size
 	// ===================================

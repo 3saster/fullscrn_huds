@@ -26,6 +26,13 @@ Class SpecialHereticStatusBar : HereticStatusBar
 	string SMALLIN;
 	string SMALLGR;
 	
+	enum OpaqueValues
+	{
+		OP_NONE = 0,
+		OP_NUM = 1,
+		OP_NUMGRAPH = 2,
+	}
+	
 	override void Init()
 	{
 		Super.Init();

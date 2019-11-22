@@ -25,13 +25,6 @@ extend Class SpecialHexenStatusBar
 		BOTTOMLEFT = 5,
 		BOTTOMRIGHT = 6
 	}
-	
-	enum OpaqueValues
-	{
-		OP_NONE = 0,
-		OP_NUM = 1,
-		OP_NUMGRAPH = 2,
-	}
 
 	DynamicValueInterpolator siKillsP;
 	DynamicValueInterpolator siSecretsP;
@@ -171,7 +164,7 @@ extend Class SpecialHexenStatusBar
 		bool killComp = false;
 		bool secretComp = false;
 		bool itemComp = false;
-		string killstring = "Kills";
+		string killstring = (gameinfo.gametype & GAME_Chex) ? "Zorches" : "Kills";
 		switch(statsType.GetInt())
 		{
 			case PERCENT:
@@ -223,7 +216,7 @@ extend Class SpecialHexenStatusBar
 				powerlength = max(powerlength, fnt.StringWidth(s));
 			}
 		}
-		
+
 		int textSize = fnt.GetHeight() + sfnt.vspace;
 		int killpos = statKills.getInt();
 		int secretpos = statSecrets.getInt();
@@ -313,6 +306,9 @@ extend Class SpecialHexenStatusBar
 		// Bottom Right
 		int bottomRightTotal = 0;
 		int bHeightR =  !splitHUD.getint() || state == HUD_StatusBar  ?  sfnt.bHeightR[0] : sfnt.bHeightR[1];
+		// Split arms block stats in Heretic, move them up in this case.
+		if( (gameinfo.gametype & GAME_Heretic) && splitHUD.getint() && splitArms.getint() && state == HUD_Fullscreen)
+			bHeightR += sfnt.armsOffset;
 		if(itempos   == BOTTOMRIGHT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(items),  -bHeightR-textSize*bottomRightTotal++)  ,items,alphaFloat);
 		if(secretpos == BOTTOMRIGHT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(secrets),-bHeightR-textSize*bottomRightTotal++),secrets,alphaFloat);
 		if(killpos   == BOTTOMRIGHT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(kills),  -bHeightR-textSize*bottomRightTotal++)  ,kills,alphaFloat);
