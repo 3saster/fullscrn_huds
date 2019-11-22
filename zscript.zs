@@ -1,4 +1,4 @@
-version "4.2.4"
+version "4.2.5"
 
 // Include directives for each filter
 #include "zscript_filter.zs"
