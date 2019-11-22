@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom 4.2.4+ / LZDoom 3.83+
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.1.3)
+Title                : Fullscreen Status Bar Mod (v5.x.x)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : 11/22/2019
+Release date         : xx/xx/xxxx
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -103,6 +103,8 @@ Tested With          : GZDoom
 
 
 * CHANGELOG *
+
+> Version 5.x.x (xxx xx, xxxx)
 
 > Version 5.1.3 (Nov 22, 2019)
   NOTE: Now requires GZDoom 4.2.4+. This prevents a segfault that can occur with "Force HUD override" active.
