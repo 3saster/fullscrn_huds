@@ -107,6 +107,7 @@ Tested With          : GZDoom
 > Version 5.x.x (xxx xx, xxxx)
   NOTE: Now requires GZDoom 4.2.5+ or LZDoom 3.84+. This is due to a major internal restructure that makes many parts of the code
         (especially the stats) MUCH easier to maintain, using the almighty mixins
+  [ALL] Stats: Added player morph timer from Tekish's LevelInfo v1.23 (mainly for chicken/pig morph in Heretic/Hexen multiplayer)
 
 > Version 5.1.3 (Nov 22, 2019)
   NOTE: Now requires GZDoom 4.2.4+. This prevents a segfault that can occur with "Force HUD override" active.
@@ -114,13 +115,13 @@ Tested With          : GZDoom
   [ALL] MENUDEF: Reorganization into submenus ("General Settings", "Optional Settings", "Stats")
   [ALL] General Settings: "Force HUD override" option added. This will override any other custom HUD and 
                           use this HUD instead, regardless of load order (intended for autoload in particular)
-  [ALL] Stats: "Powerup timers" option added. Works exactly the same as in LevelInfo v1.22 by Tekish (for now)
-  [ALL] Active powerup icons (e.g. Tome of Power or Wings of Wrath) no longer block stats
+  [ALL] Stats: "Powerup timers" option added. Works exactly the same as in Tekish's LevelInfo v1.22 (for now)
+  [ALL] Stats: Fixed top-right stats not moving correctly when the vid_fps CVAR is on
+  [ALL] Stats: Active powerup icons (e.g. Tome of Power or Wings of Wrath) no longer block stats
   [DOOM/CHEX/HACX/HERETIC] Secondary ammo now displayed if required (Hexen already did this)
   [DOOM] Automatic compatibility added for Pirate Doom
   [CHEX] Berserk mode indicator CVAR from Doom no longer saved to ini
   [HACX] No longer uses modified STBAR lump, but instead adds a small black patch to cover mugshot background
-  [ALL] Fixed stats in top-right not moving correctly when the vid_fps CVAR is on
   
 > Version 5.1.2 (Nov 4, 2019)
   [ALL] MENUDEF: Code optimization (now only HacX needs two files, all other games just one)
