@@ -281,6 +281,7 @@ extend Class SpecialDoomStatusBar
 			PowerupNames.Push("PowerFlight"); PowerupDisplay.Push("Flight"); // ArtiFly (Heretic/Hexen)
 		}
 		PowerupNames.Push("PowerTorch"); PowerupDisplay.Push("Torch"); // ArtiTorch (Heretic/Hexen)
+		PowerupNames.Push("PowerMorph"); PowerupDisplay.Push("Morph"); // Chicken/Pig morph (Heretic/Hexen)
 		return;
 	}
 }
