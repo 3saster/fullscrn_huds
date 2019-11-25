@@ -140,7 +140,40 @@ mixin Class PowerupValues
 			PowerupNames.Push("PowerFlight"); PowerupDisplay.Push("Flight"); // ArtiFly (Heretic/Hexen)
 		}
 		PowerupNames.Push("PowerTorch"); PowerupDisplay.Push("Torch"); // ArtiTorch (Heretic/Hexen)
-		PowerupNames.Push("PowerMorph"); PowerupDisplay.Push("Morph"); // Chicken/Pig morph (Heretic/Hexen)
 		return;
+	}
+
+	int,String GetMorphTics()
+	{
+		let pclass = CPlayer.mo.GetClassName();
+		int morphtics = players[consoleplayer].morphtics;
+		if(morphtics > 0x0fffffff) // This is probably from a powermorph...
+		{
+			morphtics = 0;
+			let inv = Powerup(CPlayer.mo.FindInventory("PowerMorph",true));
+			if( inv && inv.EffectTics > 0)
+			{
+				morphtics = inv.EffectTics;
+			}
+		}
+
+		String classname;
+		if(morphtics > 0)
+		{
+			if     (pclass == "PigPlayer")
+			{
+				classname = "Pig";
+			}
+			else if(pclass == "ChickenPlayer")
+			{
+				classname = "Chicken";
+			}
+			else
+			{
+				classname = "Morph";
+			}
+		}
+
+		return morphtics, classname;
 	}
 }

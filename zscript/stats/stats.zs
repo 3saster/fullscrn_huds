@@ -216,6 +216,16 @@ mixin Class Stats
 				powerlength = max(powerlength, fnt.StringWidth(s));
 			}
 		}
+		// Morphed Timers
+		String morphString = "";
+		int morphtics; String morphname;
+		[morphtics, morphname] = GetMorphTics();
+		if(morphtics > 0)
+		{
+			morphString = string.format("%s: %02d:%02d",morphname,morphtics/Thinker.TICRATE/60, morphtics/Thinker.TICRATE%60);
+			PowerupStrings.push(morphString);
+			powerlength = max(powerlength, fnt.StringWidth(morphString));
+		}
 
 		int textSize = fnt.GetHeight() + sfnt.vspace;
 		int killpos = statKills.getInt();
@@ -236,6 +246,7 @@ mixin Class Stats
 		items =   makeLength(items,  fnt, maxlength[itempos]   + padding);
 		for(int i = 0; i < PowerupStrings.size(); i++)
 			PowerupStrings[i] = makeLength(PowerupStrings[i],  fnt, maxlength[powerpos] + padding, ": ");
+		morphString = makeLength(morphString, fnt, maxlength[powerpos] + padding, ": ");
 		
 		int sPush = sfnt.sPush;
 		int tHeight = sfnt.tHeight;
@@ -249,7 +260,8 @@ mixin Class Stats
 		if(timepos   == TOPLEFT && statsType.GetInt()) DrawStatLine(sfnt,    Font.CR_WHITE, (sPush,tHeight+textSize*topLeftTotal++) ,time,alphaFloat);
 		if(powerpos  == TOPLEFT)
 			for(int i = 0; i < PowerupStrings.size(); i++)	
-				DrawStatLine(sfnt,    Font.CR_YELLOW, (sPush,tHeight+textSize*topLeftTotal++) ,PowerupStrings[i],alphaFloat);
+				DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
+				(sPush,tHeight+textSize*topLeftTotal++), PowerupStrings[i],alphaFloat);
 		// Top Right
 		// This needs special handling for vid_fps
 		int conOffset = vid_fps ? GetConSize() * VirtualHeight/Screen.GetHeight() : 0;
@@ -260,7 +272,8 @@ mixin Class Stats
 		if(timepos   == TOPRIGHT && statsType.GetInt()) DrawStatLine(sfnt,    Font.CR_WHITE, (-sPush-fnt.StringWidth(time),   conOffset+tHeight+textSize*topRightTotal++)   ,time,alphaFloat);
 		if(powerpos  == TOPRIGHT)
 			for(int i = 0; i < PowerupStrings.size(); i++)	
-				DrawStatLine(sfnt,    Font.CR_YELLOW, (-sPush-fnt.StringWidth(PowerupStrings[i]),   conOffset+tHeight+textSize*topRightTotal++)   ,PowerupStrings[i],alphaFloat);
+				DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
+				(-sPush-fnt.StringWidth(PowerupStrings[i]),conOffset+tHeight+textSize*topRightTotal++), PowerupStrings[i],alphaFloat);
 		// Center Left
 		int clTotal = 0;
 		if(itempos   == CENTERLEFT) clTotal++;
@@ -276,7 +289,8 @@ mixin Class Stats
 		if(timepos   == CENTERLEFT && statsType.GetInt()) DrawStatLine(sfnt,    Font.CR_WHITE, (sPush,clHeight+textSize*centerLeftTotal++) ,time,alphaFloat);
 		if(powerpos  == CENTERLEFT)
 			for(int i = 0; i < PowerupStrings.size(); i++)	
-				DrawStatLine(sfnt,    Font.CR_YELLOW, (sPush,clHeight+textSize*centerLeftTotal++) ,PowerupStrings[i],alphaFloat);
+				DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
+				(sPush,clHeight+textSize*centerLeftTotal++), PowerupStrings[i],alphaFloat);
 		// Center Right
 		int crTotal = 0;
 		if(itempos   == CENTERRIGHT) crTotal++;
@@ -292,7 +306,8 @@ mixin Class Stats
 		if(timepos   == CENTERRIGHT && statsType.GetInt()) DrawStatLine(sfnt,    Font.CR_WHITE, (-sPush-fnt.StringWidth(time),   crHeight+textSize*centerRightTotal++) ,time,alphaFloat);
 		if(powerpos  == CENTERRIGHT)
 			for(int i = 0; i < PowerupStrings.size(); i++)	
-				DrawStatLine(sfnt,    Font.CR_YELLOW, (-sPush-fnt.StringWidth(PowerupStrings[i]),   crHeight+textSize*centerRightTotal++) ,PowerupStrings[i],alphaFloat);
+				DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
+				(-sPush-fnt.StringWidth(PowerupStrings[i]), crHeight+textSize*centerRightTotal++), PowerupStrings[i],alphaFloat);
 		// Bottom Left
 		int bottomLeftTotal = 0;
 		int bHeightL =  !splitHUD.getint() || state == HUD_StatusBar  ?  sfnt.bHeightL[0] : sfnt.bHeightL[1];
@@ -302,7 +317,8 @@ mixin Class Stats
 		if(timepos   == BOTTOMLEFT && statsType.GetInt()) DrawStatLine(sfnt,    Font.CR_WHITE, (sPush,-bHeightL-textSize*bottomLeftTotal++) ,time,alphaFloat);
 		if(powerpos  == BOTTOMLEFT)
 			for(int i = 0; i < PowerupStrings.size(); i++)	
-				DrawStatLine(sfnt,    Font.CR_YELLOW, (sPush,-bHeightL-textSize*bottomLeftTotal++) ,PowerupStrings[i],alphaFloat);
+				DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
+				(sPush,-bHeightL-textSize*bottomLeftTotal++), PowerupStrings[i],alphaFloat);
 		// Bottom Right
 		int bottomRightTotal = 0;
 		int bHeightR =  !splitHUD.getint() || state == HUD_StatusBar  ?  sfnt.bHeightR[0] : sfnt.bHeightR[1];
@@ -315,7 +331,8 @@ mixin Class Stats
 		if(timepos   == BOTTOMRIGHT && statsType.GetInt()) DrawStatLine(sfnt,    Font.CR_WHITE, (-sPush-fnt.StringWidth(time),   -bHeightR-textSize*bottomRightTotal++)   ,time,alphaFloat);
 		if(powerpos  == BOTTOMRIGHT)
 			for(int i = 0; i < PowerupStrings.size(); i++)	
-				DrawStatLine(sfnt,    Font.CR_YELLOW, (-sPush-fnt.StringWidth(PowerupStrings[i]),   -bHeightR-textSize*bottomRightTotal++)   ,PowerupStrings[i],alphaFloat);
+				DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
+				(-sPush-fnt.StringWidth(PowerupStrings[i]),-bHeightR-textSize*bottomRightTotal++), PowerupStrings[i],alphaFloat);
 	}
 
 	// =====================================================
