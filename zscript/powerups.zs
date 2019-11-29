@@ -171,7 +171,7 @@ mixin Class PowerupValues
 				classname = "$FULLHUD_POWERUP_MORPHBARON";
 			// Unknown Morph
 			else
-				classname = "Morph";
+				classname = "$FULLHUD_POWERUP_MORPHDEFAULT";
 		}
 
 		return morphtics, classname;

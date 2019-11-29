@@ -1,9 +1,9 @@
 OptionMenu "OptionalSettings"
 {
-   	Title "Optional Settings"
+	Title "$FULLHUD_SETTINGSNAME_OPTIONAL"
    	StaticText ""
-	Option "Indicate berserk mode", "fullhud_showberserk", "OnOff"
-	Option "Show arms on split bar", "fullhud_splitarms", "OnOff", "fullhud_split"
-	Option "Inventory items can replace mugshot", "fullhud_invovermug", "OnOff"
-	Option "Hide status bar on automap", "fullhud_automaphide", "OnOff"
+	Option "$FULLHUD_OPTIONAL_BERSERK", "fullhud_showberserk", "OnOff"
+	Option "$FULLHUD_OPTIONAL_SPLITARMS", "fullhud_splitarms", "OnOff", "fullhud_split"
+	Option "$FULLHUD_OPTIONAL_INVREPLACE", "fullhud_invovermug", "OnOff"
+	Option "$FULLHUD_OPTIONAL_HIDEAUTOMAP", "fullhud_automaphide", "OnOff"
 }

@@ -1,7 +1,7 @@
 AddOptionMenu "HUDOptions"
 {
-   	StaticText ""     
-   	Submenu "$FULLHUD_MODTITLE", "FullscreenStatusbarOptions"
+	StaticText ""     
+	Submenu "$FULLHUD_MODTITLE", "FullscreenStatusbarOptions"
 }
 
 OptionValue "FullscreenMode"
@@ -99,7 +99,7 @@ OptionMenu "OptionalSettings"
 	}
  	IfGame(Hexen)
 	{
-		Option "Keys/armor as panels on automap", "fullhud_automaphide", "OnOff"
+		Option "$FULLHUD_OPTIONAL_HEXENAUTOMAP", "fullhud_automaphide", "OnOff"
 	}
 }
 
