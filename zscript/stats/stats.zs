@@ -164,13 +164,17 @@ mixin Class Stats
 		bool killComp = false;
 		bool secretComp = false;
 		bool itemComp = false;
-		string killstring = (gameinfo.gametype & GAME_Chex) ? "Zorches" : "Kills";
+		string killstring   = (gameinfo.gametype & GAME_Chex) ? 
+		                      Stringtable.Localize("$FULLHUD_KILLS_CHEX") : 
+							  Stringtable.Localize("$FULLHUD_KILLS");
+		string secretstring = Stringtable.Localize("$FULLHUD_SECRETS");
+		string itemstring   = Stringtable.Localize("$FULLHUD_ITEMS");
 		switch(statsType.GetInt())
 		{
 			case PERCENT:
-				if (statKills.GetInt())   kills   = string.format("%s: %i%%", killstring, siKillsP.GetValue());
-				if (statSecrets.GetInt()) secrets = string.format("Secrets: %i%%",        siSecretsP.GetValue());
-				if (statItems.GetInt())   items   = string.format("Items: %i%%",          siItemsP.GetValue());
+				if (statKills.GetInt())   kills   = string.format("%s: %i%%", killstring,   siKillsP.GetValue());
+				if (statSecrets.GetInt()) secrets = string.format("%s: %i%%", secretstring, siSecretsP.GetValue());
+				if (statItems.GetInt())   items   = string.format("%s: %i%%", itemstring,   siItemsP.GetValue());
 
 				if (siKillsP.GetValue()   == 100) killComp = true;
 				if (siSecretsP.GetValue() == 100) secretComp = true;
@@ -179,9 +183,9 @@ mixin Class Stats
 				
 			case COUNTDOWN:
 				string space = string.format(string.format("%%%ds",padding), padding ? "" : " ");
-				if (statKills.GetInt())   kills   = string.format("%s: %i%sLeft", killstring, siKillsC.GetValue(),   space);
-				if (statSecrets.GetInt()) secrets = string.format("Secrets: %i%sLeft",        siSecretsC.GetValue(), space);
-				if (statItems.GetInt())   items   = string.format("Items: %i%sLeft",          siItemsC.GetValue(),   space);
+				if (statKills.GetInt())   kills   = string.format("%s: %i%sLeft", killstring,   siKillsC.GetValue(),   space);
+				if (statSecrets.GetInt()) secrets = string.format("%s: %i%sLeft", secretstring, siSecretsC.GetValue(), space);
+				if (statItems.GetInt())   items   = string.format("%s: %i%sLeft", itemstring,   siItemsC.GetValue(),   space);
 
 				if (siKillsC.GetValue()   == 0) killComp = true;
 				if (siSecretsC.GetValue() == 0) secretComp = true;
@@ -189,9 +193,9 @@ mixin Class Stats
 				break;
 				
 			case FRACTION:
-				if (statKills.GetInt())   kills   = string.format("%s: %i/%i",killstring, siKillsF.GetValue(),   Level.total_monsters);
-				if (statSecrets.GetInt()) secrets = string.format("Secrets: %i/%i",       siSecretsF.GetValue(), Level.total_secrets);
-				if (statItems.GetInt())   items   = string.format("Items: %i/%i",         siItemsF.GetValue(),   Level.total_items);
+				if (statKills.GetInt())   kills   = string.format("%s: %i/%i", killstring,   siKillsF.GetValue(),   Level.total_monsters);
+				if (statSecrets.GetInt()) secrets = string.format("%s: %i/%i", secretstring, siSecretsF.GetValue(), Level.total_secrets);
+				if (statItems.GetInt())   items   = string.format("%s: %i/%i", itemstring,   siItemsF.GetValue(),   Level.total_items);
 
 				if (siKillsF.GetValue()   == Level.total_monsters) killComp = true;
 				if (siSecretsF.GetValue() == Level.total_secrets)  secretComp = true;
@@ -211,7 +215,7 @@ mixin Class Stats
 			let inv = Powerup(pmo.FindInventory(PowerupNames[i]));
 			if( inv && inv.EffectTics > 0)
 			{
-				string s = string.format("%s: %02d:%02d",PowerupDisplay[i],inv.EffectTics/Thinker.TICRATE/60, inv.EffectTics/Thinker.TICRATE%60);
+				string s = string.format("%s: %02d:%02d",StringTable.Localize(PowerupDisplay[i]),inv.EffectTics/Thinker.TICRATE/60, inv.EffectTics/Thinker.TICRATE%60);
 				PowerupStrings.push(s);
 				powerlength = max(powerlength, fnt.StringWidth(s));
 			}
@@ -222,7 +226,7 @@ mixin Class Stats
 		[morphtics, morphname] = GetMorphTics();
 		if(morphtics > 0)
 		{
-			morphString = string.format("%s: %02d:%02d",morphname,morphtics/Thinker.TICRATE/60, morphtics/Thinker.TICRATE%60);
+			morphString = string.format("%s: %02d:%02d",StringTable.Localize(morphname),morphtics/Thinker.TICRATE/60, morphtics/Thinker.TICRATE%60);
 			PowerupStrings.push(morphString);
 			powerlength = max(powerlength, fnt.StringWidth(morphString));
 		}

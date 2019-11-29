@@ -1,101 +1,101 @@
 AddOptionMenu "HUDOptions"
 {
    	StaticText ""     
-   	Submenu "Fullscreen Status Bar", "FullscreenStatusbarOptions"
+   	Submenu "$FULLHUD_MODTITLE", "FullscreenStatusbarOptions"
 }
 
 OptionValue "FullscreenMode"
 {
-	10, "Off"
-	11, "On"
+	10, "$OPTVAL_OFF"
+	11, "$OPTVAL_ON"
 }
 
 OptionValue "LevelStats"
 {
-	0, "Off"
-	1, "Percentages"
-	2, "Countdown"
-	3, "Fraction"
+	0, "$OPTVAL_OFF"
+	1, "$FULLHUD_LS_PERCENTAGES"
+	2, "$FULLHUD_LS_COUNTDOWN"
+	3, "$FULLHUD_LS_FRACTION"
 }
 
 OptionValue "LevelStatsFont"
 {
-	0, "Default"
-	1, "Console Font"
-	2, "Status Report"
-	3, "Memento Mori 2"
+	0, "$OPTVAL_DEFAULT"
+	1, "$FULLHUD_FONT_CONFONT"
+	2, "$FULLHUD_FONT_STATREPORT"
+	3, "$FULLHUD_FONT_MM2"
 }
 
 OptionValue "LevelStatsPosition"
 {
-	0, "Off"
-	1, "Top left"
-	2, "Top right"
-	3, "Center left"
-	4, "Center right"
-	5, "Bottom left"
-	6, "Bottom right"
+	0, "$OPTVAL_OFF"
+	1, "$FULLHUD_LSP_TL"
+	2, "$FULLHUD_LSP_TR"
+	3, "$FULLHUD_LSP_CL"
+	4, "$FULLHUD_LSP_CR"
+	5, "$FULLHUD_LSP_BL"
+	6, "$FULLHUD_LSP_BR"
 }
 
 OptionValue "Colors"
 {
-	0, "Green"
-	1, "Red"
-	2, "None"
+	0, "$C_GREEN"
+	1, "$C_RED"
+	2, "$OPTVAL_NONE"
 }
 
 OptionValue "Opaque"
 {
-	0, "Off"
-	1, "Numbers"
-	2, "Numbers & graphics"
+	0, "$OPTVAL_OFF"
+	1, "$FULLHUD_OPAQUE_NUM"
+	2, "$FULLHUD_OPAQUE_NUMGRAPH"
 }
 
 OptionMenu "FullscreenStatusbarOptions"
 {
-   	Title "Fullscreen Status Bar"
+   	Title "$FULLHUD_MODTITLE"
    	StaticText ""
-	Submenu "General Settings", "GeneralSettings"
-	Submenu "Optional Settings", "OptionalSettings"
-	Submenu "Stats", "StatsSettings"
+	Submenu "$FULLHUD_SETTINGSNAME_GENERAL", "GeneralSettings"
+	Submenu "$FULLHUD_SETTINGSNAME_OPTIONAL", "OptionalSettings"
+	Submenu "$FULLHUD_SETTINGSNAME_STATS", "StatsSettings"
    	StaticText ""
-	Submenu "Credits/About", "FullscreenCredits"
+	Submenu "$FULLHUD_SETTINGSNAME_CREDITS", "FullscreenCredits"
 }
 
 OptionMenu "GeneralSettings"
 {
-   	Title "General Settings"
+   	Title "$FULLHUD_SETTINGSNAME_GENERAL"
    	StaticText ""
-	Option "Fullscreen", "screenblocks", "FullscreenMode"
-   	ScaleSlider "Scaling", "hud_scale", -1.0, 8.0, 1.0, "$SCALEMNU_USEUI", "$SCALEMNU_USEFS"
-	Option "Force HUD override", "fullhud_override", "OnOff"
+	Option "$FULLHUD_GENERAL_FULLSCREEN", "screenblocks", "FullscreenMode"
+   	ScaleSlider "$FULLHUD_GENERAL_SCALING", "hud_scale", -1.0, 8.0, 1.0, "$SCALEMNU_USEUI", "$SCALEMNU_USEFS"
+	Option "$FULLHUD_GENERAL_FORCEOVERRIDE", "fullhud_override", "OnOff"
    	StaticText ""
-   	Option "Split bar", "fullhud_split", "OnOff"
-	Slider "Transparency", "fullhud_trans", 0, 1, 0.1
-	Option "Opaque elements", "fullhud_opaque", "Opaque"
+   	Option "$FULLHUD_GENERAL_SPLIT", "fullhud_split", "OnOff"
+	Slider "$FULLHUD_GENERAL_TRANSPARENCY", "fullhud_trans", 0, 1, 0.1
+	Option "$FULLHUD_GENERAL_OPAQUE", "fullhud_opaque", "Opaque"
 }
 
 OptionMenu "OptionalSettings"
 {
-   	Title "Optional Settings"
+   	Title "$FULLHUD_SETTINGSNAME_OPTIONAL"
    	StaticText ""
-	Option "Use Boom HUD colors", "fullhud_boomcolors", "OnOff"
+	Option "$FULLHUD_OPTIONAL_BOOMHUD", "fullhud_boomcolors", "OnOff"
 	IfGame(Doom) 
 	{
-		Option "Indicate berserk mode", "fullhud_showberserk", "OnOff"
+		Option "$FULLHUD_OPTIONAL_BERSERK", "fullhud_showberserk", "OnOff"
 	}
 	IfGame(Chex) 
 	{
-		Option "Replace Chex logos", "fullhud_chexarms", "OnOff"
+		Option "$FULLHUD_OPTIONAL_CHEXLOGO", "fullhud_chexarms", "OnOff"
 	}
-	Option "Show arms on split bar", "fullhud_splitarms", "OnOff", "fullhud_split"
+	Option "$FULLHUD_OPTIONAL_SPLITARMS", "fullhud_splitarms", "OnOff", "fullhud_split"
 	IfGame(Doom, Chex) 
 	{	
-		Option "Inventory items can replace mugshot", "fullhud_invovermug", "OnOff"
+		Option "$FULLHUD_OPTIONAL_INVREPLACE", "fullhud_invovermug", "OnOff"
 	}
  	IfGame(Doom, Chex, Heretic)
 	{
-		Option "Hide status bar on automap", "fullhud_automaphide", "OnOff"
+		Option "$FULLHUD_OPTIONAL_HIDEAUTOMAP", "fullhud_automaphide", "OnOff"
 	}
  	IfGame(Hexen)
 	{
@@ -105,24 +105,24 @@ OptionMenu "OptionalSettings"
 
 OptionMenu "StatsSettings"
 {
-   	Title "Stats"
+   	Title "$FULLHUD_SETTINGSNAME_STATS"
    	StaticText ""
-	Option "Stats display", "fullhud_stats_type", "LevelStats"
-	Option "Stats font", "fullhud_stats_font", "LevelStatsFont"
-	Option "Completion color", "fullhud_stats_comp", "Colors", "fullhud_stats_type"
+	Option "$FULLHUD_STATS_STATDISPLAY", "fullhud_stats_type", "LevelStats"
+	Option "$FULLHUD_STATS_STATFONT", "fullhud_stats_font", "LevelStatsFont"
+	Option "$FULLHUD_STATS_COMPCOLOR", "fullhud_stats_comp", "Colors", "fullhud_stats_type"
    	StaticText ""
 	IfGame(Doom, Heretic, Hexen)
 	{
-		Option "Kill counter", "fullhud_stats_kills", "LevelStatsPosition", "fullhud_stats_type"
+		Option "$FULLHUD_STATS_KILLS", "fullhud_stats_kills", "LevelStatsPosition", "fullhud_stats_type"
 	}
 	IfGame(Chex)
 	{
-		Option "Zorch counter", "fullhud_stats_kills", "LevelStatsPosition", "fullhud_stats_type"
+		Option "$FULLHUD_STATS_KILLS_CHEX", "fullhud_stats_kills", "LevelStatsPosition", "fullhud_stats_type"
 	}
-	Option "Secret counter", "fullhud_stats_secrets", "LevelStatsPosition", "fullhud_stats_type"
-	Option "Item counter", "fullhud_stats_items", "LevelStatsPosition", "fullhud_stats_type"
-	Option "Level time", "fullhud_stats_time", "LevelStatsPosition", "fullhud_stats_type"
-	Option "Powerup timers", "fullhud_stats_powerups", "LevelStatsPosition", "fullhud_stats_type"
+	Option "$FULLHUD_STATS_SECRETS", "fullhud_stats_secrets", "LevelStatsPosition", "fullhud_stats_type"
+	Option "$FULLHUD_STATS_ITEMS", "fullhud_stats_items", "LevelStatsPosition", "fullhud_stats_type"
+	Option "$FULLHUD_STATS_LEVELTIME", "fullhud_stats_time", "LevelStatsPosition", "fullhud_stats_type"
+	Option "$FULLHUD_STATS_POWERUPS", "fullhud_stats_powerups", "LevelStatsPosition", "fullhud_stats_type"
 }
 
 ListMenu "FullscreenCredits"

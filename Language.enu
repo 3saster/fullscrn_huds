@@ -1,0 +1,110 @@
+// Note: Titles without FULLHUD prefix come from GZDoom itself, hence why they are commented out
+[enu default]
+
+FULLHUD_MODTITLE = "Fullscreen Status Bar";
+
+/* --- Options Values --- */
+// OptionValue "FullscreenMode"
+//  OPTVAL_OFF = "Off";
+//  OPTVAL_ON  = "On";
+
+// OptionValue "LevelStats"
+//  OPTVAL_OFF         = "Off";
+FULLHUD_LS_PERCENTAGES = "Percentages";
+FULLHUD_LS_COUNTDOWN   = "Countdown";
+FULLHUD_LS_FRACTION    = "Fraction";
+
+// OptionValue "LevelStatsFont"
+//  OPTVAL_DEFAULT      = "Default";
+FULLHUD_FONT_CONFONT    = "Console Font";
+FULLHUD_FONT_STATREPORT = "Status Report";
+FULLHUD_FONT_MM2        = "Memento Mori 2";
+
+// OptionValue "LevelStatsPosition"
+//  OPTVAL_OFF  = "Off";
+FULLHUD_LSP_TL  = "Top left";
+FULLHUD_LSP_TR  = "Top right";
+FULLHUD_LSP_CL  = "Center left";
+FULLHUD_LSP_CR  = "Center right";
+FULLHUD_LSP_BL  = "Bottom left";
+FULLHUD_LSP_BR  = "Bottom right";
+
+// OptionValue "Colors"
+// C_GREEN     = "Green";
+// C_RED       = "Red";
+// OPTVAL_NONE = "None";
+
+// OptionValue "Opaque"
+//  OPTVAL_OFF          = "Off";
+FULLHUD_OPAQUE_NUM      = "Numbers";
+FULLHUD_OPAQUE_NUMGRAPH = "Numbers & graphics";
+
+/* --- Settings Submenus --- */
+FULLHUD_SETTINGSNAME_GENERAL  = "General Settings";
+FULLHUD_SETTINGSNAME_OPTIONAL = "Optional Settings";
+FULLHUD_SETTINGSNAME_STATS    = "Stats";
+FULLHUD_SETTINGSNAME_CREDITS  = "Credits/About";
+
+/* --- General Settings --- */
+FULLHUD_GENERAL_FULLSCREEN    = "Fullscreen";
+FULLHUD_GENERAL_SCALING       = "Scaling";
+FULLHUD_GENERAL_FORCEOVERRIDE = "Force HUD override";
+FULLHUD_GENERAL_SPLIT         = "Split bar";
+FULLHUD_GENERAL_TRANSPARENCY  = "Transparency";
+FULLHUD_GENERAL_OPAQUE        = "Opaque elements";
+
+/* --- Optional Settings --- */
+FULLHUD_OPTIONAL_BOOMHUD      = "Use Boom HUD colors";
+FULLHUD_OPTIONAL_BERSERK      = "Indicate berserk mode";
+FULLHUD_OPTIONAL_CHEXLOGO     = "Replace Chex logos";
+FULLHUD_OPTIONAL_SPLITARMS    = "Show arms on split bar";
+FULLHUD_OPTIONAL_INVREPLACE   = "Inventory items can replace mugshot";
+FULLHUD_OPTIONAL_HIDEAUTOMAP  = "Hide status bar on automap";
+FULLHUD_OPTIONAL_HEXENAUTOMAP = "Keys/armor as panels on automap";
+
+/* --- Stats --- */
+FULLHUD_STATS_STATDISPLAY = "Stats display";
+FULLHUD_STATS_STATFONT    = "Stats font";
+FULLHUD_STATS_COMPCOLOR   = "Completion color";
+FULLHUD_STATS_KILLS       = "Kill counter";
+FULLHUD_STATS_KILLS_CHEX  = "Zorch counter";
+FULLHUD_STATS_SECRETS     = "Secret counter";
+FULLHUD_STATS_ITEMS       = "Item counter";
+FULLHUD_STATS_LEVELTIME   = "Level time";
+FULLHUD_STATS_POWERUPS    = "Powerup timers";
+
+/* --- Stat Display --- */
+FULLHUD_KILLS      = "Kills";
+FULLHUD_KILLS_CHEX = "Zorches";
+FULLHUD_SECRETS    = "Secrets";
+FULLHUD_ITEMS      = "Items";
+
+/* --- Powerup Names --- */
+// Main Powerups
+FULLHUD_POWERUP_BERSERK  = "Berserk";
+FULLHUD_POWERUP_INVIS    = "Hidden";
+FULLHUD_POWERUP_LIGHT    = "Light";
+FULLHUD_POWERUP_SUIT     = "Suit";
+FULLHUD_POWERUP_GHOST    = "Ghost";
+FULLHUD_POWERUP_TOMED    = "Power";
+FULLHUD_POWERUP_ALLY     = "Ally";
+FULLHUD_POWERUP_SPEED    = "Speed";
+FULLHUD_POWERUP_SHADOW   = "Shadow";
+FULLHUD_POWERUP_TARGETER = "Target";
+FULLHUD_POWERUP_SCANNER  = "Scan";
+FULLHUD_POWERUP_INVUL    = "Immune";
+FULLHUD_POWERUP_FLY      = "Flight";
+FULLHUD_POWERUP_TORCH    = "Torch";
+
+// Mods
+FULLHUD_POWERUP_QUAD     = "Quad";
+FULLHUD_POWERUP_REGEN    = "Regen";
+FULLHUD_POWERUP_RAGE     = "Rage";
+FULLHUD_POWERUP_DAMAGE   = "Damage";
+FULLHUD_POWERUP_TIME     = "Time";
+
+// Morphing
+FULLHUD_POWERUP_MORPHPIG      = "Pig";
+FULLHUD_POWERUP_MORPHCHICKEN  = "Chicken";
+FULLHUD_POWERUP_MORPHREVENANT = "Revenant";
+FULLHUD_POWERUP_MORPHBARON    = "Baron";
