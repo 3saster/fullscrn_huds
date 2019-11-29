@@ -156,9 +156,9 @@ mixin Class Stats
 		string items = "";
 		string time = "";
 
-		int mkilled   = multiplayer? CPlayer.killcount : Level.killed_monsters;
+		int mkilled   = multiplayer? CPlayer.killcount   : Level.killed_monsters;
 		int sfound    = multiplayer? CPlayer.secretcount : Level.found_secrets;
-		int ifound    = multiplayer? CPlayer.itemcount : Level.found_items;
+		int ifound    = multiplayer? CPlayer.itemcount   : Level.found_items;
 		
 		// Format based on type specified
 		bool killComp = false;
@@ -183,9 +183,10 @@ mixin Class Stats
 				
 			case COUNTDOWN:
 				string space = string.format(string.format("%%%ds",padding), padding ? "" : " ");
-				if (statKills.GetInt())   kills   = string.format("%s: %i%sLeft", killstring,   siKillsC.GetValue(),   space);
-				if (statSecrets.GetInt()) secrets = string.format("%s: %i%sLeft", secretstring, siSecretsC.GetValue(), space);
-				if (statItems.GetInt())   items   = string.format("%s: %i%sLeft", itemstring,   siItemsC.GetValue(),   space);
+				string leftstring = Stringtable.Localize("$FULLHUD_LEFT_STRING");
+				if (statKills.GetInt())   kills   = string.format("%s: %i%s%s", killstring,   siKillsC.GetValue(),   space, leftstring);
+				if (statSecrets.GetInt()) secrets = string.format("%s: %i%s%s", secretstring, siSecretsC.GetValue(), space, leftstring);
+				if (statItems.GetInt())   items   = string.format("%s: %i%s%s", itemstring,   siItemsC.GetValue(),   space, leftstring);
 
 				if (siKillsC.GetValue()   == 0) killComp = true;
 				if (siSecretsC.GetValue() == 0) secretComp = true;

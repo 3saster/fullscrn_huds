@@ -3,6 +3,9 @@ version "4.2.5"
 // Include directives for each filter
 #include "zscript_filter.zs"
 
+// Menu tooltips
+#include "zscript/fullhudmenu.zs"
+
 // The forced override handler
 #include "zscript/statusbar_override.zs"
 

@@ -53,63 +53,72 @@ OptionValue "Opaque"
 
 OptionMenu "FullscreenStatusbarOptions"
 {
-   	Title "$FULLHUD_MODTITLE"
-   	StaticText ""
-	Submenu "$FULLHUD_SETTINGSNAME_GENERAL", "GeneralSettings"
+	Title "$FULLHUD_MODTITLE"
+	StaticText ""
+	Submenu "$FULLHUD_SETTINGSNAME_GENERAL",  "GeneralSettings"
 	Submenu "$FULLHUD_SETTINGSNAME_OPTIONAL", "OptionalSettings"
-	Submenu "$FULLHUD_SETTINGSNAME_STATS", "StatsSettings"
+	Submenu "$FULLHUD_SETTINGSNAME_STATS",    "StatsSettings"
    	StaticText ""
-	Submenu "$FULLHUD_SETTINGSNAME_CREDITS", "FullscreenCredits"
+	Submenu "$FULLHUD_SETTINGSNAME_CREDITS",  "FullscreenCredits"
 }
 
 OptionMenu "GeneralSettings"
 {
-   	Title "$FULLHUD_SETTINGSNAME_GENERAL"
-   	StaticText ""
-	Option "$FULLHUD_GENERAL_FULLSCREEN", "screenblocks", "FullscreenMode"
-   	ScaleSlider "$FULLHUD_GENERAL_SCALING", "hud_scale", -1.0, 8.0, 1.0, "$SCALEMNU_USEUI", "$SCALEMNU_USEFS"
-	Option "$FULLHUD_GENERAL_FORCEOVERRIDE", "fullhud_override", "OnOff"
-   	StaticText ""
-   	Option "$FULLHUD_GENERAL_SPLIT", "fullhud_split", "OnOff"
-	Slider "$FULLHUD_GENERAL_TRANSPARENCY", "fullhud_trans", 0, 1, 0.1
-	Option "$FULLHUD_GENERAL_OPAQUE", "fullhud_opaque", "Opaque"
+	Class "FullHUDMenu"
+	Title "$FULLHUD_SETTINGSNAME_GENERAL"
+	Position -36
+
+	StaticText ""
+	FullHUDOption      "$FULLHUD_GENERAL_FULLSCREEN",    "$FULLHUD_GENERALTOOLTIP_FULLSCREEN",    "screenblocks", "FullscreenMode"
+	FullHUDScaleSlider "$FULLHUD_GENERAL_SCALING",       "$FULLHUD_GENERALTOOLTIP_SCALING",       "hud_scale", -1.0, 8.0, 1.0, "$SCALEMNU_USEUI", "$SCALEMNU_USEFS"
+	FullHUDOption      "$FULLHUD_GENERAL_FORCEOVERRIDE", "$FULLHUD_GENERALTOOLTIP_FORCEOVERRIDE", "fullhud_override", "OnOff"
+	StaticText ""
+	FullHUDOption      "$FULLHUD_GENERAL_SPLIT",         "$FULLHUD_GENERALTOOLTIP_SPLIT",         "fullhud_split", "OnOff"
+	FullHUDSlider      "$FULLHUD_GENERAL_TRANSPARENCY",  "$FULLHUD_GENERALTOOLTIP_TRANSPARENCY",  "fullhud_trans", 0, 1, 0.1
+	FullHUDOption      "$FULLHUD_GENERAL_OPAQUE",        "$FULLHUD_GENERALTOOLTIP_OPAQUE",        "fullhud_opaque", "Opaque"
 }
 
 OptionMenu "OptionalSettings"
 {
-   	Title "$FULLHUD_SETTINGSNAME_OPTIONAL"
-   	StaticText ""
-	Option "$FULLHUD_OPTIONAL_BOOMHUD", "fullhud_boomcolors", "OnOff"
+	Class "FullHUDMenu"
+	Title "$FULLHUD_SETTINGSNAME_OPTIONAL"
+	Position -36
+
+	StaticText ""
+	FullHUDOption "$FULLHUD_OPTIONAL_BOOMHUD", "$FULLHUD_OPTIONALTOOLTIP_BOOMHUD", "fullhud_boomcolors", "OnOff"
 	IfGame(Doom) 
 	{
-		Option "$FULLHUD_OPTIONAL_BERSERK", "fullhud_showberserk", "OnOff"
+		FullHUDOption "$FULLHUD_OPTIONAL_BERSERK",      "$FULLHUD_OPTIONALTOOLTIP_BERSERK",      "fullhud_showberserk", "OnOff"
 	}
 	IfGame(Chex) 
 	{
-		Option "$FULLHUD_OPTIONAL_CHEXLOGO", "fullhud_chexarms", "OnOff"
+		FullHUDOption "$FULLHUD_OPTIONAL_CHEXLOGO",     "$FULLHUD_OPTIONALTOOLTIP_CHEXLOGO",     "fullhud_chexarms", "OnOff"
 	}
-	Option "$FULLHUD_OPTIONAL_SPLITARMS", "fullhud_splitarms", "OnOff", "fullhud_split"
+	FullHUDOption "$FULLHUD_OPTIONAL_SPLITARMS", "$FULLHUD_OPTIONALTOOLTIP_SPLITARMS", "fullhud_splitarms", "OnOff", "fullhud_split"
 	IfGame(Doom, Chex) 
 	{	
-		Option "$FULLHUD_OPTIONAL_INVREPLACE", "fullhud_invovermug", "OnOff"
+		FullHUDOption "$FULLHUD_OPTIONAL_INVREPLACE",   "$FULLHUD_OPTIONALTOOLTIP_INVREPLACE",   "fullhud_invovermug", "OnOff"
 	}
  	IfGame(Doom, Chex, Heretic)
 	{
-		Option "$FULLHUD_OPTIONAL_HIDEAUTOMAP", "fullhud_automaphide", "OnOff"
+		FullHUDOption "$FULLHUD_OPTIONAL_HIDEAUTOMAP",  "$FULLHUD_OPTIONALTOOLTIP_HIDEAUTOMAP",  "fullhud_automaphide", "OnOff"
 	}
  	IfGame(Hexen)
 	{
-		Option "$FULLHUD_OPTIONAL_HEXENAUTOMAP", "fullhud_automaphide", "OnOff"
+		FullHUDOption "$FULLHUD_OPTIONAL_HEXENAUTOMAP", "$FULLHUD_OPTIONALTOOLTIP_HEXENAUTOMAP", "fullhud_automaphide", "OnOff"
 	}
 }
 
 OptionMenu "StatsSettings"
 {
-   	Title "$FULLHUD_SETTINGSNAME_STATS"
+	Class "FullHUDMenu"
+	Title "$FULLHUD_SETTINGSNAME_STATS"
+	Position -56
+
    	StaticText ""
-	Option "$FULLHUD_STATS_STATDISPLAY", "fullhud_stats_type", "LevelStats"
-	Option "$FULLHUD_STATS_STATFONT", "fullhud_stats_font", "LevelStatsFont"
-	Option "$FULLHUD_STATS_COMPCOLOR", "fullhud_stats_comp", "Colors", "fullhud_stats_type"
+	FullHUDOption "$FULLHUD_STATS_STATDISPLAY", "$FULLHUD_STATSTOOLTIP_STATDISPLAY", "fullhud_stats_type", "LevelStats"
+	FullHUDOption "$FULLHUD_STATS_STATFONT",    "$FULLHUD_STATSTOOLTIP_STATFONT",    "fullhud_stats_font", "LevelStatsFont"
+	FullHUDOption "$FULLHUD_STATS_COMPCOLOR",   "$FULLHUD_STATSTOOLTIP_COMPCOLOR",   "fullhud_stats_comp", "Colors", "fullhud_stats_type"
    	StaticText ""
 	IfGame(Doom, Heretic, Hexen)
 	{
@@ -119,10 +128,10 @@ OptionMenu "StatsSettings"
 	{
 		Option "$FULLHUD_STATS_KILLS_CHEX", "fullhud_stats_kills", "LevelStatsPosition", "fullhud_stats_type"
 	}
-	Option "$FULLHUD_STATS_SECRETS", "fullhud_stats_secrets", "LevelStatsPosition", "fullhud_stats_type"
-	Option "$FULLHUD_STATS_ITEMS", "fullhud_stats_items", "LevelStatsPosition", "fullhud_stats_type"
-	Option "$FULLHUD_STATS_LEVELTIME", "fullhud_stats_time", "LevelStatsPosition", "fullhud_stats_type"
-	Option "$FULLHUD_STATS_POWERUPS", "fullhud_stats_powerups", "LevelStatsPosition", "fullhud_stats_type"
+	Option        "$FULLHUD_STATS_SECRETS",                                     "fullhud_stats_secrets",  "LevelStatsPosition", "fullhud_stats_type"
+	Option        "$FULLHUD_STATS_ITEMS",                                       "fullhud_stats_items",    "LevelStatsPosition", "fullhud_stats_type"
+	Option        "$FULLHUD_STATS_LEVELTIME",                                   "fullhud_stats_time",     "LevelStatsPosition", "fullhud_stats_type"
+	FullHUDOption "$FULLHUD_STATS_POWERUPS",  "$FULLHUD_STATSTOOLTIP_POWERUPS", "fullhud_stats_powerups", "LevelStatsPosition", "fullhud_stats_type"
 }
 
 ListMenu "FullscreenCredits"
@@ -142,6 +151,7 @@ ListMenu "FullscreenCredits"
 	StaticText -64,	144, "m8f", red
 	StaticText -64,	156, "MaxED", red
 	StaticText -64,	168, "neoworm", red
+	StaticText -64,	180, "Nash Muhandes", red
 	StaticText  80,	 12, "Original SBARINFO coding / idea", green
 	StaticText  80,	 24, "ZScript coding", green	
 	StaticText  80,	 48, "Original Doom GFX", green
@@ -155,4 +165,5 @@ ListMenu "FullscreenCredits"
 	StaticText  80,	144, "ACS coding support / split bar for Doom", green
 	StaticText  80,	156, "Split status bars for Heretic/Hexen", green
 	StaticText  80,	168, "Widescreen Hexen status bar", green
+	StaticText  80,	180, "Menu Tooltips", green
 }

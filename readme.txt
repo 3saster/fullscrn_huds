@@ -66,7 +66,8 @@ Additional Credits to: id Software .................. Original Doom GFX
                                                       Split status bar for Doom
                        MaxED ........................ Split status bars for Heretic/Hexen
                        neoworm ...................... Widescreen Hexen status bar
-  
+                       Nash Muhandes ................ Menu Tooltips
+
 ===========================================================================
 * What is included *
 
@@ -107,6 +108,7 @@ Tested With          : GZDoom
 > Version 5.x.x (xxx xx, xxxx)
   NOTE: Now requires GZDoom 4.2.5+ or LZDoom 3.84+. This is due to a major internal restructure that makes many parts of the code
         (especially the stats) MUCH easier to maintain, using the almighty mixins
+  [ALL] Added tooltips to menu options.
   [ALL] All strings (except credits) are now in a LANGUAGE lump. This allows for centralizing the strings and possibly translating.
   [ALL] Stats: Added player morph timer from Tekish's LevelInfo v1.23 (mainly for chicken/pig morph in Heretic/Hexen multiplayer)
 

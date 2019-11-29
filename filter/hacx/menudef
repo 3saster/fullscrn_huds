@@ -1,9 +1,12 @@
 OptionMenu "OptionalSettings"
 {
+	Class "FullHUDMenu"
 	Title "$FULLHUD_SETTINGSNAME_OPTIONAL"
-   	StaticText ""
-	Option "$FULLHUD_OPTIONAL_BERSERK", "fullhud_showberserk", "OnOff"
-	Option "$FULLHUD_OPTIONAL_SPLITARMS", "fullhud_splitarms", "OnOff", "fullhud_split"
-	Option "$FULLHUD_OPTIONAL_INVREPLACE", "fullhud_invovermug", "OnOff"
-	Option "$FULLHUD_OPTIONAL_HIDEAUTOMAP", "fullhud_automaphide", "OnOff"
+	Position -36
+
+	StaticText ""
+	FullHUDOption "$FULLHUD_OPTIONAL_BERSERK",     "$FULLHUD_OPTIONALTOOLTIP_BERSERK",     "fullhud_showberserk", "OnOff"
+	FullHUDOption "$FULLHUD_OPTIONAL_SPLITARMS",   "$FULLHUD_OPTIONALTOOLTIP_SPLITARMS",   "fullhud_splitarms",   "OnOff", "fullhud_split"
+	FullHUDOption "$FULLHUD_OPTIONAL_INVREPLACE",  "$FULLHUD_OPTIONALTOOLTIP_INVREPLACE",  "fullhud_invovermug",  "OnOff"
+	FullHUDOption "$FULLHUD_OPTIONAL_HIDEAUTOMAP", "$FULLHUD_OPTIONALTOOLTIP_HIDEAUTOMAP", "fullhud_automaphide", "OnOff"
 }
