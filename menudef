@@ -85,7 +85,7 @@ OptionMenu "OptionalSettings"
 	Position -36
 
 	StaticText ""
-	FullHUDOption "$FULLHUD_OPTIONAL_BOOMHUD", "$FULLHUD_OPTIONALTOOLTIP_BOOMHUD", "fullhud_boomcolors", "OnOff"
+	FullHUDOption "$FULLHUD_OPTIONAL_BOOMHUD", "$FULLHUD_OPTIONALTOOLTIP_BOOMHUD", "fullhud_boomcolors", "OnOff", "",0,0
 	IfGame(Doom) 
 	{
 		FullHUDOption "$FULLHUD_OPTIONAL_BERSERK",      "$FULLHUD_OPTIONALTOOLTIP_BERSERK",      "fullhud_showberserk", "OnOff"

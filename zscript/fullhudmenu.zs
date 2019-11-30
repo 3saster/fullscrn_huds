@@ -27,7 +27,8 @@
 //===========================================================================
 //
 // Custom Widgets for SpriteShadow 
-// 3saster: names modified, but otherwise identical
+// 3saster: names modified, ScaleSlider added, added option to Option class
+//          to not display if HacX is the IWAD.
 // Adds tooltips to widgets
 //
 // Some redundant duplicates here but whatever; menus are painful to work
@@ -38,11 +39,20 @@
 class OptionMenuItemFullHUDOption : OptionMenuItemOption
 {
 	String mTooltip;
-
-	OptionMenuItemFullHUDOption Init(String label, String tooltip, Name command, Name values, CVar graycheck = null, int center = 0)
+	bool HacXShow; // Show this option if HacX is active
+	bool isHacX()
 	{
-		mTooltip = tooltip;
-		Super.Init(label, command, values, graycheck, center);
+		return (Wads.CheckNumForName("HACX-R",0)!=-1 || Wads.CheckNumForName("HACX-E",0)!=-1);
+	}
+
+	OptionMenuItemFullHUDOption Init(String label, String tooltip, Name command, Name values, CVar graycheck = null, int center = 0, bool allowHacX = true)
+	{
+		HacXShow = allowHacX || !isHacX();
+		if(HacXShow)
+		{
+			mTooltip = tooltip;
+			Super.Init(label, command, values, graycheck, center);
+		}
 		return self;
 	}
 }
@@ -93,6 +103,12 @@ class FullHUDMenu : OptionMenu
 {
 	override void Drawer ()
 	{
+		// Delete entry in HacX if this option should not be on
+		for(int i = 0; i < mDesc.mItems.Size(); i++)
+			if( mDesc.mItems[i] is "OptionMenuItemFullHUDOption" )
+				if( !OptionMenuItemFullHUDOption(mDesc.mItems[i]).HacXShow )
+					mDesc.mItems.Delete(i);
+
 		Super.Drawer();
 
 		String tt;
