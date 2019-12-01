@@ -1,5 +1,5 @@
 ===========================================================================
-Advanced engine needed  : GZDoom 4.2.4+ / LZDoom 3.83+
+Advanced engine needed  : GZDoom 4.2.5+ / LZDoom 3.84+
 ===========================================================================
 Title                : Fullscreen Status Bar Mod (v5.x.x)
 Filename             : FULLSCRN_HUDS.PK3
