@@ -113,6 +113,7 @@ Tested With          : GZDoom
   [ALL] All strings (except credits) are now in a LANGUAGE lump. This allows for centralizing the strings and possibly translating.
   [ALL] Stats: Added player morph timer from Tekish's LevelInfo v1.23 (mainly for chicken/pig morph in Heretic/Hexen multiplayer)
   [HERETIC] Automatic compatibility added for Heretic Neural Texture Pack
+  [HERETIC] Improved transparency settings for Curse of D'Sparil
 
 > Version 5.1.3 (Nov 22, 2019)
   NOTE: Now requires GZDoom 4.2.4+. This prevents a segfault that can occur with "Force HUD override" active.

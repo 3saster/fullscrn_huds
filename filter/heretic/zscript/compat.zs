@@ -28,6 +28,11 @@ extend Class SpecialHereticStatusBar
 			GOD1    = "GOD1_NEURAL";
 			GOD2    = "GOD2_NEURAL";
 			break;
+		case 0x8E15DC27: // Curse of D'Sparil
+			BARBACK = "BARB_CUR";
+			GOD1    = "GOD1_CUR";
+			GOD2    = "GOD2_CUR";
+			break;
 		}
 	}
 }
