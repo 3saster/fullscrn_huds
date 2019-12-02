@@ -22,9 +22,19 @@ Class SpecialHereticStatusBar : HereticStatusBar
 
 	int chainWig; // wiggle is private...
 
+	// A hash to identify which BARBACK is loaded
+	uint BARBACK_HASH;
+
 	// Strings describing certain font-related things
 	string SMALLIN;
 	string SMALLGR;
+
+	// Respective Lumps for Heretic
+	string BARBACK;
+	string LTFCTOP;
+	string RTFCTOP;
+	string GOD1;
+	string GOD2;
 
 	mixin TransFunctions;
 
@@ -62,6 +72,22 @@ Class SpecialHereticStatusBar : HereticStatusBar
 		SMALLGR = "SMALLGR";
 
 		statInit();
+
+		// Find last loaded BARBACK Lump
+		int lastLump = Wads.FindLump("BARBACK",0,1);
+		int nextLump =  Wads.FindLump("BARBACK",lastLump+1,1);
+		while( nextLump != -1 )
+		{
+			lastLump = nextLump;
+			nextLump = Wads.FindLump("BARBACK",lastLump+1,1);
+		}
+		// Hash the value of the BARBACK lump
+		BARBACK_HASH = Hash(Wads.ReadLump(lastLump));
+
+		// Uncomment this to print the BARBACK Hash in the console
+		//console.printf("\nBARBACK Hash is: 0x%08X",BARBACK_HASH);
+
+		setBARBACKNames();
 	}
 
 	override void NewGame()

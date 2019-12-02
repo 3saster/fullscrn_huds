@@ -11,14 +11,14 @@ extend Class SpecialHereticStatusBar
 		float offset = 0; // Set to -2.5 to match Heretic's standard HUD
 		
 		// Draw Main STBAR Chunk
-		DrawImage("BARBACK", (-157.5+offset, -42), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
-		DrawImage("LTFCTOP", (-157.5+offset, -52), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
-		DrawImage("RTFCTOP", ( 132.5+offset, -52), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
+		DrawImage(BARBACK, (-157.5+offset, -42), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
+		DrawImage(LTFCTOP, (-157.5+offset, -52), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
+		DrawImage(RTFCTOP, ( 132.5+offset, -52), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
 		if (isInvulnerable())
 		{
 			// god mode
-			DrawImage("GOD1", (-141.5+offset, -33), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
-			DrawImage("GOD2", ( 129.5+offset, -33), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
+			DrawImage(GOD1, (-141.5+offset, -33), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
+			DrawImage(GOD2, ( 129.5+offset, -33), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
 		}
 
 		// Draw Lifebar or inventory bar

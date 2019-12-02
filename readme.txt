@@ -112,6 +112,7 @@ Tested With          : GZDoom
   [HACX] MENUDEF: HacX no longer needs a separate file, all games now use a single MENUDEF lump.
   [ALL] All strings (except credits) are now in a LANGUAGE lump. This allows for centralizing the strings and possibly translating.
   [ALL] Stats: Added player morph timer from Tekish's LevelInfo v1.23 (mainly for chicken/pig morph in Heretic/Hexen multiplayer)
+  [HERETIC] Automatic compatibility added for Heretic Neural Texture Pack
 
 > Version 5.1.3 (Nov 22, 2019)
   NOTE: Now requires GZDoom 4.2.4+. This prevents a segfault that can occur with "Force HUD override" active.
