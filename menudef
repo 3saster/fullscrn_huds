@@ -113,7 +113,7 @@ OptionMenu "StatsSettings"
 {
 	Class "FullHUDMenu"
 	Title "$FULLHUD_SETTINGSNAME_STATS"
-	Position -56
+	Position -36
 
    	StaticText ""
 	FullHUDOption "$FULLHUD_STATS_STATDISPLAY", "$FULLHUD_STATSTOOLTIP_STATDISPLAY", "fullhud_stats_type", "LevelStats"
