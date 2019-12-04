@@ -1,27 +1,28 @@
 // Note: Titles without FULLHUD prefix come from GZDoom itself, hence why they are commented out
+
 [enu default]
 
 FULLHUD_MODTITLE = "Fullscreen Status Bar";
 
 /* --- Options Values --- */
 // OptionValue "FullscreenMode"
-//  OPTVAL_OFF = "Off";
-//  OPTVAL_ON  = "On";
+// OPTVAL_OFF = "Off";
+// OPTVAL_ON  = "On";
 
 // OptionValue "LevelStats"
-//  OPTVAL_OFF         = "Off";
+// OPTVAL_OFF         = "Off";
 FULLHUD_LS_PERCENTAGES = "Percentages";
 FULLHUD_LS_COUNTDOWN   = "Countdown";
 FULLHUD_LS_FRACTION    = "Fraction";
 
 // OptionValue "LevelStatsFont"
-//  OPTVAL_DEFAULT      = "Default";
+// OPTVAL_DEFAULT      = "Default";
 FULLHUD_FONT_CONFONT    = "Console Font";
 FULLHUD_FONT_STATREPORT = "Status Report";
 FULLHUD_FONT_MM2        = "Memento Mori 2";
 
 // OptionValue "LevelStatsPosition"
-//  OPTVAL_OFF  = "Off";
+// OPTVAL_OFF  = "Off";
 FULLHUD_LSP_TL  = "Top left";
 FULLHUD_LSP_TR  = "Top right";
 FULLHUD_LSP_CL  = "Center left";
@@ -35,7 +36,7 @@ FULLHUD_LSP_BR  = "Bottom right";
 // OPTVAL_NONE = "None";
 
 // OptionValue "Opaque"
-//  OPTVAL_OFF          = "Off";
+// OPTVAL_OFF          = "Off";
 FULLHUD_OPAQUE_NUM      = "Numbers";
 FULLHUD_OPAQUE_NUMGRAPH = "Numbers & graphics";
 
@@ -53,12 +54,12 @@ FULLHUD_GENERAL_SPLIT         = "Split bar";
 FULLHUD_GENERAL_TRANSPARENCY  = "Transparency";
 FULLHUD_GENERAL_OPAQUE        = "Opaque elements";
 
-FULLHUD_GENERALTOOLTIP_FULLSCREEN    = "This must be ON to use this HUD. Please also ensure the alternative HUD is OFF.";
-FULLHUD_GENERALTOOLTIP_SCALING       = "Change the size of the Fullscreen HUD.";
-FULLHUD_GENERALTOOLTIP_FORCEOVERRIDE = "Use this to override another mod's status bar. It is recommended to NOT use this with LZDoom.";
-FULLHUD_GENERALTOOLTIP_SPLIT         = "Split the status bar to the sides of the screen.";
-FULLHUD_GENERALTOOLTIP_TRANSPARENCY  = "Transparency of the status bar. 0.0 is completely opaque, while 1.0 is completely transparent.";
-FULLHUD_GENERALTOOLTIP_OPAQUE        = "Set certain elements of the HUD to always be opaque, regardless of transparency.";
+FULLHUD_GENERALTOOLTIP_FULLSCREEN    = "This must be ON to use this HUD. Alternative HUD should be OFF.";
+FULLHUD_GENERALTOOLTIP_SCALING       = "Adjusts the size of the Fullscreen Status Bar.";
+FULLHUD_GENERALTOOLTIP_FORCEOVERRIDE = "Overrides status bars of other mods. LZDoom users should keep this at OFF.";
+FULLHUD_GENERALTOOLTIP_SPLIT         = "Splits the status bar to both sides of the screen.";
+FULLHUD_GENERALTOOLTIP_TRANSPARENCY  = "Sets status bar transparency (0.0 = fully opaque, 1.0 = fully transparent).";
+FULLHUD_GENERALTOOLTIP_OPAQUE        = "Sets certain HUD elements to be always opaque, regardless of transparency.";
 
 /* --- Optional Settings --- */
 FULLHUD_OPTIONAL_BOOMHUD      = "Use Boom HUD colors";
@@ -69,13 +70,13 @@ FULLHUD_OPTIONAL_INVREPLACE   = "Inventory items can replace mugshot";
 FULLHUD_OPTIONAL_HIDEAUTOMAP  = "Hide status bar on automap";
 FULLHUD_OPTIONAL_HEXENAUTOMAP = "Keys/armor as panels on automap";
 
-FULLHUD_OPTIONALTOOLTIP_BOOMHUD      = "Color the HUD's numbers based their value, like in Boom.";
-FULLHUD_OPTIONALTOOLTIP_BERSERK      = "Show a marker next to the mugshot if berserk is active.";
-FULLHUD_OPTIONALTOOLTIP_CHEXLOGO     = "Replace Chex logos on HUD with an ammo display.";
-FULLHUD_OPTIONALTOOLTIP_SPLITARMS    = "Show which arms you currently possess on the split HUD.";
-FULLHUD_OPTIONALTOOLTIP_INVREPLACE   = "If this is ON, the mugshot will be replaced by the currently active inventory item.";
-FULLHUD_OPTIONALTOOLTIP_HIDEAUTOMAP  = "Hide the status bar completely on the automap.";
-FULLHUD_OPTIONALTOOLTIP_HEXENAUTOMAP = "Hide the HUD on the automap and show only key/armor panels instead.";
+FULLHUD_OPTIONALTOOLTIP_BOOMHUD      = "Makes HUD numbers use colors based on their value, like in Boom.";
+FULLHUD_OPTIONALTOOLTIP_BERSERK      = "Displays a marker (cross) next to the mugshot when in berserk mode.";
+FULLHUD_OPTIONALTOOLTIP_CHEXLOGO     = "Replaces Chex logos on status bar with arms/ammo displays.";
+FULLHUD_OPTIONALTOOLTIP_SPLITARMS    = "Shows which weapons you currently possess on the split HUD.";
+FULLHUD_OPTIONALTOOLTIP_INVREPLACE   = "Displays currently active inventory item instead of mugshot if ON.";
+FULLHUD_OPTIONALTOOLTIP_HIDEAUTOMAP  = "Hides the status bar completely on the automap.";
+FULLHUD_OPTIONALTOOLTIP_HEXENAUTOMAP = "Hides the status bar on the automap and only shows key/armor panels.";
 
 /* --- Stats --- */
 FULLHUD_STATS_STATDISPLAY = "Stats display";
@@ -88,11 +89,10 @@ FULLHUD_STATS_ITEMS       = "Item counter";
 FULLHUD_STATS_LEVELTIME   = "Level time";
 FULLHUD_STATS_POWERUPS    = "Powerup timers";
 
-FULLHUD_STATSTOOLTIP_STATDISPLAY = "How the first three counters below should be displayed.\n"
-                                   "Percentages: 30% - Countdown: 7 Left - Fraction: 3/10";
-FULLHUD_STATSTOOLTIP_STATFONT    = "Font choice for the stats.";
-FULLHUD_STATSTOOLTIP_COMPCOLOR   = "The first three counters below will turn this color when they are maxed.";
-FULLHUD_STATSTOOLTIP_POWERUPS    = "Shows how long powerups last if they are active.";
+FULLHUD_STATSTOOLTIP_STATDISPLAY = "Chooses a system for kill/secret/item counters (e.g.: '50%', '6 Left' or '6/12').";
+FULLHUD_STATSTOOLTIP_STATFONT    = "Sets a font for the stats.";
+FULLHUD_STATSTOOLTIP_COMPCOLOR   = "Colorizes kill/secret/item counters when maxed.";
+FULLHUD_STATSTOOLTIP_POWERUPS    = "Shows duration of activated powerups.";
 
 /* --- Stat Display --- */
 FULLHUD_KILLS       = "Kills";

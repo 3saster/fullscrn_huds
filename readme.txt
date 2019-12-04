@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom 4.2.5+ / LZDoom 3.84+
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.x.x)
+Title                : Fullscreen Status Bar Mod (v5.X.X)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : xx/xx/xxxx
+Release date         : XX/XX/XXXX
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -65,8 +65,8 @@ Additional Credits to: id Software .................. Original Doom GFX
                        m8f .......................... ACS coding support
                                                       Split status bar for Doom
                        MaxED ........................ Split status bars for Heretic/Hexen
+                       Nash Muhandes ................ Menu tooltips
                        neoworm ...................... Widescreen Hexen status bar
-                       Nash Muhandes ................ Menu Tooltips
 
 ===========================================================================
 * What is included *
@@ -105,15 +105,15 @@ Tested With          : GZDoom
 
 * CHANGELOG *
 
-> Version 5.x.x (xxx xx, xxxx)
-  NOTE: Now requires GZDoom 4.2.5+ or LZDoom 3.84+. This is due to a major internal restructure that makes many parts of the code
-        (especially the stats) MUCH easier to maintain, using the almighty mixins
-  [ALL] Added tooltips to menu options.
-  [HACX] MENUDEF: HacX no longer needs a separate file, all games now use a single MENUDEF lump.
-  [ALL] All strings (except credits) are now in a LANGUAGE lump. This allows for centralizing the strings and possibly translating.
+> Version 5.X.X (XXX XX, XXXX)
+  NOTE: Now requires GZDoom 4.2.5+ or LZDoom 3.84+. This is due to a major internal restructure that makes 
+        many parts of the code (especially stats) MUCH easier to maintain, using the almighty mixins
+  [ALL] Added tooltips to menu options
+  [HACX] MENUDEF: HacX no longer needs a separate file, all games now use a single MENUDEF lump
+  [ALL] All strings (except credits) are now in a LANGUAGE lump. This allows for centralizing the strings and possibly translating
   [ALL] Stats: Added player morph timer from Tekish's LevelInfo v1.23 (mainly for chicken/pig morph in Heretic/Hexen multiplayer)
   [HERETIC] Automatic compatibility added for Heretic Neural Texture Pack
-  [HERETIC] Improved transparency settings for Curse of D'Sparil
+  [HERETIC] Improved transparency settings for "Curse of D'Sparil"
 
 > Version 5.1.3 (Nov 22, 2019)
   NOTE: Now requires GZDoom 4.2.4+. This prevents a segfault that can occur with "Force HUD override" active.
