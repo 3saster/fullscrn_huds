@@ -112,6 +112,7 @@ Tested With          : GZDoom
   [HACX] MENUDEF: HacX no longer needs a separate file, all games now use a single MENUDEF lump
   [ALL] All strings (except credits) are now in a LANGUAGE lump. This allows for centralizing the strings and possibly translating
   [ALL] Stats: Added player morph timer from Tekish's LevelInfo v1.23 (mainly for chicken/pig morph in Heretic/Hexen multiplayer)
+  [ALL] Inventory bar is now properly pre-populated before first scroll through
   [HERETIC] Automatic compatibility added for Heretic Neural Texture Pack
   [HERETIC] Improved transparency settings for "Curse of D'Sparil"
 

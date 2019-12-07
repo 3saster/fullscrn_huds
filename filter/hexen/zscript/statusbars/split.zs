@@ -137,7 +137,7 @@ extend Class SpecialHexenStatusBar
 		if (isInventoryBarVisible())
 		{
 			int itemCount = 0;
-			for(Inventory item = CPlayer.mo.InvFirst; item != NULL && itemCount < 4; item = item.NextInv())
+			for(Inventory item = CPlayer.mo.FirstInv(); item != NULL && itemCount < 4; item = item.NextInv())
 				itemCount++;
 			DrawInventoryBarTrans(diparms_sbar, (0, -1), max(itemCount,1), DI_SCREEN_CENTER_BOTTOM, bgalpha:alphaFloat, fgalpha:alphaFloatGraph, numalpha: alphaFloatNum);
 		}
