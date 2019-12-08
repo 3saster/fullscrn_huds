@@ -6,9 +6,6 @@ version "4.2.5"
 // Menu tooltips
 #include "zscript/fullhudmenu.zs"
 
-// The forced override handler
-#include "zscript/statusbar_override.zs"
-
 // The general stats (see statfonts.zs in each filter for specific gamefont behaviour)
 #include "zscript/stats/stats.zs"
 #include "zscript/stats/statfontstructs.zs"

@@ -71,7 +71,6 @@ OptionMenu "GeneralSettings"
 	StaticText ""
 	FullHUDOption      "$FULLHUD_GENERAL_FULLSCREEN",    "$FULLHUD_GENERALTOOLTIP_FULLSCREEN",    "screenblocks", "FullscreenMode"
 	FullHUDScaleSlider "$FULLHUD_GENERAL_SCALING",       "$FULLHUD_GENERALTOOLTIP_SCALING",       "hud_scale", -1.0, 8.0, 1.0, "$SCALEMNU_USEUI", "$SCALEMNU_USEFS"
-	FullHUDOption      "$FULLHUD_GENERAL_FORCEOVERRIDE", "$FULLHUD_GENERALTOOLTIP_FORCEOVERRIDE", "fullhud_override", "OnOff"
 	StaticText ""
 	FullHUDOption      "$FULLHUD_GENERAL_SPLIT",         "$FULLHUD_GENERALTOOLTIP_SPLIT",         "fullhud_split", "OnOff"
 	FullHUDSlider      "$FULLHUD_GENERAL_TRANSPARENCY",  "$FULLHUD_GENERALTOOLTIP_TRANSPARENCY",  "fullhud_trans", 0, 1, 0.1

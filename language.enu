@@ -49,14 +49,12 @@ FULLHUD_SETTINGSNAME_CREDITS  = "Credits/About";
 /* --- General Settings --- */
 FULLHUD_GENERAL_FULLSCREEN    = "Fullscreen";
 FULLHUD_GENERAL_SCALING       = "Scaling";
-FULLHUD_GENERAL_FORCEOVERRIDE = "Force HUD override";
 FULLHUD_GENERAL_SPLIT         = "Split bar";
 FULLHUD_GENERAL_TRANSPARENCY  = "Transparency";
 FULLHUD_GENERAL_OPAQUE        = "Opaque elements";
 
 FULLHUD_GENERALTOOLTIP_FULLSCREEN    = "This must be ON to use this HUD. Alternative HUD should be OFF.";
 FULLHUD_GENERALTOOLTIP_SCALING       = "Adjusts the size of the Fullscreen Status Bar.";
-FULLHUD_GENERALTOOLTIP_FORCEOVERRIDE = "Overrides status bars of other mods. LZDoom users should keep this at OFF.";
 FULLHUD_GENERALTOOLTIP_SPLIT         = "Splits the status bar to both sides of the screen.";
 FULLHUD_GENERALTOOLTIP_TRANSPARENCY  = "Sets status bar transparency (0.0 = fully opaque, 1.0 = fully transparent).";
 FULLHUD_GENERALTOOLTIP_OPAQUE        = "Sets certain HUD elements to be always opaque, regardless of transparency.";

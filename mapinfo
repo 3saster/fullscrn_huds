@@ -1,4 +1,0 @@
-GameInfo
-{ 
-	AddEventHandlers = "Statusbar_Overrider"
-}

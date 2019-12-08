@@ -19,16 +19,13 @@ Description          : Fullscreen versions for the status bars of Doom-based
 
 Additional Info      : 1) Only works with GZDoom 4.2.5+, LZDoom 3.84+ and other
                           equivalent ports.
-                       2) If this mod is loaded and fullscreen mode is used while
-                          the correct HUD is still not shown, it may be overwritten
-                          by another mod. To make sure this HUD is used in such cases,
-                          turn on the "Force HUD override" option in the settings menu.
+                       2) Please make sure to load this file AFTER any mod altering
+                          status bars to guarantee maximum compatibility.
                        3) Adds new option menu under "HUD Options" called
                           "Fullscreen Status Bar" (at the bottom). 
                        4) Available options:
                              - Standard status bar or split version
                              - Status bar scale (recommended for 1920x1080: 3)
-                             - Override for other custom statusbars loaded afterwards (for autoload)
                              - Opaque or transparent rendering
                              - Boom HUD colors for Ammo/Health/Armor
                              - Indicate Berserk mode in Doom/HacX
@@ -42,15 +39,10 @@ Additional Info      : 1) Only works with GZDoom 4.2.5+, LZDoom 3.84+ and other
                                   + Toggle any stat (kills, secrets, items, time)
                                   + Choose between 4 different fonts
                                   + Optionally show countdowns for active powerups
-                       5) Adds 15-17 CVARS to your GZDoom ini, starting with "fullhud_" 
+                       5) Adds 14-16 CVARS to your GZDoom ini, starting with "fullhud_" 
 
 Known issues         : [CHEX] Logo replacement will only look good if default STBAR graphics 
                               are used (with blue background)
-                       [DOOM/CHEX/HACX] Mugshot may switch to dead state when changing the 
-                                        "Force HUD override" option. This is a purely visual glitch
-                                        and will fix itself after leaving the menu
-                       [LZDOOM] "Force HUD override" option may cause crashes when exiting LZDoom. 
-                                LZDoom users should load this mod last instead (like in previous versions)
                        
 
 Additional Credits to: id Software .................. Original Doom GFX
@@ -108,6 +100,8 @@ Tested With          : GZDoom
 > Version 5.X.X (XXX XX, XXXX)
   NOTE: Now requires GZDoom 4.2.5+ or LZDoom 3.84+. This is due to a major internal restructure that makes 
         many parts of the code (especially stats) MUCH easier to maintain, using the almighty mixins
+  [ALL] General Settings: "Force HUD override" option removed. This was rather hacky and caused crashes,
+                          even for users who did not use turn it on.
   [ALL] Added tooltips to menu options
   [ALL] All strings (except credits) are now in a LANGUAGE lump. This allows for centralizing the strings and possibly translating
   [ALL] Stats: Added player morph timer from Tekish's LevelInfo v1.23 (mainly for chicken/pig morph in Heretic/Hexen multiplayer)
