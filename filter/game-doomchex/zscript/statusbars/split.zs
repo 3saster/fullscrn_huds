@@ -153,11 +153,21 @@ extend Class SpecialDoomStatusBar
 			DrawString(mAmountFont, FormatNumber(CPlayer.FragCount, 3), (139, -30), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_LEFT_BOTTOM|DI_NOSHADOW, Font.CR_RED, alpha:alphaFloatNum);
 		}
 		
+		// Compute how much space we have for the inventory bar
+		Vector2 scale = GetHUDScale();
+		int VirtualWidth  = int(Screen.GetWidth()/scale.x);
+		
+		let left =  TexMan.CheckForTexture(addArms(HUD_LEFT),  TexMan.Type_MiscPatch);
+		let right = TexMan.CheckForTexture(addArms(HUD_RIGHT), TexMan.Type_MiscPatch);
+		double textureWidth = 2*max(getTextureWidth(left),getTextureWidth(right))+2 + getTextureWidth(diparms_sbar.left) + getTextureWidth(diparms_sbar.right);
+		
+		int maxInv = int( (VirtualWidth - textureWidth)/diparms_sbar.boxsize.X );
+		
 		// Draw Inventory Bar
 		if (isInventoryBarVisible())
 		{
 			int itemCount = 0;
-			for(Inventory item = CPlayer.mo.FirstInv(); item != NULL && itemCount < 4; item = item.NextInv())
+			for(Inventory item = CPlayer.mo.FirstInv(); item != NULL && itemCount < maxInv; item = item.NextInv())
 				itemCount++;
 			DrawInventoryBarTrans(diparms_sbar, (0, -1), max(itemCount,1), DI_SCREEN_CENTER_BOTTOM, bgalpha:alphaFloat, fgalpha:alphaFloatGraph, numalpha: alphaFloatNum);
 		}

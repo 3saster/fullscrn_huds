@@ -85,11 +85,21 @@ extend Class SpecialHereticStatusBar
 			}
 		}
 		
+		// Compute how much space we have for the inventory bar
+		Vector2 scale = GetHUDScale();
+		int VirtualWidth  = int(Screen.GetWidth()/scale.x);
+		
+		let left =  TexMan.CheckForTexture(barLeft,    TexMan.Type_MiscPatch);
+		let right = TexMan.CheckForTexture("BAR_RGHT", TexMan.Type_MiscPatch);
+		double textureWidth = 2*max(getTextureWidth(left),getTextureWidth(right))+2 + getTextureWidth(diparms_sbar.left) + getTextureWidth(diparms_sbar.right);
+		
+		int maxInv = int( (VirtualWidth - textureWidth)/diparms_sbar.boxsize.X );
+		
 		// Draw Inventory Bar
 		if (isInventoryBarVisible())
 		{
 			int itemCount = 0;
-			for(Inventory item = CPlayer.mo.FirstInv(); item != NULL && itemCount < 4; item = item.NextInv())
+			for(Inventory item = CPlayer.mo.FirstInv(); item != NULL && itemCount < maxInv; item = item.NextInv())
 				itemCount++;
 			DrawInventoryBarTrans(diparms_sbar, (0, -1), max(itemCount,1), DI_SCREEN_CENTER_BOTTOM, bgalpha:alphaFloat, fgalpha:alphaFloatGraph, numalpha: alphaFloatNum);
 		}

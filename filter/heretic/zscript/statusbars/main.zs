@@ -156,4 +156,13 @@ Class SpecialHereticStatusBar : HereticStatusBar
 	{
 		return string.format("%s%s",s1,s2);
 	}
+	
+	// ========================
+	// Get texture width easily
+	// ========================
+	double getTextureWidth(TextureID texture)
+	{
+		let size = TexMan.GetScaledSize(texture);
+		return size.x;
+	}
 }
