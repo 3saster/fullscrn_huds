@@ -1,9 +1,9 @@
 ===========================================================================
-Advanced engine needed  : GZDoom 4.2.5+ / LZDoom 3.84+
+Advanced engine needed  : GZDoom 4.3.0+ / LZDoom 3.84+
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.X.X)
+Title                : Fullscreen Status Bar Mod (v5.1.4)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : XX/XX/XXXX
+Release date         : 01/07/2020
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -17,7 +17,7 @@ Description          : Fullscreen versions for the status bars of Doom-based
                        Harmony), Heretic and Hexen with optional transparency 
                        and level stats display
 
-Additional Info      : 1) Only works with GZDoom 4.2.5+, LZDoom 3.84+ and other
+Additional Info      : 1) Only works with GZDoom 4.3.0+, LZDoom 3.84+ and other
                           equivalent ports.
                        2) Please make sure to load this file AFTER any mod altering
                           status bars to guarantee maximum compatibility.
@@ -97,19 +97,18 @@ Tested With          : GZDoom
 
 * CHANGELOG *
 
-> Version 5.X.X (XXX XX, XXXX)
-  NOTE: Now requires GZDoom 4.2.5+ or LZDoom 3.84+. This is due to a major internal restructure that makes 
-        many parts of the code (especially stats) MUCH easier to maintain, using the almighty mixins
-  [ALL] General Settings: "Force HUD override" option removed. This was rather hacky and caused crashes,
-                          even for users who did not use turn it on.
+> Version 5.1.4 (Jan 7, 2020)
+  NOTE: Now requires GZDoom 4.3.0+ or LZDoom 3.84+. This is due to a major internal restructure that makes 
+        many parts of the code (especially stats) MUCH easier to maintain, using mixins
+  [ALL] General Settings: "Force HUD override" option removed. This was rather hacky and caused crashes, even when turned off
   [ALL] Added tooltips to menu options
   [ALL] All strings (except credits) are now in a LANGUAGE lump. This allows for centralizing the strings and possibly translating
   [ALL] Stats: Added player morph timer from Tekish's LevelInfo v1.23 (mainly for chicken/pig morph in Heretic/Hexen multiplayer)
   [ALL] Split mode: Inventory bar is now properly pre-populated before first scroll through
-  [ALL] Split mode: Inventory bar now displays a a maximum number of items based on how large the HUD is
-  [HACX] MENUDEF: HacX no longer needs a separate file, all games now use a single MENUDEF lump
+  [ALL] Split mode: Inventory bar now displays a maximum number of items based on HUD size
   [HERETIC] Automatic compatibility added for Heretic Neural Texture Pack
   [HERETIC] Improved transparency settings for "Curse of D'Sparil"
+  [HACX] MENUDEF: No longer needs a separate file, all games now use a single MENUDEF lump
 
 > Version 5.1.3 (Nov 22, 2019)
   NOTE: Now requires GZDoom 4.2.4+. This prevents a segfault that can occur with "Force HUD override" active.
