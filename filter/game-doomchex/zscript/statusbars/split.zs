@@ -120,22 +120,22 @@ extend Class SpecialDoomStatusBar
 			if (CPlayer.mo.InvSel != null && !Level.NoInventoryBar)
 			{
 				drawBerserk(alphaFloatGraph,true); // Draw Under Inventory
-				DrawInventoryIcon(CPlayer.mo.InvSel, (124, -16), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_CENTER, alpha:alphaFloatGraph);
+				DrawInventoryIcon(CPlayer.mo.InvSel, (124+MUG_OFFSET, -16), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_CENTER, alpha:alphaFloatGraph);
 				if (CPlayer.mo.InvSel.Amount > 1)
 				{
-					DrawString(mAmountFont, FormatNumber(CPlayer.mo.InvSel.Amount), (139, -2-mIndexFontF.mFont.GetHeight()), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_LEFT_BOTTOM, Font.CR_GOLD, alpha:alphaFloatNum);
+					DrawString(mAmountFont, FormatNumber(CPlayer.mo.InvSel.Amount), (139+MUG_OFFSET, -2-mIndexFontF.mFont.GetHeight()), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_LEFT_BOTTOM, Font.CR_GOLD, alpha:alphaFloatNum);
 				}
 			}
 			else
 			{
-				DrawTexture(GetMugShot(5), (107+isChex(1)+isHacX(1), -32), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+				DrawTexture(GetMugShot(5), (107+isChex(1)+isHacX(1)+MUG_OFFSET, -32), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
 				drawBerserk(alphaFloatGraph,true); // Draw Over Mugshot
 			}
 		}
 		// Draw Mugshot/Inventory (Do Not Overwrite Mugshot)
 		else
 		{
-			DrawTexture(GetMugShot(5), (107+isChex(1)+isHacX(1), -32), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+			DrawTexture(GetMugShot(5), (107+isChex(1)+isHacX(1)+MUG_OFFSET, -32), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
 			drawBerserk(alphaFloatGraph,true); // Draw Over Mugshot
 			if (CPlayer.mo.InvSel != null && !Level.NoInventoryBar)
 			{

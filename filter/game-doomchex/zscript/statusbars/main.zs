@@ -42,6 +42,8 @@ Class SpecialDoomStatusBar : DoomStatusBar
 
 	// Offset for Split Arms
 	double ARMS_OFFSET;
+	// Offset for Split Mugshot
+	double MUG_OFFSET;
 
 	enum OpaqueValues
 	{
@@ -180,7 +182,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	{
 		if(berserkShow && berserkShow.GetInt() && CPlayer.mo.FindInventory("PowerStrength"))
 		{
-			DrawImage("BERSERK", (split ? 138-isHacX(1)-isFreeDoom(3) : 14-isHacX(2)-isFreeDoom(3), -1), split ? DI_SCREEN_LEFT_BOTTOM : DI_SCREEN_CENTER_BOTTOM, alphaFloat);
+			DrawImage("BERSERK", (split ? 138-isHacX(1)-isFreeDoom(3)+MUG_OFFSET : 14-isHacX(2)-isFreeDoom(3), -1), split ? DI_SCREEN_LEFT_BOTTOM : DI_SCREEN_CENTER_BOTTOM, alphaFloat);
 		}
 	}
 

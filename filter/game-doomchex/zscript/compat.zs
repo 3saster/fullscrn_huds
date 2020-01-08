@@ -16,6 +16,7 @@ extend Class SpecialDoomStatusBar
 		STYSNUM   = "STYSNUM";
 		STGNUM    = "STGNUM";
 		ARMS_OFFSET = 0;
+		MUG_OFFSET = 0;
 
 		Font fnt;
 		// Deal with compatibility with certain PWADS
@@ -99,6 +100,15 @@ extend Class SpecialDoomStatusBar
 
 		case 0xC0A46A33: // Dystopia 3
 			HUD_LEFT = "HUD_LEFT_DYSTOPIA";
+			break;
+
+		case 0xF7ACEC6D: // Community Chest Series
+			HUD_SMP   = "HUD_SMP_CCHEST";
+			HUD_DM    = "HUD_DM_CCHEST";
+			HUD_LEFT  = "HUD_LEFT_CCHEST";
+			HUD_RIGHT = "HUD_RIGHT_CCHEST";
+			MUG_OFFSET = -2;
+			ARMS_OFFSET = -2;
 			break;
 		}
 

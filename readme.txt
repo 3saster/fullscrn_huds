@@ -38,7 +38,7 @@ Additional Info      : 1) Only works with GZDoom 4.3.0+, LZDoom 3.84+ and other
                                   + 6 positions (top left/right, center left/right, bottom left/right)
                                   + Toggle any stat (kills, secrets, items, time)
                                   + Choose between 4 different fonts
-				  + Choose between 25 different stat completion colors
+                                  + Choose between 25 different stat completion colors
                                   + Optionally show countdowns for active powerups
                        5) Adds 14-16 CVARS to your GZDoom ini, starting with "fullhud_" 
 
@@ -97,6 +97,9 @@ Tested With          : GZDoom
 
 
 * CHANGELOG *
+
+> Version 5.X.X (XXX X, 2020)
+  [DOOM] Automatic compatibility added for Community Chest Series
 
 > Version 5.1.5 (Jan 8, 2020)
   [ALL] Stats: Can now choose between 25 (before: 3) different stat completion colors
