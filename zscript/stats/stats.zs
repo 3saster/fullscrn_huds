@@ -10,9 +10,31 @@ mixin Class Stats
 	
 	enum StatsColorValues
 	{
-		GREEN = 0,
-		RED = 1,
-		NONE = 2,
+		NONE = 0,
+		BLACK = 1,
+		LIGHTBLUE = 2,
+		BLUE = 3,
+		BRICK = 4,
+		BROWN = 5,
+		DARKBROWN = 6,
+		CREAM = 7,
+		CYAN = 8,
+		FIRE = 9,
+		GOLD = 10,
+		GRAY = 11,
+		DARKGRAY = 12, 
+		GREEN = 13,
+		DARKGREEN = 14, 
+		ICE = 15,
+		OLIVE = 16,
+		ORANGE = 17,
+		PURPLE = 18,
+		RED = 19,
+		DARKRED = 20, 
+		SAPPHIRE = 21,
+		TAN = 22,
+		TEAL = 23,
+		YELLOW = 24
 	}
 	
 	enum StatsPosition
@@ -139,15 +161,81 @@ mixin Class Stats
 		int compColor;
 		switch(statsCompColor.GetInt())
 		{
+			case NONE:
+			default:
+				compColor = Font.CR_WHITE;
+				break;
+			case BLACK:
+				compColor = Font.CR_BLACK;
+				break;
+			case LIGHTBLUE:
+				compColor = Font.CR_LIGHTBLUE;
+				break;
+			case BLUE:
+				compColor = Font.CR_BLUE;
+				break;
+			case BRICK:
+				compColor = Font.CR_BRICK;
+				break;
+			case BROWN:
+				compColor = Font.CR_BROWN;
+				break;
+			case DARKBROWN:
+				compColor = Font.CR_DARKBROWN;
+				break;
+			case CREAM:
+				compColor = Font.CR_CREAM;
+				break;
+			case CYAN:
+				compColor = Font.CR_CYAN;
+				break;
+			case FIRE:
+				compColor = Font.CR_FIRE;
+				break;
+			case GOLD:
+				compColor = Font.CR_GOLD;
+				break;
+			case GRAY:
+				compColor = Font.CR_GRAY;
+				break;
+			case DARKGRAY:
+				compColor = Font.CR_DARKGRAY;
+				break;
 			case GREEN:
 				compColor = Font.CR_GREEN;
+				break;
+			case DARKGREEN:
+				compColor = Font.CR_DARKGREEN;
+				break;
+			case ICE:
+				compColor = Font.CR_ICE;
+				break;
+			case OLIVE:
+				compColor = Font.CR_OLIVE;
+				break;
+			case ORANGE:
+				compColor = Font.CR_ORANGE;
+				break;
+			case PURPLE:
+				compColor = Font.CR_PURPLE;
 				break;
 			case RED:
 				compColor = Font.CR_RED;
 				break;
-			case NONE:
-			default:
-				compColor = Font.CR_WHITE;
+			case DARKRED:
+				compColor = Font.CR_DARKRED;
+				break;
+			case SAPPHIRE:
+				compColor = Font.CR_SAPPHIRE;
+				break;
+			case TAN:
+				compColor = Font.CR_TAN;
+				break;
+			case TEAL:
+				compColor = Font.CR_TEAL;
+				break;
+			case YELLOW:
+				compColor = Font.CR_YELLOW;
 				break;
 		}
 		

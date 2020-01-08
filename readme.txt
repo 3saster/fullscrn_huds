@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom 4.3.0+ / LZDoom 3.84+
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.1.4)
+Title                : Fullscreen Status Bar Mod (v5.1.5)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : 01/07/2020
+Release date         : 01/08/2020
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -38,6 +38,7 @@ Additional Info      : 1) Only works with GZDoom 4.3.0+, LZDoom 3.84+ and other
                                   + 6 positions (top left/right, center left/right, bottom left/right)
                                   + Toggle any stat (kills, secrets, items, time)
                                   + Choose between 4 different fonts
+				  + Choose between 25 different stat completion colors
                                   + Optionally show countdowns for active powerups
                        5) Adds 14-16 CVARS to your GZDoom ini, starting with "fullhud_" 
 
@@ -96,6 +97,9 @@ Tested With          : GZDoom
 
 
 * CHANGELOG *
+
+> Version 5.1.5 (Jan 8, 2020)
+  [ALL] Stats: Can now choose between 25 (before: 3) different stat completion colors
 
 > Version 5.1.4 (Jan 7, 2020)
   NOTE: Now requires GZDoom 4.3.0+ or LZDoom 3.84+. This is due to a major internal restructure that makes 

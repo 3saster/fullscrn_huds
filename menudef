@@ -39,9 +39,31 @@ OptionValue "LevelStatsPosition"
 
 OptionValue "Colors"
 {
-	0, "$C_GREEN"
-	1, "$C_RED"
-	2, "$OPTVAL_NONE"
+	0, "$OPTVAL_NONE"
+	1, "$C_BLACK"
+	2, "$C_LIGHTBLUE"
+	3, "$C_BLUE"
+	4, "$C_BRICK"
+	5, "$C_BROWN"
+	6, "$C_DARKBROWN"
+	7, "$C_CREAM"
+	8, "$C_CYAN"
+	9, "$C_FIRE"
+	10, "$C_GOLD"
+	11, "$C_GRAY"
+	12, "$C_DARKGRAY"
+	13, "$C_GREEN"
+	14, "$C_DARKGREEN"
+	15, "$C_ICE"
+	16, "$C_OLIVE"
+	17, "$C_ORANGE"
+	18, "$C_PURPLE"
+	19, "$C_RED"
+	20, "$C_DARKRED"
+	21, "$C_SAPPHIRE"
+	22, "$C_TAN"
+	23, "$C_TEAL"
+	24, "$C_YELLOW"
 }
 
 OptionValue "Opaque"
@@ -136,7 +158,7 @@ OptionMenu "StatsSettings"
 ListMenu "FullscreenCredits"
 {
 	Font "SmallFont"
-	StaticText -64,	  0, "Version 5.1.4", gold
+	StaticText -64,	  0, "Version 5.1.5", gold
 	StaticText -64,	 12, "NightFright", red
 	StaticText -64,	 24, "3saster", red
 	StaticText -64,	 48, "id Software", red
