@@ -21,20 +21,17 @@ mixin Class Stats
 		CYAN = 8,
 		FIRE = 9,
 		GOLD = 10,
-		GRAY = 11,
-		DARKGRAY = 12, 
-		GREEN = 13,
-		DARKGREEN = 14, 
-		ICE = 15,
-		OLIVE = 16,
-		ORANGE = 17,
-		PURPLE = 18,
-		RED = 19,
-		DARKRED = 20, 
-		SAPPHIRE = 21,
-		TAN = 22,
-		TEAL = 23,
-		YELLOW = 24
+		DARKGRAY = 11, 
+		GREEN = 12,
+		DARKGREEN = 13, 
+		OLIVE = 14,
+		ORANGE = 15,
+		PURPLE = 16,
+		RED = 17,
+		DARKRED = 18, 
+		SAPPHIRE = 19,
+		TEAL = 20,
+		YELLOW = 21
 	}
 	
 	enum StatsPosition
@@ -195,9 +192,6 @@ mixin Class Stats
 			case GOLD:
 				compColor = Font.CR_GOLD;
 				break;
-			case GRAY:
-				compColor = Font.CR_GRAY;
-				break;
 			case DARKGRAY:
 				compColor = Font.CR_DARKGRAY;
 				break;
@@ -206,9 +200,6 @@ mixin Class Stats
 				break;
 			case DARKGREEN:
 				compColor = Font.CR_DARKGREEN;
-				break;
-			case ICE:
-				compColor = Font.CR_ICE;
 				break;
 			case OLIVE:
 				compColor = Font.CR_OLIVE;
@@ -227,9 +218,6 @@ mixin Class Stats
 				break;
 			case SAPPHIRE:
 				compColor = Font.CR_SAPPHIRE;
-				break;
-			case TAN:
-				compColor = Font.CR_TAN;
 				break;
 			case TEAL:
 				compColor = Font.CR_TEAL;
