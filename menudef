@@ -89,6 +89,7 @@ OptionMenu "GeneralSettings"
 
 	StaticText ""
 	FullHUDOption      "$FULLHUD_GENERAL_FULLSCREEN",    "$FULLHUD_GENERALTOOLTIP_FULLSCREEN",    "screenblocks", "FullscreenMode"
+	FullHUDOption      "$FULLHUD_GENERAL_ALTHUD",        "$FULLHUD_GENERALTOOLTIP_ALTHUD",        "hud_althud", "OnOff"
 	FullHUDScaleSlider "$FULLHUD_GENERAL_SCALING",       "$FULLHUD_GENERALTOOLTIP_SCALING",       "hud_scale", -1.0, 8.0, 1.0, "$SCALEMNU_USEUI", "$SCALEMNU_USEFS"
 	StaticText ""
 	FullHUDOption      "$FULLHUD_GENERAL_SPLIT",         "$FULLHUD_GENERALTOOLTIP_SPLIT",         "fullhud_split", "OnOff"
@@ -155,7 +156,7 @@ OptionMenu "StatsSettings"
 ListMenu "FullscreenCredits"
 {
 	Font "SmallFont"
-	StaticText -64,	  0, "Version 5.X.X", gold
+	StaticText -64,	  0, "Version 5.1.6 (Pre-Release)", gold
 	StaticText -64,	 12, "NightFright", red
 	StaticText -64,	 24, "3saster", red
 	StaticText -64,	 48, "id Software", red
