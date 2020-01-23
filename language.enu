@@ -10,19 +10,19 @@ FULLHUD_MODTITLE = "Fullscreen Status Bar";
 // OPTVAL_ON  = "On";
 
 // OptionValue "LevelStats"
-// OPTVAL_OFF         = "Off";
+// OPTVAL_OFF             = "Off";
 FULLHUD_LS_PERCENTAGES = "Percentages";
 FULLHUD_LS_COUNTDOWN   = "Countdown";
 FULLHUD_LS_FRACTION    = "Fraction";
 
 // OptionValue "LevelStatsFont"
-// OPTVAL_DEFAULT      = "Default";
+// OPTVAL_DEFAULT          = "Default";
 FULLHUD_FONT_CONFONT    = "Console Font";
 FULLHUD_FONT_STATREPORT = "Status Report";
 FULLHUD_FONT_MM2        = "Memento Mori 2";
 
 // OptionValue "LevelStatsPosition"
-// OPTVAL_OFF  = "Off";
+// OPTVAL_OFF      = "Off";
 FULLHUD_LSP_TL  = "Top left";
 FULLHUD_LSP_TR  = "Top right";
 FULLHUD_LSP_CL  = "Center left";
@@ -48,18 +48,18 @@ FULLHUD_SETTINGSNAME_CREDITS  = "Credits/About";
 
 /* --- General Settings --- */
 FULLHUD_GENERAL_FULLSCREEN    = "Fullscreen";
-// HUDMNU_ALTHUD        	      = "Alternative HUD";
+// HUDMNU_ALTHUD                 = "Alternative HUD";
 FULLHUD_GENERAL_SCALING       = "Scaling";
 FULLHUD_GENERAL_SPLIT         = "Split bar";
 FULLHUD_GENERAL_TRANSPARENCY  = "Transparency";
 FULLHUD_GENERAL_OPAQUE        = "Opaque elements";
 
-FULLHUD_GENERALTOOLTIP_FULLSCREEN    = "This must be ON to use this HUD.";
-FULLHUD_GENERALTOOLTIP_ALTHUD        = "This must be OFF to use this HUD.";
-FULLHUD_GENERALTOOLTIP_SCALING       = "Adjusts the size of the Fullscreen Status Bar.";
-FULLHUD_GENERALTOOLTIP_SPLIT         = "Splits the status bar to both sides of the screen.";
-FULLHUD_GENERALTOOLTIP_TRANSPARENCY  = "Sets status bar transparency (0.0 = fully opaque, 1.0 = fully transparent).";
-FULLHUD_GENERALTOOLTIP_OPAQUE        = "Sets certain HUD elements to be always opaque, regardless of transparency.";
+FULLHUD_GENERALTOOLTIP_FULLSCREEN    = "This must be ON to use this HUD";
+FULLHUD_GENERALTOOLTIP_ALTHUD        = "This must be OFF to use this HUD";
+FULLHUD_GENERALTOOLTIP_SCALING       = "Adjust the size of the Fullscreen Status Bar";
+FULLHUD_GENERALTOOLTIP_SPLIT         = "Split the status bar to both sides of the screen";
+FULLHUD_GENERALTOOLTIP_TRANSPARENCY  = "Set status bar transparency (0.0 = fully opaque, 1.0 = fully transparent)";
+FULLHUD_GENERALTOOLTIP_OPAQUE        = "Set certain HUD elements to be always opaque, regardless of transparency";
 
 /* --- Optional Settings --- */
 FULLHUD_OPTIONAL_BOOMHUD      = "Use Boom HUD colors";
@@ -70,29 +70,34 @@ FULLHUD_OPTIONAL_INVREPLACE   = "Inventory items can replace mugshot";
 FULLHUD_OPTIONAL_HIDEAUTOMAP  = "Hide status bar on automap";
 FULLHUD_OPTIONAL_HEXENAUTOMAP = "Keys/armor as panels on automap";
 
-FULLHUD_OPTIONALTOOLTIP_BOOMHUD      = "Makes HUD numbers use colors based on their value, like in Boom.";
-FULLHUD_OPTIONALTOOLTIP_BERSERK      = "Displays a marker (cross) next to the mugshot when in berserk mode.";
-FULLHUD_OPTIONALTOOLTIP_CHEXLOGO     = "Replaces Chex logos on status bar with arms/ammo displays.";
-FULLHUD_OPTIONALTOOLTIP_SPLITARMS    = "Shows which weapons you currently possess on the split HUD.";
-FULLHUD_OPTIONALTOOLTIP_INVREPLACE   = "Displays currently active inventory item instead of mugshot if ON.";
-FULLHUD_OPTIONALTOOLTIP_HIDEAUTOMAP  = "Hides the status bar completely on the automap.";
-FULLHUD_OPTIONALTOOLTIP_HEXENAUTOMAP = "Hides the status bar on the automap and only shows key/armor panels.";
+FULLHUD_OPTIONALTOOLTIP_BOOMHUD      = "Make HUD numbers use colors based on their value, like in Boom";
+FULLHUD_OPTIONALTOOLTIP_BERSERK      = "Display a marker (cross) next to the mugshot when in berserk mode";
+FULLHUD_OPTIONALTOOLTIP_CHEXLOGO     = "Replace Chex logos on status bar with arms/ammo displays";
+FULLHUD_OPTIONALTOOLTIP_SPLITARMS    = "Show which weapons you currently possess on the split HUD";
+FULLHUD_OPTIONALTOOLTIP_INVREPLACE   = "Display currently active inventory item instead of mugshot if ON";
+FULLHUD_OPTIONALTOOLTIP_HIDEAUTOMAP  = "Hide the status bar completely on the automap";
+FULLHUD_OPTIONALTOOLTIP_HEXENAUTOMAP = "Hide the status bar on the automap and only show key/armor panels";
 
 /* --- Stats --- */
 FULLHUD_STATS_STATDISPLAY = "Stats display";
 FULLHUD_STATS_STATFONT    = "Stats font";
 FULLHUD_STATS_COMPCOLOR   = "Completion color";
-FULLHUD_STATS_KILLS       = "Kill counter";
-FULLHUD_STATS_KILLS_CHEX  = "Zorch counter";
-FULLHUD_STATS_SECRETS     = "Secret counter";
-FULLHUD_STATS_ITEMS       = "Item counter";
+FULLHUD_STATS_KILLS       = "Kills counter";
+FULLHUD_STATS_KILLS_CHEX  = "Zorches counter";
+FULLHUD_STATS_SECRETS     = "Secrets counter";
+FULLHUD_STATS_ITEMS       = "Items counter";
 FULLHUD_STATS_LEVELTIME   = "Level time";
 FULLHUD_STATS_POWERUPS    = "Powerup timers";
 
-FULLHUD_STATSTOOLTIP_STATDISPLAY = "Chooses a system for kill/secret/item counters (e.g.: '50%', '6 Left' or '6/12').";
-FULLHUD_STATSTOOLTIP_STATFONT    = "Sets a font for the stats.";
-FULLHUD_STATSTOOLTIP_COMPCOLOR   = "Colorizes kill/secret/item counters when maxed.";
-FULLHUD_STATSTOOLTIP_POWERUPS    = "Shows duration of activated powerups.";
+FULLHUD_STATSTOOLTIP_STATDISPLAY = "Choose a system for kill/secret/item counters (e.g.: '50%', '6 Left' or '6/12')";
+FULLHUD_STATSTOOLTIP_STATFONT    = "Set a font for the stats";
+FULLHUD_STATSTOOLTIP_COMPCOLOR   = "Colorize kill/secret/item counters when maxed";
+FULLHUD_STATSTOOLTIP_KILLS_CHEX  = "Show amount of zorched enemies";
+FULLHUD_STATSTOOLTIP_KILLS       = "Show amount of killed enemies";
+FULLHUD_STATSTOOLTIP_ITEMS       = "Show amount of collected items";
+FULLHUD_STATSTOOLTIP_LEVELTIME   = "Show time spent in a level";
+FULLHUD_STATSTOOLTIP_SECRETS     = "Show amount of found secrets";
+FULLHUD_STATSTOOLTIP_POWERUPS    = "Show duration of activated powerups";
 
 /* --- Stat Display --- */
 FULLHUD_KILLS       = "Kills";

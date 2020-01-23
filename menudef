@@ -104,16 +104,16 @@ OptionMenu "OptionalSettings"
 	Position -36
 
 	StaticText ""
-	FullHUDOption "$FULLHUD_OPTIONAL_BOOMHUD", "$FULLHUD_OPTIONALTOOLTIP_BOOMHUD", "fullhud_boomcolors", "OnOff", "",0,0
+	FullHUDOption "$FULLHUD_OPTIONAL_BOOMHUD",              "$FULLHUD_OPTIONALTOOLTIP_BOOMHUD",     "fullhud_boomcolors", "OnOff", "",0,0
 	IfGame(Doom) 
 	{
-		FullHUDOption "$FULLHUD_OPTIONAL_BERSERK",      "$FULLHUD_OPTIONALTOOLTIP_BERSERK",      "fullhud_showberserk", "OnOff"
+		FullHUDOption "$FULLHUD_OPTIONAL_BERSERK",      "$FULLHUD_OPTIONALTOOLTIP_BERSERK",     "fullhud_showberserk", "OnOff"
 	}
 	IfGame(Chex) 
 	{
 		FullHUDOption "$FULLHUD_OPTIONAL_CHEXLOGO",     "$FULLHUD_OPTIONALTOOLTIP_CHEXLOGO",     "fullhud_chexarms", "OnOff"
 	}
-	FullHUDOption "$FULLHUD_OPTIONAL_SPLITARMS", "$FULLHUD_OPTIONALTOOLTIP_SPLITARMS", "fullhud_splitarms", "OnOff", "fullhud_split"
+	FullHUDOption "$FULLHUD_OPTIONAL_SPLITARMS",            "$FULLHUD_OPTIONALTOOLTIP_SPLITARMS",    "fullhud_splitarms", "OnOff", "fullhud_split"
 	IfGame(Doom, Chex) 
 	{	
 		FullHUDOption "$FULLHUD_OPTIONAL_INVREPLACE",   "$FULLHUD_OPTIONALTOOLTIP_INVREPLACE",   "fullhud_invovermug", "OnOff"
@@ -135,28 +135,28 @@ OptionMenu "StatsSettings"
 	Position -36
 
    	StaticText ""
-	FullHUDOption "$FULLHUD_STATS_STATDISPLAY", "$FULLHUD_STATSTOOLTIP_STATDISPLAY", "fullhud_stats_type", "LevelStats"
-	FullHUDOption "$FULLHUD_STATS_STATFONT",    "$FULLHUD_STATSTOOLTIP_STATFONT",    "fullhud_stats_font", "LevelStatsFont"
-	FullHUDOption "$FULLHUD_STATS_COMPCOLOR",   "$FULLHUD_STATSTOOLTIP_COMPCOLOR",   "fullhud_stats_comp", "Colors", "fullhud_stats_type"
+	FullHUDOption "$FULLHUD_STATS_STATDISPLAY",        "$FULLHUD_STATSTOOLTIP_STATDISPLAY", "fullhud_stats_type",     "LevelStats"
+	FullHUDOption "$FULLHUD_STATS_STATFONT",           "$FULLHUD_STATSTOOLTIP_STATFONT",    "fullhud_stats_font",     "LevelStatsFont"
+	FullHUDOption "$FULLHUD_STATS_COMPCOLOR",          "$FULLHUD_STATSTOOLTIP_COMPCOLOR",   "fullhud_stats_comp",     "Colors",             "fullhud_stats_type"
    	StaticText ""
 	IfGame(Chex)
 	{
-		Option "$FULLHUD_STATS_KILLS_CHEX", "fullhud_stats_kills", "LevelStatsPosition", "fullhud_stats_type"
+		FullHUDOption "$FULLHUD_STATS_KILLS_CHEX", "$FULLHUD_STATSTOOLTIP_KILLS_CHEX",	"fullhud_stats_kills",    "LevelStatsPosition", "fullhud_stats_type"
 	}
 	Else
 	{
-		Option "$FULLHUD_STATS_KILLS", "fullhud_stats_kills", "LevelStatsPosition", "fullhud_stats_type"
+		FullHUDOption "$FULLHUD_STATS_KILLS",      "$FULLHUD_STATSTOOLTIP_KILLS",       "fullhud_stats_kills",    "LevelStatsPosition", "fullhud_stats_type"
 	}
-	Option        "$FULLHUD_STATS_SECRETS",                                     "fullhud_stats_secrets",  "LevelStatsPosition", "fullhud_stats_type"
-	Option        "$FULLHUD_STATS_ITEMS",                                       "fullhud_stats_items",    "LevelStatsPosition", "fullhud_stats_type"
-	Option        "$FULLHUD_STATS_LEVELTIME",                                   "fullhud_stats_time",     "LevelStatsPosition", "fullhud_stats_type"
-	FullHUDOption "$FULLHUD_STATS_POWERUPS",  "$FULLHUD_STATSTOOLTIP_POWERUPS", "fullhud_stats_powerups", "LevelStatsPosition", "fullhud_stats_type"
+	FullHUDOption         "$FULLHUD_STATS_SECRETS",    "$FULLHUD_STATSTOOLTIP_SECRETS",     "fullhud_stats_secrets",  "LevelStatsPosition", "fullhud_stats_type"
+	FullHUDOption         "$FULLHUD_STATS_ITEMS",      "$FULLHUD_STATSTOOLTIP_ITEMS",       "fullhud_stats_items",    "LevelStatsPosition", "fullhud_stats_type"
+	FullHUDOption         "$FULLHUD_STATS_LEVELTIME",  "$FULLHUD_STATSTOOLTIP_LEVELTIME",   "fullhud_stats_time",     "LevelStatsPosition", "fullhud_stats_type"
+	FullHUDOption         "$FULLHUD_STATS_POWERUPS",   "$FULLHUD_STATSTOOLTIP_POWERUPS",    "fullhud_stats_powerups", "LevelStatsPosition", "fullhud_stats_type"
 }
 
 ListMenu "FullscreenCredits"
 {
 	Font "SmallFont"
-	StaticText -64,	  0, "Version 5.X.X", gold
+	StaticText -64,	  0, "Version 5.1.6 (Pre-Release)", gold
 	StaticText -64,	 12, "NightFright", red
 	StaticText -64,	 24, "3saster", red
 	StaticText -64,	 48, "id Software", red
