@@ -48,7 +48,7 @@ FULLHUD_SETTINGSNAME_CREDITS  = "Credits/About";
 
 /* --- General Settings --- */
 FULLHUD_GENERAL_FULLSCREEN    = "Fullscreen";
-FULLHUD_GENERAL_ALTHUD        = "Alternative HUD";
+// HUDMNU_ALTHUD        	      = "Alternative HUD";
 FULLHUD_GENERAL_SCALING       = "Scaling";
 FULLHUD_GENERAL_SPLIT         = "Split bar";
 FULLHUD_GENERAL_TRANSPARENCY  = "Transparency";
