@@ -70,6 +70,13 @@ OptionValue "Opaque"
 	2, "$FULLHUD_OPAQUE_NUMGRAPH"
 }
 
+OptionValue "BerserkCross"
+{
+	0, "$OPTVAL_OFF"
+	1, "$C_RED"
+	2, "$C_GREEN"
+}
+
 OptionMenu "FullscreenStatusbarOptions"
 {
 	Title "$FULLHUD_MODTITLE"
@@ -107,7 +114,7 @@ OptionMenu "OptionalSettings"
 	FullHUDOption "$FULLHUD_OPTIONAL_BOOMHUD",              "$FULLHUD_OPTIONALTOOLTIP_BOOMHUD",     "fullhud_boomcolors", "OnOff", "",0,0
 	IfGame(Doom) 
 	{
-		FullHUDOption "$FULLHUD_OPTIONAL_BERSERK",      "$FULLHUD_OPTIONALTOOLTIP_BERSERK",     "fullhud_showberserk", "OnOff"
+		FullHUDOption "$FULLHUD_OPTIONAL_BERSERK",      "$FULLHUD_OPTIONALTOOLTIP_BERSERK",     "fullhud_showberserk", "BerserkCross"
 	}
 	IfGame(Chex) 
 	{
@@ -156,7 +163,7 @@ OptionMenu "StatsSettings"
 ListMenu "FullscreenCredits"
 {
 	Font "SmallFont"
-	StaticText -64,	  0, "Version 5.1.6 (Pre-Release)", gold
+	StaticText -64,	  0, "Version 5.X.X", gold
 	StaticText -64,	 12, "NightFright", red
 	StaticText -64,	 24, "3saster", red
 	StaticText -64,	 48, "id Software", red

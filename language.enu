@@ -31,9 +31,33 @@ FULLHUD_LSP_BL  = "Bottom left";
 FULLHUD_LSP_BR  = "Bottom right";
 
 // OptionValue "Colors"
-// C_GREEN     = "Green";
-// C_RED       = "Red";
 // OPTVAL_NONE = "None";
+// C_BLACK     = "Black";
+// C_LIGHTBLUE = "Light blue";
+// C_BLUE      = "Blue";
+// C_BRICK     = "Brick";
+// C_BROWN     = "Brown";
+// C_DARKBROWN = "Dark brown";
+// C_CREAM     = "Cream";
+// C_CYAN      = "Cyan";
+// C_FIRE      = "Fire";
+// C_GOLD      = "Gold";
+// C_DARKGRAY  = "Dark gray";
+// C_GREEN     = "Green";
+// C_DARKGREEN = "Dark green";
+// C_OLIVE     = "Olive";
+// C_ORANGE    = "Orange";
+// C_PURPLE    = "Purple";
+// C_RED       = "Red";
+// C_DARKRED   = "Dark red";
+// C_SAPPHIRE  = "Sapphire";
+// C_TEAL      = "Teal";
+// C_YELLOW    = "Yellow";
+
+// OptionValue "BerserkCross"
+// OPTVAL_NONE = "None";
+// C_RED       = "Red";
+// C_GREEN     = "Green";
 
 // OptionValue "Opaque"
 // OPTVAL_OFF          = "Off";

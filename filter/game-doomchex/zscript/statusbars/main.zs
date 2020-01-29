@@ -182,7 +182,10 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	{
 		if(berserkShow && berserkShow.GetInt() && CPlayer.mo.FindInventory("PowerStrength"))
 		{
-			DrawImage("BERSERK", (split ? 138-isHacX(1)-isFreeDoom(3)+MUG_OFFSET : 14-isHacX(2)-isFreeDoom(3), -1), split ? DI_SCREEN_LEFT_BOTTOM : DI_SCREEN_CENTER_BOTTOM, alphaFloat);
+			if(berserkShow.GetInt() == 1)
+				DrawImage("BERSERK", (split ? 138-isHacX(1)-isFreeDoom(3)+MUG_OFFSET : 14-isHacX(2)-isFreeDoom(3), -1), split ? DI_SCREEN_LEFT_BOTTOM : DI_SCREEN_CENTER_BOTTOM, alphaFloat);
+			if(berserkShow.GetInt() == 2)
+				DrawImage("BERSERK2", (split ? 138-isHacX(1)-isFreeDoom(3)+MUG_OFFSET : 14-isHacX(2)-isFreeDoom(3), -1), split ? DI_SCREEN_LEFT_BOTTOM : DI_SCREEN_CENTER_BOTTOM, alphaFloat);
 		}
 	}
 

@@ -98,10 +98,11 @@ Tested With          : GZDoom
 
 * CHANGELOG *
 
-> Version 5.X.X (XXX X, 2020)
+> Version 5.X.X (XXX XX, 2020)
   [ALL] General Settings: Added "Alternative HUD" control setting (to make sure it is set to OFF)
   [ALL] Stats: Removed 3 redundant/useless stat completion colors
   [ALL] Stats: Added missing tooltips
+  [DOOM/HACX] Optional Settings: "Indicate berserk mode" can now choose between red and green cross
   [DOOM] Automatic compatibility added for Community Chest Series
 
 > Version 5.1.5 (Jan 8, 2020)
