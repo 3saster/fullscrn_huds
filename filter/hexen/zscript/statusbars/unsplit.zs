@@ -112,8 +112,9 @@ extend Class SpecialHexenStatusBar
 					DrawImage("MANADIM2", (-50,-36), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
 					DrawBarTrans("MANAVL2D", "", amt2, maxamt2, (-58, -36), 1, SHADER_VERT, DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
 				}
-				DrawString(mIndexFont, FormatNumber(amt1, 3), (-68, -19), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM, translation: getAmmoColor(ammo1,amt1,maxamt1), alpha:alphaFloatNum);
-				DrawString(mIndexFont, FormatNumber(amt2, 3), (-36, -19), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM, translation: getAmmoColor(ammo2,amt2,maxamt2), alpha:alphaFloatNum);
+				// Deliberately NULL to ensure last proper values get used
+				DrawString(mIndexFont, FormatNumber(amt1, 3), (-68, -19), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM, translation: getAmmoColor(NULL,amt1,maxamt1), alpha:alphaFloatNum);
+				DrawString(mIndexFont, FormatNumber(amt2, 3), (-36, -19), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM, translation: getAmmoColor(NULL,amt2,maxamt2), alpha:alphaFloatNum);
 			}
 			
 			// Draw Ultimate Weapon

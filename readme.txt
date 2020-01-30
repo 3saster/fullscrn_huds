@@ -104,6 +104,7 @@ Tested With          : GZDoom
   [ALL] Stats: Added missing tooltips
   [DOOM/HACX] Optional Settings: "Indicate berserk mode" can now choose between red and green cross
   [DOOM] Automatic compatibility added for Community Chest Series
+  [HEXEN] Fix weapon 3 causing Boom HUD ammo colors to display incorrectly
 
 > Version 5.1.5 (Jan 8, 2020)
   [ALL] Stats: Can now choose between 25 (before: 3) different stat completion colors
