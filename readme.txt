@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom 4.3.0+ / LZDoom 3.84+
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.X.X)
+Title                : Fullscreen Status Bar Mod (v5.1.6)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : XX/XX/2020
+Release date         : 01/31/2020
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -33,6 +33,7 @@ Additional Info      : 1) Only works with GZDoom 4.3.0+, LZDoom 3.84+ and other
                              - Mugshot used for active inventory item on/off
                              - ARMS display for split bar on/off
                              - Show or hide automap status bar
+                             - Switch between Armor Class and armor points (Hexen)
                              - Level stats fully customizable:
                                   + Display in %, countdowns or fraction (+ time)
                                   + 6 positions (top left/right, center left/right, bottom left/right)
@@ -98,13 +99,15 @@ Tested With          : GZDoom
 
 * CHANGELOG *
 
-> Version 5.X.X (XXX XX, 2020)
+> Version 5.1.6 (Jan 31, 2020)
   [ALL] General Settings: Added "Alternative HUD" control setting (to make sure it is set to OFF)
   [ALL] Stats: Removed 3 redundant/useless stat completion colors
   [ALL] Stats: Added missing tooltips
   [DOOM/HACX] Optional Settings: "Indicate berserk mode" can now choose between red and green cross
-  [DOOM] Automatic compatibility added for Community Chest Series
-  [HEXEN] Fix weapon 3 causing Boom HUD ammo colors to display incorrectly
+  [DOOM] Automatic Compatibility: Community Chest series added
+  [HEXEN] Optional Settings: Added option to switch between Armor Class (AC) and armor points
+  [HEXEN] Boom HUD colors: Fixed third weapon causing primary ammo to use wrong colors
+  [HEXEN] Boom HUD colors: Changed health/armor overmax color from blue to lightblue (better legibility)
 
 > Version 5.1.5 (Jan 8, 2020)
   [ALL] Stats: Can now choose between 25 (before: 3) different stat completion colors

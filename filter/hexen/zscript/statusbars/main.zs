@@ -6,6 +6,7 @@ Class SpecialHexenStatusBar : HexenStatusBar
 	
 	transient CVAR boomColors;
 	transient CVAR splitArms;
+	transient CVAR armorPoints;
 	transient CVAR automapHide;
 	
 	transient CVAR statsType;
@@ -45,6 +46,7 @@ Class SpecialHexenStatusBar : HexenStatusBar
 		
 		boomColors  = CVar.FindCVar("fullhud_boomcolors");
 		splitArms   = CVar.FindCVar("fullhud_splitarms");
+		armorPoints = CVar.FindCVar("fullhud_armorpoints");
 		automapHide = CVar.FindCVar("fullhud_automaphide");
 		
 		statsType      = CVar.FindCVar("fullhud_stats_type");

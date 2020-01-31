@@ -123,7 +123,10 @@ extend Class SpecialHexenStatusBar
 		// GZDoom seems to draw this in the wrong spot...
 		DrawImage("ARMCLS", (-28, -15), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
 		int armorColor = getArmorColor();
-		DrawString(mHUDFont, FormatNumber(GetArmorSavePercent() / 5, 2), (-7, -17), DI_SCREEN_RIGHT_BOTTOM|DI_TEXT_ALIGN_RIGHT, armorColor, alpha:alphaFloatNum);
+		if(armorPoints.GetInt())
+			DrawString(mHUDFont, FormatNumber(GetArmorSavePercent(), 3), (-4, -17), DI_SCREEN_RIGHT_BOTTOM|DI_TEXT_ALIGN_RIGHT, armorColor, alpha:alphaFloatNum);
+		else
+			DrawString(mHUDFont, FormatNumber(GetArmorSavePercent() / 5, 2), (-7, -17), DI_SCREEN_RIGHT_BOTTOM|DI_TEXT_ALIGN_RIGHT, armorColor, alpha:alphaFloatNum);
 		
 		// Draw Split Arms over ammo display if CVAR is on
 		if(splitArms.GetInt())

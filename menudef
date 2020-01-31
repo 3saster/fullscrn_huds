@@ -127,6 +127,7 @@ OptionMenu "OptionalSettings"
 	}
  	IfGame(Hexen)
 	{
+		FullHUDOption "$FULLHUD_OPTIONAL_HEXENARMOR",   "$FULLHUD_OPTIONALTOOLTIP_HEXENARMOR",   "fullhud_armorpoints", "OnOff"
 		FullHUDOption "$FULLHUD_OPTIONAL_HEXENAUTOMAP", "$FULLHUD_OPTIONALTOOLTIP_HEXENAUTOMAP", "fullhud_automaphide", "OnOff"
 	}
  	Else
@@ -163,7 +164,7 @@ OptionMenu "StatsSettings"
 ListMenu "FullscreenCredits"
 {
 	Font "SmallFont"
-	StaticText -64,	  0, "Version 5.X.X", gold
+	StaticText -64,	  0, "Version 5.1.6", gold
 	StaticText -64,	 12, "NightFright", red
 	StaticText -64,	 24, "3saster", red
 	StaticText -64,	 48, "id Software", red
