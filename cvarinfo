@@ -3,6 +3,7 @@ user float fullhud_trans         = 0.0;
 user int   fullhud_opaque        = 0;
 
 user bool  fullhud_boomcolors    = false;
+user bool  fullhud_splitarms     = false;
 user bool  fullhud_automaphide   = false;
 
 user int fullhud_stats_type      = 0; 
