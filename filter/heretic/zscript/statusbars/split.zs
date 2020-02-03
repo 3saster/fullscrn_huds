@@ -9,12 +9,13 @@ extend Class SpecialHereticStatusBar
 		double alphaFloatGraph = alphaO == OP_NUMGRAPH ? 1 : alphaFloat;
 
 		// Draw left side
-		string barLeft = (deathmatch || teamplay) ? "BAR_KILL" : "BAR_LEFT";
-		string barLeft2 = (deathmatch || teamplay) ? "BAR_INV2" : "BAR_INV1";
-		if (!isInvulnerable())
-			DrawImage(barLeft, (1, -1), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, alphaFloat);
+		string barLeft;
+		if(deathmatch || teamplay)
+			barleft = isInvulnerable() ? "BAR_INV2" : "BAR_KILL";
 		else
-			DrawImage(barLeft2, (1, -1), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, alphaFloat);
+			barleft = isInvulnerable() ? "BAR_INV1" : "BAR_LEFT";
+
+		DrawImage(barLeft, (1, -1), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, alphaFloat);
 			
 		// Draw right side
 		DrawImage("BAR_RGHT", (-1, -1), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_RIGHT_BOTTOM, alphaFloat);
