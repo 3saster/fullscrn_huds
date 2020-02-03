@@ -1,0 +1,13 @@
+// Split bar with invulnerability indicator
+Graphic "BAR_INV1", 94, 28
+{
+    	Patch "BAR_LEFT", 0, 0 { UseOffsets }
+    	Patch "INV_LIFE", 12, 6 { UseOffsets }
+    	Patch "INV_ARM", 58, 6 { UseOffsets }
+}
+Graphic "BAR_INV2", 145, 28
+{
+    	Patch "BAR_KILL", 0, 0 { UseOffsets }
+    	Patch "INV_LIFE", 12, 6 { UseOffsets }
+    	Patch "INV_ARM", 58, 6 { UseOffsets }
+}

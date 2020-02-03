@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom 4.3.0+ / LZDoom 3.84+
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.1.6)
+Title                : Fullscreen Status Bar Mod (v5.X.X)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : 01/31/2020
+Release date         : XX/XX/2020
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -98,6 +98,9 @@ Tested With          : GZDoom
 
 
 * CHANGELOG *
+
+> Version 5.X.X (XXX XX, 2020)
+  [HERETIC] Split mode: Added invulnerability indicator ("LIFE" and "ARMOR" labels turn golden)
 
 > Version 5.1.6 (Jan 31, 2020)
   [ALL] General Settings: Added "Alternative HUD" control setting (to make sure it is set to OFF)
