@@ -45,21 +45,28 @@ Class Statusbar_Overrider : StaticEventHandler
 	{
 		if(loaded && gameinfo.gametype != GAME_STRIFE) //Ignore Strife until it is implemented
 		{
-			if(!originalStatusBar) originalStatusBar = statusbar;
-			if(!overrideStatusBar)
+			// Obtain original statusbar
+			if(!originalStatusBar) originalStatusBar = Statusbar;
+			// If original is Fullscreen HUD, no need to do anything
+			if(originalStatusBar.GetClassName() == StatusBarName) return;
+			// Create Fullscreen HUD to override with
+			if(override_bar.GetInt() && !overrideStatusBar)
 			{
 				overrideStatusBar = BaseStatusBar(new(StatusBarName));
 				overrideStatusBar.Init();
 				overrideStatusBar.AttachToPlayer(players[consoleplayer]);
 			}
 			
+			// Override Status Bar (don't delete original, causes problems with SBARINFO)
 			if(override_bar.GetInt() && Statusbar.GetClassName() != StatusBarName)
 			{
 				Statusbar = overrideStatusBar;
 			}
+			// Restore original, destroy created status bar
 			else if(!override_bar.GetInt() && Statusbar != originalStatusBar)
 			{
 				Statusbar = originalStatusBar;
+				if(overrideStatusBar) overrideStatusBar.Destroy();
 			}
 		}
 	}

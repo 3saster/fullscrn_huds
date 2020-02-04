@@ -20,7 +20,11 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	transient CVAR statTime;
 	transient CVAR statPowerups;
 
-	//Trick to check for LZDoom...
+	// Stuff for HUD override
+	BaseStatusBar originalStatusBar;
+	transient CVAR override_bar;
+
+	// Trick to check for LZDoom...
 	transient CVAR borderless;
 
 	InventoryBarState diparms_sbar;
@@ -77,6 +81,9 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		statItems      = CVar.FindCVar("fullhud_stats_items");
 		statTime       = CVar.FindCVar("fullhud_stats_time");
 		statPowerups   = CVar.FindCVar("fullhud_stats_powerups");
+
+		override_bar = CVar.FindCVar("fullhud_override");
+		originalStatusBar = Statusbar;
 
 		borderless     = CVar.FindCVar("win_borderless");
 
@@ -164,6 +171,13 @@ Class SpecialDoomStatusBar : DoomStatusBar
 			DrawSplit();
 		else
 			DrawUnsplit();
+	}
+
+	// If HUD has been overriden, the original HUD must be destroyed
+	override void OnDestroy()
+	{
+		if(override_bar.GetInt() && originalStatusBar)
+			originalStatusBar.Destroy();
 	}
 
 	// =======================

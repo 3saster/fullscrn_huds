@@ -18,6 +18,10 @@ Class SpecialHexenStatusBar : HexenStatusBar
 	transient CVAR statTime;
 	transient CVAR statPowerups;
 
+	// Stuff for HUD override
+	BaseStatusBar originalStatusBar;
+	transient CVAR override_bar;
+
 	//Trick to check for LZDoom...
 	transient CVAR borderless;
 
@@ -57,6 +61,9 @@ Class SpecialHexenStatusBar : HexenStatusBar
 		statItems      = CVar.FindCVar("fullhud_stats_items");
 		statTime       = CVar.FindCVar("fullhud_stats_time");
 		statPowerups   = CVar.FindCVar("fullhud_stats_powerups");
+
+		override_bar = CVar.FindCVar("fullhud_override");
+		originalStatusBar = Statusbar;
 
 		borderless     = CVar.FindCVar("win_borderless");
 
@@ -127,6 +134,13 @@ Class SpecialHexenStatusBar : HexenStatusBar
 			DrawSplit();
 		else
 			DrawUnsplit();
+	}
+
+	// If HUD has been overriden, the original HUD must be destroyed
+	override void OnDestroy()
+	{
+		if(override_bar.GetInt() && originalStatusBar)
+			originalStatusBar.Destroy();
 	}
 
 	// ================================
