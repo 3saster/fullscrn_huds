@@ -77,6 +77,7 @@ FULLHUD_GENERAL_SCALING       = "Scaling";
 FULLHUD_GENERAL_SPLIT         = "Split bar";
 FULLHUD_GENERAL_TRANSPARENCY  = "Transparency";
 FULLHUD_GENERAL_OPAQUE        = "Opaque elements";
+FULLHUD_GENERAL_OVERRIDE      = "Force HUD Override";
 
 FULLHUD_GENERALTOOLTIP_FULLSCREEN    = "This must be ON to use this HUD";
 FULLHUD_GENERALTOOLTIP_ALTHUD        = "This must be OFF to use this HUD";
@@ -84,6 +85,7 @@ FULLHUD_GENERALTOOLTIP_SCALING       = "Adjust the size of the Fullscreen Status
 FULLHUD_GENERALTOOLTIP_SPLIT         = "Split the status bar to both sides of the screen";
 FULLHUD_GENERALTOOLTIP_TRANSPARENCY  = "Set status bar transparency (0.0 = fully opaque, 1.0 = fully transparent)";
 FULLHUD_GENERALTOOLTIP_OPAQUE        = "Set certain HUD elements to be always opaque, regardless of transparency";
+FULLHUD_GENERALTOOLTIP_OVERRIDE      = "Use this to force this HUD to be used, regardless of other mods loaded";
 
 /* --- Optional Settings --- */
 FULLHUD_OPTIONAL_BOOMHUD      = "Use Boom HUD colors";

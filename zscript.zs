@@ -18,3 +18,6 @@ version "4.3.0"
 
 // Powerups for stat display
 #include "zscript/powerups.zs"
+
+// The forced override handler
+#include "zscript/statusbar_override.zs"

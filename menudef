@@ -102,6 +102,7 @@ OptionMenu "GeneralSettings"
 	FullHUDOption      "$FULLHUD_GENERAL_SPLIT",         "$FULLHUD_GENERALTOOLTIP_SPLIT",         "fullhud_split", "OnOff"
 	FullHUDSlider      "$FULLHUD_GENERAL_TRANSPARENCY",  "$FULLHUD_GENERALTOOLTIP_TRANSPARENCY",  "fullhud_trans", 0, 1, 0.1
 	FullHUDOption      "$FULLHUD_GENERAL_OPAQUE",        "$FULLHUD_GENERALTOOLTIP_OPAQUE",        "fullhud_opaque", "Opaque"
+	FullHUDOption      "$FULLHUD_GENERAL_OVERRIDE",      "$FULLHUD_GENERALTOOLTIP_OVERRIDE",      "fullhud_override", "OnOff"
 }
 
 OptionMenu "OptionalSettings"

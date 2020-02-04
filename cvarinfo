@@ -1,6 +1,7 @@
 user bool  fullhud_split         = true;
 user float fullhud_trans         = 0.0;
 user int   fullhud_opaque        = 0;
+user bool  fullhud_override      = false;
 
 user bool  fullhud_boomcolors    = false;
 user bool  fullhud_splitarms     = false;
