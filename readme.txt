@@ -101,6 +101,7 @@ Tested With          : GZDoom
 
 > Version 5.X.X (XXX XX, 2020)
   [HERETIC] Split mode: Added invulnerability indicator ("LIFE" and "ARMOR" labels turn golden)
+  [HERETIC] Split mode: Improved transparency for key icons
 
 > Version 5.1.6 (Jan 31, 2020)
   [ALL] General Settings: Added "Alternative HUD" control setting (to make sure it is set to OFF)

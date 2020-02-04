@@ -11,9 +11,9 @@ extend Class SpecialHereticStatusBar
 		// Draw left side
 		string barLeft;
 		if(deathmatch || teamplay)
-			barleft = isInvulnerable() ? "BAR_INV2" : "BAR_KILL";
+			barLeft = isInvulnerable() ? "BAR_INV2" : "BAR_KILL";
 		else
-			barleft = isInvulnerable() ? "BAR_INV1" : "BAR_LEFT";
+			barLeft = isInvulnerable() ? "BAR_INV1" : "BAR_LEFT";
 
 		DrawImage(barLeft, (1, -1), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, alphaFloat);
 			
@@ -51,9 +51,12 @@ extend Class SpecialHereticStatusBar
 		DrawString(mHUDFont, FormatNumber(GetArmorAmount(), 3), (87, -18), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_LEFT_BOTTOM, translation:armorColor, alpha:alphaFloatNum);
 		
 		// Draw Keys
-		if (CPlayer.mo.CheckKeys(3, false, true)) DrawImage("YKEYICON", (-105, -27), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
 		if (CPlayer.mo.CheckKeys(1, false, true)) DrawImage("GKEYICON", (-105, -19), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+			else DrawImage("NOKEY", (-105, -19), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
 		if (CPlayer.mo.CheckKeys(2, false, true)) DrawImage("BKEYICON", (-105, -11), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+			else DrawImage("NOKEY", (-105, -11), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
+		if (CPlayer.mo.CheckKeys(3, false, true)) DrawImage("YKEYICON", (-105, -27), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+			else DrawImage("NOKEY", (-105, -27), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
 		
 		// Draw Frags + Color
 		if(multiplayer)
