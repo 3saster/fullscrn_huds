@@ -7,7 +7,7 @@ Release date         : XX/XX/2020
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
-		       H!Zone for ZDoom
+                       H!Zone for ZDoom
                        Mapinfo Pack for Doom II PWADs
                        Perk Smooth Weapons Enhanced
                        Widescreen HUDs for Doom/Doom II PWADs
@@ -45,6 +45,8 @@ Additional Info      : 1) Only works with GZDoom 4.3.0+, LZDoom 3.84+ and other
 
 Known issues         : [CHEX] Logo replacement will only look good if default STBAR graphics 
                               are used (with blue background)
+                       [DOOM/CHEX/HACX] The mugshot may appear dead when changing the "Force HUD Override"
+                              option. This is purely visual, and will fix itself as soon as the menu is exited
                        
 
 Additional Credits to: id Software .................. Original Doom GFX
@@ -101,6 +103,8 @@ Tested With          : GZDoom
 
 > Version 5.X.X (XXX XX, 2020)
   [HERETIC] Split mode: Added invulnerability indicator ("LIFE" and "ARMOR" labels turn golden)
+  [ALL] Added "Force HUD Override" option back. This will override any other custom HUD and use this HUD, regardless
+        of load order (this is intended for autoloading in particular). The crashes have (hopefully) been fixed
 
 > Version 5.1.6 (Jan 31, 2020)
   [ALL] General Settings: Added "Alternative HUD" control setting (to make sure it is set to OFF)
