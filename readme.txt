@@ -100,6 +100,7 @@ Tested With          : GZDoom
 * CHANGELOG *
 
 > Version 5.X.X (XXX XX, 2020)
+  [ALL] Stats: Powerup timers no longer display when the stats are turned off but the powerup position is not off
   [HERETIC] Split mode: Added invulnerability indicator ("LIFE" and "ARMOR" labels turn golden)
   [HERETIC] Split mode: Improved transparency for key icons
 

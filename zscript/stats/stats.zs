@@ -309,11 +309,11 @@ mixin Class Stats
 		}
 
 		int textSize = fnt.GetHeight() + sfnt.vspace;
-		int killpos = statKills.getInt();
-		int secretpos = statSecrets.getInt();
-		int itempos = statItems.getInt();
-		int timepos = statTime.getInt();
-		int powerpos = statPowerups.getInt();
+		int killpos   = statsType.GetInt() ? statKills.getInt()    : OFF;
+		int secretpos = statsType.GetInt() ? statSecrets.getInt()  : OFF;
+		int itempos   = statsType.GetInt() ? statItems.getInt()    : OFF;
+		int timepos   = statsType.GetInt() ? statTime.getInt()     : OFF;
+		int powerpos  = statsType.GetInt() ? statPowerups.getInt() : OFF;
 		
 		// Make each block have the same length
 		int maxlength[7] = {0,0,0,0,0,0,0};
@@ -338,7 +338,7 @@ mixin Class Stats
 		if(killpos   == TOPLEFT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (sPush,tHeight+textSize*topLeftTotal++) ,kills,alphaFloat);
 		if(secretpos == TOPLEFT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (sPush,tHeight+textSize*topLeftTotal++) ,secrets,alphaFloat);
 		if(itempos   == TOPLEFT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (sPush,tHeight+textSize*topLeftTotal++) ,items,alphaFloat);
-		if(timepos   == TOPLEFT && statsType.GetInt()) DrawStatLine(sfnt,    Font.CR_WHITE, (sPush,tHeight+textSize*topLeftTotal++) ,time,alphaFloat);
+		if(timepos   == TOPLEFT) DrawStatLine(sfnt,                          Font.CR_WHITE, (sPush,tHeight+textSize*topLeftTotal++) ,time,alphaFloat);
 		if(powerpos  == TOPLEFT)
 			for(int i = 0; i < PowerupStrings.size(); i++)	
 				DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
@@ -350,7 +350,7 @@ mixin Class Stats
 		if(killpos   == TOPRIGHT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(kills),  conOffset+tHeight+textSize*topRightTotal++)  ,kills,alphaFloat);
 		if(secretpos == TOPRIGHT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(secrets),conOffset+tHeight+textSize*topRightTotal++),secrets,alphaFloat);
 		if(itempos   == TOPRIGHT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(items),  conOffset+tHeight+textSize*topRightTotal++)  ,items,alphaFloat);
-		if(timepos   == TOPRIGHT && statsType.GetInt()) DrawStatLine(sfnt,    Font.CR_WHITE, (-sPush-fnt.StringWidth(time),   conOffset+tHeight+textSize*topRightTotal++)   ,time,alphaFloat);
+		if(timepos   == TOPRIGHT) DrawStatLine(sfnt,                          Font.CR_WHITE, (-sPush-fnt.StringWidth(time),   conOffset+tHeight+textSize*topRightTotal++)   ,time,alphaFloat);
 		if(powerpos  == TOPRIGHT)
 			for(int i = 0; i < PowerupStrings.size(); i++)	
 				DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
@@ -367,7 +367,7 @@ mixin Class Stats
 		if(killpos   == CENTERLEFT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (sPush,clHeight+textSize*centerLeftTotal++) ,kills,alphaFloat);
 		if(secretpos == CENTERLEFT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (sPush,clHeight+textSize*centerLeftTotal++) ,secrets,alphaFloat);
 		if(itempos   == CENTERLEFT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (sPush,clHeight+textSize*centerLeftTotal++) ,items,alphaFloat);
-		if(timepos   == CENTERLEFT && statsType.GetInt()) DrawStatLine(sfnt,    Font.CR_WHITE, (sPush,clHeight+textSize*centerLeftTotal++) ,time,alphaFloat);
+		if(timepos   == CENTERLEFT) DrawStatLine(sfnt,                          Font.CR_WHITE, (sPush,clHeight+textSize*centerLeftTotal++) ,time,alphaFloat);
 		if(powerpos  == CENTERLEFT)
 			for(int i = 0; i < PowerupStrings.size(); i++)	
 				DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
@@ -384,7 +384,7 @@ mixin Class Stats
 		if(killpos   == CENTERRIGHT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(kills),  crHeight+textSize*centerRightTotal++) ,kills,alphaFloat);
 		if(secretpos == CENTERRIGHT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(secrets),crHeight+textSize*centerRightTotal++) ,secrets,alphaFloat);
 		if(itempos   == CENTERRIGHT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(items),  crHeight+textSize*centerRightTotal++) ,items,alphaFloat);
-		if(timepos   == CENTERRIGHT && statsType.GetInt()) DrawStatLine(sfnt,    Font.CR_WHITE, (-sPush-fnt.StringWidth(time),   crHeight+textSize*centerRightTotal++) ,time,alphaFloat);
+		if(timepos   == CENTERRIGHT) DrawStatLine(sfnt,                          Font.CR_WHITE, (-sPush-fnt.StringWidth(time),   crHeight+textSize*centerRightTotal++) ,time,alphaFloat);
 		if(powerpos  == CENTERRIGHT)
 			for(int i = 0; i < PowerupStrings.size(); i++)	
 				DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
@@ -395,7 +395,7 @@ mixin Class Stats
 		if(itempos   == BOTTOMLEFT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (sPush,-bHeightL-textSize*bottomLeftTotal++) ,items,alphaFloat);
 		if(secretpos == BOTTOMLEFT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (sPush,-bHeightL-textSize*bottomLeftTotal++) ,secrets,alphaFloat);
 		if(killpos   == BOTTOMLEFT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (sPush,-bHeightL-textSize*bottomLeftTotal++) ,kills,alphaFloat);
-		if(timepos   == BOTTOMLEFT && statsType.GetInt()) DrawStatLine(sfnt,    Font.CR_WHITE, (sPush,-bHeightL-textSize*bottomLeftTotal++) ,time,alphaFloat);
+		if(timepos   == BOTTOMLEFT) DrawStatLine(sfnt,                          Font.CR_WHITE, (sPush,-bHeightL-textSize*bottomLeftTotal++) ,time,alphaFloat);
 		if(powerpos  == BOTTOMLEFT)
 			for(int i = 0; i < PowerupStrings.size(); i++)	
 				DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
@@ -409,7 +409,7 @@ mixin Class Stats
 		if(itempos   == BOTTOMRIGHT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(items),  -bHeightR-textSize*bottomRightTotal++)  ,items,alphaFloat);
 		if(secretpos == BOTTOMRIGHT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(secrets),-bHeightR-textSize*bottomRightTotal++),secrets,alphaFloat);
 		if(killpos   == BOTTOMRIGHT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(kills),  -bHeightR-textSize*bottomRightTotal++)  ,kills,alphaFloat);
-		if(timepos   == BOTTOMRIGHT && statsType.GetInt()) DrawStatLine(sfnt,    Font.CR_WHITE, (-sPush-fnt.StringWidth(time),   -bHeightR-textSize*bottomRightTotal++)   ,time,alphaFloat);
+		if(timepos   == BOTTOMRIGHT) DrawStatLine(sfnt,                          Font.CR_WHITE, (-sPush-fnt.StringWidth(time),   -bHeightR-textSize*bottomRightTotal++)   ,time,alphaFloat);
 		if(powerpos  == BOTTOMRIGHT)
 			for(int i = 0; i < PowerupStrings.size(); i++)	
 				DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
