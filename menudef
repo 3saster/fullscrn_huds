@@ -111,7 +111,7 @@ OptionMenu "OptionalSettings"
 	Position -36
 
 	StaticText ""
-	FullHUDOption "$FULLHUD_OPTIONAL_BOOMHUD",              "$FULLHUD_OPTIONALTOOLTIP_BOOMHUD",     "fullhud_boomcolors", "OnOff", "",0,0
+	FullHUDOption "$FULLHUD_OPTIONAL_BOOMHUD",              "$FULLHUD_OPTIONALTOOLTIP_BOOMHUD",     "fullhud_boomcolors", "OnOff", "", 0, 0
 	IfGame(Doom) 
 	{
 		FullHUDOption "$FULLHUD_OPTIONAL_BERSERK",      "$FULLHUD_OPTIONALTOOLTIP_BERSERK",     "fullhud_showberserk", "BerserkCross"
@@ -134,6 +134,7 @@ OptionMenu "OptionalSettings"
 	{
 		FullHUDOption "$FULLHUD_OPTIONAL_HIDEAUTOMAP",  "$FULLHUD_OPTIONALTOOLTIP_HIDEAUTOMAP",  "fullhud_automaphide", "OnOff"
 	}
+	FullHUDOption "$FULLHUD_OPTIONAL_AUTOMAPCOLOR",  "$FULLHUD_OPTIONALTOOLTIP_AUTOMAPCOLOR",  "am_customcolors", "OnOff"
 }
 
 OptionMenu "StatsSettings"
@@ -164,7 +165,7 @@ OptionMenu "StatsSettings"
 ListMenu "FullscreenCredits"
 {
 	Font "SmallFont"
-	StaticText -64,	  0, "Version 5.X.X", gold
+	StaticText -64,	  0, "Version 5.1.7", gold
 	StaticText -64,	 12, "NightFright", red
 	StaticText -64,	 24, "3saster", red
 	StaticText -64,	 48, "id Software", red

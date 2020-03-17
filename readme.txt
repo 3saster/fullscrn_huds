@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom 4.3.0+ / LZDoom 3.84+
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.X.X)
+Title                : Fullscreen Status Bar Mod (v5.1.7)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : XX/XX/2020
+Release date         : 03/17/2020
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -33,6 +33,7 @@ Additional Info      : 1) Only works with GZDoom 4.3.0+, LZDoom 3.84+ and other
                              - Mugshot used for active inventory item on/off
                              - ARMS display for split bar on/off
                              - Show or hide automap status bar
+			     - Optionally force traditional automap colors on normal/overlay automap
                              - Switch between Armor Class and armor points (Hexen)
                              - Level stats fully customizable:
                                   + Display in %, countdowns or fraction (+ time)
@@ -99,8 +100,9 @@ Tested With          : GZDoom
 
 * CHANGELOG *
 
-> Version 5.X.X (XXX XX, 2020)
-  [ALL] Stats: Powerup timers no longer display when the stats are turned off but the powerup position is not off
+> Version 5.1.7 (Mar 17, 2020)
+  [ALL] Stats: Powerup timers no longer display when the stats are turned off while powerup position is on
+  [ALL] Automap: Option to apply "Traditional Doom/Raven/Strife" colors to normal/overlay automap
   [HERETIC] Split mode: Added invulnerability indicator ("LIFE" and "ARMOR" labels turn golden)
   [HERETIC] Split mode: Improved transparency for key icons
 
@@ -204,7 +206,7 @@ Tested With          : GZDoom
   [DOOM/CHEX/HACX] Selected inventory item now properly centered
   [DOOM/CHEX/HACX] Will work with some WADs based on DECORATE/ZScript (e.g. works with dead.air)
   [DOOM/CHEX/HACX] Removed "Interpolate health & armor" (useless feature)
-  [CHEX/HACX/HARMONY] Removed Strife color scheme as predefined setting
+  [CHEX/HACX/HARMONY] Removed Strife color scheme as predefined automap setting
   [CHEX] When BOOM HUD colors are on, the color of health > 100 and blue armor is now LIGHTBLUE
   [CHEX] Berserk display option hidden. If a berserk pack is found, it will still be shown 
          if CVAR fullhud_showberserk=true (can only be done from console)

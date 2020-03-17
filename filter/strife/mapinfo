@@ -1,0 +1,3 @@
+Automap { Base = "Strife" }
+
+Automap_Overlay { Base = "Strife" }

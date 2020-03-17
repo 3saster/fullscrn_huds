@@ -2,3 +2,7 @@ GameInfo
 { 
 	StatusBarClass = "SpecialDoomStatusBar"
 }
+
+Automap { Base = "Doom" }
+
+Automap_Overlay { Base = "Doom" }

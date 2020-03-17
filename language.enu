@@ -94,6 +94,7 @@ FULLHUD_OPTIONAL_INVREPLACE   = "Inventory items can replace mugshot";
 FULLHUD_OPTIONAL_HIDEAUTOMAP  = "Hide status bar on automap";
 FULLHUD_OPTIONAL_HEXENARMOR   = "Convert AC to armor points";
 FULLHUD_OPTIONAL_HEXENAUTOMAP = "Keys/armor as panels on automap";
+FULLHUD_OPTIONAL_AUTOMAPCOLOR = "Traditional automap colors";
 
 FULLHUD_OPTIONALTOOLTIP_BOOMHUD      = "Make HUD numbers use colors based on their value, like in Boom";
 FULLHUD_OPTIONALTOOLTIP_BERSERK      = "Display a marker (cross) next to the mugshot when in berserk mode";
@@ -103,6 +104,7 @@ FULLHUD_OPTIONALTOOLTIP_INVREPLACE   = "Display currently active inventory item 
 FULLHUD_OPTIONALTOOLTIP_HIDEAUTOMAP  = "Hide the status bar completely on the automap";
 FULLHUD_OPTIONALTOOLTIP_HEXENARMOR   = "Show armor points instead of armor class (AC)";
 FULLHUD_OPTIONALTOOLTIP_HEXENAUTOMAP = "Hide the status bar on the automap and only show key/armor panels";
+FULLHUD_OPTIONALTOOLTIP_AUTOMAPCOLOR = "Use 'Traditional Doom/Raven/Strife' colors on normal/overlay automap";
 
 /* --- Stats --- */
 FULLHUD_STATS_STATDISPLAY = "Stats display";

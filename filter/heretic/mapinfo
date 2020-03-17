@@ -2,3 +2,14 @@ GameInfo
 { 
 	StatusBarClass = "SpecialHereticStatusBar"
 }
+
+Automap { Base = "Raven" }
+
+Automap_Overlay
+{ 
+	Base = "Raven"
+	WallColor = "88 70 58"
+	FloorDiffWallColor = "4c 38 20"
+	CeilingDiffWallColor = "2c 18 08"
+	NotSeenColor = "48 48 48"
+}
