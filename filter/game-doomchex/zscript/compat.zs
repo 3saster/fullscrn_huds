@@ -34,6 +34,7 @@ extend Class SpecialDoomStatusBar
 
 		case 0x2DB89823: // Eviternity
 		case 0x4F9D3A57: // Epic 2
+		case 0xE04D5056: // Mayhem 2016
 			HUD_LEFT  = "HUD_LEFT_EVET";
 			HUD_RIGHT = "HUD_RIGHT_EVET";
 			break;
@@ -84,12 +85,22 @@ extend Class SpecialDoomStatusBar
 			break;
 
 		case 0xF1837667: // Eternal Doom
+		case 0x317906EE: // Mayhem 2048
 			HUD_LEFT  = "HUD_LEFT_ETERNAL";
 			HUD_RIGHT = "HUD_RIGHT_ETERNAL";
 			STYSNUM = "ETE_NUM";
 			ARMS_OFFSET = -2.5;
 			fnt = "HUDFONT_ETERNAL";
 			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
+			break;
+
+		case 0x6B743ACB: // Mayhem 2018 - Orange Edition
+			HUD_LEFT  = "HUD_LEFT_TN";
+			HUD_RIGHT = "HUD_RIGHT_TN";
+			break;
+
+		case 0x647DB16F: // Mayhem 2018 - Purple Edition
+			STGNUM = "BTSX1_";
 			break;
 
 		case 0xC901D1A0: // Tangerine Nightmare

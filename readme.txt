@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom 4.3.0+ / LZDoom 3.84+
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.1.7)
+Title                : Fullscreen Status Bar Mod (v5.X.X)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : 03/17/2020
+Release date         : XX/XX/2020
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -99,6 +99,9 @@ Tested With          : GZDoom
 
 
 * CHANGELOG *
+
+> Version 5.X.X (XXX XX, 2020)
+  [DOOM] Automatic Compatibility: Mayhem series added
 
 > Version 5.1.7 (Mar 17, 2020)
   [ALL] Stats: Powerup timers no longer display when the stats are turned off while powerup position is on
