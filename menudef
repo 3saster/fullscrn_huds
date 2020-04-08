@@ -144,17 +144,31 @@ OptionMenu "StatsSettings"
 	Position -36
 
    	StaticText ""
-	FullHUDOption "$FULLHUD_STATS_STATDISPLAY",        "$FULLHUD_STATSTOOLTIP_STATDISPLAY", "fullhud_stats_type",     "LevelStats"
-	FullHUDOption "$FULLHUD_STATS_STATFONT",           "$FULLHUD_STATSTOOLTIP_STATFONT",    "fullhud_stats_font",     "LevelStatsFont"
-	FullHUDOption "$FULLHUD_STATS_COMPCOLOR",          "$FULLHUD_STATSTOOLTIP_COMPCOLOR",   "fullhud_stats_comp",     "Colors",             "fullhud_stats_type"
-   	StaticText ""
 	IfGame(Chex)
 	{
-		FullHUDOption "$FULLHUD_STATS_KILLS_CHEX", "$FULLHUD_STATSTOOLTIP_KILLS_CHEX",	"fullhud_stats_kills",    "LevelStatsPosition", "fullhud_stats_type"
+		FullHUDOption "$FULLHUD_STATS_STATDISPLAY", "$FULLHUD_STATSTOOLTIP_STATDISPLAY_CHEX", "fullhud_stats_type", "LevelStats"
 	}
 	Else
 	{
-		FullHUDOption "$FULLHUD_STATS_KILLS",      "$FULLHUD_STATSTOOLTIP_KILLS",       "fullhud_stats_kills",    "LevelStatsPosition", "fullhud_stats_type"
+		FullHUDOption "$FULLHUD_STATS_STATDISPLAY", "$FULLHUD_STATSTOOLTIP_STATDISPLAY",      "fullhud_stats_type", "LevelStats"
+	}
+	FullHUDOption "$FULLHUD_STATS_STATFONT",           "$FULLHUD_STATSTOOLTIP_STATFONT",    "fullhud_stats_font",     "LevelStatsFont"
+	IfGame(Chex)
+	{
+		FullHUDOption "$FULLHUD_STATS_COMPCOLOR", "$FULLHUD_STATSTOOLTIP_COMPCOLOR_CHEX", "fullhud_stats_comp", "Colors", "fullhud_stats_type"
+	}
+	Else
+	{
+		FullHUDOption "$FULLHUD_STATS_COMPCOLOR", "$FULLHUD_STATSTOOLTIP_COMPCOLOR",      "fullhud_stats_comp", "Colors", "fullhud_stats_type"
+	}
+   	StaticText ""
+	IfGame(Chex)
+	{
+		FullHUDOption "$FULLHUD_STATS_KILLS_CHEX", "$FULLHUD_STATSTOOLTIP_KILLS_CHEX", "fullhud_stats_kills", "LevelStatsPosition", "fullhud_stats_type"
+	}
+	Else
+	{
+		FullHUDOption "$FULLHUD_STATS_KILLS",      "$FULLHUD_STATSTOOLTIP_KILLS",      "fullhud_stats_kills", "LevelStatsPosition", "fullhud_stats_type"
 	}
 	FullHUDOption         "$FULLHUD_STATS_SECRETS",    "$FULLHUD_STATSTOOLTIP_SECRETS",     "fullhud_stats_secrets",  "LevelStatsPosition", "fullhud_stats_type"
 	FullHUDOption         "$FULLHUD_STATS_ITEMS",      "$FULLHUD_STATSTOOLTIP_ITEMS",       "fullhud_stats_items",    "LevelStatsPosition", "fullhud_stats_type"

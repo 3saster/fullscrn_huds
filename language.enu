@@ -117,15 +117,17 @@ FULLHUD_STATS_ITEMS       = "Items counter";
 FULLHUD_STATS_LEVELTIME   = "Level time";
 FULLHUD_STATS_POWERUPS    = "Powerup timers";
 
-FULLHUD_STATSTOOLTIP_STATDISPLAY = "Choose a system for kill/secret/item counters (e.g.: '50%', '6 Left' or '6/12')";
-FULLHUD_STATSTOOLTIP_STATFONT    = "Set a font for the stats";
-FULLHUD_STATSTOOLTIP_COMPCOLOR   = "Colorize kill/secret/item counters when maxed";
-FULLHUD_STATSTOOLTIP_KILLS_CHEX  = "Show amount of zorched enemies";
-FULLHUD_STATSTOOLTIP_KILLS       = "Show amount of killed enemies";
-FULLHUD_STATSTOOLTIP_ITEMS       = "Show amount of collected items";
-FULLHUD_STATSTOOLTIP_LEVELTIME   = "Show time spent in a level";
-FULLHUD_STATSTOOLTIP_SECRETS     = "Show amount of found secrets";
-FULLHUD_STATSTOOLTIP_POWERUPS    = "Show duration of activated powerups";
+FULLHUD_STATSTOOLTIP_STATDISPLAY      = "Choose a system for kill/secret/item counters (e.g.: '50%', '6 Left' or '6/12')";
+FULLHUD_STATSTOOLTIP_STATDISPLAY_CHEX = "Choose a system for zorch/secret/item counters (e.g.: '50%', '6 Left' or '6/12')";
+FULLHUD_STATSTOOLTIP_STATFONT         = "Set a font for the stats";
+FULLHUD_STATSTOOLTIP_COMPCOLOR        = "Colorize kill/secret/item counters when maxed";
+FULLHUD_STATSTOOLTIP_COMPCOLOR_CHEX   = "Colorize zorch/secret/item counters when maxed";
+FULLHUD_STATSTOOLTIP_KILLS            = "Show amount of killed enemies";
+FULLHUD_STATSTOOLTIP_KILLS_CHEX       = "Show amount of zorched enemies";
+FULLHUD_STATSTOOLTIP_ITEMS            = "Show amount of collected items";
+FULLHUD_STATSTOOLTIP_LEVELTIME        = "Show time spent in a level";
+FULLHUD_STATSTOOLTIP_SECRETS          = "Show amount of found secrets";
+FULLHUD_STATSTOOLTIP_POWERUPS         = "Show duration of activated powerups";
 
 /* --- Stat Display --- */
 FULLHUD_KILLS       = "Kills";
