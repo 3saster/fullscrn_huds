@@ -101,7 +101,10 @@ Tested With          : GZDoom
 * CHANGELOG *
 
 > Version 5.X.X (XXX XX, 2020)
+  [ALL] Automatic Compatibility: Hashing system upgraded from MurmurHash2 to the much better MD5, and separated it
+                                 into a class in zscript/compat/MD5.zs file. Feel free to use it in your own mods!
   [DOOM] Automatic Compatibility: Mayhem series added
+  [CHEX] Corrected some tooltips to properly fit in Chex Quest
 
 > Version 5.1.7 (Mar 17, 2020)
   [ALL] Stats: Powerup timers no longer display when the stats are turned off while powerup position is on

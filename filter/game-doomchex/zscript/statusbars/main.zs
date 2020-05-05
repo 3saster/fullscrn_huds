@@ -28,7 +28,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	HUDFont mIndexFontF;
 	
 	// A hash to identify which STBAR is loaded
-	uint STBAR_HASH;
+	Name STBAR_HASH;
 
 	// Strings describing the components of the STBAR
 	string HUD_LEFT;
@@ -106,10 +106,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 			nextLump = Wads.FindLump("STBAR",lastLump+1,1);
 		}
 		// Hash the value of the STBAR lump
-		STBAR_HASH = Hash(Wads.ReadLump(lastLump));
-
-		// Uncomment this to print the STBAR Hash in the console
-		//console.printf("\nSTBAR Hash is: 0x%08X",STBAR_HASH);
+		STBAR_HASH = MD5.Hash(Wads.ReadLump(lastLump));
 
 		setSTBARNames();
 	}

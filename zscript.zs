@@ -15,6 +15,7 @@ version "4.3.0"
 
 // Functions used for compatibility
 #include "zscript/compat/compat_functions.zs"
+#include "zscript/compat/MD5.zs"
 
 // Powerups for stat display
 #include "zscript/powerups.zs"

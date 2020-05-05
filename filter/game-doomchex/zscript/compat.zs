@@ -22,29 +22,29 @@ extend Class SpecialDoomStatusBar
 		// Deal with compatibility with certain PWADS
 		switch(STBAR_HASH)
 		{
-		case 0x0B3CB286: // Alien Vendetta
+		case '2d9a53658a9d756702f00e11529a05f5': // Alien Vendetta
 			HUD_LEFT  = "HUD_LEFT_AV";
 			HUD_RIGHT = "HUD_RIGHT_AV";
 			break;
 
-		case 0xABEED637: // Avactor
+		case 'a6755fa0ac8a74e89529213a0b26b241': // Avactor
 			HUD_LEFT  = "HUD_LEFT_AVACT";
 			HUD_RIGHT = "HUD_RIGHT_AVACT";
 			break;
 
-		case 0x2DB89823: // Eviternity
-		case 0x4F9D3A57: // Epic 2
-		case 0xE04D5056: // Mayhem 2016
+		case '59eb7834c61abb94b45491ad6435425f': // Eviternity
+		case 'e817eaf5fde41aa3d40cc0590079b6e6': // Epic 2
+		case 'bde46d9647869a86535c7245648bd847': // Mayhem 2016
 			HUD_LEFT  = "HUD_LEFT_EVET";
 			HUD_RIGHT = "HUD_RIGHT_EVET";
 			break;
 
-		case 0x41195678: // Sunlust
+		case '55bba172e6b2aaf532b59b34c333887a': // Sunlust
 			HUD_LEFT  = "HUD_LEFT_SUNLUST";
 			HUD_RIGHT = "HUD_RIGHT_SUNLUST";
 			break;
 
-		case 0xB43917B8: // Memento Mori 2
+		case 'f75c27163008a99942efb8e26321331c': // Memento Mori 2
 			HUD_LEFT  = "HUD_LEFT_MM2";
 			HUD_RIGHT = "HUD_RIGHT_MM2";
 			STYSNUM   = "MM2_NUM";
@@ -54,7 +54,7 @@ extend Class SpecialDoomStatusBar
 			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
 			break;
 
-		case 0x0D8A3598: // Back to Saturn X Episode 1
+		case 'ff7f01f87976084b8ecb36a5fa9241df': // Back to Saturn X Episode 1
 		                 // Doom 4 Vanilla
 			HUD_LEFT  = "HUD_LEFT_BTSX";
 			HUD_RIGHT = "HUD_RIGHT_BTSX";
@@ -66,7 +66,7 @@ extend Class SpecialDoomStatusBar
 			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
 			break;
 
-		case 0x67E84763: // Back to Saturn X Episode 2
+		case '4b0f899d7aed5b2cb92624042d54387f': // Back to Saturn X Episode 2
 			HUD_LEFT  = "HUD_LEFT_BTSX";
 			HUD_RIGHT = "HUD_RIGHT_BTSX";
 			STYSNUM   = "BTSX2_N";
@@ -77,15 +77,15 @@ extend Class SpecialDoomStatusBar
 			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
 			break;
 
-		case 0xDF842DC3: // Neural Upscale 2X Pack
+		case 'f5545943edade0df9de4cb40ba36e083': // Neural Upscale 2X Pack
 			HUD_SMP   = "HUD_SMP_NEURAL";
 			HUD_DM    = "HUD_DM_NEURAL";
 			HUD_LEFT  = "HUD_LEFT_NEURAL";
 			HUD_RIGHT = "HUD_RIGHT_NEURAL";
 			break;
 
-		case 0xF1837667: // Eternal Doom
-		case 0x317906EE: // Mayhem 2048
+		case 'a29f9e16dcb7ac8a744c4760f1ec9257': // Eternal Doom
+		case 'f2fea6600f7bec08d4bca8995163a3cb': // Mayhem 2048
 			HUD_LEFT  = "HUD_LEFT_ETERNAL";
 			HUD_RIGHT = "HUD_RIGHT_ETERNAL";
 			STYSNUM = "ETE_NUM";
@@ -94,26 +94,26 @@ extend Class SpecialDoomStatusBar
 			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
 			break;
 
-		case 0x6B743ACB: // Mayhem 2018 - Orange Edition
+		case 'b65eb1a13d873457e147f34cd72daa09': // Mayhem 2018 - Orange Edition
 			HUD_LEFT  = "HUD_LEFT_TN";
 			HUD_RIGHT = "HUD_RIGHT_TN";
 			break;
 
-		case 0x647DB16F: // Mayhem 2018 - Purple Edition
+		case 'c348f353ef94c247b3cc3e99fcd9b0fd': // Mayhem 2018 - Purple Edition
 			STGNUM = "BTSX1_";
 			break;
 
-		case 0xC901D1A0: // Tangerine Nightmare
+		case '2c2a7e0ac35806ae5d2654c33584f0e0': // Tangerine Nightmare
 			HUD_LEFT  = "HUD_LEFT_TN";
 			HUD_RIGHT = "HUD_RIGHT_TN";
 			STGNUM = "STG_TN";
 			break;
 
-		case 0xC0A46A33: // Dystopia 3
+		case '08c30fe8a2183a442bee8a6eedae3764': // Dystopia 3
 			HUD_LEFT = "HUD_LEFT_DYSTOPIA";
 			break;
 
-		case 0xF7ACEC6D: // Community Chest Series
+		case '071b93d8d4c0fa065f4ea1b1a9bc3978': // Community Chest Series
 			HUD_SMP   = "HUD_SMP_CCHEST";
 			HUD_DM    = "HUD_DM_CCHEST";
 			HUD_LEFT  = "HUD_LEFT_CCHEST";

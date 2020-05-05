@@ -23,7 +23,7 @@ Class SpecialHereticStatusBar : HereticStatusBar
 	int chainWig; // wiggle is private...
 
 	// A hash to identify which BARBACK is loaded
-	uint BARBACK_HASH;
+	Name BARBACK_HASH;
 
 	// Strings describing certain font-related things
 	string SMALLIN;
@@ -82,10 +82,7 @@ Class SpecialHereticStatusBar : HereticStatusBar
 			nextLump = Wads.FindLump("BARBACK",lastLump+1,1);
 		}
 		// Hash the value of the BARBACK lump
-		BARBACK_HASH = Hash(Wads.ReadLump(lastLump));
-
-		// Uncomment this to print the BARBACK Hash in the console
-		//console.printf("\nBARBACK Hash is: 0x%08X",BARBACK_HASH);
+		BARBACK_HASH = MD5.Hash(Wads.ReadLump(lastLump));
 
 		setBARBACKNames();
 	}
