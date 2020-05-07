@@ -21,6 +21,11 @@ extend Class SpecialHexenStatusBar
 			LFEDGE = "LFED_URB";
 			RTEDGE = "RTED_URB";
 			break;
+		case '9887ec1d9d570ac9f4a264fc45df9fb5': // Death.wad (idgames 6292)
+			H2BAR  = "H2B_DTH";
+			LFEDGE = "LFED_DTH";
+			RTEDGE = "RTED_DTH";
+			break;
 		}
 	}
 }
