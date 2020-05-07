@@ -140,6 +140,15 @@ extend Class SpecialDoomStatusBar
 			HUD_RIGHT = "HUD_RIGHT_HOMERDOOM2";
 			KEY_OFFSET = 3.5;
 			break;
+
+		case '00851c42265ed1b801f528c5e29c8630': // cordless.wad (idgames 3417)
+			HUD_LEFT  = "HUD_LEFT_CORDLESS";
+			break;
+
+		case '1bc635697cd4639c27a60932f53a6fa8': // fire.wad (idgames 3552)
+			fnt = "HUDFONT_FIRE";
+			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 0, 0);
+			break;
 		}
 
 		if( isChex() )

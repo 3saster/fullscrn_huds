@@ -1,0 +1,10 @@
+// Split bar panels
+Graphic "MUGFRAME_CORDLESS", 37, 32 
+{
+    	Patch "STBAR", -143, 0 { UseOffsets }
+}
+Graphic "HUD_LEFT_CORDLESS", 143, 32 
+{
+    	Patch "STBAR", 0, 0 { UseOffsets }
+    	Patch "MUGFRAME_CORDLESS", 107, 0
+}
