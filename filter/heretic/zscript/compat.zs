@@ -27,6 +27,9 @@ extend Class SpecialHereticStatusBar
 		// Deal with compatibility with certain PWADS
 		switch(BARBACK_HASH)
 		{
+		case '6f620dde8bb89eae406ad0116ef678c6': // Widescreen
+			BARBACK = "BARBACK2";
+			break;
 		case '2fb519e3fe1b5cc6f15f9284e35222a4': // Heretic Neural Texture Pack
 			BARBACK = "BARBACK_NEURAL";
 			LTFCTOP = "LTFCTOP_NEURAL";
