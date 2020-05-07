@@ -33,6 +33,11 @@ extend Class SpecialHereticStatusBar
 			GOD1    = "GOD1_CUR";
 			GOD2    = "GOD2_CUR";
 			break;
+		case '331f0233f65b7094b94a68900961c3b9': // Dorks R Us (idgames 7474)
+			BARBACK = "BB_DORKS";
+			GOD1    = "G1_DORKS";
+			GOD2    = "G2_DORKS";
+			break;
 		}
 	}
 }
