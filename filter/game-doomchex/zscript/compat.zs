@@ -121,6 +121,10 @@ extend Class SpecialDoomStatusBar
 			MUG_OFFSET = -2;
 			ARMS_OFFSET = -2;
 			break;
+			
+		case '8dcdb62f3b23acf052f47ff0f08f3b04': // techbar.wad (idgames 393)
+			STYSNUM   = "TECHNUM";
+			break;
 		}
 
 		if( isChex() )
