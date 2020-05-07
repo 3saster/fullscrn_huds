@@ -23,9 +23,17 @@ Class SpecialHexenStatusBar : HexenStatusBar
 
 	int chainWig; // wiggle is private...
 
+	// A hash to identify which H2BAR is loaded
+	Name H2BAR_HASH;
+
 	// Strings describing certain font-related things
 	string SMALLIN;
 	string SMALLGR;
+
+	// Respective Lumps for Hexen
+	string H2BAR;
+	string LFEDGE;
+	string RTEDGE;
 
 	mixin TransFunctions;
 
@@ -64,6 +72,19 @@ Class SpecialHexenStatusBar : HexenStatusBar
 		SMALLGR = "SMALLGR";
 
 		statInit();
+
+		// Find last loaded H2BAR Lump
+		int lastLump = Wads.FindLump("H2BAR",0,1);
+		int nextLump =  Wads.FindLump("H2BAR",lastLump+1,1);
+		while( nextLump != -1 )
+		{
+			lastLump = nextLump;
+			nextLump = Wads.FindLump("H2BAR",lastLump+1,1);
+		}
+		// Hash the value of the H2BAR lump
+		H2BAR_HASH = MD5.Hash(Wads.ReadLump(lastLump));
+
+		setH2BARNames();
 	}
 
 	override void NewGame()
