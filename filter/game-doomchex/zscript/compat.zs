@@ -36,8 +36,15 @@ extend Class SpecialDoomStatusBar
 		case '59eb7834c61abb94b45491ad6435425f': // Eviternity
 		case 'e817eaf5fde41aa3d40cc0590079b6e6': // Epic 2
 		case 'bde46d9647869a86535c7245648bd847': // Mayhem 2016
+		case '8e8f9a2aa65286e0ff9cb181ccfd9843': // demonaly.wad (idgames 2385)
 			HUD_LEFT  = "HUD_LEFT_EVET";
 			HUD_RIGHT = "HUD_RIGHT_EVET";
+			break;
+		
+		case '9c6a02d01d54b659227206b14d21bd6c': // dethtwer.wad (idgames 2385)
+			HUD_LEFT  = "HUD_LEFT_EVET";
+			HUD_RIGHT = "HUD_RIGHT_EVET";
+			KEY_OFFSET = 1;
 			break;
 
 		case '55bba172e6b2aaf532b59b34c333887a': // Sunlust
@@ -56,7 +63,7 @@ extend Class SpecialDoomStatusBar
 			break;
 
 		case 'ff7f01f87976084b8ecb36a5fa9241df': // Back to Saturn X Episode 1
-		                 // Doom 4 Vanilla
+		                                         // Doom 4 Vanilla
 			HUD_LEFT  = "HUD_LEFT_BTSX";
 			HUD_RIGHT = "HUD_RIGHT_BTSX";
 			STYSNUM   = "BTSX1_N";
