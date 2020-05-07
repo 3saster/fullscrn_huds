@@ -55,19 +55,19 @@ extend Class SpecialDoomStatusBar
 		if (locks[1] && locks[4]) image = "STKEYS6";
 		else if (locks[1]) image = "STKEYS0";
 		else if (locks[4]) image = "STKEYS3";
-		DrawImage(image, (-81, -29), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+		DrawImage(image, (-81 + KEY_OFFSET, -29), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
 		// key 2
 		if (locks[2] && locks[5]) image = "STKEYS7";
 		else if (locks[2]) image = "STKEYS1";
 		else if (locks[5]) image = "STKEYS4";
 		else image = "";
-		DrawImage(image, (-81, -19), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+		DrawImage(image, (-81 + KEY_OFFSET, -19), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
 		// key 3
 		if (locks[0] && locks[3]) image = "STKEYS8";
 		else if (locks[0]) image = "STKEYS2";
 		else if (locks[3]) image = "STKEYS5";
 		else image = "";
-		DrawImage(image, (-81, -9), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+		DrawImage(image, (-81 + KEY_OFFSET, -9), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
 
 		// Draw Total Ammo Count
 		int amt1, maxamt;

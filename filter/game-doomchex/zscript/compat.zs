@@ -17,6 +17,7 @@ extend Class SpecialDoomStatusBar
 		STGNUM    = "STGNUM";
 		ARMS_OFFSET = 0;
 		MUG_OFFSET = 0;
+		KEY_OFFSET = 0;
 
 		Font fnt;
 		// Deal with compatibility with certain PWADS
@@ -124,6 +125,12 @@ extend Class SpecialDoomStatusBar
 			
 		case '8dcdb62f3b23acf052f47ff0f08f3b04': // techbar.wad (idgames 393)
 			STYSNUM   = "TECHNUM";
+			break;
+			
+		case '5195a746bd49b52cdfec75c0ce38100a': // Homer Doom 2 (idgames 982)
+			HUD_LEFT  = "HUD_LEFT_HOMERDOOM2";
+			HUD_RIGHT = "HUD_RIGHT_HOMERDOOM2";
+			KEY_OFFSET = 3.5;
 			break;
 		}
 

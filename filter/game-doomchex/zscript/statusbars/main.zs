@@ -44,6 +44,8 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	double ARMS_OFFSET;
 	// Offset for Split Mugshot
 	double MUG_OFFSET;
+	// Offset for Keys
+	double KEY_OFFSET;
 
 	enum OpaqueValues
 	{

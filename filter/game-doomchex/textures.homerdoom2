@@ -1,0 +1,9 @@
+// Split bar panels
+Graphic "HUD_LEFT_HOMERDOOM2", 142, 32 
+{
+    	Patch "HDOOM2_L", 0, 0
+}
+Graphic "HUD_RIGHT_HOMERDOOM2", 149, 32 
+{
+    	Patch "HDOOM2_R", 1, 0
+}
