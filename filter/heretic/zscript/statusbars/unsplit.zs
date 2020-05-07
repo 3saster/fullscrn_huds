@@ -27,14 +27,14 @@ extend Class SpecialHereticStatusBar
 			// Draw Frags
 			if(deathmatch || teamplay)
 			{
-				DrawImage("STATBAR",  (-123.4+offset, -40), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
+				DrawImage(STATBAR,  (-123.4+offset, -40), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
 				// DrawImage("ARMCLEAR", (-100.5+offset, -29), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
 				DrawString(mHUDFont, FormatNumber(CPlayer.FragCount, 3), (-69.5+offset, -30), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM|DI_NOSHADOW, alpha:alphaFloatNum);
 			}
 			// Draw Health
 			else
 			{
-				DrawImage("LIFEBAR",  (-123.4+offset, -40), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
+				DrawImage(LIFEBAR,  (-123.4+offset, -40), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
 				// DrawImage("ARMCLEAR", (-100.5+offset, -29), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
 				int healthColor = GetHealthColor();
 				DrawString(mHUDFont, FormatNumber(mHealthInterpolator.GetValue(), 3), (-69.5+offset, -30), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM|DI_NOSHADOW, translation:healthColor, alpha:alphaFloatNum);
@@ -83,7 +83,7 @@ extend Class SpecialHereticStatusBar
 		}
 		else
 		{
-			DrawImage("INVBAR", (-123.4+offset, -40), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
+			DrawImage(INVBAR, (-123.4+offset, -40), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS,alphaFloat);
 			DrawInventoryBarTrans(diparms_sbar, (0+offset, -9), 7, DI_SCREEN_CENTER_BOTTOM, bgalpha:alphaFloat, fgalpha:alphaFloatGraph, numalpha: alphaFloatNum);
 		}
 		
@@ -91,9 +91,9 @@ extend Class SpecialHereticStatusBar
 		// DrawImage("CHAINBAC", (2.5+offset, 0), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_CENTER_BOTTOM, alphaFloat);
 		// wiggle the chain if it moves
 		int inthealth =  mHealthInterpolator.GetValue();
-		DrawGemTrans("CHAIN", "LIFEGEM2",inthealth, CPlayer.mo.GetMaxHealth(true), (-7.5+offset, -1 + chainWig), 15, 25, 16, (multiplayer? DI_TRANSLATABLE : 0) | DI_ITEM_CENTER_BOTTOM | DI_SCREEN_CENTER_BOTTOM,alphaFloat);
-		DrawImage("LTFACE", (-157.5+offset, -10), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
-		DrawImage("RTFACE", (118.6+offset, -10), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
+		DrawGemTrans(CHAIN, "LIFEGEM2",inthealth, CPlayer.mo.GetMaxHealth(true), (-7.5+offset, -1 + chainWig), 15, 25, 16, (multiplayer? DI_TRANSLATABLE : 0) | DI_ITEM_CENTER_BOTTOM | DI_SCREEN_CENTER_BOTTOM,alphaFloat);
+		DrawImage(LTFACE, (-157.5+offset, -10), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
+		DrawImage(RTFACE, (118.6+offset, -10), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
 		DrawShader(SHADER_HORZ, (-138.5+offset, -10), (16, 10), DI_SCREEN_CENTER_BOTTOM, alphaFloat);
 		DrawShader(SHADER_HORZ|SHADER_REVERSE, (120.5+offset, -10), (16, 10), DI_SCREEN_CENTER_BOTTOM, alphaFloat);
 	}

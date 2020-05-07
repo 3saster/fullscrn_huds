@@ -35,6 +35,12 @@ Class SpecialHereticStatusBar : HereticStatusBar
 	string RTFCTOP;
 	string GOD1;
 	string GOD2;
+	string RTFACE;
+	string LTFACE;
+	string LIFEBAR;
+	string STATBAR;
+	string INVBAR;
+	string CHAIN;
 
 	mixin TransFunctions;
 

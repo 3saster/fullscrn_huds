@@ -17,6 +17,12 @@ extend Class SpecialHereticStatusBar
 		RTFCTOP = "RTFCTOP";
 		GOD1    = "GOD1";
 		GOD2    = "GOD2";
+		LTFACE  = "LTFACE";
+		RTFACE  = "RTFACE";
+		LIFEBAR = "LIFEBAR";
+		STATBAR = "STATBAR";
+		INVBAR  = "INVBAR";
+		CHAIN   = "CHAIN";
 
 		// Deal with compatibility with certain PWADS
 		switch(BARBACK_HASH)
@@ -37,6 +43,18 @@ extend Class SpecialHereticStatusBar
 			BARBACK = "BB_DORKS";
 			GOD1    = "G1_DORKS";
 			GOD2    = "G2_DORKS";
+			break;
+		case 'acc8eb55a5d678698194d88eb76287a6': // hbelcher.WAD (idgames 8095)
+			GOD1    = "";
+			GOD2    = "";
+			LTFCTOP = "";
+			RTFCTOP = "";
+			LTFACE  = "LTF_HBEL";
+			RTFACE  = "RTF_HBEL";
+			LIFEBAR = "LB_HBEL";
+			BARBACK = "BB_HBEL";
+			INVBAR  = "IB_HBEL";
+			CHAIN   = "CH_HBEL";
 			break;
 		}
 	}
