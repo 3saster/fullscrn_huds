@@ -169,6 +169,11 @@ extend Class SpecialDoomStatusBar
 			fnt = "HUDFONT_TPP";
 			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 0, 0);
 			break;
+
+		case '6930f045a424adae01fbe13a078bb1f9': // q-zone.wad (idgames 5974)
+			fnt = "HUDFONT_QZONE";
+			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 0, 0);
+			break;
 		}
 
 		if( isChex() )
