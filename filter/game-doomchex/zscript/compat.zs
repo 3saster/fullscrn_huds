@@ -159,6 +159,11 @@ extend Class SpecialDoomStatusBar
 			HUD_LEFT  = "HUD_LEFT_FLASH3";
 			HUD_RIGHT = "HUD_RIGHT_FLASH3";
 			break;
+
+		case '6bfd5ba52a1e2b2d3f43dcca49c45929': // tpp.wad (idgames 5302)
+			fnt = "HUDFONT_TPP";
+			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 0, 0);
+			break;
 		}
 
 		if( isChex() )
