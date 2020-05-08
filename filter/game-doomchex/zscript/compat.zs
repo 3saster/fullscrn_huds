@@ -23,15 +23,7 @@ extend Class SpecialDoomStatusBar
 		// Deal with compatibility with certain PWADS
 		switch(STBAR_HASH)
 		{
-		case '2d9a53658a9d756702f00e11529a05f5': // Alien Vendetta
-			HUD_LEFT  = "HUD_LEFT_AV";
-			HUD_RIGHT = "HUD_RIGHT_AV";
-			break;
-
-		case 'a6755fa0ac8a74e89529213a0b26b241': // Avactor
-			HUD_LEFT  = "HUD_LEFT_AVACT";
-			HUD_RIGHT = "HUD_RIGHT_AVACT";
-			break;
+		// Potentially reusable
 
 		case '59eb7834c61abb94b45491ad6435425f': // Eviternity
 		case 'e817eaf5fde41aa3d40cc0590079b6e6': // Epic 2
@@ -39,17 +31,6 @@ extend Class SpecialDoomStatusBar
 		case '8e8f9a2aa65286e0ff9cb181ccfd9843': // demonaly.wad (idgames 2385)
 			HUD_LEFT  = "HUD_LEFT_EVET";
 			HUD_RIGHT = "HUD_RIGHT_EVET";
-			break;
-		
-		case '9c6a02d01d54b659227206b14d21bd6c': // dethtwer.wad (idgames 2385)
-			HUD_LEFT  = "HUD_LEFT_EVET";
-			HUD_RIGHT = "HUD_RIGHT_EVET";
-			KEY_OFFSET = 1;
-			break;
-
-		case '55bba172e6b2aaf532b59b34c333887a': // Sunlust
-			HUD_LEFT  = "HUD_LEFT_SUNLUST";
-			HUD_RIGHT = "HUD_RIGHT_SUNLUST";
 			break;
 
 		case 'f75c27163008a99942efb8e26321331c': // Memento Mori 2
@@ -85,6 +66,43 @@ extend Class SpecialDoomStatusBar
 			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
 			break;
 
+		case 'b65eb1a13d873457e147f34cd72daa09': // Mayhem 2018 - Orange Edition
+			HUD_LEFT  = "HUD_LEFT_TN";
+			HUD_RIGHT = "HUD_RIGHT_TN";
+			break;
+
+		case '00851c42265ed1b801f528c5e29c8630': // cordless.wad (idgames 3417)
+			HUD_LEFT  = "HUD_LEFT_CORDLESS";
+			break;
+
+		case '50bd0007b419abf85258af27e21f490e': // flash3.wad (idgames 5114)
+			HUD_LEFT  = "HUD_LEFT_FLASH3";
+			HUD_RIGHT = "HUD_RIGHT_FLASH3";
+			break;
+
+		// More Specific
+
+		case '2d9a53658a9d756702f00e11529a05f5': // Alien Vendetta
+			HUD_LEFT  = "HUD_LEFT_AV";
+			HUD_RIGHT = "HUD_RIGHT_AV";
+			break;
+
+		case 'a6755fa0ac8a74e89529213a0b26b241': // Avactor
+			HUD_LEFT  = "HUD_LEFT_AVACT";
+			HUD_RIGHT = "HUD_RIGHT_AVACT";
+			break;
+		
+		case '9c6a02d01d54b659227206b14d21bd6c': // dethtwer.wad (idgames 2385)
+			HUD_LEFT  = "HUD_LEFT_EVET";
+			HUD_RIGHT = "HUD_RIGHT_EVET";
+			KEY_OFFSET = 1;
+			break;
+
+		case '55bba172e6b2aaf532b59b34c333887a': // Sunlust
+			HUD_LEFT  = "HUD_LEFT_SUNLUST";
+			HUD_RIGHT = "HUD_RIGHT_SUNLUST";
+			break;
+
 		case 'f5545943edade0df9de4cb40ba36e083': // Neural Upscale 2X Pack
 			HUD_SMP   = "HUD_SMP_NEURAL";
 			HUD_DM    = "HUD_DM_NEURAL";
@@ -100,11 +118,6 @@ extend Class SpecialDoomStatusBar
 			ARMS_OFFSET = -2.5;
 			fnt = "HUDFONT_ETERNAL";
 			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
-			break;
-
-		case 'b65eb1a13d873457e147f34cd72daa09': // Mayhem 2018 - Orange Edition
-			HUD_LEFT  = "HUD_LEFT_TN";
-			HUD_RIGHT = "HUD_RIGHT_TN";
 			break;
 
 		case 'c348f353ef94c247b3cc3e99fcd9b0fd': // Mayhem 2018 - Purple Edition
@@ -131,7 +144,7 @@ extend Class SpecialDoomStatusBar
 			break;
 
 		case '53b8fa85ddc7f565c7c0f39395036b88': // Icarus Alien Vanguard
-			HUD_LEFT   = "ST_ICARU";
+			HUD_LEFT   = "ICARUS_L";
 			KEY_OFFSET = -0.5;
 			break;
 			
@@ -146,18 +159,9 @@ extend Class SpecialDoomStatusBar
 			KEY_OFFSET = 3.5;
 			break;
 
-		case '00851c42265ed1b801f528c5e29c8630': // cordless.wad (idgames 3417)
-			HUD_LEFT  = "HUD_LEFT_CORDLESS";
-			break;
-
 		case '1bc635697cd4639c27a60932f53a6fa8': // fire.wad (idgames 3552)
 			fnt = "HUDFONT_FIRE";
 			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 0, 0);
-			break;
-
-		case '50bd0007b419abf85258af27e21f490e': // flash3.wad (idgames 5114)
-			HUD_LEFT  = "HUD_LEFT_FLASH3";
-			HUD_RIGHT = "HUD_RIGHT_FLASH3";
 			break;
 
 		case '6bfd5ba52a1e2b2d3f43dcca49c45929': // tpp.wad (idgames 5302)
