@@ -1,0 +1,22 @@
+// Split bar panels
+Graphic "MUGFRAME_FLASH3", 36, 32 
+{
+    	Patch "STBAR", -143, 0 { UseOffsets }
+}
+Graphic "HUD_LFIX_FLASH3", 142, 32 
+{
+    	Patch "STBAR", 0, 0 { UseOffsets }
+    	Patch "MUGFRAME_FLASH3", 105, 0
+}
+Graphic "HUD_RFIX_FLASH3", 142, 32 
+{
+    	Patch "STBAR", -179, 0 { UseOffsets }
+}
+Graphic "HUD_LEFT_FLASH3", 143, 32 
+{
+    	Patch "HUD_LFIX_FLASH3", 0, 0
+}
+Graphic "HUD_RIGHT_FLASH3", 145, 32 
+{
+    	Patch "HUD_RFIX_FLASH3", 2, 0
+}

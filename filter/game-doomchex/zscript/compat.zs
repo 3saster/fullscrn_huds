@@ -149,6 +149,11 @@ extend Class SpecialDoomStatusBar
 			fnt = "HUDFONT_FIRE";
 			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 0, 0);
 			break;
+
+		case '50bd0007b419abf85258af27e21f490e': // flash3.wad (idgames 5114)
+			HUD_LEFT  = "HUD_LEFT_FLASH3";
+			HUD_RIGHT = "HUD_RIGHT_FLASH3";
+			break;
 		}
 
 		if( isChex() )
