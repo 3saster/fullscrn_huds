@@ -129,6 +129,11 @@ extend Class SpecialDoomStatusBar
 			MUG_OFFSET = -2;
 			ARMS_OFFSET = -2;
 			break;
+
+		case '53b8fa85ddc7f565c7c0f39395036b88': // Icarus Alien Vanguard
+			HUD_LEFT   = "ST_ICARU";
+			KEY_OFFSET = -0.5;
+			break;
 			
 		case '8dcdb62f3b23acf052f47ff0f08f3b04': // techbar.wad (idgames 393)
 		case 'efb2ab6a075bc4df7e680eb055148425': // dakills.wad (idgames 2803)
