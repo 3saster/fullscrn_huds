@@ -244,6 +244,8 @@ extend Class SpecialDoomStatusBar
 			ammoString = "MinigunAmmo, Shells, TimeBombAmmo, ChaosBarsAmmo";
 		else if ( isEWPack() )
 			ammoString = "Chlip, Chell, ChocketAmmo, Chattery";
+		else if ( isHellAwake2() )
+			ammoString = "Shell, Clip, RocketAmmo, Cell";
 		else
 			ammoString = "Clip, Shell, RocketAmmo, Cell";
 		ammoString.Split(ammoNames, ", ");

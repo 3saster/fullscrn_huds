@@ -103,4 +103,26 @@ mixin Class CompatFunctions
 			return offset;
 		return 0;
 	}
+
+	// ==========================================
+	// Wrapper to add offsets for Hell Awakened 2
+	// ==========================================
+	string hellawake2;
+	float isHellAwake2(float offset = 1.0)
+	{
+		if(hellawake2.length() != 32)
+		{
+			int lastLump = Wads.FindLump("TITLEPIC",0,1);
+			int nextLump =  Wads.FindLump("TITLEPIC",lastLump+1,1);
+			while( nextLump != -1 )
+			{
+				lastLump = nextLump;
+				nextLump = Wads.FindLump("TITLEPIC",lastLump+1,1);
+			}
+			hellawake2 = MD5.Hash(Wads.ReadLump(lastLump));
+		}
+		if( hellawake2 == "251f5f98b6af6c4055f01d9ecbb66f11" )
+			return offset;
+		return 0;
+	}
 }
