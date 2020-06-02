@@ -18,6 +18,8 @@ extend Class SpecialDoomStatusBar
 		ARMS_OFFSET = 0;
 		MUG_OFFSET  = 0;
 		KEY_OFFSET  = 0;
+		CURR_OFFSET = 0;
+		MAX_OFFSET  = 0;
 
 		ARM_POS[0] = (-49, -28);
 		ARM_POS[1] = (-37, -28);
@@ -204,6 +206,11 @@ extend Class SpecialDoomStatusBar
 			HUD_DM    = "HUD_DM_EWPACK";
 			HUD_LEFT  = "HUD_LEFT_EWPACK";
 			HUD_RIGHT = "HUD_RIGHT_EWPACK";
+		}
+		else if( isCorTech() )
+		{
+			CURR_OFFSET = 7;
+			MAX_OFFSET =  3;
 		}
 	}
 

@@ -81,4 +81,26 @@ mixin Class CompatFunctions
 			return offset;
 		return 0;
 	}
+
+	// =============================================
+	// Wrapper to add offsets for Corrupted Techbase
+	// =============================================
+	string cortech;
+	float isCorTech(float offset = 1.0)
+	{
+		if(cortech.length() != 32)
+		{
+			int lastLump = Wads.FindLump("TITLEPIC",0,1);
+			int nextLump =  Wads.FindLump("TITLEPIC",lastLump+1,1);
+			while( nextLump != -1 )
+			{
+				lastLump = nextLump;
+				nextLump = Wads.FindLump("TITLEPIC",lastLump+1,1);
+			}
+			cortech = MD5.Hash(Wads.ReadLump(lastLump));
+		}
+		if( cortech == "66e17f86093f83e4d5929d43e6fc6c20" )
+			return offset;
+		return 0;
+	}
 }

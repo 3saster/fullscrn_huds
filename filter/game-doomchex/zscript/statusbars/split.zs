@@ -48,26 +48,7 @@ extend Class SpecialDoomStatusBar
 		DrawString(mHUDFont, FormatNumber(GetArmorAmount(), 3), (-99+isChex(2), -29), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_RIGHT_BOTTOM, translation:armorColor, alpha:alphaFloatNum);
 
 		// Draw Keys
-		bool locks[6];
-		String image;
-		for(int i = 0; i < 6; i++) locks[i] = CPlayer.mo.CheckKeys(i + 1, false, true);
-		// key 1
-		if (locks[1] && locks[4]) image = "STKEYS6";
-		else if (locks[1]) image = "STKEYS0";
-		else if (locks[4]) image = "STKEYS3";
-		DrawImage(image, (-81 + KEY_OFFSET, -29), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
-		// key 2
-		if (locks[2] && locks[5]) image = "STKEYS7";
-		else if (locks[2]) image = "STKEYS1";
-		else if (locks[5]) image = "STKEYS4";
-		else image = "";
-		DrawImage(image, (-81 + KEY_OFFSET, -19), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
-		// key 3
-		if (locks[0] && locks[3]) image = "STKEYS8";
-		else if (locks[0]) image = "STKEYS2";
-		else if (locks[3]) image = "STKEYS5";
-		else image = "";
-		DrawImage(image, (-81 + KEY_OFFSET, -9), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+		DrawSplitKeys(alphaFloatGraph);
 
 		// Draw Total Ammo Count
 		int amt1, maxamt;
@@ -82,8 +63,8 @@ extend Class SpecialDoomStatusBar
 					{
 						let ammotype = (class<Ammo>)(AllActorClasses[j]);
 						[amt1, maxamt] = GetAmount(ammotype);
-						DrawString(mIndexFontF, FormatNumber(amt1,   3), (-32+isChex(5), -27+6*i), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatNum);
-						DrawString(mIndexFontF, FormatNumber(maxamt, 3), (-6+isChex(1), -27+6*i), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatNum);
+						DrawString(mIndexFontF, FormatNumber(amt1,   3), (-32+isChex(5)+CURR_OFFSET, -27+6*i), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatNum);
+						DrawString(mIndexFontF, FormatNumber(maxamt, 3), (-6+isChex(1)+MAX_OFFSET,   -27+6*i), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatNum);
 						break;
 					}			
 				}
@@ -159,6 +140,42 @@ extend Class SpecialDoomStatusBar
 			for(Inventory item = CPlayer.mo.FirstInv(); item != NULL && itemCount < maxInv; item = item.NextInv())
 				itemCount++;
 			DrawInventoryBarTrans(diparms_sbar, (0, -1), max(itemCount,1), DI_SCREEN_CENTER_BOTTOM, bgalpha:alphaFloat, fgalpha:alphaFloatGraph, numalpha: alphaFloatNum);
+		}
+	}
+
+	void DrawSplitKeys(double alphaFloatGraph)
+	{
+		bool locks[6];
+		String image;
+		for(int i = 0; i < 6; i++) locks[i] = CPlayer.mo.CheckKeys(i + 1, false, true);
+		// key 1
+		if (locks[1] && locks[4]) image = "STKEYS6";
+		else if (locks[1]) image = "STKEYS0";
+		else if (locks[4]) image = "STKEYS3";
+		DrawImage(image, (-81 + KEY_OFFSET, -29), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+		// key 2
+		if (locks[2] && locks[5]) image = "STKEYS7";
+		else if (locks[2]) image = "STKEYS1";
+		else if (locks[5]) image = "STKEYS4";
+		else image = "";
+		DrawImage(image, (-81 + KEY_OFFSET, -19), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+		// key 3
+		if (locks[0] && locks[3]) image = "STKEYS8";
+		else if (locks[0]) image = "STKEYS2";
+		else if (locks[3]) image = "STKEYS5";
+		else image = "";
+		DrawImage(image, (-81 + KEY_OFFSET, -9), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+		if( isCorTech() )
+		{
+			// Aqua Card
+			if( CPlayer.mo.CheckKeys(8,false,true) )
+				DrawImage("AQUA", (-70 + KEY_OFFSET, -29), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+			// Orange Card
+			if( CPlayer.mo.CheckKeys(9,false,true) )
+				DrawImage("EMBER", (-70 + KEY_OFFSET, -19), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
+			// Silver Card
+			if( CPlayer.mo.CheckKeys(10,false,true) )
+				DrawImage("Silver", (-70 + KEY_OFFSET, -9), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatGraph);
 		}
 	}
 }

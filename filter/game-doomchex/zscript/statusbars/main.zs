@@ -46,6 +46,10 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	double MUG_OFFSET;
 	// Offset for Keys
 	double KEY_OFFSET;
+	// Offset for Current Ammo
+	double CURR_OFFSET;
+	// Offset for Max Ammo
+	double MAX_OFFSET;
 	
 	// Position for Arms on non-split/split HUD
 	Vector2 ARM_POS[6];
