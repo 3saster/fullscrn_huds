@@ -28,4 +28,25 @@ extend Class SpecialHexenStatusBar
 			break;
 		}
 	}
+
+	// =======================================
+	// Get Ultimate Names for particular games
+	// =======================================
+	void setUltimateNames()
+	{
+		string str = "WAHDQuietus";
+		class<Actor> WAHD = str;
+		if(WAHD) // WAHD.wad (idgames 16883)
+		{
+			ULTIMATE[0] = "WAHDWraithverge";
+			ULTIMATE[1] = "WAHDBloodscourge";
+			ULTIMATE[2] = "WAHDQuietus";
+		}
+		else
+		{
+			ULTIMATE[0] = "CWeapWraithverge";
+			ULTIMATE[1] = "MWeapBloodscourge";
+			ULTIMATE[2] = "FWeapQuietus";
+		}
+	}
 }

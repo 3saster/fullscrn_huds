@@ -124,11 +124,11 @@ extend Class SpecialHexenStatusBar
 			if (CPlayer.mo is "ClericPlayer")
 			{
 				DrawImage("WPSLOT1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloat);
-				if (CheckInventory("CWeapWraithverge")) DrawImage("WPFULL1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+				if (CheckInventory(ULTIMATE[0])) DrawImage("WPFULL1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 				else
 				{
 					// These pieces are misaligned in GZDoom
-					int pieces = GetWeaponPieceMask("CWeapWraithverge");
+					int pieces = GetWeaponPieceMask(ULTIMATE[0]);
 					if (pieces & 1) DrawImage("WPIECEC1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 					if (pieces & 2) DrawImage("WPIECEC2", (52, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 					if (pieces & 4) DrawImage("WPIECEC3", (65, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
@@ -137,22 +137,22 @@ extend Class SpecialHexenStatusBar
 			else if (CPlayer.mo is "MagePlayer")
 			{
 				DrawImage("WPSLOT2", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloat);
-				if (CheckInventory("MWeapBloodscourge")) DrawImage("WPFULL2", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+				if (CheckInventory(ULTIMATE[1])) DrawImage("WPFULL2", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 				else
 				{
-					int pieces = GetWeaponPieceMask("MWeapBloodscourge");
+					int pieces = GetWeaponPieceMask(ULTIMATE[1]);
 					if (pieces & 1) DrawImage("WPIECEM1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 					if (pieces & 2) DrawImage("WPIECEM2", (45, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 					if (pieces & 4) DrawImage("WPIECEM3", (64, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 				}
 			}
-			else // if *Cplayer.mo is "FighterPlayer")
+			else // if (Cplayer.mo is "FighterPlayer")
 			{
 				DrawImage("WPSLOT0", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloat);
-				if (CheckInventory("FWeapQuietus")) DrawImage("WPFULL0", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+				if (CheckInventory(ULTIMATE[2])) DrawImage("WPFULL0", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 				else
 				{
-					int pieces = GetWeaponPieceMask("FWeapQuietus");
+					int pieces = GetWeaponPieceMask(ULTIMATE[2]);
 					if (pieces & 1) DrawImage("WPIECEF1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 					if (pieces & 2) DrawImage("WPIECEF2", (65, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 					if (pieces & 4) DrawImage("WPIECEF3", (74, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);

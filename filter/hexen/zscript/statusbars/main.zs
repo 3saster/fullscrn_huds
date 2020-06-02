@@ -35,6 +35,9 @@ Class SpecialHexenStatusBar : HexenStatusBar
 	string LFEDGE;
 	string RTEDGE;
 
+	// Ultimate Weapons (Cleric/Mage/Figher)
+	string ULTIMATE[3];
+
 	mixin TransFunctions;
 
 	enum OpaqueValues
@@ -85,6 +88,7 @@ Class SpecialHexenStatusBar : HexenStatusBar
 		H2BAR_HASH = MD5.Hash(Wads.ReadLump(lastLump));
 
 		setH2BARNames();
+		setUltimateNames();
 	}
 
 	override void NewGame()
