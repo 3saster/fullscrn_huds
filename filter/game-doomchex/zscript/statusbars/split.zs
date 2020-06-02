@@ -93,24 +93,13 @@ extend Class SpecialDoomStatusBar
 		// Draw Split Arms over face if CVAR is on
 		if(splitArms.GetInt())
 		{
-			if(!isHacX())
-			{
-				DrawImage(CPlayer.HasWeaponsInSlot(2)? concat(STYSNUM,"2") : concat(STGNUM,"2"), (108+0*6+ARMS_OFFSET, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-				DrawImage(CPlayer.HasWeaponsInSlot(3)? concat(STYSNUM,"3") : concat(STGNUM,"3"), (108+1*6+ARMS_OFFSET, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-				DrawImage(CPlayer.HasWeaponsInSlot(4)? concat(STYSNUM,"4") : concat(STGNUM,"4"), (108+2*6+ARMS_OFFSET, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-				DrawImage(CPlayer.HasWeaponsInSlot(5)? concat(STYSNUM,"5") : concat(STGNUM,"5"), (108+3*6+ARMS_OFFSET, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-				DrawImage(CPlayer.HasWeaponsInSlot(6)? concat(STYSNUM,"6") : concat(STGNUM,"6"), (108+4*6+ARMS_OFFSET, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-				DrawImage(CPlayer.HasWeaponsInSlot(7)? concat(STYSNUM,"7") : concat(STGNUM,"7"), (108+5*6+ARMS_OFFSET, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-			}
-			else // HacX font is backwards if not on the display
-			{
-				DrawImage(CPlayer.HasWeaponsInSlot(2)? concat(STGNUM,"2") : concat(STYSNUM,"2"), (108+0*6+ARMS_OFFSET, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-				DrawImage(CPlayer.HasWeaponsInSlot(3)? concat(STGNUM,"3") : concat(STYSNUM,"3"), (108+1*6+ARMS_OFFSET, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-				DrawImage(CPlayer.HasWeaponsInSlot(4)? concat(STGNUM,"4") : concat(STYSNUM,"4"), (108+2*6+ARMS_OFFSET, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-				DrawImage(CPlayer.HasWeaponsInSlot(5)? concat(STGNUM,"5") : concat(STYSNUM,"5"), (108+3*6+ARMS_OFFSET, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-				DrawImage(CPlayer.HasWeaponsInSlot(6)? concat(STGNUM,"6") : concat(STYSNUM,"6"), (108+4*6+ARMS_OFFSET, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-				DrawImage(CPlayer.HasWeaponsInSlot(7)? concat(STGNUM,"7") : concat(STYSNUM,"7"), (108+5*6+ARMS_OFFSET, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
-			}
+			// HacX font is backwards if not on the display
+			DrawImage(!isHacX() ^ CPlayer.HasWeaponsInSlot(2)? concat(STGNUM,"2") : concat(STYSNUM,"2"), (108+0*6+ARMS_OFFSET, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+			DrawImage(!isHacX() ^ CPlayer.HasWeaponsInSlot(3)? concat(STGNUM,"3") : concat(STYSNUM,"3"), (108+1*6+ARMS_OFFSET, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+			DrawImage(!isHacX() ^ CPlayer.HasWeaponsInSlot(4)? concat(STGNUM,"4") : concat(STYSNUM,"4"), (108+2*6+ARMS_OFFSET, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+			DrawImage(!isHacX() ^ CPlayer.HasWeaponsInSlot(5)? concat(STGNUM,"5") : concat(STYSNUM,"5"), (108+3*6+ARMS_OFFSET, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+			DrawImage(!isHacX() ^ CPlayer.HasWeaponsInSlot(6)? concat(STGNUM,"6") : concat(STYSNUM,"6"), (108+4*6+ARMS_OFFSET, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
+			DrawImage(!isHacX() ^ CPlayer.HasWeaponsInSlot(7)? concat(STGNUM,"7") : concat(STYSNUM,"7"), (108+5*6+ARMS_OFFSET, -38), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloatNum);
 		}
 		
 		

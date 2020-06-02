@@ -16,8 +16,15 @@ extend Class SpecialDoomStatusBar
 		STYSNUM   = "STYSNUM";
 		STGNUM    = "STGNUM";
 		ARMS_OFFSET = 0;
-		MUG_OFFSET = 0;
-		KEY_OFFSET = 0;
+		MUG_OFFSET  = 0;
+		KEY_OFFSET  = 0;
+
+		ARM_POS[0] = (-49, -28);
+		ARM_POS[1] = (-37, -28);
+		ARM_POS[2] = (-25, -28);
+		ARM_POS[3] = (-49, -18);
+		ARM_POS[4] = (-37, -18);
+		ARM_POS[5] = (-25, -18);
 
 		Font fnt;
 		// Deal with compatibility with certain PWADS
@@ -173,6 +180,16 @@ extend Class SpecialDoomStatusBar
 		case '6930f045a424adae01fbe13a078bb1f9': // q-zone.wad (idgames 5974)
 			fnt = "HUDFONT_QZONE";
 			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 0, 0);
+			break;
+
+		case '5e338c397dd1f87adfaa50424f4c496a': // Threshold Of Pain (idgames 16196)
+			KEY_OFFSET = 1;
+			ARM_POS[0] = (-47, -28);
+			ARM_POS[1] = (-36, -28);
+			ARM_POS[2] = (-24, -28);
+			ARM_POS[3] = (-47, -17);
+			ARM_POS[4] = (-36, -17);
+			ARM_POS[5] = (-24, -17);
 			break;
 		}
 

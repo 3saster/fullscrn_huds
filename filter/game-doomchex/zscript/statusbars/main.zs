@@ -46,6 +46,9 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	double MUG_OFFSET;
 	// Offset for Keys
 	double KEY_OFFSET;
+	
+	// Position for Arms on non-split/split HUD
+	Vector2 ARM_POS[6];
 
 	enum OpaqueValues
 	{
