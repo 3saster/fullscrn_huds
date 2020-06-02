@@ -198,6 +198,13 @@ extend Class SpecialDoomStatusBar
 			STYSNUM   = "CTYSNUM";
 			STGNUM    = "CTGNUM";
 		}
+		else if( isEWPack() )
+		{
+			HUD_SMP   = "HUD_SMP_EWPACK";
+			HUD_DM    = "HUD_DM_EWPACK";
+			HUD_LEFT  = "HUD_LEFT_EWPACK";
+			HUD_RIGHT = "HUD_RIGHT_EWPACK";
+		}
 	}
 
 	Array<String> ammoNames;
@@ -228,6 +235,8 @@ extend Class SpecialDoomStatusBar
 			ammoString = "HacxRounds, HacxCartridges, HacxTorpedo, HacxMolecules";
 		else if ( isHarmony() )
 			ammoString = "MinigunAmmo, Shells, TimeBombAmmo, ChaosBarsAmmo";
+		else if ( isEWPack() )
+			ammoString = "Chlip, Chell, ChocketAmmo, Chattery";
 		else
 			ammoString = "Clip, Shell, RocketAmmo, Cell";
 		ammoString.Split(ammoNames, ", ");

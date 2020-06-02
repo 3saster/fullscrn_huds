@@ -69,4 +69,16 @@ mixin Class CompatFunctions
 			return offset;
 		return 0;
 	}
+
+	// ===============================================
+	// Wrapper to add offsets for Extreme Weapons Pack
+	// ===============================================
+	float isEWPack(float offset = 1.0)
+	{
+		string classname = "WTFHSGLOL6283185";
+		class<Actor> cls = classname;
+		if( cls )
+			return offset;
+		return 0;
+	}
 }
