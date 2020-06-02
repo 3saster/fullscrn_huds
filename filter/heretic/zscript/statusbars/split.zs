@@ -18,7 +18,7 @@ extend Class SpecialHereticStatusBar
 		DrawImage(barLeft, (1, -1), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, alphaFloat);
 			
 		// Draw right side
-		DrawImage("BAR_RGHT", (-1, -1), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_RIGHT_BOTTOM, alphaFloat);
+		DrawImage(BAR_RGHT, (-1, -1), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_RIGHT_BOTTOM, alphaFloat);
 		
 		// Draw Current Ammo Counter
 		Inventory a1,a2;
@@ -51,12 +51,7 @@ extend Class SpecialHereticStatusBar
 		DrawString(mHUDFont, FormatNumber(GetArmorAmount(), 3), (87, -18), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_LEFT_BOTTOM, translation:armorColor, alpha:alphaFloatNum);
 		
 		// Draw Keys
-		if (CPlayer.mo.CheckKeys(1, false, true)) DrawImage("GKEYICON", (-105, -19), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
-			else DrawImage("NOKEY", (-105, -19), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
-		if (CPlayer.mo.CheckKeys(2, false, true)) DrawImage("BKEYICON", (-105, -11), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
-			else DrawImage("NOKEY", (-105, -11), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
-		if (CPlayer.mo.CheckKeys(3, false, true)) DrawImage("YKEYICON", (-105, -27), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
-			else DrawImage("NOKEY", (-105, -27), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
+		DrawSplitKeys(alphaFloat,alphaFloatGraph);
 		
 		// Draw Frags + Color
 		if(multiplayer)
@@ -110,6 +105,30 @@ extend Class SpecialHereticStatusBar
 			for(Inventory item = CPlayer.mo.FirstInv(); item != NULL && itemCount < maxInv; item = item.NextInv())
 				itemCount++;
 			DrawInventoryBarTrans(diparms_sbar, (0, -1), max(itemCount,1), DI_SCREEN_CENTER_BOTTOM, bgalpha:alphaFloat, fgalpha:alphaFloatGraph, numalpha: alphaFloatNum);
+		}
+	}
+	
+	void DrawSplitKeys(double alphaFloat, double alphaFloatGraph)
+	{
+		if( isFreame2() )
+		{
+			if (CPlayer.mo.CheckKeys(3, false, true)) DrawImage("YKEYICON", (-105, -28), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+				else DrawImage("NOKEY", (-105, -28), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
+			if (CPlayer.mo.CheckKeys(4, false, true)) DrawImage("RKEYICON", (-105, -22), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+				else DrawImage("NOKEY", (-105, -22), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
+			if (CPlayer.mo.CheckKeys(1, false, true)) DrawImage("GKEYICON", (-105, -16), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+				else DrawImage("NOKEY", (-105, -16), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
+			if (CPlayer.mo.CheckKeys(2, false, true)) DrawImage("BKEYICON", (-105, -10), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+				else DrawImage("NOKEY", (-105, -10), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
+		}
+		else
+		{
+			if (CPlayer.mo.CheckKeys(3, false, true)) DrawImage("YKEYICON", (-105, -27), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+				else DrawImage("NOKEY", (-105, -27), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
+			if (CPlayer.mo.CheckKeys(1, false, true)) DrawImage("GKEYICON", (-105, -19), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+				else DrawImage("NOKEY", (-105, -19), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
+			if (CPlayer.mo.CheckKeys(2, false, true)) DrawImage("BKEYICON", (-105, -11), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+				else DrawImage("NOKEY", (-105, -11), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
 		}
 	}
 }

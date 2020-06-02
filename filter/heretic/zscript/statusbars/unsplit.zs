@@ -67,9 +67,7 @@ extend Class SpecialHereticStatusBar
 			DrawString(mHUDFont, FormatNumber(GetArmorAmount(), 3), (97.5+offset, -30), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_CENTER_BOTTOM, translation:armorColor, alpha:alphaFloatNum);
 			
 			// Draw Keys
-			if (CPlayer.mo.CheckKeys(3, false, true)) DrawImage("YKEYICON", (-4.5+offset, -36), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
-			if (CPlayer.mo.CheckKeys(1, false, true)) DrawImage("GKEYICON", (-4.5+offset, -28), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
-			if (CPlayer.mo.CheckKeys(2, false, true)) DrawImage("BKEYICON", (-4.5+offset, -20), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+			DrawUnsplitKeys(alphaFloatGraph,offset);
 			
 			// Draw Inventory
 			if (CPlayer.mo.InvSel != null && !Level.NoInventoryBar)
@@ -96,5 +94,22 @@ extend Class SpecialHereticStatusBar
 		DrawImage(RTFACE, (118.6+offset, -10), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
 		DrawShader(SHADER_HORZ, (-138.5+offset, -10), (16, 10), DI_SCREEN_CENTER_BOTTOM, alphaFloat);
 		DrawShader(SHADER_HORZ|SHADER_REVERSE, (120.5+offset, -10), (16, 10), DI_SCREEN_CENTER_BOTTOM, alphaFloat);
+	}
+	
+	void DrawUnsplitKeys(double alphaFloatGraph, float offset = 0)
+	{
+		if( isFreame2() )
+		{
+			if (CPlayer.mo.CheckKeys(3, false, true)) DrawImage("YKEYICON", (-4.5+offset, -37), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+			if (CPlayer.mo.CheckKeys(4, false, true)) DrawImage("RKEYICON", (-4.5+offset, -31), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+			if (CPlayer.mo.CheckKeys(1, false, true)) DrawImage("GKEYICON", (-4.5+offset, -25), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+			if (CPlayer.mo.CheckKeys(2, false, true)) DrawImage("BKEYICON", (-4.5+offset, -19), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+		}
+		else
+		{
+			if (CPlayer.mo.CheckKeys(3, false, true)) DrawImage("YKEYICON", (-4.5+offset, -36), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+			if (CPlayer.mo.CheckKeys(1, false, true)) DrawImage("GKEYICON", (-4.5+offset, -28), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+			if (CPlayer.mo.CheckKeys(2, false, true)) DrawImage("BKEYICON", (-4.5+offset, -20), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+		}
 	}
 }

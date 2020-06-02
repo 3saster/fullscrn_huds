@@ -41,6 +41,8 @@ Class SpecialHereticStatusBar : HereticStatusBar
 	string STATBAR;
 	string INVBAR;
 	string CHAIN;
+	
+	string BAR_RGHT;
 
 	mixin TransFunctions;
 

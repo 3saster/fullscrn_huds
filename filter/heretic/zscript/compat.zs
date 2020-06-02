@@ -23,6 +23,8 @@ extend Class SpecialHereticStatusBar
 		STATBAR = "STATBAR";
 		INVBAR  = "INVBAR";
 		CHAIN   = "CHAIN";
+		
+		BAR_RGHT = "BAR_RGHT";
 
 		// Deal with compatibility with certain PWADS
 		switch(BARBACK_HASH)
@@ -59,6 +61,11 @@ extend Class SpecialHereticStatusBar
 			INVBAR  = "IB_HBEL";
 			CHAIN   = "CH_HBEL";
 			break;
+		}
+		
+		if( isFreame2() )
+		{
+			BAR_RGHT = "FREAM2_R";
 		}
 	}
 }
