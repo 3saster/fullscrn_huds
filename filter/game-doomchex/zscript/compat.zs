@@ -217,6 +217,10 @@ extend Class SpecialDoomStatusBar
 			HUD_RIGHT = "TICK_R";
 			break;
 
+		case '472f3da4160ea4913ba69c73aa120933': // Killzone 1 (idgames 8102)
+			HUD_RIGHT = "KILLZ_R";
+			break;
+
 		case '5e338c397dd1f87adfaa50424f4c496a': // Threshold Of Pain (idgames 16196)
 			KEY_OFFSET = 1;
 			ARM_POS[0] = (-47, -28);
