@@ -192,6 +192,13 @@ extend Class SpecialDoomStatusBar
 			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 0, 0);
 			break;
 
+		case '4daaf88703754aa427004b879c60e8d1': // thetick.wad (idgames 6851)
+			HUD_SMP   = "TICK_SMP";
+			HUD_DM    = "TICK_DM";
+			HUD_LEFT  = "TICK_L";
+			HUD_RIGHT = "TICK_R";
+			break;
+
 		case '5e338c397dd1f87adfaa50424f4c496a': // Threshold Of Pain (idgames 16196)
 			KEY_OFFSET = 1;
 			ARM_POS[0] = (-47, -28);
