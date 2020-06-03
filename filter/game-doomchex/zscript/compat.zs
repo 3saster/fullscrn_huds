@@ -90,6 +90,11 @@ extend Class SpecialDoomStatusBar
 			KEY_OFFSET = -1;
 			break;
 
+		case 'f8dc08729966f4c168e3c31a087ac301': //oasis.wad (idgames 6834)
+			STYSNUM   = "OASSNUM";
+			STGNUM    = "OASNUM";
+			break;
+
 		// More Specific
 
 		case '2d9a53658a9d756702f00e11529a05f5': // Alien Vendetta
