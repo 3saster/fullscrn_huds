@@ -90,7 +90,7 @@ extend Class SpecialDoomStatusBar
 			KEY_OFFSET = -1;
 			break;
 
-		case 'f8dc08729966f4c168e3c31a087ac301': //oasis.wad (idgames 6834)
+		case 'f8dc08729966f4c168e3c31a087ac301': // oasis.wad (idgames 6834)
 			STYSNUM   = "OASSNUM";
 			STGNUM    = "OASNUM";
 			break;
@@ -149,7 +149,8 @@ extend Class SpecialDoomStatusBar
 			HUD_LEFT = "HUD_LEFT_DYSTOPIA";
 			break;
 
-		case '071b93d8d4c0fa065f4ea1b1a9bc3978': // Community Chest Series
+		case '260b66e490914772e0a2b58ccc6e0b6c': // Community Chest Series
+		case '071b93d8d4c0fa065f4ea1b1a9bc3978':
 			HUD_SMP   = "HUD_SMP_CCHEST";
 			HUD_DM    = "HUD_DM_CCHEST";
 			HUD_LEFT  = "HUD_LEFT_CCHEST";
