@@ -1,5 +1,20 @@
 mixin Class CompatFunctions
 {
+	// Get MD5 of a particular lump
+	Name getMD5(string lumpname)
+	{
+		// Find last loaded Lump
+		int lastLump = Wads.FindLump(lumpname,0,1);
+		int nextLump =  Wads.FindLump(lumpname,lastLump+1,1);
+		while( nextLump != -1 )
+		{
+			lastLump = nextLump;
+			nextLump = Wads.FindLump(lumpname,lastLump+1,1);
+		}
+		// Return the hash value of the lump
+		return MD5.Hash(Wads.ReadLump(lastLump));
+	}
+
 	// =================================
 	// Wrapper to add offsets for LZDoom
 	// =================================
@@ -90,14 +105,7 @@ mixin Class CompatFunctions
 	{
 		if(cortech.length() != 32)
 		{
-			int lastLump = Wads.FindLump("TITLEPIC",0,1);
-			int nextLump =  Wads.FindLump("TITLEPIC",lastLump+1,1);
-			while( nextLump != -1 )
-			{
-				lastLump = nextLump;
-				nextLump = Wads.FindLump("TITLEPIC",lastLump+1,1);
-			}
-			cortech = MD5.Hash(Wads.ReadLump(lastLump));
+			cortech = GetMD5("TITLEPIC");
 		}
 		if( cortech == "66e17f86093f83e4d5929d43e6fc6c20" )
 			return offset;
@@ -112,14 +120,7 @@ mixin Class CompatFunctions
 	{
 		if(hellawake2.length() != 32)
 		{
-			int lastLump = Wads.FindLump("TITLEPIC",0,1);
-			int nextLump =  Wads.FindLump("TITLEPIC",lastLump+1,1);
-			while( nextLump != -1 )
-			{
-				lastLump = nextLump;
-				nextLump = Wads.FindLump("TITLEPIC",lastLump+1,1);
-			}
-			hellawake2 = MD5.Hash(Wads.ReadLump(lastLump));
+			hellawake2 = getMD5("TITLEPIC");
 		}
 		if( hellawake2 == "251f5f98b6af6c4055f01d9ecbb66f11" )
 			return offset;

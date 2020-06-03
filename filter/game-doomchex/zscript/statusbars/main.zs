@@ -106,16 +106,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		statInit();
 		setAmmoNames();
 
-		// Find last loaded STBAR Lump
-		int lastLump = Wads.FindLump("STBAR",0,1);
-		int nextLump =  Wads.FindLump("STBAR",lastLump+1,1);
-		while( nextLump != -1 )
-		{
-			lastLump = nextLump;
-			nextLump = Wads.FindLump("STBAR",lastLump+1,1);
-		}
-		// Hash the value of the STBAR lump
-		STBAR_HASH = MD5.Hash(Wads.ReadLump(lastLump));
+		STBAR_HASH = getMD5("STBAR");
 
 		setSTBARNames();
 	}

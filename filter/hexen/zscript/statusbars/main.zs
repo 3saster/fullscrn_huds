@@ -76,16 +76,7 @@ Class SpecialHexenStatusBar : HexenStatusBar
 
 		statInit();
 
-		// Find last loaded H2BAR Lump
-		int lastLump = Wads.FindLump("H2BAR",0,1);
-		int nextLump =  Wads.FindLump("H2BAR",lastLump+1,1);
-		while( nextLump != -1 )
-		{
-			lastLump = nextLump;
-			nextLump = Wads.FindLump("H2BAR",lastLump+1,1);
-		}
-		// Hash the value of the H2BAR lump
-		H2BAR_HASH = MD5.Hash(Wads.ReadLump(lastLump));
+		H2BAR_HASH = getMD5("H2BAR");
 
 		setH2BARNames();
 		setUltimateNames();

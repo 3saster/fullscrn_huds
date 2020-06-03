@@ -81,16 +81,7 @@ Class SpecialHereticStatusBar : HereticStatusBar
 
 		statInit();
 
-		// Find last loaded BARBACK Lump
-		int lastLump = Wads.FindLump("BARBACK",0,1);
-		int nextLump =  Wads.FindLump("BARBACK",lastLump+1,1);
-		while( nextLump != -1 )
-		{
-			lastLump = nextLump;
-			nextLump = Wads.FindLump("BARBACK",lastLump+1,1);
-		}
-		// Hash the value of the BARBACK lump
-		BARBACK_HASH = MD5.Hash(Wads.ReadLump(lastLump));
+		BARBACK_HASH = getMD5("BARBACK");
 
 		setBARBACKNames();
 	}
