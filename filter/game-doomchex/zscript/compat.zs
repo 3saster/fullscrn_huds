@@ -211,6 +211,10 @@ extend Class SpecialDoomStatusBar
 			HUD_RIGHT = "TICK_R";
 			break;
 
+		case '9b75839275e3fb6f9a197c08a0eab8f4': // plumbing.wad (idgames 7747)
+			HUD_LEFT = "PLUMB_L";
+			break;
+
 		case '5e338c397dd1f87adfaa50424f4c496a': // Threshold Of Pain (idgames 16196)
 			KEY_OFFSET = 1;
 			ARM_POS[0] = (-47, -28);
