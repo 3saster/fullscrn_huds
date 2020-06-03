@@ -87,6 +87,7 @@ extend Class SpecialDoomStatusBar
 		case '50bd0007b419abf85258af27e21f490e': // flash3.wad (idgames 5114)
 			HUD_LEFT  = "HUD_LEFT_FLASH3";
 			HUD_RIGHT = "HUD_RIGHT_FLASH3";
+			KEY_OFFSET = -1;
 			break;
 
 		// More Specific
