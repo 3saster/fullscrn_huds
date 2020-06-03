@@ -31,3 +31,9 @@ Graphic "HUD_RIGHT", 145, 32
 {
     	Patch "HUD_RFIX", 2, 0
 }
+
+// Just cut the left without mugframe stuff
+Graphic "HUD_LEFTCUT", 143, 32 
+{
+    	Patch "STBAR", 0, 0
+}
