@@ -112,6 +112,10 @@ extend Class SpecialDoomStatusBar
 			HUD_LEFT = "HUD_LEFTCUT";
 			break;
 
+		case 'fb017497d53371d7e67ccbe906e06785': // zombies.wad (idgames 8122)
+			KEY_OFFSET = 1;
+			break;
+
 
 		// More Specific
 
