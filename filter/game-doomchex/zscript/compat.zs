@@ -99,6 +99,14 @@ extend Class SpecialDoomStatusBar
 			}
 			break;
 
+		case '0d3b917c799ddafb591ffe46b06f5b82': // lounge_2.wad (idgames 7049)
+			// check that numbers are the problematic ones
+			if( getMD5("STYSNUM3") == '4a1e6f0c613840690f24da8ad753b4a9')
+			{
+				STYSNUM   = "LOUNGE";
+			}
+			break;
+
 		// More Specific
 
 		case '2d9a53658a9d756702f00e11529a05f5': // Alien Vendetta
