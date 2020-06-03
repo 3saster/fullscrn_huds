@@ -160,7 +160,8 @@ extend Class SpecialDoomStatusBar
 			
 		case '8dcdb62f3b23acf052f47ff0f08f3b04': // techbar.wad (idgames 393)
 		case 'efb2ab6a075bc4df7e680eb055148425': // dakills.wad (idgames 2803)
-		case '0d93069b1085063ace63fedb42c2ad68': // weapons.wad (idgame 5760)
+		case '191ecbdf589e1d48696c14216245c27b': // AD3         (idgames 5254)
+		case '0d93069b1085063ace63fedb42c2ad68': // weapons.wad (idgames 5760)
 			STYSNUM   = "TECHNUM";
 			break;
 			
