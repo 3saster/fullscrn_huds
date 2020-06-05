@@ -94,6 +94,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		
 		mSmallFont = HUDFont.Create(SmallFont, SmallFont.GetCharWidth("0"), Mono_CellCenter, 1, 1);
 		mIndexFontF = mIndexFont;
+		mHUDFontF   = mHUDFont;
 		// Chex has a really weird font
 		if(isChex())
 		{
