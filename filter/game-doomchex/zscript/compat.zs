@@ -49,7 +49,7 @@ extend Class SpecialDoomStatusBar
 			fnt = "INDEXFONT_MM2";
 			mIndexFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft);
 			fnt = "HUDFONT_MM2";
-			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
+			mHUDFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
 			break;
 
 		case 'ff7f01f87976084b8ecb36a5fa9241df': // Back to Saturn X Episode 1
@@ -61,7 +61,7 @@ extend Class SpecialDoomStatusBar
 			fnt = "INDEXFONT_BTSX1";
 			mIndexFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft);
 			fnt = "HUDFONT_BTSX";
-			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
+			mHUDFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
 			break;
 
 		case '4b0f899d7aed5b2cb92624042d54387f': // Back to Saturn X Episode 2
@@ -72,7 +72,7 @@ extend Class SpecialDoomStatusBar
 			fnt = "INDEXFONT_BTSX2";
 			mIndexFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft);
 			fnt = "HUDFONT_BTSX";
-			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
+			mHUDFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
 			break;
 
 		case 'b65eb1a13d873457e147f34cd72daa09': // Mayhem 2018 - Orange Edition
@@ -154,7 +154,7 @@ extend Class SpecialDoomStatusBar
 			STYSNUM = "ETE_NUM";
 			ARMS_OFFSET = -2.5;
 			fnt = "HUDFONT_ETERNAL";
-			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
+			mHUDFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
 			break;
 
 		case 'c348f353ef94c247b3cc3e99fcd9b0fd': // Mayhem 2018 - Purple Edition
@@ -201,17 +201,17 @@ extend Class SpecialDoomStatusBar
 
 		case '1bc635697cd4639c27a60932f53a6fa8': // fire.wad (idgames 3552)
 			fnt = "HUDFONT_FIRE";
-			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 0, 0);
+			mHUDFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 0, 0);
 			break;
 
 		case '6bfd5ba52a1e2b2d3f43dcca49c45929': // tpp.wad (idgames 5302)
 			fnt = "HUDFONT_TPP";
-			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 0, 0);
+			mHUDFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 0, 0);
 			break;
 
 		case '6930f045a424adae01fbe13a078bb1f9': // q-zone.wad (idgames 5974)
 			fnt = "HUDFONT_QZONE";
-			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 0, 0);
+			mHUDFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 0, 0);
 			break;
 
 		case '4daaf88703754aa427004b879c60e8d1': // thetick.wad (idgames 6851)
@@ -223,6 +223,17 @@ extend Class SpecialDoomStatusBar
 
 		case '472f3da4160ea4913ba69c73aa120933': // Killzone 1 (idgames 8102)
 			HUD_RIGHT = "KILLZ_R";
+			break;
+
+		case '63305e89e8cd5d8f3bdf425d51ed218b': // Invasion 2 (idgames 9180)
+			fnt = "HUDFONT_INVASION";
+			mHUDFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 0, 0);
+			HUD_SMP   = "HUD_SMP_INVASION";
+			HUD_DM    = "HUD_DM_INVASION";
+			HUD_LEFT  = "HUD_LEFT_INVASION";
+			HUD_RIGHT = "HUD_RIGHT_INVASION";
+			STYSNUM   = "STYSINV";
+			STGNUM    = "STGINV";
 			break;
 
 		case '5e338c397dd1f87adfaa50424f4c496a': // Threshold Of Pain (idgames 16196)

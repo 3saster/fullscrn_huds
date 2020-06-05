@@ -26,6 +26,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	InventoryBarState diparms_sbar;
 	HUDFont mSmallFont;
 	HUDFont mIndexFontF;
+	HUDFont mHUDFontF;
 	
 	// A hash to identify which STBAR is loaded
 	Name STBAR_HASH;
@@ -97,7 +98,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		if(isChex())
 		{
 			Font fnt = "HUDFONT_DOOM";
-			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellCenter, 0, 0);
+			mHUDFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellCenter, 0, 0);
 			
 			fnt = "INDEXFONT_CHEX";
 			mIndexFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft);

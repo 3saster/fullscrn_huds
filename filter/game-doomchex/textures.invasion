@@ -1,0 +1,33 @@
+// Non-split status bars (SP/MP/DM)
+Graphic "HUD_SMP_INVASION", 320, 32
+{
+    	Patch "STBR_INV", 0, 0 { UseOffsets }
+    	Patch "STARMS", 104, 0 { UseOffsets }
+}
+Graphic "HUD_DM_INVASION", 320, 32 
+{
+    	Patch "STBR_INV", 0, 0 { UseOffsets }
+}
+
+// Split bar panels
+Graphic "MUGFRAME_INVASION", 35, 32 
+{
+    	Patch "STBR_INV", -143, 0 { UseOffsets }
+}
+Graphic "HUD_LFIX_INVASION", 143, 32 
+{
+    	Patch "STBR_INV", 0, 0 { UseOffsets }
+    	Patch "MUGFRAME_INVASION", 107, 0
+}
+Graphic "HUD_RFIX_INVASION", 143, 32 
+{
+    	Patch "STBR_INV", -178, 0 { UseOffsets }
+}
+Graphic "HUD_LEFT_INVASION", 143, 32 
+{
+    	Patch "HUD_LFIX_INVASION", 0, 0
+}
+Graphic "HUD_RIGHT_INVASION", 145, 32 
+{
+    	Patch "HUD_RFIX_INVASION", 2, 0
+}

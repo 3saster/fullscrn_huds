@@ -28,8 +28,8 @@ extend Class SpecialDoomStatusBar
 		
 		// Draw Percent Symbols
 		int percentColor = GetPercentColor();
-		DrawString(mHUDFont, "%", (-70+isChex(1), -29), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_TOP|DI_NOSHADOW, translation: percentColor, alpha:alphaFloatNum);
-		DrawString(mHUDFont, "%", (61+isChex(2),  -29), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_TOP|DI_NOSHADOW, translation: percentColor, alpha:alphaFloatNum);
+		DrawString(mHUDFontF, "%", (-70+isChex(1), -29), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_TOP|DI_NOSHADOW, translation: percentColor, alpha:alphaFloatNum);
+		DrawString(mHUDFontF, "%", (61+isChex(2),  -29), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_TOP|DI_NOSHADOW, translation: percentColor, alpha:alphaFloatNum);
 		
 		// Draw Current Ammo Counter
 		Inventory a1, a2;
@@ -39,7 +39,7 @@ extend Class SpecialDoomStatusBar
 			if(a2 == null || a1 == a2)
 			{
 				int ammoColor = GetAmmoColor(a1);
-				DrawString(mHUDFont, FormatNumber(a1.Amount, 3), (-116+isChex(4), -29), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_CENTER_BOTTOM, translation: ammoColor, alpha:alphaFloatNum);
+				DrawString(mHUDFontF, FormatNumber(a1.Amount, 3), (-116+isChex(4), -29), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_CENTER_BOTTOM, translation: ammoColor, alpha:alphaFloatNum);
 			}
 			else
 			{
@@ -52,11 +52,11 @@ extend Class SpecialDoomStatusBar
 		
 		// Draw Health
 		int healthColor = GetHealthColor();
-		DrawString(mHUDFont, FormatNumber(CPlayer.health, 3), (-70+isChex(1), -29), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_CENTER_BOTTOM, translation: healthColor, alpha:alphaFloatNum);
+		DrawString(mHUDFontF, FormatNumber(CPlayer.health, 3), (-70+isChex(1), -29), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_CENTER_BOTTOM, translation: healthColor, alpha:alphaFloatNum);
 		
 		// Draw Armor
 		int armorColor = GetArmorColor();
-		DrawString(mHUDFont, FormatNumber(GetArmorAmount(), 3), (61+isChex(2), -29), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_CENTER_BOTTOM, translation:armorColor, alpha:alphaFloatNum);
+		DrawString(mHUDFontF, FormatNumber(GetArmorAmount(), 3), (61+isChex(2), -29), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_CENTER_BOTTOM, translation:armorColor, alpha:alphaFloatNum);
 
 		// Draw Keys
 		drawUnsplitKeys(alphaFloatGraph);
@@ -85,7 +85,7 @@ extend Class SpecialDoomStatusBar
 		// Draw Frags
 		if (deathmatch || teamplay)
 		{
-			DrawString(mHUDFont, FormatNumber(CPlayer.FragCount, 3), (-22+isChex(3), -29), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM|DI_NOSHADOW, alpha:alphaFloatNum);
+			DrawString(mHUDFontF, FormatNumber(CPlayer.FragCount, 3), (-22+isChex(3), -29), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM|DI_NOSHADOW, alpha:alphaFloatNum);
 		}
 		// Draw Arms
 		else if(!chexArms || chexArms.getInt())
