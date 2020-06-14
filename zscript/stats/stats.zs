@@ -5,7 +5,8 @@ mixin Class Stats
 		DISABLED = 0,
 		PERCENT = 1,
 		COUNTDOWN = 2,
-		FRACTION = 3
+		FRACTION = 3,
+		COMBO = 4
 	}
 	
 	enum StatsColorValues
@@ -273,6 +274,16 @@ mixin Class Stats
 				if (statKills.GetInt())   kills   = string.format("%s: %i/%i", killstring,   siKillsF.GetValue(),   Level.total_monsters);
 				if (statSecrets.GetInt()) secrets = string.format("%s: %i/%i", secretstring, siSecretsF.GetValue(), Level.total_secrets);
 				if (statItems.GetInt())   items   = string.format("%s: %i/%i", itemstring,   siItemsF.GetValue(),   Level.total_items);
+
+				if (siKillsF.GetValue()   == Level.total_monsters) killComp = true;
+				if (siSecretsF.GetValue() == Level.total_secrets)  secretComp = true;
+				if (siItemsF.GetValue()   == Level.total_items)    itemComp = true;
+				break;
+
+			case COMBO:
+				if (statKills.GetInt())   kills   = string.format("%s: %i/%i	(%i)", killstring,   siKillsF.GetValue(),   Level.total_monsters, siKillsC.GetValue());
+				if (statSecrets.GetInt()) secrets = string.format("%s: %i/%i	(%i)", secretstring, siSecretsF.GetValue(), Level.total_secrets,  siSecretsC.GetValue());
+				if (statItems.GetInt())   items   = string.format("%s: %i/%i	(%i)", itemstring,   siItemsF.GetValue(),   Level.total_items,    siItemsC.GetValue());
 
 				if (siKillsF.GetValue()   == Level.total_monsters) killComp = true;
 				if (siSecretsF.GetValue() == Level.total_secrets)  secretComp = true;
