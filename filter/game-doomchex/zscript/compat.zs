@@ -116,7 +116,16 @@ extend Class SpecialDoomStatusBar
 			KEY_OFFSET = 1;
 			break;
 
-
+		case '33b7591daa53e6cdfbdfa73be0b9a109': // Enjay Doom (idgames 10191)
+			// check that numbers are the problematic ones
+			if( getMD5("STYSNUM3") == '12f55ba6c3ca196ba20ba094540ed7b8')
+			{
+				STYSNUM   = "ENJFNUM";
+				STGNUM    = "ENJNUM";
+				fnt = "INDEXFONT_ENJAY";
+				mIndexFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft);
+			}
+			break;
 		// More Specific
 
 		case '2d9a53658a9d756702f00e11529a05f5': // Alien Vendetta
