@@ -259,9 +259,15 @@ extend Class SpecialDoomStatusBar
 			ARM_POS[5] = (-24, -17);
 			break;
 
-		case '050036a74b61c9e7569a46089bc1873a': // Killzone 2 (idgame 10337)
+		case '050036a74b61c9e7569a46089bc1873a': // Killzone 2 (idgames 10337)
 			HUD_LEFT  = "kILLZ2_L";
 			HUD_RIGHT = "kILLZ2_R";
+			break;
+
+		case '3e774c4ae9b14388656e0468f13d4494': // SOSDoom (idgames 10375)
+			HUD_LEFT  = "SOSBAR_L";
+			HUD_RIGHT = "SOSBAR_R";
+			ARMS_OFFSET = 1;
 			break;
 		}
 
