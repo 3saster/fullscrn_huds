@@ -190,10 +190,11 @@ ListMenu "FullscreenCredits"
 	StaticText -64,	120, "Hexereticdoom", red
 	StaticText -64,	132, "Jimmy", red
 	StaticText -64,	144, "Kinsie", red
-	StaticText -64,	156, "m8f", red
-	StaticText -64,	168, "MaxED", red
-	StaticText -64,	180, "Nash Muhandes", red
-	StaticText -64,	192, "neoworm", red
+	StaticText -64,	156, "Agent Ash", red
+	StaticText -64,	168, "m8f", red
+	StaticText -64,	180, "MaxED", red
+	StaticText -64,	192, "Nash Muhandes", red
+	StaticText -64,	204, "neoworm", red
 	StaticText  80,	 12, "Original SBARINFO coding / idea", green
 	StaticText  80,	 24, "ZScript coding", green	
 	StaticText  80,	 48, "Original Doom GFX", green
@@ -204,8 +205,9 @@ ListMenu "FullscreenCredits"
 	StaticText  80,	120, "Level stats graphics", green
 	StaticText  80,	132, "'MemenTwo' and 'Status Report' fonts", green
 	StaticText  80,	144, "Dystopia 3 compatibility", green
-	StaticText  80,	156, "ACS coding support / split bar for Doom", green
-	StaticText  80,	168, "Split status bars for Heretic/Hexen", green
-	StaticText  80,	180, "Menu tooltips", green
-	StaticText  80,	192, "Widescreen Hexen status bar", green
+	StaticText  80,	156, "Killzone 2 compatibility", green
+	StaticText  80,	168, "ACS coding support / split bar for Doom", green
+	StaticText  80,	180, "Split status bars for Heretic/Hexen", green
+	StaticText  80,	192, "Menu tooltips", green
+	StaticText  80,	204, "Widescreen Hexen status bar", green
 }

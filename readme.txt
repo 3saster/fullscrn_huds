@@ -57,6 +57,7 @@ Additional Credits to: id Software .................. Original Doom GFX
                        Hexereticdoom ................ Level stats graphics
                        Jimmy ........................ "MemenTwo" and "Status Report" fonts
                        Kinsie ....................... Dystopia 3 compatibility
+                       Agent Ash .................... Killzone 2 compatibility
                        m8f .......................... ACS coding support
                                                       Split status bar for Doom
                        MaxED ........................ Split status bars for Heretic/Hexen

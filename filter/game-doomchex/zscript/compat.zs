@@ -254,6 +254,11 @@ extend Class SpecialDoomStatusBar
 			ARM_POS[4] = (-36, -17);
 			ARM_POS[5] = (-24, -17);
 			break;
+
+		case '050036a74b61c9e7569a46089bc1873a': // Killzone 2 (idgame 10337)
+			HUD_LEFT  = "kILLZ2_L";
+			HUD_RIGHT = "kILLZ2_R";
+			break;
 		}
 
 		if( isChex() )
