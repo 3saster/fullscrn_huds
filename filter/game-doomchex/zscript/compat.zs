@@ -126,6 +126,10 @@ extend Class SpecialDoomStatusBar
 				mIndexFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft);
 			}
 			break;
+
+		case '5617b3b5fed923536647bdcacb6a8c2c': // Mark & Dave's DeathMatch (idgames 10355/10356)
+			KEY_OFFSET = 1.5;
+			break;
 		// More Specific
 
 		case '2d9a53658a9d756702f00e11529a05f5': // Alien Vendetta
