@@ -17,7 +17,7 @@ extend Class SpecialHexenStatusBar
 		
 		// Draw Health
 		// Unnecessary, and GZDoom seems to draw this in the wrong spot...
-		DrawImage("ARMCLS", (5, -15), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
+		// DrawImage("ARMCLS", (5, -15), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
 		int healthColor = getHealthColor();
 		DrawString(mHUDFont, FormatNumber(mHealthInterpolator.GetValue(), 3), (30, -17), DI_SCREEN_LEFT_BOTTOM|DI_TEXT_ALIGN_RIGHT, healthColor, alpha:alphaFloatNum);
 		
@@ -121,7 +121,7 @@ extend Class SpecialHexenStatusBar
 		
 		// Draw Armor
 		// GZDoom seems to draw this in the wrong spot...
-		DrawImage("ARMCLS", (-28, -15), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
+		// DrawImage("ARMCLS", (-28, -15), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
 		int armorColor = getArmorColor();
 		if(armorPoints.GetInt())
 			DrawString(mHUDFont, FormatNumber(GetArmorSavePercent(), 3), (-4, -17), DI_SCREEN_RIGHT_BOTTOM|DI_TEXT_ALIGN_RIGHT, armorColor, alpha:alphaFloatNum);

@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom 4.3.0+ / LZDoom 3.84+
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.X.X)
+Title                : Fullscreen Status Bar Mod (v5.1.8)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : XX/XX/2020
+Release date         : 03/23/2020
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -100,11 +100,12 @@ Tested With          : GZDoom
 
 * CHANGELOG *
 
-> Version 5.X.X (XXX XX, 2020)
+> Version 5.1.8 (Mar 23, 2021)
   [ALL] Automatic Compatibility: Hashing system upgraded from MurmurHash2 to the much better MD5, and separated it
                                  into a class in zscript/compat/MD5.zs file. Feel free to use it in your own mods!
   [DOOM] Automatic Compatibility: Mayhem series added
-  [CHEX] Corrected some tooltips to properly fit in Chex Quest
+  [CHEX] Corrected some tooltips ("kills") for appropriate naming in Chex Quest
+  [HEXEN] Removed needless ARMCLS from health and armor display for improved transparency
 
 > Version 5.1.7 (Mar 17, 2020)
   [ALL] Stats: Powerup timers no longer display when the stats are turned off while powerup position is on
