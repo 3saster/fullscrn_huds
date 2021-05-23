@@ -52,7 +52,6 @@ Additional Credits to: id Software .................. Original Doom GFX
                        Raven Software ............... Original Heretic/Hexen GFX
                        3saster ...................... ZScript coding
                        bangstk ...................... Code for widescreen status bars
-                       Doorhenge .................... Widescreen Heretic status bar
                        DTDsphere .................... Project initiator
                        Hexereticdoom ................ Level stats graphics
                        Jimmy ........................ "MemenTwo" and "Status Report" fonts
@@ -60,8 +59,8 @@ Additional Credits to: id Software .................. Original Doom GFX
                        m8f .......................... ACS coding support
                                                       Split status bar for Doom
                        MaxED ........................ Split status bars for Heretic/Hexen
-                       Nash Muhandes ................ Menu tooltips
-                       neoworm ...................... Widescreen Hexen status bar
+                       Nash Muhandes ................ Widescreen Heretic/Hexen status bars
+                                                      Menu tooltips
 
 ===========================================================================
 * What is included *
