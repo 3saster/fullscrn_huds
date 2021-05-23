@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom 4.3.0+ / LZDoom 3.84+
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.1.8)
+Title                : Fullscreen Status Bar Mod (v5.1.9)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : 03/23/2021
+Release date         : 05/23/2021
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -99,6 +99,10 @@ Tested With          : GZDoom
 
 
 * CHANGELOG *
+
+> Version 5.1.9 (May 23, 2021)
+  [HERETIC] Updated statusbar (BARBACK/LTFCTOP/RTFCTOP) with Nash's widescreen assets from GZDoom v4.6.0
+  [HEXEN] Updated statusbar (H2BAR) with Nash's widescreen assets from GZDoom v4.6.0
 
 > Version 5.1.8 (Mar 23, 2021)
   [ALL] Automatic Compatibility: Hashing system upgraded from MurmurHash2 to the much better MD5, and separated it
