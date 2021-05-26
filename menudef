@@ -179,29 +179,27 @@ OptionMenu "StatsSettings"
 ListMenu "FullscreenCredits"
 {
 	Font "SmallFont"
-	StaticText -48,	  0, "Version 5.1.9", gold
-	StaticText -48,	 12, "NightFright", red
-	StaticText  80,	 12, "Original SBARINFO coding / idea", green
-	StaticText -48,	 24, "3saster", red
-	StaticText  80,	 24, "ZScript coding", green
-	StaticText -48,	 48, "id Software", red
-	StaticText  80,	 48, "Original Doom GFX", green
-	StaticText -48,	 60, "Raven Software", red
-	StaticText  80,	 60, "Original Heretic/Hexen GFX", green
-	StaticText -48,	 84, "bangstk", red
-	StaticText  80,	 84, "Code for widescreen status bars", green
-	StaticText -48,	 96, "DTDsphere", red
-	StaticText  80,	 96, "Project initiator - special thanks!", green
-	StaticText -48,	108, "Hexereticdoom", red
-	StaticText  80,	108, "Level stats graphics", green
-	StaticText -48,	120, "Jimmy", red
-	StaticText  80,	120, "'MemenTwo' and 'Status Report' fonts", green
-	StaticText -48,	132, "Kinsie", red
-	StaticText  80,	132, "Dystopia 3 compatibility", green
-	StaticText -48,	144, "m8f", red
-	StaticText  80,	144, "ACS coding support / split bar for Doom", green
-	StaticText -48,	156, "MaxED", red
-	StaticText  80,	156, "Split status bars for Heretic/Hexen", green
-	StaticText -48,	168, "Nash Muhandes", red
-	StaticText  80,	168, "Raven status bars / menu tooltips", green
+	StaticText -32,	  6, "Version 5.1.9", gold
+	StaticText -32,	 18, "NightFright", red
+	StaticText  96,	 18, "Original SBARINFO coding / idea", green
+	StaticText -32,	 30, "3saster", red
+	StaticText  96,	 30, "ZScript coding", green
+	StaticText -32,	 54, "id Software", red
+	StaticText  96,	 54, "Original Doom GFX", green
+	StaticText -32,	 66, "Raven Software", red
+	StaticText  96,	 66, "Original Heretic/Hexen GFX", green
+	StaticText -32,	 90, "bangstk", red
+	StaticText  96,	 90, "Code for widescreen status bars", green
+	StaticText -32,	102, "DTDsphere", red
+	StaticText  96,	102, "Project initiator - special thanks!", green
+	StaticText -32,	114, "Jimmy", red
+	StaticText  96,	114, "'MemenTwo' and 'Status Report' fonts", green
+	StaticText -32,	126, "Kinsie", red
+	StaticText  96,	126, "Dystopia 3 compatibility", green
+	StaticText -32,	138, "m8f", red
+	StaticText  96,	138, "Split status bar for Doom", green
+	StaticText -32,	150, "MaxED", red
+	StaticText  96,	150, "Split status bars for Heretic/Hexen", green
+	StaticText -32,	162, "Nash Muhandes", red
+	StaticText  96,	162, "Raven status bars / menu tooltips", green
 }

@@ -53,11 +53,9 @@ Additional Credits to: id Software .................. Original Doom GFX
                        3saster ...................... ZScript coding
                        bangstk ...................... Code for widescreen status bars
                        DTDsphere .................... Project initiator
-                       Hexereticdoom ................ Level stats graphics
                        Jimmy ........................ "MemenTwo" and "Status Report" fonts
                        Kinsie ....................... Dystopia 3 compatibility
-                       m8f .......................... ACS coding support
-                                                      Split status bar for Doom
+                       m8f .......................... Split status bar for Doom
                        MaxED ........................ Split status bars for Heretic/Hexen
                        Nash Muhandes ................ Widescreen Heretic/Hexen status bars
                                                       Menu tooltips
