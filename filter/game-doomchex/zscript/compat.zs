@@ -121,6 +121,11 @@ extend Class SpecialDoomStatusBar
 			MUG_OFFSET = -2;
 			ARMS_OFFSET = -2;
 			break;
+
+		case 'a0411c98547d79d11fe3957fe29debab': // No End In Sight
+			HUD_LEFT  = "HUD_LEFT_NEIS";
+			HUD_RIGHT = "HUD_RIGHT_NEIS";
+			break;
 		}
 
 		if( isChex() )
