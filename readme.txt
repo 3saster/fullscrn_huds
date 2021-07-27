@@ -22,7 +22,8 @@ Additional Info      : 1) Only works with GZDoom 4.3.0+, LZDoom 3.84+ and other
                        2) Please make sure to load this file AFTER any mod altering
                           status bars to guarantee maximum compatibility.
                        3) Adds new option menu under "HUD Options" called
-                          "Fullscreen Status Bar" (at the bottom). 
+                          "Fullscreen Status Bar" (after "Alternate HUD Options").
+                          Note: "Full options menu" must be activated!
                        4) Available options:
                              - Standard status bar or split version
                              - Status bar scale (recommended for 1920x1080: 3)
@@ -98,6 +99,7 @@ Tested With          : GZDoom
 * CHANGELOG *
 
 > Version 5.1.10 (XXX XX, 2021)
+  [ALL] Slightly relocated options menu (now shown right below "Alternate HUD Options")
   [ALL] Alignment adjustments for credits
   [DOOM] Automatic Compatibility: "No End In Sight" added
 

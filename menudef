@@ -1,6 +1,5 @@
-AddOptionMenu "HUDOptions"
-{
-	StaticText ""     
+AddOptionMenu "HUDOptions" after "AltHUDOptions"
+{   
 	Submenu "$FULLHUD_MODTITLE", "FullscreenStatusbarOptions"
 }
 
