@@ -20,8 +20,8 @@ extend Class SpecialHexenStatusBar
 		int inthealth =  mHealthInterpolator2.GetValue();
 		DrawGemTrans(Chain, Gem, inthealth, CPlayer.mo.GetMaxHealth(true), (-7, 0), -23, 49, 15, (multiplayer? DI_TRANSLATABLE : 0) | DI_ITEM_CENTER_BOTTOM | DI_SCREEN_CENTER_BOTTOM, alphaFloat); 
 		
-		DrawImage("LFEDGE", (-160, -8), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
-		DrawImage("RTEDGE", ( 117, -8), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
+		DrawImage("LFEDGE", (-160, -7), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
+		DrawImage("RTEDGE", ( 117, -7), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
 		
 
 		// Draw Inventory Bar

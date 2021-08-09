@@ -3,7 +3,7 @@ Advanced engine needed  : GZDoom 4.3.0+ / LZDoom 3.84+
 ===========================================================================
 Title                : Fullscreen Status Bar Mod (v5.1.10)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : XX/XX/2021
+Release date         : 08/09/2021
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -98,10 +98,11 @@ Tested With          : GZDoom
 
 * CHANGELOG *
 
-> Version 5.1.10 (XXX XX, 2021)
+> Version 5.1.10 (Aug 9, 2021)
   [ALL] Slightly relocated options menu (now shown right below "Alternative HUD Options")
   [ALL] Alignment adjustments for credits
   [DOOM] Automatic Compatibility: "No End In Sight" added
+  [HEXEN] Alignment fix for chain covers of unsplit bar (LTEDGE/RTEDGE)
 
 > Version 5.1.9 (May 23, 2021)
   [HERETIC] Updated statusbar (BARBACK/LTFCTOP/RTFCTOP) with Nash's widescreen assets from GZDoom v4.6.0
