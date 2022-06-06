@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom 4.3.0+ / LZDoom 3.84+
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.1.10)
+Title                : Fullscreen Status Bar Mod (v5.1.11)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : 08/09/2021
+Release date         : xx/xx/2022
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -97,6 +97,9 @@ Tested With          : GZDoom
 
 
 * CHANGELOG *
+
+> Version 5.1.11 (xxx xx, 2022)
+  [ALL] Compatibility fix for stats.zs to support latest GZDoom release (v4.x)
 
 > Version 5.1.10 (Aug 9, 2021)
   [ALL] Slightly relocated options menu (now shown right below "Alternative HUD Options")

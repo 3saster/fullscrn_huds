@@ -461,8 +461,9 @@ mixin Class Stats
 		bool LZDoom = isLZDoom();
 
 		int scaleval;
-		if (con_scale > 0) scaleval = !LZDoom ? (con_scale+1) / 2 : con_scale;
-		else if (uiscale == 0)
+		// if (con_scale > 0) scaleval = !LZDoom ? (con_scale+1) / 2 : con_scale;
+		// else 
+		if (uiscale == 0)
 		{
 			// Default should try to scale to 640x400
 			int vscale = screen.GetHeight() / (!LZDoom ? 800 : 400);

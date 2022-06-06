@@ -178,7 +178,7 @@ OptionMenu "StatsSettings"
 ListMenu "FullscreenCredits"
 {
 	Font "SmallFont"
-	StaticText -32,	  6, "Version 5.1.10", gold
+	StaticText -32,	  6, "Version 5.1.11", gold
 	StaticText -32,	 18, "NightFright", red
 	StaticText  96,	 18, "Original SBARINFO coding / idea", green
 	StaticText -32,	 30, "3saster", red
