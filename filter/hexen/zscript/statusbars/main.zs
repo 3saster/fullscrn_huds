@@ -12,6 +12,7 @@ Class SpecialHexenStatusBar : HexenStatusBar
 	transient CVAR statsType;
 	transient CVAR statsFont;
 	transient CVAR statsCompColor;
+	transient CVAR statsShort;
 	transient CVAR statKills;
 	transient CVAR statSecrets;
 	transient CVAR statItems;
@@ -52,6 +53,7 @@ Class SpecialHexenStatusBar : HexenStatusBar
 		statsType      = CVar.FindCVar("fullhud_stats_type");
 		statsFont      = CVar.FindCVar("fullhud_stats_font");
 		statsCompColor = CVar.FindCVar("fullhud_stats_comp");
+		statsShort     = CVar.FindCVar("fullhud_stats_short");
 		statKills      = CVar.FindCVar("fullhud_stats_kills");
 		statSecrets    = CVar.FindCVar("fullhud_stats_secrets");
 		statItems      = CVar.FindCVar("fullhud_stats_items");

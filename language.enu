@@ -116,6 +116,7 @@ FULLHUD_STATS_SECRETS     = "Secrets counter";
 FULLHUD_STATS_ITEMS       = "Items counter";
 FULLHUD_STATS_LEVELTIME   = "Level time";
 FULLHUD_STATS_POWERUPS    = "Powerup timers";
+FULLHUD_STATS_SHORT       = "Abbreviate stats";
 
 FULLHUD_STATSTOOLTIP_STATDISPLAY      = "Choose a system for kill/secret/item counters (e.g.: '50%', '6 Left' or '6/12')";
 FULLHUD_STATSTOOLTIP_STATDISPLAY_CHEX = "Choose a system for zorch/secret/item counters (e.g.: '50%', '6 Left' or '6/12')";
@@ -128,13 +129,18 @@ FULLHUD_STATSTOOLTIP_ITEMS            = "Show amount of collected items";
 FULLHUD_STATSTOOLTIP_LEVELTIME        = "Show time spent in a level";
 FULLHUD_STATSTOOLTIP_SECRETS          = "Show amount of found secrets";
 FULLHUD_STATSTOOLTIP_POWERUPS         = "Show duration of activated powerups";
+FULLHUD_STATSTOOLTIP_SHORT            = "Only show first letter of stats names (e.g.: 'S' instead of 'Secrets')";
 
 /* --- Stat Display --- */
-FULLHUD_KILLS       = "Kills";
-FULLHUD_KILLS_CHEX  = "Zorches";
-FULLHUD_SECRETS     = "Secrets";
-FULLHUD_ITEMS       = "Items";
-FULLHUD_LEFT_STRING = "Left";
+FULLHUD_KILLS            = "Kills";
+FULLHUD_KILLS_SHORT      = "K";
+FULLHUD_KILLS_CHEX       = "Zorches";
+FULLHUD_KILLS_CHEX_SHORT = "Z";
+FULLHUD_SECRETS          = "Secrets";
+FULLHUD_SECRETS_SHORT    = "S";
+FULLHUD_ITEMS            = "Items";
+FULLHUD_ITEMS_SHORT      = "I";
+FULLHUD_LEFT_STRING      = "Left";
 
 /* --- Powerup Names --- */
 // Main Powerups

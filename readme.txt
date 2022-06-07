@@ -3,7 +3,7 @@ Advanced engine needed  : GZDoom 4.3.0+ / LZDoom 3.84+
 ===========================================================================
 Title                : Fullscreen Status Bar Mod (v5.1.11)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : xx/xx/2022
+Release date         : 06/07/2022
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -43,7 +43,8 @@ Additional Info      : 1) Only works with GZDoom 4.3.0+, LZDoom 3.84+ and other
                                   + Choose between 4 different fonts
                                   + Choose between 22 different stat completion colors
                                   + Optionally show countdowns for active powerups
-                       5) Adds 14-16 CVARS to your GZDoom ini, starting with "fullhud_" 
+				  + Optionally abbreviate stats names (K/I/S)
+                       5) Adds 15-17 CVARS to your GZDoom ini, starting with "fullhud_" 
 
 Known issues         : [CHEX] Logo replacement will only look good if default STBAR graphics 
                               are used (with blue background)
@@ -98,8 +99,10 @@ Tested With          : GZDoom
 
 * CHANGELOG *
 
-> Version 5.1.11 (xxx xx, 2022)
-  [ALL] Compatibility fix for stats.zs to support latest GZDoom release (v4.x)
+> Version 5.1.11 (Jun 7, 2022)
+  [ALL] Compatibility fix for stats.zs to support GZDoom v4.8.0+
+  [ALL] Stats: Added option to abbreviate stats names (e.g. 'S' instead of 'Secrets')
+  [DOOM] Automatic Compatibility: 'Avactor' statusbar improved ('Ammo'/'Health'/'Armor' labels centered)
 
 > Version 5.1.10 (Aug 9, 2021)
   [ALL] Slightly relocated options menu (now shown right below "Alternative HUD Options")

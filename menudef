@@ -173,6 +173,7 @@ OptionMenu "StatsSettings"
 	FullHUDOption         "$FULLHUD_STATS_ITEMS",      "$FULLHUD_STATSTOOLTIP_ITEMS",       "fullhud_stats_items",    "LevelStatsPosition", "fullhud_stats_type"
 	FullHUDOption         "$FULLHUD_STATS_LEVELTIME",  "$FULLHUD_STATSTOOLTIP_LEVELTIME",   "fullhud_stats_time",     "LevelStatsPosition", "fullhud_stats_type"
 	FullHUDOption         "$FULLHUD_STATS_POWERUPS",   "$FULLHUD_STATSTOOLTIP_POWERUPS",    "fullhud_stats_powerups", "LevelStatsPosition", "fullhud_stats_type"
+	FullHUDOption 	      "$FULLHUD_STATS_SHORT",      "$FULLHUD_STATSTOOLTIP_SHORT",       "fullhud_stats_short",    "OnOff"
 }
 
 ListMenu "FullscreenCredits"

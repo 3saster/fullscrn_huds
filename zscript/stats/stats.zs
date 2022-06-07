@@ -240,11 +240,24 @@ mixin Class Stats
 		bool killComp = false;
 		bool secretComp = false;
 		bool itemComp = false;
-		string killstring   = (gameinfo.gametype & GAME_Chex) ? 
-		                      Stringtable.Localize("$FULLHUD_KILLS_CHEX") : 
-							  Stringtable.Localize("$FULLHUD_KILLS");
-		string secretstring = Stringtable.Localize("$FULLHUD_SECRETS");
-		string itemstring   = Stringtable.Localize("$FULLHUD_ITEMS");
+		string killstring    = (gameinfo.gametype & GAME_Chex) ? 
+		                       Stringtable.Localize("$FULLHUD_KILLS_CHEX") : 
+				       Stringtable.Localize("$FULLHUD_KILLS");
+		string secretstring  = Stringtable.Localize("$FULLHUD_SECRETS");
+		string itemstring    = Stringtable.Localize("$FULLHUD_ITEMS");
+		string killstring2   = (gameinfo.gametype & GAME_Chex) ? 
+		                       Stringtable.Localize("$FULLHUD_KILLS_CHEX_SHORT") : 
+				       Stringtable.Localize("$FULLHUD_KILLS_SHORT");
+		string secretstring2 = Stringtable.Localize("$FULLHUD_SECRETS_SHORT");
+		string itemstring2   = Stringtable.Localize("$FULLHUD_ITEMS_SHORT");
+
+		if (statsShort.GetInt())
+		{
+			killstring   = killstring2;
+			secretstring = secretstring2;
+			itemstring   = itemstring2;
+		}
+
 		switch(statsType.GetInt())
 		{
 			case PERCENT:

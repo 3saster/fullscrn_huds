@@ -1,16 +1,17 @@
-user bool  fullhud_split         = true;
-user float fullhud_trans         = 0.0;
-user int   fullhud_opaque        = 0;
+user bool  fullhud_split          = true;
+user float fullhud_trans          = 0.0;
+user int   fullhud_opaque         = 0;
 
-user bool  fullhud_boomcolors    = false;
-user bool  fullhud_splitarms     = false;
-user bool  fullhud_automaphide   = false;
+user bool  fullhud_boomcolors     = false;
+user bool  fullhud_splitarms      = false;
+user bool  fullhud_automaphide    = false;
 
-user int fullhud_stats_type      = 0; 
-user int fullhud_stats_font      = 0;
-user int fullhud_stats_comp      = 0;
-user int fullhud_stats_kills     = 0;
-user int fullhud_stats_secrets   = 0;
-user int fullhud_stats_items     = 0;
-user int fullhud_stats_time      = 0; 
-user int fullhud_stats_powerups  = 0;
+user int   fullhud_stats_type     = 0; 
+user int   fullhud_stats_font     = 0;
+user int   fullhud_stats_comp     = 0;
+user int   fullhud_stats_kills    = 0;
+user int   fullhud_stats_secrets  = 0;
+user int   fullhud_stats_items    = 0;
+user int   fullhud_stats_time     = 0; 
+user int   fullhud_stats_powerups = 0;
+user bool  fullhud_stats_short    = false;
