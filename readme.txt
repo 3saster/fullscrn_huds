@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom 4.3.0+ / LZDoom 3.84+
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.1.11)
+Title                : Fullscreen Status Bar Mod (v5.1.12)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : 06/07/2022
+Release date         : xx/xx/2022
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -61,6 +61,7 @@ Additional Credits to: id Software .................. Original Doom GFX
                        MaxED ........................ Split status bars for Heretic/Hexen
                        Nash Muhandes ................ Widescreen Heretic/Hexen status bars
                                                       Menu tooltips
+                       Delfino Furioso .............. Hexen compatibility code patches
 
 ===========================================================================
 * What is included *
@@ -98,6 +99,9 @@ Tested With          : GZDoom
 
 
 * CHANGELOG *
+
+> Version 5.1.12 (xx xx, 2022)
+  [HEXEN] Compatibility with "Hexen Rebalanced" and "Tempered Arms" (code by Delfino Furioso)
 
 > Version 5.1.11 (Jun 7, 2022)
   [ALL] Compatibility fix for stats.zs to support GZDoom v4.8.0+

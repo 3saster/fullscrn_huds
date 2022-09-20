@@ -119,40 +119,56 @@ extend Class SpecialHexenStatusBar
 				DrawString(mIndexFont, FormatNumber(amt1, 3), (-68, -19), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM, translation: getAmmoColor(NULL,amt1,maxamt1), alpha:alphaFloatNum);
 				DrawString(mIndexFont, FormatNumber(amt2, 3), (-36, -19), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM, translation: getAmmoColor(NULL,amt2,maxamt2), alpha:alphaFloatNum);
 			}
+
+			// Check player class name
+			string myClassName=CPlayer.mo.GetClassName();
+
+			// Default weapon names
+			string myCWeapName="CWeapWraithverge";
+			string myMWeapName="MWeapBloodscourge";
+			string myFWeapName="FWeapQuietus";
+
+			// Change weapon names according to player class
+			if (myClassName=="ClericPlayerNew")  myCWeapName="CWeapWraithvergeNew";
+			if (myClassName=="MagePlayerNew")    myMWeapName="MWeapBloodscourgeNew";
+			if (myClassName=="FighterPlayerNew") myFWeapName="FWeapQuietusNew";
+			if (myClassName=="ClericTempered")   myCWeapName="Wraithverge";
+			if (myClassName=="MageTempered")     myMWeapName="Bloodscourge";
+			if (myClassName=="FighterTempered")  myFWeapName="Quietus";
 			
 			// Draw Ultimate Weapon
-			if (CPlayer.mo is "ClericPlayer")
+			if (myClassName=="ClericPlayer" || myClassName=="ClericPlayerNew" || myClassName=="ClericTempered")
 			{
 				DrawImage("WPSLOT1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloat);
-				if (CheckInventory("CWeapWraithverge")) DrawImage("WPFULL1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+				if (CheckInventory(myCWeapName)) DrawImage("WPFULL1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 				else
 				{
 					// These pieces are misaligned in GZDoom
-					int pieces = GetWeaponPieceMask("CWeapWraithverge");
+					int pieces = GetWeaponPieceMask(myCWeapName);
 					if (pieces & 1) DrawImage("WPIECEC1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 					if (pieces & 2) DrawImage("WPIECEC2", (52, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 					if (pieces & 4) DrawImage("WPIECEC3", (65, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 				}
 			}
-			else if (CPlayer.mo is "MagePlayer")
+			else if (myClassName=="MagePlayer" || myClassName=="MagePlayerNew" || myClassName=="MageTempered")
 			{
 				DrawImage("WPSLOT2", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloat);
-				if (CheckInventory("MWeapBloodscourge")) DrawImage("WPFULL2", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+				if (CheckInventory(myMWeapName)) DrawImage("WPFULL2", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 				else
 				{
-					int pieces = GetWeaponPieceMask("MWeapBloodscourge");
+					int pieces = GetWeaponPieceMask(myMWeapName);
 					if (pieces & 1) DrawImage("WPIECEM1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 					if (pieces & 2) DrawImage("WPIECEM2", (45, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 					if (pieces & 4) DrawImage("WPIECEM3", (64, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 				}
 			}
-			else // if *Cplayer.mo is "FighterPlayer")
+			else if (myClassName=="FighterPlayer" || myClassName=="FighterPlayerNew" || myClassName=="FighterTempered")
 			{
 				DrawImage("WPSLOT0", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloat);
-				if (CheckInventory("FWeapQuietus")) DrawImage("WPFULL0", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+				if (CheckInventory(myFWeapName)) DrawImage("WPFULL0", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 				else
 				{
-					int pieces = GetWeaponPieceMask("FWeapQuietus");
+					int pieces = GetWeaponPieceMask(myFWeapName);
 					if (pieces & 1) DrawImage("WPIECEF1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 					if (pieces & 2) DrawImage("WPIECEF2", (65, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 					if (pieces & 4) DrawImage("WPIECEF3", (74, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);

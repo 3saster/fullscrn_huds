@@ -179,7 +179,7 @@ OptionMenu "StatsSettings"
 ListMenu "FullscreenCredits"
 {
 	Font "SmallFont"
-	StaticText -32,	  6, "Version 5.1.11", gold
+	StaticText -32,	  6, "Version 5.1.12", gold
 	StaticText -32,	 18, "NightFright", red
 	StaticText  96,	 18, "Original SBARINFO coding / idea", green
 	StaticText -32,	 30, "3saster", red
@@ -202,4 +202,6 @@ ListMenu "FullscreenCredits"
 	StaticText  96,	150, "Split status bars for Heretic/Hexen", green
 	StaticText -32,	162, "Nash Muhandes", red
 	StaticText  96,	162, "Raven status bars / menu tooltips", green
+	StaticText -32,	174, "Delfino Furioso", red
+	StaticText  96,	174, "Hexen compatibility code patches", green
 }
