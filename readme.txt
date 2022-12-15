@@ -37,7 +37,7 @@ Additional Info      : 1) Only works with GZDoom 4.3.0+, LZDoom 3.84+ and other
 			     - Optionally force traditional automap colors on normal/overlay automap
                              - Switch between Armor Class and armor points (Hexen)
                              - Level stats fully customizable:
-                                  + Display in %, countdowns or fraction (+ time)
+                                  + Display in %, countdowns, fraction or combo (+ time)
                                   + 6 positions (top left/right, center left/right, bottom left/right)
                                   + Toggle any stat (kills, secrets, items, time)
                                   + Choose between 4 different fonts

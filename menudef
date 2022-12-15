@@ -15,6 +15,7 @@ OptionValue "LevelStats"
 	1, "$FULLHUD_LS_PERCENTAGES"
 	2, "$FULLHUD_LS_COUNTDOWN"
 	3, "$FULLHUD_LS_FRACTION"
+	4, "$FULLHUD_LS_COMBO"
 }
 
 OptionValue "LevelStatsFont"
