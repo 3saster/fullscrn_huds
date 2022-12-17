@@ -3,18 +3,19 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	transient CVar splitHUD;
 	transient CVar alphaValue;
 	transient CVar alphaOpaque;
-	
+
 	transient CVAR boomColors;
 	transient CVAR splitArms;
 	transient CVAR invReplace;
 	transient CVAR berserkShow;
 	transient CVAR chexArms;
 	transient CVAR automapHide;
-	
+
 	transient CVAR statsType;
 	transient CVAR statsFont;
 	transient CVAR statsCompColor;
 	transient CVAR statsShort;
+	transient CVAR statsCozy;
 	transient CVAR statKills;
 	transient CVAR statSecrets;
 	transient CVAR statItems;
@@ -27,7 +28,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	InventoryBarState diparms_sbar;
 	HUDFont mSmallFont;
 	HUDFont mIndexFontF;
-	
+
 	// A hash to identify which STBAR is loaded
 	Name STBAR_HASH;
 
@@ -58,22 +59,23 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	override void Init()
 	{
 		Super.Init();
-		
+
 		splitHUD    = CVar.FindCVar("fullhud_split");
 		alphaValue  = CVar.FindCVar("fullhud_trans");
 		alphaOpaque = CVar.FindCVar("fullhud_opaque");
-		
+
 		boomColors  = CVar.FindCVar("fullhud_boomcolors");
 		splitArms   = CVar.FindCVar("fullhud_splitarms");
 		invReplace  = CVar.FindCVar("fullhud_invovermug");
 		berserkShow = CVar.FindCVar("fullhud_showberserk");
 		chexArms    = CVar.FindCVar("fullhud_chexarms");
 		automapHide = CVar.FindCVar("fullhud_automaphide");
-		
+
 		statsType      = CVar.FindCVar("fullhud_stats_type");
 		statsFont      = CVar.FindCVar("fullhud_stats_font");
 		statsCompColor = CVar.FindCVar("fullhud_stats_comp");
 		statsShort     = CVar.FindCVar("fullhud_stats_short");
+		statsCozy      = CVar.FindCVar("fullhud_stats_cozy");
 		statKills      = CVar.FindCVar("fullhud_stats_kills");
 		statSecrets    = CVar.FindCVar("fullhud_stats_secrets");
 		statItems      = CVar.FindCVar("fullhud_stats_items");
@@ -83,7 +85,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		borderless     = CVar.FindCVar("win_borderless");
 
 		diparms_sbar = InventoryBarState.CreateNoBox(mIndexFont, boxsize:(31, 31), arrowoffs:(0,-10));
-		
+
 		mSmallFont = HUDFont.Create(SmallFont, SmallFont.GetCharWidth("0"), Mono_CellCenter, 1, 1);
 		mIndexFontF = mIndexFont;
 		// Chex has a really weird font
@@ -91,7 +93,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		{
 			Font fnt = "HUDFONT_DOOM";
 			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellCenter, 0, 0);
-			
+
 			fnt = "INDEXFONT_CHEX";
 			mIndexFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft);
 		}
@@ -116,7 +118,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	override void NewGame()
 	{
 		Super.NewGame();
-		
+
 		PowerupNames.clear();
 		PowerupDisplay.clear();
 		statNewGame();
@@ -136,7 +138,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 		StatFont sfnt;
 		getStatFont(sfnt);
 		if(PowerupNames.size() == 0) setPowerupNames();
-		
+
 		if (state == HUD_StatusBar)
 		{
 			if(!(automapactive && automapHide.GetInt()))
@@ -195,7 +197,7 @@ Class SpecialDoomStatusBar : DoomStatusBar
 	{
 		return string.format("%s%s",s1,s2);
 	}
-	
+
 	// ========================
 	// Get texture width easily
 	// ========================

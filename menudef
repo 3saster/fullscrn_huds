@@ -1,5 +1,5 @@
 AddOptionMenu "HUDOptions" after "AltHUDOptions"
-{   
+{
 	Submenu "$FULLHUD_MODTITLE", "FullscreenStatusbarOptions"
 }
 
@@ -76,6 +76,12 @@ OptionValue "BerserkCross"
 	2, "$C_GREEN"
 }
 
+OptionValue "CozyMode"
+{
+	0, "$OPTVAL_OFF"
+	1, "$OPTVAL_ON"
+}
+
 OptionMenu "FullscreenStatusbarOptions"
 {
 	Title "$FULLHUD_MODTITLE"
@@ -111,17 +117,17 @@ OptionMenu "OptionalSettings"
 
 	StaticText ""
 	FullHUDOption "$FULLHUD_OPTIONAL_BOOMHUD",              "$FULLHUD_OPTIONALTOOLTIP_BOOMHUD",     "fullhud_boomcolors", "OnOff", "", 0, 0
-	IfGame(Doom) 
+	IfGame(Doom)
 	{
 		FullHUDOption "$FULLHUD_OPTIONAL_BERSERK",      "$FULLHUD_OPTIONALTOOLTIP_BERSERK",     "fullhud_showberserk", "BerserkCross"
 	}
-	IfGame(Chex) 
+	IfGame(Chex)
 	{
 		FullHUDOption "$FULLHUD_OPTIONAL_CHEXLOGO",     "$FULLHUD_OPTIONALTOOLTIP_CHEXLOGO",     "fullhud_chexarms", "OnOff"
 	}
 	FullHUDOption "$FULLHUD_OPTIONAL_SPLITARMS",            "$FULLHUD_OPTIONALTOOLTIP_SPLITARMS",    "fullhud_splitarms", "OnOff", "fullhud_split"
-	IfGame(Doom, Chex) 
-	{	
+	IfGame(Doom, Chex)
+	{
 		FullHUDOption "$FULLHUD_OPTIONAL_INVREPLACE",   "$FULLHUD_OPTIONALTOOLTIP_INVREPLACE",   "fullhud_invovermug", "OnOff"
 	}
  	IfGame(Hexen)
@@ -174,6 +180,7 @@ OptionMenu "StatsSettings"
 	FullHUDOption         "$FULLHUD_STATS_LEVELTIME",  "$FULLHUD_STATSTOOLTIP_LEVELTIME",   "fullhud_stats_time",     "LevelStatsPosition", "fullhud_stats_type"
 	FullHUDOption         "$FULLHUD_STATS_POWERUPS",   "$FULLHUD_STATSTOOLTIP_POWERUPS",    "fullhud_stats_powerups", "LevelStatsPosition", "fullhud_stats_type"
 	FullHUDOption 	      "$FULLHUD_STATS_SHORT",      "$FULLHUD_STATSTOOLTIP_SHORT",       "fullhud_stats_short",    "OnOff"
+	FullHUDOption 	      "$FULLHUD_STATS_COZY",       "$FULLHUD_STATSTOOLTIP_COZY",        "fullhud_stats_cozy",     "OnOff"
 }
 
 ListMenu "FullscreenCredits"
@@ -182,26 +189,32 @@ ListMenu "FullscreenCredits"
 	StaticText -32,	  6, "Version 5.1.12", gold
 	StaticText -32,	 18, "NightFright", red
 	StaticText  96,	 18, "Original SBARINFO coding / idea", green
-	StaticText -32,	 30, "3saster", red
-	StaticText  96,	 30, "ZScript coding", green
-	StaticText -32,	 54, "id Software", red
-	StaticText  96,	 54, "Original Doom GFX", green
-	StaticText -32,	 66, "Raven Software", red
-	StaticText  96,	 66, "Original Heretic/Hexen GFX", green
-	StaticText -32,	 90, "bangstk", red
-	StaticText  96,	 90, "Code for widescreen status bars", green
-	StaticText -32,	102, "DTDsphere", red
-	StaticText  96,	102, "Project initiator - special thanks!", green
-	StaticText -32,	114, "Jimmy", red
-	StaticText  96,	114, "'MemenTwo' and 'Status Report' fonts", green
-	StaticText -32,	126, "Kinsie", red
-	StaticText  96,	126, "Dystopia 3 compatibility", green
-	StaticText -32,	138, "m8f", red
-	StaticText  96,	138, "Split status bar for Doom", green
-	StaticText -32,	150, "MaxED", red
-	StaticText  96,	150, "Split status bars for Heretic/Hexen", green
-	StaticText -32,	162, "Nash Muhandes", red
-	StaticText  96,	162, "Raven status bars / menu tooltips", green
-	StaticText -32,	174, "Delfino Furioso", red
-	StaticText  96,	174, "Hexen compatibility code patches", green
+	StaticText -32,	 28, "3saster", red
+	StaticText  96,	 28, "ZScript coding", green
+	StaticText -32,	 38, "      --", red
+	StaticText  96,	 38, "       --", green
+	StaticText -32,	 48, "id Software", red
+	StaticText  96,	 48, "Original Doom GFX", green
+	StaticText -32,	 58, "Raven Software", red
+	StaticText  96,	 58, "Original Heretic/Hexen GFX", green
+	StaticText -32,	 68, "      --", red
+	StaticText  96,	 68, "       --", green
+	StaticText -32,	 78, "bangstk", red
+	StaticText  96,	 78, "Code for widescreen status bars", green
+	StaticText -32,	 88, "DTDsphere", red
+	StaticText  96,	 88, "Project initiator - special thanks!", green
+	StaticText -32,  98, "Jimmy", red
+	StaticText  96,	 98, "'MemenTwo' and 'Status Report' fonts", green
+	StaticText -32,	108, "Kinsie", red
+	StaticText  96,	108, "Dystopia 3 compatibility", green
+	StaticText -32,	118, "m8f", red
+	StaticText  96,	118, "Split status bar for Doom", green
+	StaticText -32,	128, "MaxED", red
+	StaticText  96,	128, "Split status bars for Heretic/Hexen", green
+	StaticText -32,	138, "Nash Muhandes", red
+	StaticText  96,	138, "Raven status bars / menu tooltips", green
+	StaticText -32,	148, "Delfino Furioso", red
+	StaticText  96,	148, "Hexen compatibility code patches", green
+	StaticText -32,	158, "scar45", red
+	StaticText  96,	158, "Stats adjacent to non-split status bar", green
 }

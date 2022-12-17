@@ -117,6 +117,7 @@ FULLHUD_STATS_ITEMS       = "Items counter";
 FULLHUD_STATS_LEVELTIME   = "Level time";
 FULLHUD_STATS_POWERUPS    = "Powerup timers";
 FULLHUD_STATS_SHORT       = "Abbreviate stats";
+FULLHUD_STATS_COZY        = "Adjacent to Status Bar";
 
 FULLHUD_STATSTOOLTIP_STATDISPLAY      = "Choose a system for kill/secret/item counters (e.g.: '50%', '6 Left' or '6/12')";
 FULLHUD_STATSTOOLTIP_STATDISPLAY_CHEX = "Choose a system for zorch/secret/item counters (e.g.: '50%', '6 Left' or '6/12')";
@@ -130,6 +131,7 @@ FULLHUD_STATSTOOLTIP_LEVELTIME        = "Show time spent in a level";
 FULLHUD_STATSTOOLTIP_SECRETS          = "Show amount of found secrets";
 FULLHUD_STATSTOOLTIP_POWERUPS         = "Show duration of activated powerups";
 FULLHUD_STATSTOOLTIP_SHORT            = "Only show first letter of stats names (e.g.: 'S' instead of 'Secrets')";
+FULLHUD_STATSTOOLTIP_COZY             = "Place the stats closer to the Status Bar (Split Bar must be OFF)";
 
 /* --- Stat Display --- */
 FULLHUD_KILLS            = "Kills";
