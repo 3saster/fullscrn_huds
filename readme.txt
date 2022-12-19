@@ -13,8 +13,8 @@ Other files by author: Blinking Eyes for Doom Mugshot
                        Widescreen HUDs for Doom/Doom II PWADs
 
 Description          : Fullscreen versions for the status bars of Doom-based
-                       games (Doom, Doom II, Final Doom, Freedoom, Chex, HacX,
-                       Harmony), Heretic and Hexen with optional transparency
+                       games (Doom, Doom II, Final Doom, Freedoom, Chex, HacX, 
+                       Harmony), Heretic and Hexen with optional transparency 
                        and level stats display
 
 Additional Info      : 1) Only works with GZDoom 4.3.0+, LZDoom 3.84+ and other
@@ -44,11 +44,11 @@ Additional Info      : 1) Only works with GZDoom 4.3.0+, LZDoom 3.84+ and other
                                   + Choose between 22 different stat completion colors
                                   + Optionally show countdowns for active powerups
 				  + Optionally abbreviate stats names (K/I/S)
-                       5) Adds 15-17 CVARS to your GZDoom ini, starting with "fullhud_"
+                       5) Adds 15-17 CVARS to your GZDoom ini, starting with "fullhud_" 
 
-Known issues         : [CHEX] Logo replacement will only look good if default STBAR graphics
+Known issues         : [CHEX] Logo replacement will only look good if default STBAR graphics 
                               are used (with blue background)
-
+                       
 
 Additional Credits to: id Software .................. Original Doom GFX
                        Raven Software ............... Original Heretic/Hexen GFX
@@ -62,7 +62,6 @@ Additional Credits to: id Software .................. Original Doom GFX
                        Nash Muhandes ................ Widescreen Heretic/Hexen status bars
                                                       Menu tooltips
                        Delfino Furioso .............. Hexen compatibility code patches
-                       scar45 ....................... Stats adjacent to non-split status bar
 
 ===========================================================================
 * What is included *
@@ -102,7 +101,6 @@ Tested With          : GZDoom
 * CHANGELOG *
 
 > Version 5.1.12 (xx xx, 2022)
-  [ALL] Stats: Added option for placing adjacent to (non-split) Status Bar (code by scar45)
   [HEXEN] Compatibility with "Hexen Rebalanced" and "Tempered Arms" (code by Delfino Furioso)
 
 > Version 5.1.11 (Jun 7, 2022)
@@ -147,7 +145,7 @@ Tested With          : GZDoom
   [ALL] Stats: Can now choose between 25 (before: 3) different stat completion colors
 
 > Version 5.1.4 (Jan 7, 2020)
-  NOTE: Now requires GZDoom 4.3.0+ or LZDoom 3.84+. This is due to a major internal restructure that makes
+  NOTE: Now requires GZDoom 4.3.0+ or LZDoom 3.84+. This is due to a major internal restructure that makes 
         many parts of the code (especially stats) MUCH easier to maintain, using mixins
   [ALL] General Settings: "Force HUD override" option removed. This was rather hacky and caused crashes, even when turned off
   [ALL] Added tooltips to menu options
@@ -163,7 +161,7 @@ Tested With          : GZDoom
   NOTE: Now requires GZDoom 4.2.4+. This prevents a segfault that can occur with "Force HUD override" active.
         It is recommended to avoid activating this option in LZDoom (at least for now)
   [ALL] MENUDEF: Reorganization into submenus ("General Settings", "Optional Settings", "Stats")
-  [ALL] General Settings: "Force HUD override" option added. This will override any other custom HUD and
+  [ALL] General Settings: "Force HUD override" option added. This will override any other custom HUD and 
                           use this HUD instead, regardless of load order (intended for autoload in particular)
   [ALL] Stats: "Powerup timers" option added. Works exactly the same as in Tekish's LevelInfo v1.22 (for now)
   [ALL] Stats: Fixed top-right stats not moving correctly when the vid_fps CVAR is on
@@ -172,7 +170,7 @@ Tested With          : GZDoom
   [DOOM] Automatic compatibility added for Pirate Doom
   [CHEX] Berserk mode indicator CVAR from Doom no longer saved to ini
   [HACX] No longer uses modified STBAR lump, but instead adds a small black patch to cover mugshot background
-
+  
 > Version 5.1.2 (Nov 4, 2019)
   [ALL] MENUDEF: Code optimization (now only HacX needs two files, all other games just one)
   [DOOM] Automatic compatibility added for Sunlust
@@ -186,7 +184,7 @@ Tested With          : GZDoom
 
 > Version 5.1.0 (Oct 2, 2019)
   [DOOM] Automatic compatibility with selected PWADs which needed separate fixes before. Currently included:
-         Alien Vendetta, Avactor, Back to Saturn X Ep.1+2, Doom 4 Vanilla, Doom Neural Upscale 2X, Epic 2,
+         Alien Vendetta, Avactor, Back to Saturn X Ep.1+2, Doom 4 Vanilla, Doom Neural Upscale 2X, Epic 2, 
          Eviternity and Memento Mori 2
   [DOOM/CHEX/HACX/HARMONY] Inventory: Amount is now properly right-justified and moved to the correct spot
 
@@ -206,13 +204,13 @@ Tested With          : GZDoom
   [ALL] Level stats: Added option to change stats font. 5 choices available (default: font from 4.x releases)
 
 > Version 5.0 (Sep 4, 2019)
-  NOTE: It is recommended to clean your GZDoom ini from all CVAR entries of earlier releases.
-        Before using this version, search for any ini entry starting with "fullhud_",
+  NOTE: It is recommended to clean your GZDoom ini from all CVAR entries of earlier releases. 
+        Before using this version, search for any ini entry starting with "fullhud_", 
         delete all those lines, save the file, then launch the game with the new mod
   [ALL] Complete rewrite of the entire mod in ZScript, done by 3saster
   [ALL] Status bar changes are now instantaneous (leaving the menu is no longer required to see differences)
   [ALL] Split mode is now the new default (should make it easier to see if you are in fullscreen mode or not)
-  [ALL] Transparency features:
+  [ALL] Transparency features: 
            - Now has 11 settings: 0.0 (off), 0.1-0.9, 1.0 (full)
            - Option for opaque numbers and graphics (not affected by transparency settings)
   [ALL] Level stats system overhaul:
@@ -222,27 +220,27 @@ Tested With          : GZDoom
            - Stats now always aligning to each other in the same corner (dynamically adjust to the longest line)
            - Stats aligned to the bottom in split mode will now sit on top of the status bar
            - Any stat can now turn green (default) or red when reaching 100% completion (can also be disabled)
-  [ALL] Boom HUD colors: Ammo counter now takes backpack into consideration; armor value now accurately
+  [ALL] Boom HUD colors: Ammo counter now takes backpack into consideration; armor value now accurately 
                          displays protection level (should account for possible DEHACKED changes)
   [ALL] Level stats: Time display now shows hub time if available, otherwise map time
   [ALL] Credits subpage (with version number) added to menu
   [DOOM/CHEX/HACX/HERETIC] New option to choose whether to show status bar on automap or not
   [DOOM/CHEX/HACX] Split mode: Added frags counter (DM only)
-  [DOOM/CHEX/HACX] Split mode: Moved selected inventory item next to the mugshot (w/o mugshot replacement)
+  [DOOM/CHEX/HACX] Split mode: Moved selected inventory item next to the mugshot (w/o mugshot replacement) 
                                for new stats display
   [DOOM/CHEX/HACX] Selected inventory item now properly centered
   [DOOM/CHEX/HACX] Will work with some WADs based on DECORATE/ZScript (e.g. works with dead.air)
   [DOOM/CHEX/HACX] Removed "Interpolate health & armor" (useless feature)
   [CHEX/HACX/HARMONY] Removed Strife color scheme as predefined automap setting
   [CHEX] When BOOM HUD colors are on, the color of health > 100 and blue armor is now LIGHTBLUE
-  [CHEX] Berserk display option hidden. If a berserk pack is found, it will still be shown
+  [CHEX] Berserk display option hidden. If a berserk pack is found, it will still be shown 
          if CVAR fullhud_showberserk=true (can only be done from console)
   [CHEX] Non-split mode: "Frag" display added (DM only)
   [CHEX] "Kills" stats renamed to "Zorch"
   [HACX] Split mode: Colors of arms numbers are now inverted (dark=missing, bright=obtained)
   [HACX] Boom color mode now hidden from menu
   [HERETIC/HEXEN] Split mode: "Kills" display implemented differently (DM only)
-  [HERETIC] Non-split mode: Addressed issue with transparent status bar having its life chain
+  [HERETIC] Non-split mode: Addressed issue with transparent status bar having its life chain 
                             shining through the bottom of the demon heads (not fixed, but better)
   [HERETIC] Non-split mode: Status bar now properly centered
   [HERETIC] Split mode: Chain on left side centered
@@ -289,7 +287,7 @@ Tested With          : GZDoom
   [DOOM/CHEX] Split bar: ARMS numbers can now be turned off (default: on)
 
 > Version 4.7.5 (Mar 16, 2019)
-  [DOOM/CHEX] INDEXFONT for secondary ammo display replaced with SMALLFONT
+  [DOOM/CHEX] INDEXFONT for secondary ammo display replaced with SMALLFONT 
 
 > Version 4.7.4 (Mar 14, 2019)
   [DOOM/CHEX] Secondary ammo display support
@@ -321,7 +319,7 @@ Tested With          : GZDoom
   [HEXEN] Automap: Gargoyles removed
 
 > Version 4.5 (Oct 24, 2018)
-  [ALL] Menu: Can now choose between 3 degrees of transparency
+  [ALL] Menu: Can now choose between 3 degrees of transparency 
   [ALL] Transparency: Only background images are affected by transparency (mugshot, numbers and keys stay opaque)
   [HERETIC] Minor transparency tuning
   [HEXEN] Mana bars: Improved transparency
@@ -362,7 +360,7 @@ Tested With          : GZDoom
   [HERETIC/HEXEN] Inventory bar now also integrated into transparent (centered) status bar
 
 > Version 4.0 (Sep 28, 2018)
-  [INFO] Now uses "height 0" to redraw the original (non-fullscreen) status bars.
+  [INFO] Now uses "height 0" to redraw the original (non-fullscreen) status bars. 
          Normal status bars can still be used with some limitations (but still NOT recommended).
   [ALL] Option added to choose between normal and split status bars
   [ALL] Automap always uses split versions (to increase viewing area)
@@ -377,9 +375,9 @@ Tested With          : GZDoom
   [DOOM] Boom status bar colors should now work with most customized PWAD status bars
 
 > Version 3.1 (Sep 21, 2018)
-  [ALL] Added option to use Boom colors for Doom status bar numbers
+  [ALL] Added option to use Boom colors for Doom status bar numbers 
         (Note: Not available in Heretic or Hexen)
-  [ALL: TRANSPARENT] Ammo, health and armor counters are now always opaque
+  [ALL: TRANSPARENT] Ammo, health and armor counters are now always opaque 
                      (also solves problem with Boom armor counter)
   [ALL] Level stats transparency slightly reduced (from alpha 0.6 to 0.7)
   [ALL] "Show Level Stats" options renamed (from "Off"/"On" to "No"/"Yes")
@@ -397,7 +395,7 @@ Tested With          : GZDoom
   [ALL: OPAQUE] Optimized contents for opacity (needless graphics and code removed)
   [HEXEN: OPAQUE] Fix for life chain shining through status bar on the lower right side
   [DOOM/CHEX/HACX/HARMONY] Fixed potential problem with wrong fullscreenoffsets for mugshot
-  [DOOM/CHEX/HACX/HARMONY: TRANSPARENT] Transparency for ammo/health/armor counters
+  [DOOM/CHEX/HACX/HARMONY: TRANSPARENT] Transparency for ammo/health/armor counters 
                                         slightly increased (from alpha 0.8 to 0.7)
 
 > Version 2.6.1 (Sep 11, 2018)
@@ -407,13 +405,13 @@ Tested With          : GZDoom
   [HEXEN] Standard status bar now properly aligned
   [HEXEN] Mana counters moved 1px to the left to match standard status bar
   [DOOM/CHEX/HACX/HARMONY] Moved BACKGRND to game-doomchex filter folder
-  [DOOM/CHEX/HACX/HARMONY] Different drawing method for automap status bar background
+  [DOOM/CHEX/HACX/HARMONY] Different drawing method for automap status bar background 
                            (BACKGRND is now 640x32 instead of 1920x32)
 
 > Version 2.5 (Sep 7, 2018)
-  [HERETIC/HEXEN] Level stats aligned to the upper left instead of upper right corner
+  [HERETIC/HEXEN] Level stats aligned to the upper left instead of upper right corner 
                   (to avoid collision with active powerup icons)
-  [CHEX/HACX/HARMONY] Use Strife-style automap color scheme
+  [CHEX/HACX/HARMONY] Use Strife-style automap color scheme 
                       ("Automap Options" > "Allow Map Defined Colors" must be set to "Yes")
   [DOOM/CHEX/HACX/HARMONY] Minor (invisible) optimization of how automap status bar is
                            created (BACKGRND and STBAR merged in TEXTURES.DOOM)
@@ -432,7 +430,7 @@ Tested With          : GZDoom
   [ALL] Level stats no longer use abbreviations; gapfiller zeroes removed
 
 > Version 2.2 (May 10, 2017)
-  [DOOM/CHEX/HACX/HARMONY] Black background fix for automap status bar now supports
+  [DOOM/CHEX/HACX/HARMONY] Black background fix for automap status bar now supports 
                            up to 1920px screen width when scaled to 1
   [HEXEN] More status bar alignment adjustments
 

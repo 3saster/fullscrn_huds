@@ -1,5 +1,5 @@
 AddOptionMenu "HUDOptions" after "AltHUDOptions"
-{
+{   
 	Submenu "$FULLHUD_MODTITLE", "FullscreenStatusbarOptions"
 }
 
@@ -76,12 +76,6 @@ OptionValue "BerserkCross"
 	2, "$C_GREEN"
 }
 
-OptionValue "CozyMode"
-{
-	0, "$OPTVAL_OFF"
-	1, "$OPTVAL_ON"
-}
-
 OptionMenu "FullscreenStatusbarOptions"
 {
 	Title "$FULLHUD_MODTITLE"
@@ -117,17 +111,17 @@ OptionMenu "OptionalSettings"
 
 	StaticText ""
 	FullHUDOption "$FULLHUD_OPTIONAL_BOOMHUD",              "$FULLHUD_OPTIONALTOOLTIP_BOOMHUD",     "fullhud_boomcolors", "OnOff", "", 0, 0
-	IfGame(Doom)
+	IfGame(Doom) 
 	{
 		FullHUDOption "$FULLHUD_OPTIONAL_BERSERK",      "$FULLHUD_OPTIONALTOOLTIP_BERSERK",     "fullhud_showberserk", "BerserkCross"
 	}
-	IfGame(Chex)
+	IfGame(Chex) 
 	{
 		FullHUDOption "$FULLHUD_OPTIONAL_CHEXLOGO",     "$FULLHUD_OPTIONALTOOLTIP_CHEXLOGO",     "fullhud_chexarms", "OnOff"
 	}
 	FullHUDOption "$FULLHUD_OPTIONAL_SPLITARMS",            "$FULLHUD_OPTIONALTOOLTIP_SPLITARMS",    "fullhud_splitarms", "OnOff", "fullhud_split"
-	IfGame(Doom, Chex)
-	{
+	IfGame(Doom, Chex) 
+	{	
 		FullHUDOption "$FULLHUD_OPTIONAL_INVREPLACE",   "$FULLHUD_OPTIONALTOOLTIP_INVREPLACE",   "fullhud_invovermug", "OnOff"
 	}
  	IfGame(Hexen)
@@ -180,7 +174,6 @@ OptionMenu "StatsSettings"
 	FullHUDOption         "$FULLHUD_STATS_LEVELTIME",  "$FULLHUD_STATSTOOLTIP_LEVELTIME",   "fullhud_stats_time",     "LevelStatsPosition", "fullhud_stats_type"
 	FullHUDOption         "$FULLHUD_STATS_POWERUPS",   "$FULLHUD_STATSTOOLTIP_POWERUPS",    "fullhud_stats_powerups", "LevelStatsPosition", "fullhud_stats_type"
 	FullHUDOption 	      "$FULLHUD_STATS_SHORT",      "$FULLHUD_STATSTOOLTIP_SHORT",       "fullhud_stats_short",    "OnOff"
-	FullHUDOption 	      "$FULLHUD_STATS_COZY",       "$FULLHUD_STATSTOOLTIP_COZY",        "fullhud_stats_cozy",     "OnOff"
 }
 
 ListMenu "FullscreenCredits"

@@ -3,16 +3,15 @@ Class SpecialHereticStatusBar : HereticStatusBar
 	transient CVar splitHUD;
 	transient CVar alphaValue;
 	transient CVar alphaOpaque;
-
+	
 	transient CVAR boomColors;
 	transient CVAR splitArms;
 	transient CVAR automapHide;
-
+	
 	transient CVAR statsType;
 	transient CVAR statsFont;
 	transient CVAR statsCompColor;
-	transient CVAR statsShort;
-	transient CVAR statsCozy;
+        transient CVAR statsShort;
 	transient CVAR statKills;
 	transient CVAR statSecrets;
 	transient CVAR statItems;
@@ -46,24 +45,23 @@ Class SpecialHereticStatusBar : HereticStatusBar
 		OP_NUM = 1,
 		OP_NUMGRAPH = 2,
 	}
-
+	
 	override void Init()
 	{
 		Super.Init();
-
+		
 		splitHUD    = CVar.FindCVar("fullhud_split");
 		alphaValue  = CVar.FindCVar("fullhud_trans");
 		alphaOpaque = CVar.FindCVar("fullhud_opaque");
-
+		
 		boomColors  = CVar.FindCVar("fullhud_boomcolors");
 		splitArms   = CVar.FindCVar("fullhud_splitarms");
 		automapHide = CVar.FindCVar("fullhud_automaphide");
-
+		
 		statsType      = CVar.FindCVar("fullhud_stats_type");
 		statsFont      = CVar.FindCVar("fullhud_stats_font");
 		statsCompColor = CVar.FindCVar("fullhud_stats_comp");
 		statsShort     = CVar.FindCVar("fullhud_stats_short");
-		statsCozy      = CVar.FindCVar("fullhud_stats_cozy");
 		statKills      = CVar.FindCVar("fullhud_stats_kills");
 		statSecrets    = CVar.FindCVar("fullhud_stats_secrets");
 		statItems      = CVar.FindCVar("fullhud_stats_items");
@@ -99,7 +97,7 @@ Class SpecialHereticStatusBar : HereticStatusBar
 		PowerupDisplay.clear();
 		statNewGame();
 	}
-
+	
 	override void Tick()
 	{
 		Super.Tick();
@@ -117,7 +115,7 @@ Class SpecialHereticStatusBar : HereticStatusBar
 	override void Draw (int state, double TicFrac)
 	{
 		BaseStatusBar.Draw (state, TicFrac);
-
+		
 		StatFont sfnt;
 		getStatFont(sfnt);
 		if(PowerupNames.size() == 0) setPowerupNames();
@@ -157,7 +155,7 @@ Class SpecialHereticStatusBar : HereticStatusBar
 	{
 		return string.format("%s%s",s1,s2);
 	}
-
+	
 	// ========================
 	// Get texture width easily
 	// ========================
