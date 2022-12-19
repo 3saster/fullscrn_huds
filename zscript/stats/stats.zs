@@ -7,7 +7,7 @@ mixin Class Stats
 		COUNTDOWN = 2,
 		FRACTION = 3
 	}
-	
+
 	enum StatsColorValues
 	{
 		NONE = 0,
@@ -21,19 +21,19 @@ mixin Class Stats
 		CYAN = 8,
 		FIRE = 9,
 		GOLD = 10,
-		DARKGRAY = 11, 
+		DARKGRAY = 11,
 		GREEN = 12,
-		DARKGREEN = 13, 
+		DARKGREEN = 13,
 		OLIVE = 14,
 		ORANGE = 15,
 		PURPLE = 16,
 		RED = 17,
-		DARKRED = 18, 
+		DARKRED = 18,
 		SAPPHIRE = 19,
 		TEAL = 20,
 		YELLOW = 21
 	}
-	
+
 	enum StatsPosition
 	{
 		OFF = 0,
@@ -42,7 +42,9 @@ mixin Class Stats
 		CENTERLEFT = 3,
 		CENTERRIGHT = 4,
 		BOTTOMLEFT = 5,
-		BOTTOMRIGHT = 6
+		BOTTOMRIGHT = 6,
+		SBARLEFT = 7,
+		SBARRIGHT = 8
 	}
 
 	DynamicValueInterpolator siKillsP;
@@ -134,27 +136,27 @@ mixin Class Stats
 	void DrawStatLine(statFont sfnt, int cr, Vector2 pos, String text, double alpha)
 	{
 		Vector2 scale = GetHUDScale();
-		
+
 		// These values are jury-rigged; they were initially designed for my personal settings before becoming generic
 		int VirtualWidth  = int(sfnt.scale.x * 6.0/scale.x * Screen.GetWidth() /2560);
 		int VirtualHeight = int(sfnt.scale.y * 7.2/scale.y * Screen.GetHeight()/1440);
-		
+
 		int posX = int( pos.x >= 0 ? pos.x : VirtualWidth  + pos.x );
 		int posY = int( pos.y >= 0 ? pos.y : VirtualHeight + pos.y );
 
-		screen.DrawText(sfnt.fnt, cr, posX, posY, text, 
+		screen.DrawText(sfnt.fnt, cr, posX, posY, text,
 			DTA_KeepRatio, true,
 			DTA_VirtualWidth, VirtualWidth, DTA_VirtualHeight, VirtualHeight, DTA_Alpha, alpha);
 	}
-	
+
 	protected virtual void DrawLevelStats (statFont sfnt, int state = HUD_StatusBar)
 	{
 		int alphaO = alphaOpaque.GetInt();
 		double alphaFloat = alphaO == OP_NUM || alphaO == OP_NUMGRAPH ? 1 : 1-alphaValue.getfloat();
-		
+
 		let fnt = sfnt.fnt;
 		int padding = sfnt.padding;
-		
+
 		int compColor;
 		switch(statsCompColor.GetInt())
 		{
@@ -226,7 +228,7 @@ mixin Class Stats
 				compColor = Font.CR_YELLOW;
 				break;
 		}
-		
+
 		string kills = "";
 		string secrets = "";
 		string items = "";
@@ -235,18 +237,18 @@ mixin Class Stats
 		int mkilled   = multiplayer? CPlayer.killcount   : Level.killed_monsters;
 		int sfound    = multiplayer? CPlayer.secretcount : Level.found_secrets;
 		int ifound    = multiplayer? CPlayer.itemcount   : Level.found_items;
-		
+
 		// Format based on type specified
 		bool killComp = false;
 		bool secretComp = false;
 		bool itemComp = false;
-		string killstring    = (gameinfo.gametype & GAME_Chex) ? 
-		                       Stringtable.Localize("$FULLHUD_KILLS_CHEX") : 
+		string killstring    = (gameinfo.gametype & GAME_Chex) ?
+		                       Stringtable.Localize("$FULLHUD_KILLS_CHEX") :
 				       Stringtable.Localize("$FULLHUD_KILLS");
 		string secretstring  = Stringtable.Localize("$FULLHUD_SECRETS");
 		string itemstring    = Stringtable.Localize("$FULLHUD_ITEMS");
-		string killstring2   = (gameinfo.gametype & GAME_Chex) ? 
-		                       Stringtable.Localize("$FULLHUD_KILLS_CHEX_SHORT") : 
+		string killstring2   = (gameinfo.gametype & GAME_Chex) ?
+		                       Stringtable.Localize("$FULLHUD_KILLS_CHEX_SHORT") :
 				       Stringtable.Localize("$FULLHUD_KILLS_SHORT");
 		string secretstring2 = Stringtable.Localize("$FULLHUD_SECRETS_SHORT");
 		string itemstring2   = Stringtable.Localize("$FULLHUD_ITEMS_SHORT");
@@ -269,7 +271,7 @@ mixin Class Stats
 				if (siSecretsP.GetValue() == 100) secretComp = true;
 				if (siItemsP.GetValue()   == 100) itemComp = true;
 				break;
-				
+
 			case COUNTDOWN:
 				string space = string.format(string.format("%%%ds",padding), padding ? "" : " ");
 				string leftstring = Stringtable.Localize("$FULLHUD_LEFT_STRING");
@@ -281,7 +283,7 @@ mixin Class Stats
 				if (siSecretsC.GetValue() == 0) secretComp = true;
 				if (siItemsC.GetValue()   == 0) itemComp = true;
 				break;
-				
+
 			case FRACTION:
 				if (statKills.GetInt())   kills   = string.format("%s: %i/%i", killstring,   siKillsF.GetValue(),   Level.total_monsters);
 				if (statSecrets.GetInt()) secrets = string.format("%s: %i/%i", secretstring, siSecretsF.GetValue(), Level.total_secrets);
@@ -295,7 +297,7 @@ mixin Class Stats
 		// Format Level time
 		int hubtime = Level.time/Thinker.TICRATE;
 		if (statTime.GetInt()) time = string.format("%02d:%02d:%02d",hubtime/3600,(hubtime/60)%60,hubtime%60);
-		
+
 		// Format Powerups
 		Array<String> PowerupStrings;
 		int powerlength = 0;
@@ -327,24 +329,25 @@ mixin Class Stats
 		int itempos   = statsType.GetInt() ? statItems.getInt()    : OFF;
 		int timepos   = statsType.GetInt() ? statTime.getInt()     : OFF;
 		int powerpos  = statsType.GetInt() ? statPowerups.getInt() : OFF;
-		
+
 		// Make each block have the same length
-		int maxlength[7] = {0,0,0,0,0,0,0};
+		int maxlength[9] = {0,0,0,0,0,0,0,0,0};
 		maxlength[killpos]   = max(maxlength[killpos],  fnt.StringWidth(kills));
 		maxlength[secretpos] = max(maxlength[secretpos],fnt.StringWidth(secrets));
 		maxlength[itempos]   = max(maxlength[itempos],  fnt.StringWidth(items));
 		maxlength[powerpos]  = max(maxlength[powerpos], powerlength);
-		
+
 		kills =   makeLength(kills,  fnt, maxlength[killpos]   + padding);
 		secrets = makeLength(secrets,fnt, maxlength[secretpos] + padding);
 		items =   makeLength(items,  fnt, maxlength[itempos]   + padding);
 		for(int i = 0; i < PowerupStrings.size(); i++)
 			PowerupStrings[i] = makeLength(PowerupStrings[i],  fnt, maxlength[powerpos] + padding, ": ");
 		morphString = makeLength(morphString, fnt, maxlength[powerpos] + padding, ": ");
-		
+
 		int sPush = sfnt.sPush;
 		int tHeight = sfnt.tHeight;
 		Vector2 scale = GetHUDScale();
+		int VirtualWidth  = int(sfnt.scale.x * 6.0/scale.x * Screen.GetWidth() /2560);
 		int VirtualHeight = int(sfnt.scale.y * 7.2/scale.y * Screen.GetHeight()/1440);
 		// Top Left
 		int topLeftTotal = 0;
@@ -353,7 +356,7 @@ mixin Class Stats
 		if(itempos   == TOPLEFT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (sPush,tHeight+textSize*topLeftTotal++) ,items,alphaFloat);
 		if(timepos   == TOPLEFT) DrawStatLine(sfnt,                          Font.CR_WHITE, (sPush,tHeight+textSize*topLeftTotal++) ,time,alphaFloat);
 		if(powerpos  == TOPLEFT)
-			for(int i = 0; i < PowerupStrings.size(); i++)	
+			for(int i = 0; i < PowerupStrings.size(); i++)
 				DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
 				(sPush,tHeight+textSize*topLeftTotal++), PowerupStrings[i],alphaFloat);
 		// Top Right
@@ -365,7 +368,7 @@ mixin Class Stats
 		if(itempos   == TOPRIGHT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(items),  conOffset+tHeight+textSize*topRightTotal++)  ,items,alphaFloat);
 		if(timepos   == TOPRIGHT) DrawStatLine(sfnt,                          Font.CR_WHITE, (-sPush-fnt.StringWidth(time),   conOffset+tHeight+textSize*topRightTotal++)   ,time,alphaFloat);
 		if(powerpos  == TOPRIGHT)
-			for(int i = 0; i < PowerupStrings.size(); i++)	
+			for(int i = 0; i < PowerupStrings.size(); i++)
 				DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
 				(-sPush-fnt.StringWidth(PowerupStrings[i]),conOffset+tHeight+textSize*topRightTotal++), PowerupStrings[i],alphaFloat);
 		// Center Left
@@ -382,7 +385,7 @@ mixin Class Stats
 		if(itempos   == CENTERLEFT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (sPush,clHeight+textSize*centerLeftTotal++) ,items,alphaFloat);
 		if(timepos   == CENTERLEFT) DrawStatLine(sfnt,                          Font.CR_WHITE, (sPush,clHeight+textSize*centerLeftTotal++) ,time,alphaFloat);
 		if(powerpos  == CENTERLEFT)
-			for(int i = 0; i < PowerupStrings.size(); i++)	
+			for(int i = 0; i < PowerupStrings.size(); i++)
 				DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
 				(sPush,clHeight+textSize*centerLeftTotal++), PowerupStrings[i],alphaFloat);
 		// Center Right
@@ -399,7 +402,7 @@ mixin Class Stats
 		if(itempos   == CENTERRIGHT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(items),  crHeight+textSize*centerRightTotal++) ,items,alphaFloat);
 		if(timepos   == CENTERRIGHT) DrawStatLine(sfnt,                          Font.CR_WHITE, (-sPush-fnt.StringWidth(time),   crHeight+textSize*centerRightTotal++) ,time,alphaFloat);
 		if(powerpos  == CENTERRIGHT)
-			for(int i = 0; i < PowerupStrings.size(); i++)	
+			for(int i = 0; i < PowerupStrings.size(); i++)
 				DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
 				(-sPush-fnt.StringWidth(PowerupStrings[i]), crHeight+textSize*centerRightTotal++), PowerupStrings[i],alphaFloat);
 		// Bottom Left
@@ -410,7 +413,7 @@ mixin Class Stats
 		if(killpos   == BOTTOMLEFT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (sPush,-bHeightL-textSize*bottomLeftTotal++) ,kills,alphaFloat);
 		if(timepos   == BOTTOMLEFT) DrawStatLine(sfnt,                          Font.CR_WHITE, (sPush,-bHeightL-textSize*bottomLeftTotal++) ,time,alphaFloat);
 		if(powerpos  == BOTTOMLEFT)
-			for(int i = 0; i < PowerupStrings.size(); i++)	
+			for(int i = 0; i < PowerupStrings.size(); i++)
 				DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
 				(sPush,-bHeightL-textSize*bottomLeftTotal++), PowerupStrings[i],alphaFloat);
 		// Bottom Right
@@ -424,9 +427,191 @@ mixin Class Stats
 		if(killpos   == BOTTOMRIGHT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(kills),  -bHeightR-textSize*bottomRightTotal++)  ,kills,alphaFloat);
 		if(timepos   == BOTTOMRIGHT) DrawStatLine(sfnt,                          Font.CR_WHITE, (-sPush-fnt.StringWidth(time),   -bHeightR-textSize*bottomRightTotal++)   ,time,alphaFloat);
 		if(powerpos  == BOTTOMRIGHT)
-			for(int i = 0; i < PowerupStrings.size(); i++)	
+			for(int i = 0; i < PowerupStrings.size(); i++)
 				DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
 				(-sPush-fnt.StringWidth(PowerupStrings[i]),-bHeightR-textSize*bottomRightTotal++), PowerupStrings[i],alphaFloat);
+
+		// Status Bar (Left/Right)
+		// Initialize vars for left/right positioning per font
+		int sPushFontDefault = (VirtualWidth / 2) - 124;
+		int sPushFontConsole = (VirtualWidth / 2) - 252;
+		int sPushFontStatus = (VirtualWidth / 2) - 179;
+		int sPushFontMementoMori = (VirtualWidth / 2) - 311;
+
+		// Setup correct values for left/right positioning based on whether Split Bar/Fullscreen is enabled
+		if (splitHUD.getint() && screenSize.getInt() > 10) {
+			sPushFontDefault = 111;
+			sPushFontConsole = 225;
+			sPushFontStatus = 160;
+			sPushFontMementoMori = 277;
+		}
+
+		// Heretic/Hexen-specific modifications
+		if (gameinfo.gametype & GAME_Hexen || gameinfo.gametype & GAME_Heretic) {
+			sPushFontDefault = (VirtualWidth / 2) - 147;
+			sPushFontConsole = (VirtualWidth / 2) - 300;
+			sPushFontStatus = (VirtualWidth / 2) - 213;
+			sPushFontMementoMori = (VirtualWidth / 2) - 370;
+		}
+
+		if ((gameinfo.gametype & GAME_Hexen || gameinfo.gametype & GAME_Heretic) && (splitHUD.getint() && screenSize.getInt() > 10)) {
+			sPushFontDefault = 76;
+			sPushFontConsole = 152;
+			sPushFontStatus = 108;
+			sPushFontMementoMori = 185;
+		}
+
+		// Setup correct values for height positioning from bottom viewport edge
+		int bHeightFontDefault = 9;
+		int bHeightFontConsole = 18;
+		int bHeightFontStatus = 9;
+		int bHeightFontMementoMori = 19;
+
+		// Status Bar (Left)
+		switch(statsFont.GetInt())
+		{
+			// Default Font
+			case 0:
+				sPush = sPushFontDefault;
+				bHeightL = bHeightFontDefault;
+				break;
+			// Console Font
+			case 1:
+				sPush = sPushFontConsole;
+				bHeightL = bHeightFontConsole;
+				break;
+			// Status Report Font
+			case 2:
+				sPush = sPushFontStatus;
+				bHeightL = bHeightFontStatus;
+				break;
+			// Memento Mori 2 Font
+			case 3:
+				sPush = sPushFontMementoMori;
+				bHeightL = bHeightFontMementoMori;
+				break;
+		}
+
+		// Slight offset for Hexen when stats are Status Bar (Right) and fullscreen
+		// 		and player has an inventory item, or is browsing inventory
+		if (gameinfo.gametype & GAME_Hexen && (splitHUD.getint() && screenSize.getInt() > 10) && isInventoryBarVisible()) {
+			sPush = 1000;
+		}
+
+		bottomLeftTotal = 0;
+		if (splitHUD.getint() && screenSize.getInt() > 10) {
+			if (itempos   == SBARLEFT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (sPush,-bHeightL-textSize*bottomLeftTotal++) ,items,alphaFloat);
+			if (secretpos == SBARLEFT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (sPush,-bHeightL-textSize*bottomLeftTotal++) ,secrets,alphaFloat);
+			if (killpos   == SBARLEFT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (sPush,-bHeightL-textSize*bottomLeftTotal++) ,kills,alphaFloat);
+			if (timepos   == SBARLEFT) DrawStatLine(sfnt,                          Font.CR_WHITE, (sPush,-bHeightL-textSize*bottomLeftTotal++) ,time,alphaFloat);
+			if(powerpos   == SBARLEFT)
+				for(int i = 0; i < PowerupStrings.size(); i++) {
+					DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
+					(sPush,-bHeightL-textSize*bottomLeftTotal++), PowerupStrings[i],alphaFloat);
+				}
+		}
+		if (!splitHUD.getint() || (splitHUD.getint() && screenSize.getInt() <= 10)) {
+			if(itempos     == SBARLEFT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (sPush-fnt.StringWidth(items),-bHeightL-textSize*bottomLeftTotal++) ,items,alphaFloat);
+			if(secretpos   == SBARLEFT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (sPush-fnt.StringWidth(secrets),-bHeightL-textSize*bottomLeftTotal++) ,secrets,alphaFloat);
+			if(killpos     == SBARLEFT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (sPush-fnt.StringWidth(kills),-bHeightL-textSize*bottomLeftTotal++) ,kills,alphaFloat);
+			if(timepos     == SBARLEFT) DrawStatLine(sfnt,                          Font.CR_WHITE, (sPush-fnt.StringWidth(time),-bHeightL-textSize*bottomLeftTotal++) ,time,alphaFloat);
+			if(powerpos    == SBARLEFT)
+				for(int i = 0; i < PowerupStrings.size(); i++) {
+					DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
+					(sPush-fnt.StringWidth(PowerupStrings[i]),-bHeightL-textSize*bottomLeftTotal++), PowerupStrings[i],alphaFloat);
+				}
+		}
+
+		// Status Bar (Right)
+		switch(statsFont.GetInt())
+		{
+			// Default Font
+			case 0:
+				sPush = sPushFontDefault;
+				bHeightR = bHeightFontDefault;
+				break;
+			// Console Font
+			case 1:
+				sPush = sPushFontConsole;
+				bHeightR = bHeightFontConsole;
+				break;
+			// Status Report Font
+			case 2:
+				sPush = sPushFontStatus;
+				bHeightR = bHeightFontStatus;
+				break;
+			// Memento Mori 2 Font
+			case 3:
+				sPush = sPushFontMementoMori;
+				bHeightR = bHeightFontMementoMori;
+				break;
+		}
+
+		// Slight offset for Heretic when stats are Status Bar (Right) and fullscreen
+		if (gameinfo.gametype & GAME_Heretic && (splitHUD.getint() && screenSize.getInt() > 10)) {
+			switch(statsFont.GetInt())
+			{
+				case 0:
+					break;
+				case 1:
+					sPush = sPush + 20;
+					break;
+				case 2:
+					sPush = sPush + 14;
+					break;
+				case 3:
+					sPush = sPush + 26;
+					break;
+			}
+		}
+		// Slight offset for Hexen when stats are Status Bar (Right) and fullscreen
+		// 		and player has an inventory item, or is browsing inventory
+		if (gameinfo.gametype & GAME_Hexen && (splitHUD.getint() && screenSize.getInt() > 10)) {
+			if (CPlayer.mo.InvSel != null && !Level.NoInventoryBar) {
+				switch(statsFont.GetInt())
+				{
+					case 0:
+						sPush = sPush + 18;
+						break;
+					case 1:
+						sPush = sPush + 37;
+						break;
+					case 2:
+						sPush = sPush + 26;
+						break;
+					case 3:
+						sPush = sPush + 50;
+						break;
+				}
+			}
+			if (isInventoryBarVisible()) {
+				sPush = 1000;
+			}
+		}
+
+		bottomRightTotal = 0;
+		if (splitHUD.getint() && screenSize.getInt() > 10) {
+			if (itempos   == SBARRIGHT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(items),-bHeightR-textSize*bottomRightTotal++) ,items,alphaFloat);
+			if (secretpos == SBARRIGHT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(secrets),-bHeightR-textSize*bottomRightTotal++) ,secrets,alphaFloat);
+			if (killpos   == SBARRIGHT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(kills),-bHeightR-textSize*bottomRightTotal++) ,kills,alphaFloat);
+			if (timepos   == SBARRIGHT) DrawStatLine(sfnt,                          Font.CR_WHITE, (-sPush-fnt.StringWidth(time),-bHeightR-textSize*bottomRightTotal++) ,time,alphaFloat);
+			if(powerpos   == SBARRIGHT)
+				for(int i = 0; i < PowerupStrings.size(); i++) {
+					DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
+					(-sPush-fnt.StringWidth(PowerupStrings[i]),-bHeightR-textSize*bottomRightTotal++), PowerupStrings[i],alphaFloat);
+				}
+		}
+		if (!splitHUD.getint() || (splitHUD.getint() && screenSize.getInt() <= 10)) {
+			if(itempos     == SBARRIGHT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (-sPush,-bHeightR-textSize*bottomRightTotal++) ,items,alphaFloat);
+			if(secretpos   == SBARRIGHT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (-sPush,-bHeightR-textSize*bottomRightTotal++) ,secrets,alphaFloat);
+			if(killpos     == SBARRIGHT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (-sPush,-bHeightR-textSize*bottomRightTotal++) ,kills,alphaFloat);
+			if(timepos     == SBARRIGHT) DrawStatLine(sfnt,                          Font.CR_WHITE, (-sPush,-bHeightR-textSize*bottomRightTotal++) ,time,alphaFloat);
+			if(powerpos    == SBARRIGHT)
+				for(int i = 0; i < PowerupStrings.size(); i++) {
+					DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
+					(-sPush,-bHeightR-textSize*bottomRightTotal++), PowerupStrings[i],alphaFloat);
+				}
+		}
 	}
 
 	// =====================================================
@@ -475,7 +660,7 @@ mixin Class Stats
 
 		int scaleval;
 		// if (con_scale > 0) scaleval = !LZDoom ? (con_scale+1) / 2 : con_scale;
-		// else 
+		// else
 		if (uiscale == 0)
 		{
 			// Default should try to scale to 640x400
@@ -491,14 +676,14 @@ mixin Class Stats
 		int max = MAX(vmax, hmax);
 		return NewConsoleFont.GetHeight()*MAX(1, MIN(scaleval, max));
 	}
-	
+
 	// ==========================================================
 	// Helper Function to make string a specific length in a font
 	// ==========================================================
 	String makeLength(string input, font fnt, int length, string extender = ":")
 	{
 		if(fnt.StringWidth(input) > length) return input;
-		
+
 		int spacelength = (length - fnt.StringWidth(input))/fnt.StringWidth(" ");
 		string replacer = string.format(string.format("%%s%%%ds",spacelength), extender, "");
 		input.replace(extender,replacer);

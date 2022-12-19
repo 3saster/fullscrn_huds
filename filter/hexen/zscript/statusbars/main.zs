@@ -1,14 +1,15 @@
 Class SpecialHexenStatusBar : HexenStatusBar
 {
+	transient CVar screenSize;
 	transient CVar splitHUD;
 	transient CVar alphaValue;
 	transient CVar alphaOpaque;
-	
+
 	transient CVAR boomColors;
 	transient CVAR splitArms;
 	transient CVAR armorPoints;
 	transient CVAR automapHide;
-	
+
 	transient CVAR statsType;
 	transient CVAR statsFont;
 	transient CVAR statsCompColor;
@@ -36,20 +37,21 @@ Class SpecialHexenStatusBar : HexenStatusBar
 		OP_NUM = 1,
 		OP_NUMGRAPH = 2,
 	}
-	
+
 	override void Init()
 	{
 		Super.Init();
-		
+
+		screenSize  = CVar.FindCVar("screenblocks");
 		splitHUD    = CVar.FindCVar("fullhud_split");
 		alphaValue  = CVar.FindCVar("fullhud_trans");
 		alphaOpaque = CVar.FindCVar("fullhud_opaque");
-		
+
 		boomColors  = CVar.FindCVar("fullhud_boomcolors");
 		splitArms   = CVar.FindCVar("fullhud_splitarms");
 		armorPoints = CVar.FindCVar("fullhud_armorpoints");
 		automapHide = CVar.FindCVar("fullhud_automaphide");
-		
+
 		statsType      = CVar.FindCVar("fullhud_stats_type");
 		statsFont      = CVar.FindCVar("fullhud_stats_font");
 		statsCompColor = CVar.FindCVar("fullhud_stats_comp");
@@ -94,11 +96,11 @@ Class SpecialHexenStatusBar : HexenStatusBar
 	override void Draw (int state, double TicFrac)
 	{
 		BaseStatusBar.Draw (state, TicFrac);
-		
+
 		StatFont sfnt;
 		getStatFont(sfnt);
 		if(PowerupNames.size() == 0) setPowerupNames();
-		
+
 		if (state == HUD_StatusBar)
 		{
 			if(!(automapactive && automapHide.GetInt()))
@@ -138,7 +140,7 @@ Class SpecialHexenStatusBar : HexenStatusBar
 	{
 		return string.format("%s%s",s1,s2);
 	}
-	
+
 	// ========================
 	// Get texture width easily
 	// ========================
