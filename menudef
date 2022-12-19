@@ -1,5 +1,5 @@
 AddOptionMenu "HUDOptions" after "AltHUDOptions"
-{   
+{
 	Submenu "$FULLHUD_MODTITLE", "FullscreenStatusbarOptions"
 }
 
@@ -34,6 +34,8 @@ OptionValue "LevelStatsPosition"
 	4, "$FULLHUD_LSP_CR"
 	5, "$FULLHUD_LSP_BL"
 	6, "$FULLHUD_LSP_BR"
+	7, "$FULLHUD_LSP_SBL"
+	8, "$FULLHUD_LSP_SBR"
 }
 
 OptionValue "Colors"
@@ -83,7 +85,7 @@ OptionMenu "FullscreenStatusbarOptions"
 	Submenu "$FULLHUD_SETTINGSNAME_GENERAL",  "GeneralSettings"
 	Submenu "$FULLHUD_SETTINGSNAME_OPTIONAL", "OptionalSettings"
 	Submenu "$FULLHUD_SETTINGSNAME_STATS",    "StatsSettings"
-   	StaticText ""
+	StaticText ""
 	Submenu "$FULLHUD_SETTINGSNAME_CREDITS",  "FullscreenCredits"
 }
 
@@ -111,17 +113,17 @@ OptionMenu "OptionalSettings"
 
 	StaticText ""
 	FullHUDOption "$FULLHUD_OPTIONAL_BOOMHUD",              "$FULLHUD_OPTIONALTOOLTIP_BOOMHUD",     "fullhud_boomcolors", "OnOff", "", 0, 0
-	IfGame(Doom) 
+	IfGame(Doom)
 	{
 		FullHUDOption "$FULLHUD_OPTIONAL_BERSERK",      "$FULLHUD_OPTIONALTOOLTIP_BERSERK",     "fullhud_showberserk", "BerserkCross"
 	}
-	IfGame(Chex) 
+	IfGame(Chex)
 	{
 		FullHUDOption "$FULLHUD_OPTIONAL_CHEXLOGO",     "$FULLHUD_OPTIONALTOOLTIP_CHEXLOGO",     "fullhud_chexarms", "OnOff"
 	}
 	FullHUDOption "$FULLHUD_OPTIONAL_SPLITARMS",            "$FULLHUD_OPTIONALTOOLTIP_SPLITARMS",    "fullhud_splitarms", "OnOff", "fullhud_split"
-	IfGame(Doom, Chex) 
-	{	
+	IfGame(Doom, Chex)
+	{
 		FullHUDOption "$FULLHUD_OPTIONAL_INVREPLACE",   "$FULLHUD_OPTIONALTOOLTIP_INVREPLACE",   "fullhud_invovermug", "OnOff"
 	}
  	IfGame(Hexen)
@@ -209,5 +211,5 @@ ListMenu "FullscreenCredits"
 	StaticText -32,	148, "Delfino Furioso", red
 	StaticText  96,	148, "Hexen compatibility code patches", green
 	StaticText -32,	158, "scar45", red
-	StaticText  96,	158, "Stats adjacent to non-split status bar", green
+	StaticText  96,	158, "Stats positioned next to status bar", green
 }
