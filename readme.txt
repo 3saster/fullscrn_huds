@@ -66,7 +66,7 @@ Additional Credits to: id Software .................. Original Doom GFX
                        Nash Muhandes ................ Widescreen Heretic/Hexen status bars
                                                       Menu tooltips
                        Delfino Furioso .............. Hexen compatibility code patches
-                       scar45 ....................... Stats positioned next to status bar
+                       scar45 ....................... Status bar-aligned stats
 
 ===========================================================================
 * What is included *
@@ -105,8 +105,9 @@ Tested With          : GZDoom
 
 * CHANGELOG *
 
-> Version 5.1.12 (xx xx, 2022)
+> Version 5.1.12 (xx xx, 2024)
   [ALL] Stats: Added option to position next to statusbar (code by scar45)
+  [ALL] Stats: Hours in time widget only shown when needed
   [HEXEN] Compatibility with "Hexen Rebalanced" and "Tempered Arms" (code by Delfino Furioso)
 
 > Version 5.1.11 (Jun 7, 2022)
