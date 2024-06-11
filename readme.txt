@@ -100,7 +100,8 @@ Tested With          : GZDoom
 
 * CHANGELOG *
 
-> Version 5.1.12 (xx xx, 2022)
+> Version 5.1.12 (xx xx, 2024)
+  [ALL] Stats: Hours in time widget only shown when needed
   [HEXEN] Compatibility with "Hexen Rebalanced" and "Tempered Arms" (code by Delfino Furioso)
 
 > Version 5.1.11 (Jun 7, 2022)

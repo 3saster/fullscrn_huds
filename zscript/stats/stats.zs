@@ -294,7 +294,14 @@ mixin Class Stats
 		}
 		// Format Level time
 		int hubtime = Level.time/Thinker.TICRATE;
-		if (statTime.GetInt()) time = string.format("%02d:%02d:%02d",hubtime/3600,(hubtime/60)%60,hubtime%60);
+		if ((hubtime/3600) > 0)
+		{
+			if (statTime.GetInt()) time = string.format("%02d:%02d:%02d",hubtime/3600,(hubtime/60)%60,hubtime%60);
+                }
+		else
+		{
+                	if (statTime.GetInt()) time = string.format("%02d:%02d",(hubtime/60)%60,hubtime%60);
+		}
 		
 		// Format Powerups
 		Array<String> PowerupStrings;
