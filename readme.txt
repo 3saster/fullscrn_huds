@@ -108,6 +108,7 @@ Tested With          : GZDoom
 > Version 5.1.12 (xx xx, 2024)
   [ALL] Stats: Added option to position next to statusbar (code by scar45)
   [ALL] Stats: Hours in time widget only shown when needed
+  [DOOM] Non-split status bar: Fix for STARMS shown in (Alt-)DM
   [HEXEN] Compatibility with "Hexen Rebalanced" and "Tempered Arms" (code by Delfino Furioso)
 
 > Version 5.1.11 (Jun 7, 2022)

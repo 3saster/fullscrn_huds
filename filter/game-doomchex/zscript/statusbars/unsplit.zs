@@ -9,22 +9,12 @@ extend Class SpecialDoomStatusBar
 		double alphaFloatGraph = alphaO == OP_NUMGRAPH ? 1 : alphaFloat;
 		
 		// Draw Main STBAR Chunk
-		if(multiplayer)
-		{
-			if(deathmatch || teamplay)
-			{
-				DrawImage(addArms(HUD_DM), (0, 0), DI_SCREEN_CENTER_BOTTOM, alphaFloat);
-			}
-			else
-			{
-				DrawImage(addArms(HUD_SMP), (0, 0), DI_SCREEN_CENTER_BOTTOM, alphaFloat);
-			}
-			DrawImage("STFBANY", (-17, -32), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS|DI_TRANSLATABLE, alphaFloat);
-		}
+		if(deathmatch || teamplay)
+			DrawImage(addArms(HUD_DM), (0, 0), DI_SCREEN_CENTER_BOTTOM, alphaFloat);
 		else
-		{
 			DrawImage(addArms(HUD_SMP), (0, 0), DI_SCREEN_CENTER_BOTTOM, alphaFloat);
-		}
+		if(multiplayer)
+			DrawImage("STFBANY", (-17, -32), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS|DI_TRANSLATABLE, alphaFloat);
 		
 		// Draw Percent Symbols
 		int percentColor = GetPercentColor();
