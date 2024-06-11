@@ -29,8 +29,8 @@ FULLHUD_LSP_CL  = "Center left";
 FULLHUD_LSP_CR  = "Center right";
 FULLHUD_LSP_BL  = "Bottom left";
 FULLHUD_LSP_BR  = "Bottom right";
-FULLHUD_LSP_SBL = "Status Bar (Left)";
-FULLHUD_LSP_SBR = "Status Bar (Right)";
+FULLHUD_LSP_SBL = "Status Bar left";
+FULLHUD_LSP_SBR = "Status Bar right";
 
 // OptionValue "Colors"
 // OPTVAL_NONE = "None";
