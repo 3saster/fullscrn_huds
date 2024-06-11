@@ -211,5 +211,5 @@ ListMenu "FullscreenCredits"
 	StaticText -32,	148, "Delfino Furioso", red
 	StaticText  96,	148, "Hexen compatibility code patches", green
 	StaticText -32,	158, "scar45", red
-	StaticText  96,	158, "Stats positioned next to status bar", green
+	StaticText  96,	158, "Stats aligned next to status bar", green
 }
