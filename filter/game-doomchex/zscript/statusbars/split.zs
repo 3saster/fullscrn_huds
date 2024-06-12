@@ -122,9 +122,7 @@ extend Class SpecialDoomStatusBar
 				drawBerserk(alphaFloatGraph,true); // Draw Under Inventory
 				DrawInventoryIcon(CPlayer.mo.InvSel, (124+MUG_OFFSET, -16), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_CENTER, alpha:alphaFloatGraph);
 				if (CPlayer.mo.InvSel.Amount > 1)
-				{
 					DrawString(mAmountFont, FormatNumber(CPlayer.mo.InvSel.Amount), (139+MUG_OFFSET, -2-mIndexFontF.mFont.GetHeight()), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_LEFT_BOTTOM, Font.CR_GOLD, alpha:alphaFloatNum);
-				}
 			}
 			else
 			{
@@ -141,17 +139,13 @@ extend Class SpecialDoomStatusBar
 			{
 				DrawInventoryIcon(CPlayer.mo.InvSel, (163, -16), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_CENTER, alpha:alphaFloatGraph);
 				if (CPlayer.mo.InvSel.Amount > 1)
-				{
 					DrawString(mAmountFont, FormatNumber(CPlayer.mo.InvSel.Amount), (178, -2-mIndexFontF.mFont.GetHeight()), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_LEFT_BOTTOM, Font.CR_GOLD, alpha:alphaFloatNum);
-				}
 			}
 		}
 
 		// Draw Frags
 		if (deathmatch || teamplay)
-		{
 			DrawString(mAmountFont, FormatNumber(CPlayer.FragCount, 3), (139, -30), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_LEFT_BOTTOM|DI_NOSHADOW, Font.CR_RED, alpha:alphaFloatNum);
-		}
 		
 		// Compute how much space we have for the inventory bar
 		Vector2 scale = GetHUDScale();

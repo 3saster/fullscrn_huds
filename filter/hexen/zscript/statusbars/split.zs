@@ -23,9 +23,7 @@ extend Class SpecialHexenStatusBar
 		
 		// Draw frags
 		if (deathmatch || teamplay)
-		{
 			DrawString(mHUDFont, FormatNumber(CPlayer.FragCount, 3), (126, -17), DI_SCREEN_LEFT_BOTTOM|DI_TEXT_ALIGN_RIGHT, alpha:alphaFloatNum);
-		}
 		
 		// Draw Ammo
 		Ammo ammo1, ammo2;
@@ -100,20 +98,25 @@ extend Class SpecialHexenStatusBar
 		if (myClassName=="ClericPlayer" || myClassName=="ClericPlayerNew" || myClassName=="ClericTempered")
 		{
 			DrawImage("WPSLOT1", (-93, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloat);
-			if (CheckInventory(myCWeapName)) DrawImage("WPFULL1", (-93, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+			if (CheckInventory(myCWeapName))
+				DrawImage("WPFULL1", (-93, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
 			else
 			{
 				// These pieces are misaligned in GZDoom
 				int pieces = GetWeaponPieceMask(myCWeapName);
-				if (pieces & 1) DrawImage("WPIECEC1", (-93, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
-				if (pieces & 2) DrawImage("WPIECEC2", (-71, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
-				if (pieces & 4) DrawImage("WPIECEC3", (-58, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+				if (pieces & 1)
+					DrawImage("WPIECEC1", (-93, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+				if (pieces & 2)
+					DrawImage("WPIECEC2", (-71, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+				if (pieces & 4)
+					DrawImage("WPIECEC3", (-58, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
 			}
 		}
 		else if (myClassName=="MagePlayer" || myClassName=="MagePlayerNew" || myClassName=="MageTempered")
 		{
 			DrawImage("WPSLOT2", (-93, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloat);
-			if (CheckInventory(myMWeapName)) DrawImage("WPFULL2", (-93, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+			if (CheckInventory(myMWeapName))
+				DrawImage("WPFULL2", (-93, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
 			else
 			{
 				int pieces = GetWeaponPieceMask(myMWeapName);
@@ -125,7 +128,8 @@ extend Class SpecialHexenStatusBar
 		else if (myClassName=="FighterPlayer" || myClassName=="FighterPlayerNew" || myClassName=="FighterTempered")
 		{
 			DrawImage("WPSLOT0", (-93, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloat);
-			if (CheckInventory(myFWeapName)) DrawImage("WPFULL0", (-93, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+			if (CheckInventory(myFWeapName))
+				DrawImage("WPFULL0", (-93, -31), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
 			else
 			{
 				int pieces = GetWeaponPieceMask(myFWeapName);
@@ -177,9 +181,7 @@ extend Class SpecialHexenStatusBar
 		{
 			DrawInventoryIcon(CPlayer.mo.InvSel, (-111.5, -16), DI_ARTIFLASH|DI_ITEM_CENTER|DI_SCREEN_RIGHT_BOTTOM,alpha:alphaFloatGraph, boxsize:(28, 28));
 			if (CPlayer.mo.InvSel.Amount > 1)
-			{
 				DrawString(mIndexFont, FormatNumber(CPlayer.mo.InvSel.Amount, 3), (-97, -7), DI_SCREEN_RIGHT_BOTTOM|DI_TEXT_ALIGN_RIGHT, Font.CR_UNTRANSLATED, alpha:alphaFloatNum);
-			}
 		}
 	}
 }

@@ -149,16 +149,14 @@ mixin Class PowerupValues
 			morphtics = 0;
 			let inv = Powerup(CPlayer.mo.FindInventory("PowerMorph",true));
 			if( inv && inv.EffectTics > 0)
-			{
 				morphtics = inv.EffectTics;
-			}
 		}
 
 		String classname;
 		if(morphtics > 0)
 		{
 			// Pig (Hexen)
-			if     (pclass == "PigPlayer")
+			if(pclass == "PigPlayer")
 				classname = "$FULLHUD_POWERUP_MORPHPIG";
 			// Chicken (Heretic)
 			else if(pclass == "ChickenPlayer") 
@@ -173,7 +171,6 @@ mixin Class PowerupValues
 			else
 				classname = "$FULLHUD_POWERUP_MORPHDEFAULT";
 		}
-
 		return morphtics, classname;
 	}
 }

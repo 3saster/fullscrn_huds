@@ -16,9 +16,12 @@ extend Class SpecialHereticStatusBar
 		int ammoColor;
 		if(boomColors.getInt())
 		{
-			if		(amt1 <= maxamt/4) ammoColor = FONT.CR_RED;
-			else if (amt1 <= maxamt/2) ammoColor = FONT.CR_UNTRANSLATED;
-			else 					   ammoColor = FONT.CR_GREEN;
+			if (amt1 <= maxamt/4)
+				ammoColor = FONT.CR_RED;
+			else if (amt1 <= maxamt/2)
+				ammoColor = FONT.CR_UNTRANSLATED;
+			else
+				ammoColor = FONT.CR_GREEN;
 		}
 		else
 			ammoColor = FONT.CR_UNTRANSLATED;
@@ -34,10 +37,14 @@ extend Class SpecialHereticStatusBar
 		int healthColor;
 		if(boomColors.getInt())
 		{
-			if	(currHealth <= maxHealth/4) healthColor = FONT.CR_RED;
-			else if	(currHealth <= maxHealth/2) healthColor = FONT.CR_UNTRANSLATED;
-			else if	(currHealth <= maxHealth)   healthColor = FONT.CR_GREEN;
-			else 				    healthColor = FONT.CR_BLUE;
+			if(currHealth <= maxHealth/4)
+				healthColor = FONT.CR_RED;
+			else if	(currHealth <= maxHealth/2)
+				healthColor = FONT.CR_UNTRANSLATED;
+			else if	(currHealth <= maxHealth)
+				healthColor = FONT.CR_GREEN;
+			else
+				healthColor = FONT.CR_BLUE;
 		}
 		else
 			healthColor = FONT.CR_UNTRANSLATED;
@@ -52,9 +59,12 @@ extend Class SpecialHereticStatusBar
 		int armorColor;
 		if(boomColors.getInt())
 		{
-			if		(currArmor >= gameinfo.Armor2Percent*100) armorColor = FONT.CR_BLUE;
-			else if (currArmor > 0)							  armorColor = FONT.CR_GREEN;
-			else											  armorColor = FONT.CR_RED;
+			if (currArmor >= gameinfo.Armor2Percent*100)
+				armorColor = FONT.CR_BLUE;
+			else if (currArmor > 0)
+				armorColor = FONT.CR_GREEN;
+			else
+				armorColor = FONT.CR_RED;
 		}
 		else
 			armorColor = FONT.CR_UNTRANSLATED;

@@ -16,9 +16,12 @@ extend Class SpecialHexenStatusBar
 		int ammoColor;
 		if(boomColors.getInt())
 		{
-			if	(amt1 <= maxamt/4) ammoColor = FONT.CR_RED;
-			else if (amt1 <= maxamt/2) ammoColor = FONT.CR_UNTRANSLATED;
-			else 			   ammoColor = FONT.CR_GREEN;
+			if (amt1 <= maxamt/4)
+				ammoColor = FONT.CR_RED;
+			else if (amt1 <= maxamt/2)
+				ammoColor = FONT.CR_UNTRANSLATED;
+			else
+				ammoColor = FONT.CR_GREEN;
 		}
 		else
 			ammoColor = FONT.CR_UNTRANSLATED;
@@ -34,15 +37,17 @@ extend Class SpecialHexenStatusBar
 		int healthColor;
 		if(boomColors.getInt())
 		{
-			if	(currHealth <= maxHealth/4) healthColor = FONT.CR_RED;
-			else if	(currHealth <= maxHealth/2) healthColor = FONT.CR_UNTRANSLATED;
-			else if	(currHealth <= maxHealth)   healthColor = FONT.CR_GREEN;
-			else 				    healthColor = FONT.CR_LIGHTBLUE;
+			if (currHealth <= maxHealth/4)
+				healthColor = FONT.CR_RED;
+			else if	(currHealth <= maxHealth/2)
+				healthColor = FONT.CR_UNTRANSLATED;
+			else if	(currHealth <= maxHealth)
+				healthColor = FONT.CR_GREEN;
+			else
+				healthColor = FONT.CR_LIGHTBLUE;
 		}
 		else
-		{
 			healthColor = CPlayer.Health < 25? Font.CR_RED : Font.CR_UNTRANSLATED;
-		}
 			
 		return healthColor;	
 	}
@@ -59,10 +64,14 @@ extend Class SpecialHexenStatusBar
 		// Red = Minimum armor; Green = More than min, less than halfway to max armor; Lightblue = More than halfway to max armor; Purple: Possible with Dragonskin Bracers
 		if(boomColors.getInt())
 		{
-			if	(currArmor > maxArmor)			armorColor = FONT.CR_PURPLE;
-			else if	(currArmor >= (maxArmor+minArmor)/2)    armorColor = FONT.CR_LIGHTBLUE;
-			else if (currArmor > minArmor)			armorColor = FONT.CR_GREEN;
-			else						armorColor = FONT.CR_RED;
+			if (currArmor > maxArmor)
+				armorColor = FONT.CR_PURPLE;
+			else if	(currArmor >= (maxArmor+minArmor)/2)
+				armorColor = FONT.CR_LIGHTBLUE;
+			else if (currArmor > minArmor)
+				armorColor = FONT.CR_GREEN;
+			else
+				armorColor = FONT.CR_RED;
 		}
 		else
 			armorColor = FONT.CR_UNTRANSLATED;

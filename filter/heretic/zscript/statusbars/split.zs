@@ -51,12 +51,18 @@ extend Class SpecialHereticStatusBar
 		DrawString(mHUDFont, FormatNumber(GetArmorAmount(), 3), (87, -18), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_LEFT_BOTTOM, translation:armorColor, alpha:alphaFloatNum);
 		
 		// Draw Keys
-		if (CPlayer.mo.CheckKeys(1, false, true)) DrawImage("GKEYICON", (-105, -19), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
-			else DrawImage("NOKEY", (-105, -19), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
-		if (CPlayer.mo.CheckKeys(2, false, true)) DrawImage("BKEYICON", (-105, -11), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
-			else DrawImage("NOKEY", (-105, -11), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
-		if (CPlayer.mo.CheckKeys(3, false, true)) DrawImage("YKEYICON", (-105, -27), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
-			else DrawImage("NOKEY", (-105, -27), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
+		if (CPlayer.mo.CheckKeys(1, false, true))
+			DrawImage("GKEYICON", (-105, -19), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+		else
+			DrawImage("NOKEY", (-105, -19), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
+		if (CPlayer.mo.CheckKeys(2, false, true))
+			DrawImage("BKEYICON", (-105, -11), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+		else 
+			DrawImage("NOKEY", (-105, -11), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
+		if (CPlayer.mo.CheckKeys(3, false, true))
+			DrawImage("YKEYICON", (-105, -27), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
+		else 
+			DrawImage("NOKEY", (-105, -27), DI_ITEM_OFFSETS|DI_SCREEN_RIGHT_BOTTOM, alphaFloat);
 		
 		// Draw Frags + Color
 		if(multiplayer)
@@ -67,9 +73,7 @@ extend Class SpecialHereticStatusBar
 				DrawImage("DM_COL", (1, -1), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM|DI_TRANSLATABLE, alphaFloat);
 			}
 			else
-			{
 				DrawImage("COOP_COL", (1, -1), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM|DI_TRANSLATABLE, alphaFloat);
-			}
 		}
 
 		// Draw Split Arms over ammo display if CVAR is on
@@ -88,9 +92,7 @@ extend Class SpecialHereticStatusBar
 		{
 			DrawInventoryIcon(CPlayer.mo.InvSel, (-19, -16), DI_ITEM_CENTER|DI_SCREEN_RIGHT_BOTTOM, alpha:alphaFloatGraph);
 			if (CPlayer.mo.InvSel.Amount > 1)
-			{
 				DrawString(mIndexFont, FormatNumber(CPlayer.mo.InvSel.Amount), (-4, -3-mIndexFont.mFont.GetHeight()), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_RIGHT_BOTTOM, Font.CR_UNTRANSLATED, alpha:alphaFloatNum);
-			}
 		}
 		
 		// Compute how much space we have for the inventory bar

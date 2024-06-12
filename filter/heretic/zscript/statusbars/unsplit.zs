@@ -67,18 +67,19 @@ extend Class SpecialHereticStatusBar
 			DrawString(mHUDFont, FormatNumber(GetArmorAmount(), 3), (97.5+offset, -30), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_CENTER_BOTTOM, translation:armorColor, alpha:alphaFloatNum);
 			
 			// Draw Keys
-			if (CPlayer.mo.CheckKeys(3, false, true)) DrawImage("YKEYICON", (-4.5+offset, -36), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
-			if (CPlayer.mo.CheckKeys(1, false, true)) DrawImage("GKEYICON", (-4.5+offset, -28), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
-			if (CPlayer.mo.CheckKeys(2, false, true)) DrawImage("BKEYICON", (-4.5+offset, -20), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+			if (CPlayer.mo.CheckKeys(3, false, true))
+				DrawImage("YKEYICON", (-4.5+offset, -36), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+			if (CPlayer.mo.CheckKeys(1, false, true))
+				DrawImage("GKEYICON", (-4.5+offset, -28), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+			if (CPlayer.mo.CheckKeys(2, false, true))
+				DrawImage("BKEYICON", (-4.5+offset, -20), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 			
 			// Draw Inventory
 			if (CPlayer.mo.InvSel != null && !Level.NoInventoryBar)
 			{
 				DrawInventoryIcon(CPlayer.mo.InvSel, (36.5+offset, -25), DI_ITEM_CENTER|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 				if (CPlayer.mo.InvSel.Amount > 1)
-				{
 					DrawString(mIndexFont, FormatNumber(CPlayer.mo.InvSel.Amount), (51.5+offset, -12-mIndexFont.mFont.GetHeight()), DI_TEXT_ALIGN_RIGHT|DI_SCREEN_CENTER_BOTTOM, Font.CR_UNTRANSLATED, alpha:alphaFloatNum);
-				}
 			}
 		}
 		else

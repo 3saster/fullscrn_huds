@@ -86,9 +86,7 @@ Class SpecialHexenStatusBar : HexenStatusBar
 
 		// wiggle the chain if it moves
 		if (Level.time & 1)
-		{
 			chainWig = (mHealthInterpolator.GetValue() != CPlayer.health) && Random[ChainWiggle](0, 1);
-		}
 
 		statTick();
 	}
@@ -99,7 +97,8 @@ Class SpecialHexenStatusBar : HexenStatusBar
 
 		StatFont sfnt;
 		getStatFont(sfnt);
-		if(PowerupNames.size() == 0) setPowerupNames();
+		if(PowerupNames.size() == 0)
+			setPowerupNames();
 
 		if (state == HUD_StatusBar)
 		{

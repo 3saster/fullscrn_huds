@@ -299,10 +299,10 @@ mixin Class Stats
 		if ((hubtime/3600) > 0)
 		{
 			if (statTime.GetInt()) time = string.format("%02d:%02d:%02d",hubtime/3600,(hubtime/60)%60,hubtime%60);
-    }
+		}
 		else
 		{
-      if (statTime.GetInt()) time = string.format("%02d:%02d",(hubtime/60)%60,hubtime%60);
+			if (statTime.GetInt()) time = string.format("%02d:%02d",(hubtime/60)%60,hubtime%60);
 		}
     
 		// Format Powerups
@@ -446,7 +446,8 @@ mixin Class Stats
 		int sPushFontMementoMori = (VirtualWidth / 2) - 311;
 
 		// Setup correct values for left/right positioning based on whether Split Bar/Fullscreen is enabled
-		if (splitHUD.getint() && screenSize.getInt() > 10) {
+		if (splitHUD.getint() && screenSize.getInt() > 10) 
+		{
 			sPushFontDefault = 111;
 			sPushFontConsole = 225;
 			sPushFontStatus = 160;
@@ -454,14 +455,16 @@ mixin Class Stats
 		}
 
 		// Heretic/Hexen-specific modifications
-		if (gameinfo.gametype & GAME_Hexen || gameinfo.gametype & GAME_Heretic) {
+		if (gameinfo.gametype & GAME_Hexen || gameinfo.gametype & GAME_Heretic) 
+		{
 			sPushFontDefault = (VirtualWidth / 2) - 147;
 			sPushFontConsole = (VirtualWidth / 2) - 300;
 			sPushFontStatus = (VirtualWidth / 2) - 213;
 			sPushFontMementoMori = (VirtualWidth / 2) - 370;
 		}
 
-		if ((gameinfo.gametype & GAME_Hexen || gameinfo.gametype & GAME_Heretic) && (splitHUD.getint() && screenSize.getInt() > 10)) {
+		if ((gameinfo.gametype & GAME_Hexen || gameinfo.gametype & GAME_Heretic) && (splitHUD.getint() && screenSize.getInt() > 10)) 
+		{
 			sPushFontDefault = 76;
 			sPushFontConsole = 152;
 			sPushFontStatus = 108;
@@ -501,9 +504,8 @@ mixin Class Stats
 
 		// Slight offset for Hexen when stats are Status Bar (Right) and fullscreen
 		// 		and player has an inventory item, or is browsing inventory
-		if (gameinfo.gametype & GAME_Hexen && (splitHUD.getint() && screenSize.getInt() > 10) && isInventoryBarVisible()) {
+		if (gameinfo.gametype & GAME_Hexen && (splitHUD.getint() && screenSize.getInt() > 10) && isInventoryBarVisible()) 
 			sPush = 1000;
-		}
 
 		bottomLeftTotal = 0;
 		if (splitHUD.getint() && screenSize.getInt() > 10) {
@@ -512,18 +514,21 @@ mixin Class Stats
 			if (killpos   == SBARLEFT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (sPush,-bHeightL-textSize*bottomLeftTotal++) ,kills,alphaFloat);
 			if (timepos   == SBARLEFT) DrawStatLine(sfnt,                          Font.CR_WHITE, (sPush,-bHeightL-textSize*bottomLeftTotal++) ,time,alphaFloat);
 			if(powerpos   == SBARLEFT)
-				for(int i = 0; i < PowerupStrings.size(); i++) {
+				for(int i = 0; i < PowerupStrings.size(); i++) 
+				{
 					DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
 					(sPush,-bHeightL-textSize*bottomLeftTotal++), PowerupStrings[i],alphaFloat);
 				}
 		}
-		if (!splitHUD.getint() || (splitHUD.getint() && screenSize.getInt() <= 10)) {
+		if (!splitHUD.getint() || (splitHUD.getint() && screenSize.getInt() <= 10)) 
+		{
 			if(itempos     == SBARLEFT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (sPush-fnt.StringWidth(items),-bHeightL-textSize*bottomLeftTotal++) ,items,alphaFloat);
 			if(secretpos   == SBARLEFT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (sPush-fnt.StringWidth(secrets),-bHeightL-textSize*bottomLeftTotal++) ,secrets,alphaFloat);
 			if(killpos     == SBARLEFT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (sPush-fnt.StringWidth(kills),-bHeightL-textSize*bottomLeftTotal++) ,kills,alphaFloat);
 			if(timepos     == SBARLEFT) DrawStatLine(sfnt,                          Font.CR_WHITE, (sPush-fnt.StringWidth(time),-bHeightL-textSize*bottomLeftTotal++) ,time,alphaFloat);
 			if(powerpos    == SBARLEFT)
-				for(int i = 0; i < PowerupStrings.size(); i++) {
+				for(int i = 0; i < PowerupStrings.size(); i++) 
+				{
 					DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
 					(sPush-fnt.StringWidth(PowerupStrings[i]),-bHeightL-textSize*bottomLeftTotal++), PowerupStrings[i],alphaFloat);
 				}
@@ -555,7 +560,8 @@ mixin Class Stats
 		}
 
 		// Slight offset for Heretic when stats are Status Bar (Right) and fullscreen
-		if (gameinfo.gametype & GAME_Heretic && (splitHUD.getint() && screenSize.getInt() > 10)) {
+		if (gameinfo.gametype & GAME_Heretic && (splitHUD.getint() && screenSize.getInt() > 10)) 
+		{
 			switch(statsFont.GetInt())
 			{
 				case 0:
@@ -573,8 +579,10 @@ mixin Class Stats
 		}
 		// Slight offset for Hexen when stats are Status Bar (Right) and fullscreen
 		// 		and player has an inventory item, or is browsing inventory
-		if (gameinfo.gametype & GAME_Hexen && (splitHUD.getint() && screenSize.getInt() > 10)) {
-			if (CPlayer.mo.InvSel != null && !Level.NoInventoryBar) {
+		if (gameinfo.gametype & GAME_Hexen && (splitHUD.getint() && screenSize.getInt() > 10)) 
+		{
+			if (CPlayer.mo.InvSel != null && !Level.NoInventoryBar) 
+			{
 				switch(statsFont.GetInt())
 				{
 					case 0:
@@ -591,30 +599,33 @@ mixin Class Stats
 						break;
 				}
 			}
-			if (isInventoryBarVisible()) {
+			if (isInventoryBarVisible())
 				sPush = 1000;
-			}
 		}
 
 		bottomRightTotal = 0;
-		if (splitHUD.getint() && screenSize.getInt() > 10) {
+		if (splitHUD.getint() && screenSize.getInt() > 10) 
+		{
 			if (itempos   == SBARRIGHT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(items),-bHeightR-textSize*bottomRightTotal++) ,items,alphaFloat);
 			if (secretpos == SBARRIGHT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(secrets),-bHeightR-textSize*bottomRightTotal++) ,secrets,alphaFloat);
 			if (killpos   == SBARRIGHT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (-sPush-fnt.StringWidth(kills),-bHeightR-textSize*bottomRightTotal++) ,kills,alphaFloat);
 			if (timepos   == SBARRIGHT) DrawStatLine(sfnt,                          Font.CR_WHITE, (-sPush-fnt.StringWidth(time),-bHeightR-textSize*bottomRightTotal++) ,time,alphaFloat);
 			if(powerpos   == SBARRIGHT)
-				for(int i = 0; i < PowerupStrings.size(); i++) {
+				for(int i = 0; i < PowerupStrings.size(); i++) 
+				{
 					DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
 					(-sPush-fnt.StringWidth(PowerupStrings[i]),-bHeightR-textSize*bottomRightTotal++), PowerupStrings[i],alphaFloat);
 				}
 		}
-		if (!splitHUD.getint() || (splitHUD.getint() && screenSize.getInt() <= 10)) {
+		if (!splitHUD.getint() || (splitHUD.getint() && screenSize.getInt() <= 10)) 
+		{
 			if(itempos     == SBARRIGHT) DrawStatLine(sfnt, itemComp   ? compColor : Font.CR_WHITE, (-sPush,-bHeightR-textSize*bottomRightTotal++) ,items,alphaFloat);
 			if(secretpos   == SBARRIGHT) DrawStatLine(sfnt, secretComp ? compColor : Font.CR_WHITE, (-sPush,-bHeightR-textSize*bottomRightTotal++) ,secrets,alphaFloat);
 			if(killpos     == SBARRIGHT) DrawStatLine(sfnt, killComp   ? compColor : Font.CR_WHITE, (-sPush,-bHeightR-textSize*bottomRightTotal++) ,kills,alphaFloat);
 			if(timepos     == SBARRIGHT) DrawStatLine(sfnt,                          Font.CR_WHITE, (-sPush,-bHeightR-textSize*bottomRightTotal++) ,time,alphaFloat);
 			if(powerpos    == SBARRIGHT)
-				for(int i = 0; i < PowerupStrings.size(); i++) {
+				for(int i = 0; i < PowerupStrings.size(); i++) 
+				{
 					DrawStatLine(sfnt, (PowerupStrings[i] == morphString) ? Font.CR_ORANGE : Font.CR_YELLOW,
 					(-sPush,-bHeightR-textSize*bottomRightTotal++), PowerupStrings[i],alphaFloat);
 				}

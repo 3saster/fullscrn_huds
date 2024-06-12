@@ -13,9 +13,12 @@ extend Class SpecialHexenStatusBar
 
 		// Draw Health Gem
 		String Gem, Chain;
-		if      (CPlayer.mo is "ClericPlayer") { Gem = "LIFEGMC2"; Chain = "CHAIN2"; }
-		else if (CPlayer.mo is "MagePlayer")   { Gem = "LIFEGMM2"; Chain = "CHAIN3"; }
-		else { Gem = "LIFEGMF2"; Chain = "CHAIN"; }
+		if (CPlayer.mo is "ClericPlayer")
+			Gem = "LIFEGMC2"; Chain = "CHAIN2";
+		else if (CPlayer.mo is "MagePlayer")
+			Gem = "LIFEGMM2"; Chain = "CHAIN3";
+		else
+			Gem = "LIFEGMF2"; Chain = "CHAIN";
 
 		int inthealth =  mHealthInterpolator2.GetValue();
 		DrawGemTrans(Chain, Gem, inthealth, CPlayer.mo.GetMaxHealth(true), (-7, 0), -23, 49, 15, (multiplayer? DI_TRANSLATABLE : 0) | DI_ITEM_CENTER_BOTTOM | DI_SCREEN_CENTER_BOTTOM, alphaFloat); 
@@ -23,7 +26,6 @@ extend Class SpecialHexenStatusBar
 		DrawImage("LFEDGE", (-160, -7), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
 		DrawImage("RTEDGE", ( 117, -7), DI_SCREEN_CENTER_BOTTOM|DI_ITEM_OFFSETS, alphaFloat);
 		
-
 		// Draw Inventory Bar
 		if (isInventoryBarVisible())
 		{
@@ -53,9 +55,7 @@ extend Class SpecialHexenStatusBar
 			{
 				DrawInventoryIcon(CPlayer.mo.InvSel, (-0.5, -23), DI_ARTIFLASH|DI_ITEM_CENTER|DI_SCREEN_CENTER_BOTTOM,alpha:alphaFloatGraph, boxsize:(28, 28));
 				if (CPlayer.mo.InvSel.Amount > 1)
-				{
 					DrawString(mIndexFont, FormatNumber(CPlayer.mo.InvSel.Amount, 3), (14, -16), DI_SCREEN_CENTER_BOTTOM|DI_TEXT_ALIGN_RIGHT, Font.CR_UNTRANSLATED, alpha:alphaFloatNum);
-				}
 			}
 			
 			// Draw Armor
@@ -129,31 +129,42 @@ extend Class SpecialHexenStatusBar
 			string myFWeapName="FWeapQuietus";
 
 			// Change weapon names according to player class
-			if (myClassName=="ClericPlayerNew")  myCWeapName="CWeapWraithvergeNew";
-			if (myClassName=="MagePlayerNew")    myMWeapName="MWeapBloodscourgeNew";
-			if (myClassName=="FighterPlayerNew") myFWeapName="FWeapQuietusNew";
-			if (myClassName=="ClericTempered")   myCWeapName="Wraithverge";
-			if (myClassName=="MageTempered")     myMWeapName="Bloodscourge";
-			if (myClassName=="FighterTempered")  myFWeapName="Quietus";
+			if (myClassName=="ClericPlayerNew")
+				myCWeapName="CWeapWraithvergeNew";
+			if (myClassName=="MagePlayerNew")
+				myMWeapName="MWeapBloodscourgeNew";
+			if (myClassName=="FighterPlayerNew")
+				myFWeapName="FWeapQuietusNew";
+			if (myClassName=="ClericTempered")
+				myCWeapName="Wraithverge";
+			if (myClassName=="MageTempered")
+				myMWeapName="Bloodscourge";
+			if (myClassName=="FighterTempered")
+				myFWeapName="Quietus";
 			
 			// Draw Ultimate Weapon
 			if (myClassName=="ClericPlayer" || myClassName=="ClericPlayerNew" || myClassName=="ClericTempered")
 			{
 				DrawImage("WPSLOT1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloat);
-				if (CheckInventory(myCWeapName)) DrawImage("WPFULL1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+				if (CheckInventory(myCWeapName))
+					DrawImage("WPFULL1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 				else
 				{
 					// These pieces are misaligned in GZDoom
 					int pieces = GetWeaponPieceMask(myCWeapName);
-					if (pieces & 1) DrawImage("WPIECEC1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
-					if (pieces & 2) DrawImage("WPIECEC2", (52, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
-					if (pieces & 4) DrawImage("WPIECEC3", (65, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+					if (pieces & 1)
+						DrawImage("WPIECEC1", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+					if (pieces & 2)
+						DrawImage("WPIECEC2", (52, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+					if (pieces & 4)
+						DrawImage("WPIECEC3", (65, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 				}
 			}
 			else if (myClassName=="MagePlayer" || myClassName=="MagePlayerNew" || myClassName=="MageTempered")
 			{
 				DrawImage("WPSLOT2", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloat);
-				if (CheckInventory(myMWeapName)) DrawImage("WPFULL2", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+				if (CheckInventory(myMWeapName))
+					DrawImage("WPFULL2", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 				else
 				{
 					int pieces = GetWeaponPieceMask(myMWeapName);
@@ -165,7 +176,8 @@ extend Class SpecialHexenStatusBar
 			else if (myClassName=="FighterPlayer" || myClassName=="FighterPlayerNew" || myClassName=="FighterTempered")
 			{
 				DrawImage("WPSLOT0", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloat);
-				if (CheckInventory(myFWeapName)) DrawImage("WPFULL0", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
+				if (CheckInventory(myFWeapName))
+					DrawImage("WPFULL0", (30, -38), DI_ITEM_OFFSETS|DI_SCREEN_CENTER_BOTTOM, alpha:alphaFloatGraph);
 				else
 				{
 					int pieces = GetWeaponPieceMask(myFWeapName);

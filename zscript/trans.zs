@@ -51,32 +51,25 @@ mixin Class TransFunctions
 					if (item == CPlayer.mo.InvSel)
 					{
 						double flashAlpha = fgalpha;
-						if (flags & DI_ARTIFLASH) flashAlpha *= itemflashFade;
+						if (flags & DI_ARTIFLASH)
+							flashAlpha *= itemflashFade;
 						DrawTexture(parms.selector, position + parms.selectofs + (boxsize.X * i, 0), flags | DI_ITEM_LEFT_TOP, flashAlpha);
 					}
 				}
 				else
-				{
 					DrawInventoryIcon(item, itempos + (boxsize.X * i, 0), flags | DI_ITEM_CENTER, fgalpha );
-				}
 			}
 			
 			if (parms.amountfont != null && (item.Amount > 1 || (flags & DI_ALWAYSSHOWCOUNTERS)))
-			{
 				DrawString(parms.amountfont, FormatNumber(item.Amount, 0, 5), textpos + (boxsize.X * i, 0), flags | DI_TEXT_ALIGN_RIGHT, parms.cr, numalpha);
-			}
 			i++;
 		}
 		// Is there something to the left?
 		if (CPlayer.mo.FirstInv() != CPlayer.mo.InvFirst)
-		{
 			DrawTexture(parms.left, position + (-parms.arrowoffset.X, parms.arrowoffset.Y), flags | DI_ITEM_RIGHT|DI_ITEM_VCENTER, fgalpha);
-		}
 		// Is there something to the right?
 		if (item != NULL)
-		{
 			DrawTexture(parms.right, position + parms.arrowoffset + (width, 0), flags | DI_ITEM_LEFT|DI_ITEM_VCENTER, fgalpha);
-		}
 	}
 	
 	// ===============================================
@@ -85,7 +78,8 @@ mixin Class TransFunctions
 	void DrawBarTrans(String ongfx, String offgfx, double curval, double maxval, Vector2 position, int border, int vertical, int flags = 0, double trans = 1.)
 	{
 		let ontex = TexMan.CheckForTexture(ongfx, TexMan.TYPE_MiscPatch);
-		if (!ontex.IsValid()) return;
+		if (!ontex.IsValid())
+			return;
 		let offtex = TexMan.CheckForTexture(offgfx, TexMan.TYPE_MiscPatch);
 
 		Vector2 texsize = TexMan.GetScaledSize(ontex);
@@ -117,7 +111,8 @@ mixin Class TransFunctions
 			SetClipRect(position.X + Clip[0], position.Y + Clip[1], texsize.X - Clip[0] - Clip[2], texsize.Y - Clip[1] - Clip[3], flags);
 		}
 		
-		if (offtex.IsValid() && TexMan.GetScaledSize(offtex) == texsize) DrawTexture(offtex, position, flags | DI_ITEM_LEFT_TOP, trans);
+		if (offtex.IsValid() && TexMan.GetScaledSize(offtex) == texsize)
+			DrawTexture(offtex, position, flags | DI_ITEM_LEFT_TOP, trans);
 		else 
 		{
 			// Use partial transparency to prevent the foreground from being shown

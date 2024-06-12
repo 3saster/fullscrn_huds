@@ -116,24 +116,16 @@ class FullHUDMenu : OptionMenu
 		if (mDesc.mSelectedItem > 0)
 		{
 			if (mDesc.mItems[mDesc.mSelectedItem] is "OptionMenuItemFullHUDOption")
-			{
 				tt = StringTable.Localize(OptionMenuItemFullHUDOption(mDesc.mItems[mDesc.mSelectedItem]).mTooltip);
-			}
 
 			if (mDesc.mItems[mDesc.mSelectedItem] is "OptionMenuItemFullHUDSlider")
-			{
 				tt = StringTable.Localize(OptionMenuItemFullHUDSlider(mDesc.mItems[mDesc.mSelectedItem]).mTooltip);
-			}
 			
 			if (mDesc.mItems[mDesc.mSelectedItem] is "OptionMenuItemFullHUDScaleSlider")
-			{
 				tt = StringTable.Localize(OptionMenuItemFullHUDScaleSlider(mDesc.mItems[mDesc.mSelectedItem]).mTooltip);
-			}
 
 			if (mDesc.mItems[mDesc.mSelectedItem] is "OptionMenuItemFullHUDControl")
-			{
 				tt = StringTable.Localize(OptionMenuItemFullHUDControl(mDesc.mItems[mDesc.mSelectedItem]).mTooltip);
-			}
 		}
 
 		if (tt.Length() > 0)
