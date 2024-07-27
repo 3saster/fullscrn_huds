@@ -126,6 +126,22 @@ extend Class SpecialDoomStatusBar
 			HUD_LEFT  = "HUD_LEFT_NEIS";
 			HUD_RIGHT = "HUD_RIGHT_NEIS";
 			break;
+
+                // Widescreen statusbar support
+
+                case 'b82ee8cc0c7c39ebaf67708622edc119': // Spectrum Descent
+                        HUD_SMP   = "HUD_SMP_WIDE900P";
+                        HUD_DM    = "HUD_DM_WIDE900P";
+                        HUD_LEFT  = "HUD_LEFT_WIDE900P";
+                        HUD_RIGHT = "HUD_RIGHT_WIDE900P";
+                        break;
+
+                case '46687e1fbd991d9f3f184e312b7e6186': // Doom II In City Only
+                        HUD_SMP   = "HUD_SMP_WIDE960P";
+                        HUD_DM    = "HUD_DM_WIDE960P";
+                        HUD_LEFT  = "HUD_LEFT_WIDE960P";
+                        HUD_RIGHT = "HUD_RIGHT_WIDE960P";
+                        break;
 		}
 
 		if( isChex() )
