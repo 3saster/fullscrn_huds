@@ -142,6 +142,13 @@ extend Class SpecialDoomStatusBar
                         HUD_LEFT  = "HUD_LEFT_WIDE960P";
                         HUD_RIGHT = "HUD_RIGHT_WIDE960P";
                         break;
+
+                case '9480ff92d95f4812f4a613ddb2bb917e': // Simulacrum
+                        HUD_SMP   = "HUD_SMP_WIDE1600P";
+                        HUD_DM    = "HUD_DM_WIDE1600P";
+                        HUD_LEFT  = "HUD_LEFT_WIDE1600P";
+                        HUD_RIGHT = "HUD_RIGHT_WIDE1600P";
+                        break;
 		}
 
 		if( isChex() )

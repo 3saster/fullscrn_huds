@@ -111,6 +111,7 @@ Tested With          : GZDoom
   [DOOM] Non-split status bar: Fix for STARMS shown in (Alt-)DM
   [DOOM] Split status bar: Support for widescreen bars; currently supports
                            - Doom II In City Only
+                           - Simulacrum
                            - Spectrum Descent
   [HEXEN] Compatibility with "Hexen Rebalanced" and "Tempered Arms" (code by Delfino Furioso)
 
