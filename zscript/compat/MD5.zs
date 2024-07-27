@@ -67,7 +67,7 @@ Class MD5
 	{	
 		// Cut the last letter off, since readLump adds a null character to the string,
 		// causing the hash obtained to not match the actual hash of the file
-		if(trunc)
+                if (key.ByteAt(key.length() - 1) == 0)
 			key.Truncate(key.length() - 1);
 
 		// s specifies the per-round shift amounts

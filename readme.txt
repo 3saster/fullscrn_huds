@@ -58,6 +58,7 @@ Additional Credits to: id Software .................. Original Doom GFX
                        Raven Software ............... Original Heretic/Hexen GFX
                        3saster ...................... ZScript coding
                        bangstk ...................... Code for widescreen status bars
+                       Blue Shadow .................. MD5 checksum code fix
                        DTDsphere .................... Project initiator
                        Jimmy ........................ "MemenTwo" and "Status Report" fonts
                        Kinsie ....................... Dystopia 3 compatibility
@@ -108,6 +109,9 @@ Tested With          : GZDoom
 > Version 5.2.0 (xx xx, 2024)
   [ALL] Stats: Added option to position next to statusbar (code by scar45)
   [ALL] Stats: Hours in time widget only shown when needed
+  [DOOM] Fix for broken compatibility mode (MD5 checksums) support in GZDoom v4.11.0 and newer. 
+         This restores support for the Neural Upscale Pack and many other PWADs which required
+         compatibility fixes. Many thanks to Blue Shadow for the necessary code change!
   [DOOM] Non-split status bar: Fix for STARMS shown in (Alt-)DM
   [DOOM] Split status bar: Support for widescreen bars; currently supports
                            - Doom II In City Only
