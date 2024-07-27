@@ -77,13 +77,6 @@ extend Class SpecialDoomStatusBar
 			mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
 			break;
 
-		case 'f5545943edade0df9de4cb40ba36e083': // Neural Upscale 2X Pack
-			HUD_SMP   = "HUD_SMP_NEURAL";
-			HUD_DM    = "HUD_DM_NEURAL";
-			HUD_LEFT  = "HUD_LEFT_NEURAL";
-			HUD_RIGHT = "HUD_RIGHT_NEURAL";
-			break;
-
 		case 'a29f9e16dcb7ac8a744c4760f1ec9257': // Eternal Doom
 		case 'f2fea6600f7bec08d4bca8995163a3cb': // Mayhem 2048
 			HUD_LEFT  = "HUD_LEFT_ETERNAL";
@@ -127,7 +120,23 @@ extend Class SpecialDoomStatusBar
 			HUD_RIGHT = "HUD_RIGHT_NEIS";
 			break;
 
-                // Widescreen statusbar support
+                // HIGHRES
+
+		case 'f5545943edade0df9de4cb40ba36e083': // Neural Upscale 2X Pack
+			HUD_SMP   = "HUD_SMP_NEURAL";
+			HUD_DM    = "HUD_DM_NEURAL";
+			HUD_LEFT  = "HUD_LEFT_NEURAL";
+			HUD_RIGHT = "HUD_RIGHT_NEURAL";
+			break;
+
+		case '5cbb48660fdb94f2114e974bd4520e19': // Bloody Steel
+			HUD_SMP   = "HUD_SMP_BSTEEL";
+			HUD_DM    = "HUD_DM_BSTEEL";
+			HUD_LEFT  = "HUD_LEFT_BSTEEL";
+			HUD_RIGHT = "HUD_RIGHT_BSTEEL";
+			break;
+
+                // WIDESCREEN
 
                 case 'b82ee8cc0c7c39ebaf67708622edc119': // Spectrum Descent
                         HUD_SMP   = "HUD_SMP_WIDE900P";

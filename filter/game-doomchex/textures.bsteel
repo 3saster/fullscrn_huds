@@ -1,0 +1,41 @@
+// Non-split status bars (SP/MP/DM)
+Graphic "HUD_SMP_BSTEEL", 1280, 128
+{
+    xscale 4
+    yscale 4
+    Patch "STBAR", 0, 0 { UseOffsets }
+    Patch "STARMS", 416, 0 { UseOffsets }
+}
+Graphic "HUD_DM_BSTEEL", 1280, 128 
+{
+    xscale 4
+    yscale 4
+    Patch "STBAR", 0, 0 { UseOffsets }
+}
+
+// Split bar panels
+Graphic "MUGFRAME_BSTEEL", 140, 128
+{
+    xscale 4
+    yscale 4
+    Patch "STBAR", -572, 0 { UseOffsets }
+}
+Graphic "HUD_LEFT_BSTEEL", 572, 128
+{
+    xscale 4
+    yscale 4
+    Patch "STBAR", 0, 0 { UseOffsets }
+    Patch "MUGFRAME_BSTEEL", 428, 0
+}
+Graphic "HUD_RFIX_BSTEEL", 572, 128 
+{
+    xscale 4
+    yscale 4
+    Patch "STBAR", -712, 0 { UseOffsets }
+}
+Graphic "HUD_RIGHT_BSTEEL", 572, 128 
+{
+    xscale 4
+    yscale 4
+    Patch "HUD_RFIX_BSTEEL", 4, 0
+}

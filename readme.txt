@@ -109,12 +109,12 @@ Tested With          : GZDoom
 > Version 5.2.0 (xx xx, 2024)
   [ALL] Stats: Added option to position next to statusbar (code by scar45)
   [ALL] Stats: Hours in time widget only shown when needed
-  [DOOM] Fix for broken compatibility mode (MD5 hashes) support in GZDoom v4.11.0 and newer. 
+  [DOOM] Fix for broken compatibility mode support (MD5 hashes) in GZDoom v4.11.0 and newer. 
          This restores support for the Neural Upscale Pack and many other PWADs which required
          compatibility fixes. Many thanks to AFADoomer and Blue Shadow for the code update!
   [DOOM] Non-split status bar: Fix for STARMS shown in (Alt-)DM
   [DOOM] Split status bar: Support for widescreen bars; currently supports
-                           Doom II In City Only, Simulacrum, Spectrum Descent
+                           "Bloody Steel", "Doom II In City Only", "Simulacrum", "Spectrum Descent"
   [HEXEN] Compatibility with "Hexen Rebalanced" and "Tempered Arms" (code by Delfino Furioso)
 
 > Version 5.1.11 (Jun 7, 2022)
