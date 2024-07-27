@@ -130,10 +130,12 @@ extend Class SpecialDoomStatusBar
 			break;
 
 		case '5cbb48660fdb94f2114e974bd4520e19': // Bloody Steel
-			HUD_SMP   = "HUD_SMP_BSTEEL";
-			HUD_DM    = "HUD_DM_BSTEEL";
-			HUD_LEFT  = "HUD_LEFT_BSTEEL";
-			HUD_RIGHT = "HUD_RIGHT_BSTEEL";
+			HUD_SMP     = "HUD_SMP_BSTEEL";
+			HUD_DM      = "HUD_DM_BSTEEL";
+			HUD_LEFT    = "HUD_LEFT_BSTEEL";
+			HUD_RIGHT   = "HUD_RIGHT_BSTEEL";
+                        MUG_OFFSET  = 2;
+                        ARMS_OFFSET = 2;
 			break;
 
                 // WIDESCREEN

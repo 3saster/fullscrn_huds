@@ -25,7 +25,7 @@ Graphic "HUD_LEFT_BSTEEL", 572, 128
     xscale 4
     yscale 4
     Patch "STBAR", 0, 0 { UseOffsets }
-    Patch "MUGFRAME_BSTEEL", 428, 0
+    Patch "MUGFRAME_BSTEEL", 436, 0
 }
 Graphic "HUD_RFIX_BSTEEL", 572, 128 
 {
