@@ -57,8 +57,8 @@ Known issues         : [CHEX] Logo replacement will only look good if default ST
 Additional Credits to: id Software .................. Original Doom GFX
                        Raven Software ............... Original Heretic/Hexen GFX
                        3saster ...................... ZScript coding
+                       AFADoomer .................... MD5 hashing script fix
                        bangstk ...................... Code for widescreen status bars
-                       Blue Shadow .................. MD5 checksum code fix
                        DTDsphere .................... Project initiator
                        Jimmy ........................ "MemenTwo" and "Status Report" fonts
                        Kinsie ....................... Dystopia 3 compatibility
@@ -109,14 +109,12 @@ Tested With          : GZDoom
 > Version 5.2.0 (xx xx, 2024)
   [ALL] Stats: Added option to position next to statusbar (code by scar45)
   [ALL] Stats: Hours in time widget only shown when needed
-  [DOOM] Fix for broken compatibility mode (MD5 checksums) support in GZDoom v4.11.0 and newer. 
+  [DOOM] Fix for broken compatibility mode (MD5 hashes) support in GZDoom v4.11.0 and newer. 
          This restores support for the Neural Upscale Pack and many other PWADs which required
-         compatibility fixes. Many thanks to Blue Shadow for the necessary code change!
+         compatibility fixes. Many thanks to AFADoomer and Blue Shadow for the code update!
   [DOOM] Non-split status bar: Fix for STARMS shown in (Alt-)DM
   [DOOM] Split status bar: Support for widescreen bars; currently supports
-                           - Doom II In City Only
-                           - Simulacrum
-                           - Spectrum Descent
+                           Doom II In City Only, Simulacrum, Spectrum Descent
   [HEXEN] Compatibility with "Hexen Rebalanced" and "Tempered Arms" (code by Delfino Furioso)
 
 > Version 5.1.11 (Jun 7, 2022)
