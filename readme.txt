@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom 4.3.0+ / LZDoom 3.84+
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.2.0)
+Title                : Fullscreen Status Bar Mod (v5.2.1)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : 07/29/2024
+Release date         : XX/XX/2024
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -105,6 +105,10 @@ Tested With          : GZDoom
 
 
 * CHANGELOG *
+
+> Version 5.2.1 (XXX XX, 2024)
+  [DOOM] Split status bar: Widescreen bar support for RRSP3 ("If You're Into It, I'm Out Of It", "Forgotten Eden",
+                           "Rain Currently Known As Purple", "Drowsy Journey", "ZX-27 Outpost")
 
 > Version 5.2.0 (Jul 29, 2024)
   [ALL] Stats: Added option to position next to statusbar (code by scar45)
