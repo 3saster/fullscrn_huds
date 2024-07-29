@@ -193,6 +193,8 @@ extend Class SpecialDoomStatusBar
 		string ammoString;
 		if( isPirateDoom() )
 			ammoString = "Bullets, Shell, ballammo, dynamiteammo";
+		else if( isBrutalDoom() )
+			ammoString = "Clip2, AmmoShell, AmmoRocket, AmmoCell";
 		else if( isHacX() )
 			ammoString = "HacxRounds, HacxCartridges, HacxTorpedo, HacxMolecules";
 		else if ( isHarmony() )

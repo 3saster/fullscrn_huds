@@ -57,4 +57,14 @@ mixin Class CompatFunctions
 			return offset;
 		return 0;
 	}
+
+	// ======================================
+	// Wrapper to add offsets for Brutal Doom
+	// ======================================
+	float isBrutalDoom(float offset = 1.0)
+	{
+		if(Wads.CheckNumForName("ANIMFSA",0)!=-1 && Wads.CheckNumForName("BOTINFO",0)!=-1 && Wads.CheckNumForName("CMPGNINF",0)!=-1 && Wads.CheckNumForName("DYNAMICLEV",0)!=-1)
+			return offset;
+		return 0;
+	}
 }

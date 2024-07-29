@@ -3,7 +3,7 @@ Advanced engine needed  : GZDoom 4.3.0+ / LZDoom 3.84+
 ===========================================================================
 Title                : Fullscreen Status Bar Mod (v5.2.0)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : xx/xx/2024
+Release date         : 07/29/2024
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -106,9 +106,10 @@ Tested With          : GZDoom
 
 * CHANGELOG *
 
-> Version 5.2.0 (xx xx, 2024)
+> Version 5.2.0 (Jul 29, 2024)
   [ALL] Stats: Added option to position next to statusbar (code by scar45)
   [ALL] Stats: Hours in time widget only shown when needed
+  [DOOM] Compatibility for Brutal Doom v2.1 (fixes non-functional ammo overview)
   [DOOM] Fix for broken compatibility mode support (MD5 hashes) in GZDoom v4.11.0 and newer. 
          This restores support for the Neural Upscale Pack and many other PWADs which required
          compatibility fixes. Many thanks to AFADoomer and Blue Shadow for the code update!
