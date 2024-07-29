@@ -1,0 +1,9 @@
+// Split bar panels
+Graphic "HUD_RFIX_DOOMUNITY", 143, 32 
+{
+    	Patch "STBAR", -231, 0 { UseOffsets }
+}
+Graphic "HUD_RIGHT_DOOMUNITY", 145, 32 
+{
+    	Patch "HUD_RFIX_DOOMUNITY", 2, 0
+}

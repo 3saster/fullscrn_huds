@@ -107,8 +107,8 @@ Tested With          : GZDoom
 * CHANGELOG *
 
 > Version 5.2.1 (XXX XX, 2024)
-  [DOOM] Split status bar: Widescreen bar support for RRSP3 ("If You're Into It, I'm Out Of It", "Rain Currently 
-                           Known As Purple")
+  [DOOM] Split status bar: Widescreen bar support for Doom (Unity), "RRSP3" ("If You're Into It, I'm Out Of It",
+                           "Rain Currently Known As Purple")
 
 > Version 5.2.0 (Jul 29, 2024)
   [ALL] Stats: Added option to position next to statusbar (code by scar45)
