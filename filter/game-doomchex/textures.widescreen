@@ -1,0 +1,170 @@
+// Widescreen statusbar compatibility
+// STBAR values: HUD_SMP/DM/LEFT -(x = width-320 / 2) | MUGFRAME -(x+143) | HUD_RIGHT -(x+178)
+
+// 426p width
+Graphic "HUD_SMP_WIDE426P", 320, 32
+{
+    	Patch "STBAR", -53, 0 { UseOffsets }
+    	Patch "STARMS", 104, 0 { UseOffsets }
+}
+Graphic "HUD_DM_WIDE426P", 320, 32 
+{
+    	Patch "STBAR", -53, 0 { UseOffsets }
+}
+Graphic "MUGFRAME_WIDE426P", 35, 32 
+{
+    	Patch "STBAR", -196, 0 { UseOffsets }
+}
+Graphic "HUD_LEFT_WIDE426P", 143, 32 
+{
+    	Patch "STBAR", -53, 0 { UseOffsets }
+    	Patch "MUGFRAME_WIDE426P", 107, 0
+}
+Graphic "HUD_RIGHT_WIDE426P", 143, 32 
+{
+    	Patch "STBAR", -231, 0 { UseOffsets }
+}
+
+// 428p width
+Graphic "HUD_SMP_WIDE428P", 320, 32
+{
+    	Patch "STBAR", -54, 0 { UseOffsets }
+    	Patch "STARMS", 104, 0 { UseOffsets }
+}
+Graphic "HUD_DM_WIDE428P", 320, 32 
+{
+    	Patch "STBAR", -54, 0 { UseOffsets }
+}
+Graphic "MUGFRAME_WIDE428P", 35, 32 
+{
+    	Patch "STBAR", -197, 0 { UseOffsets }
+}
+Graphic "HUD_LEFT_WIDE428P", 143, 32 
+{
+    	Patch "STBAR", -54, 0 { UseOffsets }
+    	Patch "MUGFRAME_WIDE428P", 107, 0
+}
+Graphic "HUD_RIGHT_WIDE428P", 143, 32 
+{
+    	Patch "STBAR", -232, 0 { UseOffsets }
+}
+
+// 574p width
+Graphic "HUD_SMP_WIDE574P", 320, 32
+{
+    	Patch "STBAR", -127, 0 { UseOffsets }
+    	Patch "STARMS", 104, 0 { UseOffsets }
+}
+Graphic "HUD_DM_WIDE574P", 320, 32 
+{
+    	Patch "STBAR", -127, 0 { UseOffsets }
+}
+Graphic "MUGFRAME_WIDE574P", 35, 32 
+{
+    	Patch "STBAR", -270, 0 { UseOffsets }
+}
+Graphic "HUD_LEFT_WIDE574P", 143, 32 
+{
+    	Patch "STBAR", -127, 0 { UseOffsets }
+    	Patch "MUGFRAME_WIDE574P", 107, 0
+}
+Graphic "HUD_RIGHT_WIDE574P", 143, 32 
+{
+    	Patch "STBAR", -305, 0 { UseOffsets }
+}
+
+// 576p width
+Graphic "HUD_SMP_WIDE576P", 320, 32
+{
+    	Patch "STBAR", -128, 0 { UseOffsets }
+    	Patch "STARMS", 104, 0 { UseOffsets }
+}
+Graphic "HUD_DM_WIDE576P", 320, 32 
+{
+    	Patch "STBAR", -128, 0 { UseOffsets }
+}
+Graphic "MUGFRAME_WIDE576P", 35, 32 
+{
+    	Patch "STBAR", -271, 0 { UseOffsets }
+}
+Graphic "HUD_LEFT_WIDE576P", 143, 32 
+{
+    	Patch "STBAR", -128, 0 { UseOffsets }
+    	Patch "MUGFRAME_WIDE576P", 107, 0
+}
+Graphic "HUD_RIGHT_WIDE576P", 143, 32 
+{
+    	Patch "STBAR", -306, 0 { UseOffsets }
+}
+
+// 900p width
+Graphic "HUD_SMP_WIDE900P", 320, 32
+{
+    	Patch "STBAR", -290, 0 { UseOffsets }
+    	Patch "STARMS", 104, 0 { UseOffsets }
+}
+Graphic "HUD_DM_WIDE900P", 320, 32 
+{
+    	Patch "STBAR", -290, 0 { UseOffsets }
+}
+Graphic "MUGFRAME_WIDE900P", 35, 32 
+{
+    	Patch "STBAR", -433, 0 { UseOffsets }
+}
+Graphic "HUD_LEFT_WIDE900P", 143, 32 
+{
+    	Patch "STBAR", -290, 0 { UseOffsets }
+    	Patch "MUGFRAME_WIDE900P", 107, 0
+}
+Graphic "HUD_RIGHT_WIDE900P", 143, 32 
+{
+    	Patch "STBAR", -468, 0 { UseOffsets }
+}
+
+// 960p width
+Graphic "HUD_SMP_WIDE960P", 320, 32
+{
+    	Patch "STBAR", -320, 0 { UseOffsets }
+    	Patch "STARMS", 104, 0 { UseOffsets }
+}
+Graphic "HUD_DM_WIDE960P", 320, 32 
+{
+    	Patch "STBAR", -320, 0 { UseOffsets }
+}
+Graphic "MUGFRAME_WIDE960P", 35, 32 
+{
+    	Patch "STBAR", -463, 0 { UseOffsets }
+}
+Graphic "HUD_LEFT_WIDE960P", 143, 32 
+{
+    	Patch "STBAR", -320, 0 { UseOffsets }
+    	Patch "MUGFRAME_WIDE960P", 107, 0
+}
+Graphic "HUD_RIGHT_WIDE960P", 143, 32 
+{
+    	Patch "STBAR", -498, 0 { UseOffsets }
+}
+
+// 1600p width
+Graphic "HUD_SMP_WIDE1600P", 320, 32
+{
+    	Patch "STBAR", -640, 0 { UseOffsets }
+    	Patch "STARMS", 104, 0 { UseOffsets }
+}
+Graphic "HUD_DM_WIDE1600P", 320, 32 
+{
+    	Patch "STBAR", -640, 0 { UseOffsets }
+}
+Graphic "MUGFRAME_WIDE1600P", 35, 32 
+{
+    	Patch "STBAR", -783, 0 { UseOffsets }
+}
+Graphic "HUD_LEFT_WIDE1600P", 143, 32 
+{
+    	Patch "STBAR", -640, 0 { UseOffsets }
+    	Patch "MUGFRAME_WIDE1600P", 107, 0
+}
+Graphic "HUD_RIGHT_WIDE1600P", 143, 32 
+{
+    	Patch "STBAR", -818, 0 { UseOffsets }
+}
