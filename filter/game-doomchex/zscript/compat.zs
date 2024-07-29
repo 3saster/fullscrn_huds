@@ -125,15 +125,8 @@ extend Class SpecialDoomStatusBar
                         case 'b57ae3849a4415559176c1ff9ec30e47': // If You're Into It, I'm Out Of It (RRSP3)
                         	HUD_SMP   = "HUD_SMP_WIDE426P";
                         	HUD_DM    = "HUD_DM_WIDE426P";
-                        	HUD_LEFT  = "HUD_LEFT_WIDE426P";
+                        	HUD_LEFT  = "HUD_LEFT_INTOIT";
                         	HUD_RIGHT = "HUD_RIGHT_WIDE426P";
-                        break;
-
-                        case '4bfd78e34942e38b53883c2705261a18': // Forgotten Eden (RRSP3)
-                        	HUD_SMP   = "HUD_SMP_WIDE486P";
-                        	HUD_DM    = "HUD_DM_WIDE486P";
-                        	HUD_LEFT  = "HUD_LEFT_WIDE486P";
-                        	HUD_RIGHT = "HUD_RIGHT_WIDE486P";
                         break;
 
                 	case 'b82ee8cc0c7c39ebaf67708622edc119': // Spectrum Descent
@@ -144,19 +137,17 @@ extend Class SpecialDoomStatusBar
                         break;
 
                 	case '46687e1fbd991d9f3f184e312b7e6186': // Doom II In City Only
-                        case '0725650c1348e2cfba08f70897b8adf1': // Rain Currently Known As Purple (RRSP3)
                         	HUD_SMP   = "HUD_SMP_WIDE960P";
                         	HUD_DM    = "HUD_DM_WIDE960P";
                         	HUD_LEFT  = "HUD_LEFT_WIDE960P";
                         	HUD_RIGHT = "HUD_RIGHT_WIDE960P";
                         break;
 
-                	case 'b0220153c9b066f9f547a11dabe9eaaa': // Drowsy Journey (RRSP3)
-                	case 'f818cf059d00352641a40b09a3734e83': // ZX-27 Outpost (RRSP3)
-                        	HUD_SMP   = "HUD_SMP_WIDE1000P";
-                        	HUD_DM    = "HUD_DM_WIDE1000P";
-                        	HUD_LEFT  = "HUD_LEFT_WIDE1000P";
-                        	HUD_RIGHT = "HUD_RIGHT_WIDE1000P";
+                        case '0725650c1348e2cfba08f70897b8adf1': // Rain Currently Known As Purple (RRSP3)
+                        	HUD_SMP   = "HUD_SMP_WIDE960P";
+                        	HUD_DM    = "HUD_DM_WIDE960P";
+                        	HUD_LEFT  = "HUD_LEFT_RAINPURP";
+                        	HUD_RIGHT = "HUD_RIGHT_WIDE960P";
                         break;
 
                 	case '9480ff92d95f4812f4a613ddb2bb917e': // Simulacrum
