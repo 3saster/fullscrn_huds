@@ -49,6 +49,30 @@ Graphic "HUD_RIGHT_WIDE428P", 143, 32
     	Patch "STBAR", -232, 0 { UseOffsets }
 }
 
+// 430p width
+Graphic "HUD_SMP_WIDE430P", 320, 32
+{
+    	Patch "STBAR", -55, 0 { UseOffsets }
+    	Patch "STARMS", 104, 0 { UseOffsets }
+}
+Graphic "HUD_DM_WIDE430P", 320, 32 
+{
+    	Patch "STBAR", -55, 0 { UseOffsets }
+}
+Graphic "MUGFRAME_WIDE430P", 35, 32 
+{
+    	Patch "STBAR", -198, 0 { UseOffsets }
+}
+Graphic "HUD_LEFT_WIDE430P", 143, 32 
+{
+    	Patch "STBAR", -55, 0 { UseOffsets }
+    	Patch "MUGFRAME_WIDE430P", 107, 0
+}
+Graphic "HUD_RIGHT_WIDE430P", 143, 32 
+{
+    	Patch "STBAR", -233, 0 { UseOffsets }
+}
+
 // 486p width
 Graphic "HUD_SMP_WIDE486P", 320, 32
 {

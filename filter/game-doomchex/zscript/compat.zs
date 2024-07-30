@@ -136,6 +136,13 @@ extend Class SpecialDoomStatusBar
                         	HUD_RIGHT = "HUD_RIGHT_WIDE426P";
                         break;
 
+                        case 'd84cfb0cbb6d521462fb5ad5495dd89a': // Super Doom TV
+                        	HUD_SMP   = "HUD_SMP_WIDE430P";
+                        	HUD_DM    = "HUD_DM_WIDE430P";
+                        	HUD_LEFT  = "HUD_LEFT_SDTV";
+                        	HUD_RIGHT = "HUD_RIGHT_SDTV";
+                        break;
+
                 	case 'b82ee8cc0c7c39ebaf67708622edc119': // Spectrum Descent
                         	HUD_SMP   = "HUD_SMP_WIDE900P";
                         	HUD_DM    = "HUD_DM_WIDE900P";
