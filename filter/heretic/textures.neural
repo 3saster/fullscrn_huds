@@ -1,34 +1,34 @@
-Graphic "BARBACK_NEURAL", 960, 126
+Graphic BARBACK_NEURAL, 960, 126
 {
 	xscale 3
 	yscale 3
-	Patch "BARB_NEU", 0, 0
+	Patch BARB_NEU, 0, 0
 }
 
-Graphic "LTFCTOP_NEURAL", 80, 32
+Graphic LTFCTOP_NEURAL, 80, 32
 {
 	xscale 3.2
 	yscale 3.2
-	Patch "LTFCTOP", 0, 0
+	Patch LTFCTOP, 0, 0
 }
 
-Graphic "RTFCTOP_NEURAL", 83, 32
+Graphic RTFCTOP_NEURAL, 83, 32
 {
 	xscale 2.76
 	yscale 3.2
-	Patch "RTFCTOP", 3, 0
+	Patch RTFCTOP, 3, 0
 }
 
-Graphic "GOD1_NEURAL", 48, 24
+Graphic GOD1_NEURAL, 48, 24
 {
 	xscale 3
 	yscale 3
-	Patch "GOD1_NEU", 0, 0
+	Patch GOD1_NEU, 0, 0
 }
 
-Graphic "GOD2_NEURAL", 48, 24
+Graphic GOD2_NEURAL, 48, 24
 {
 	xscale 3
 	yscale 3
-	Patch "GOD2_NEU", 0, 0
+	Patch GOD2_NEU, 0, 0
 }

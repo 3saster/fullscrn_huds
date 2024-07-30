@@ -1,14 +1,14 @@
 // Split bar panels (left: -2px, right: +5px)
-Graphic "HUD_LFIX_NEIS", 141, 32 
+Graphic HUD_LFIX_NEIS, 141, 32 
 {
-    	Patch "STBAR", 0, 0 { UseOffsets }
-    	Patch "MUGFRAME", 107, 0
+    	Patch STBAR, 0, 0 { UseOffsets }
+    	Patch MUGFRAME, 107, 0
 }
-Graphic "HUD_LEFT_NEIS", 143, 32 
+Graphic HUD_LEFT_NEIS, 143, 32 
 {
-	Patch "HUD_LFIX_NEIS", 0, 0
+	Patch HUD_LFIX_NEIS, 0, 0
 }
-Graphic "HUD_RIGHT_NEIS", 150, 32 
+Graphic HUD_RIGHT_NEIS, 150, 32 
 {
-    	Patch "STBAR", -173, 0 { UseOffsets }
+    	Patch STBAR, -173, 0 { UseOffsets }
 }

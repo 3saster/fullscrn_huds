@@ -1,18 +1,18 @@
 // Split bar panels
-Graphic "HUD_LFIX_SDTV", 142, 32 
+Graphic HUD_LFIX_SDTV, 142, 32 
 {
-    	Patch "STBAR", -55, 0 { UseOffsets }
-    	Patch "MUGFRAME_WIDE430P", 107, 0
+    	Patch STBAR, -55, 0 { UseOffsets }
+    	Patch MUGFRAME_WIDE430P, 107, 0
 }
-Graphic "HUD_LEFT_SDTV", 143, 32 
+Graphic HUD_LEFT_SDTV, 143, 32 
 {
-	Patch "HUD_LFIX_SDTV", 0, 0
+	Patch HUD_LFIX_SDTV, 0, 0
 }
-Graphic "HUD_RFIX_SDTV", 143, 32 
+Graphic HUD_RFIX_SDTV, 143, 32 
 {
-    	Patch "STBAR", -232, 0 { UseOffsets }
+    	Patch STBAR, -232, 0 { UseOffsets }
 }
-Graphic "HUD_RIGHT_SDTV", 145, 32 
+Graphic HUD_RIGHT_SDTV, 145, 32 
 {
-    	Patch "HUD_RFIX_SDTV", 1, 0
+    	Patch HUD_RFIX_SDTV, 1, 0
 }

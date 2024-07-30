@@ -1,13 +1,13 @@
 // Split bar with invulnerability indicator
-Graphic "BAR_INV1", 94, 28
+Graphic BAR_INV1, 94, 28
 {
-    	Patch "BAR_LEFT", 0, 0
-    	Patch "GOD_LIFE", 12, 6
-    	Patch "GOD_ARMR", 58, 6
+    	Patch BAR_LEFT, 0, 0
+    	Patch GOD_LIFE, 12, 6
+    	Patch GOD_ARMR, 58, 6
 }
-Graphic "BAR_INV2", 145, 28
+Graphic BAR_INV2, 145, 28
 {
-    	Patch "BAR_KILL", 0, 0
-    	Patch "GOD_LIFE", 12, 6
-    	Patch "GOD_ARMR", 58, 6
+    	Patch BAR_KILL, 0, 0
+    	Patch GOD_LIFE, 12, 6
+    	Patch GOD_ARMR, 58, 6
 }

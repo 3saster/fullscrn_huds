@@ -1,133 +1,133 @@
 // Highres statusbar compatibility
 
 // 2x resolution (640p)
-Graphic "HUD_SMP_HIRES2X", 640, 64
+Graphic HUD_SMP_HIRES2X, 640, 64
 {
     xscale 2
     yscale 2
-    Patch "STBAR", 0, 0 { UseOffsets }
-    Patch "STARMS", 208, 0 { UseOffsets }
+    Patch STBAR, 0, 0
+    Patch STARMS, 208, 0
 }
-Graphic "HUD_DM_HIRES2X", 640, 64 
+Graphic HUD_DM_HIRES2X, 640, 64 
 {
     xscale 2
     yscale 2
-    Patch "STBAR", 0, 0 { UseOffsets }
+    Patch STBAR, 0, 0
 }
-Graphic "MUGFRAME_HIRES2X", 70, 64
+Graphic MUGFRAME_HIRES2X, 70, 64
 {
     xscale 2
     yscale 2
-    Patch "STBAR", -286, 0 { UseOffsets }
+    Patch STBAR, -286, 0
 }
-Graphic "HUD_LFIX_HIRES2X", 286, 64
+Graphic HUD_LFIX_HIRES2X, 286, 64
 {
     xscale 2
     yscale 2
-    Patch "STBAR", 0, 0 { UseOffsets }
-    Patch "MUGFRAME_HIRES2X", 214, 0
+    Patch STBAR, 0, 0
+    Patch MUGFRAME_HIRES2X, 214, 0
 }
-Graphic "HUD_RFIX_HIRES2X", 286, 64 
+Graphic HUD_RFIX_HIRES2X, 286, 64 
 {
     xscale 2
     yscale 2
-    Patch "STBAR", -356, 0 { UseOffsets }
+    Patch STBAR, -356, 0
 }
-Graphic "HUD_LEFT_HIRES2X", 286, 64
+Graphic HUD_LEFT_HIRES2X, 286, 64
 {
     xscale 2
     yscale 2
-    Patch "HUD_LFIX_HIRES2X", 0, 0
+    Patch HUD_LFIX_HIRES2X, 0, 0
 }
-Graphic "HUD_RIGHT_HIRES2X", 290, 64 
+Graphic HUD_RIGHT_HIRES2X, 290, 64 
 {
     xscale 2
     yscale 2
-    Patch "HUD_RFIX_HIRES2X", 4, 0
+    Patch HUD_RFIX_HIRES2X, 4, 0
 }
 
 // 3x resolution (960p)
-Graphic "HUD_SMP_HIRES3X", 960, 96
+Graphic HUD_SMP_HIRES3X, 960, 96
 {
     xscale 3
     yscale 3
-    Patch "STBAR", 0, 0 { UseOffsets }
-    Patch "STARMS", 312, 0 { UseOffsets }
+    Patch STBAR, 0, 0
+    Patch STARMS, 312, 0
 }
-Graphic "HUD_DM_HIRES3X", 960, 96
+Graphic HUD_DM_HIRES3X, 960, 96
 {
     xscale 3
     yscale 3
-    Patch "STBAR", 0, 0 { UseOffsets }
+    Patch STBAR, 0, 0
 }
-Graphic "MUGFRAME_HIRES3X", 105, 96
+Graphic MUGFRAME_HIRES3X, 105, 96
 {
     xscale 3
     yscale 3
-    Patch "STBAR", -429, 0 { UseOffsets }
+    Patch STBAR, -429, 0
 }
-Graphic "HUD_LFIX_HIRES3X", 429, 96
+Graphic HUD_LFIX_HIRES3X, 429, 96
 {
     xscale 3
     yscale 3
-    Patch "STBAR", 0, 0 { UseOffsets }
-    Patch "MUGFRAME_HIRES3X", 321, 0
+    Patch STBAR, 0, 0
+    Patch MUGFRAME_HIRES3X, 321, 0
 }
-Graphic "HUD_RFIX_HIRES3X", 429, 96
+Graphic HUD_RFIX_HIRES3X, 429, 96
 {
     xscale 3
     yscale 3
-    Patch "STBAR", -534, 0 { UseOffsets }
+    Patch STBAR, -534, 0
 }
-Graphic "HUD_LEFT_HIRES3X", 429, 96
+Graphic HUD_LEFT_HIRES3X, 429, 96
 {
     xscale 3
     yscale 3
-    Patch "HUD_LFIX_HIRES3X", 0, 0
+    Patch HUD_LFIX_HIRES3X, 0, 0
 }
-Graphic "HUD_RIGHT_HIRES3X", 435, 96
+Graphic HUD_RIGHT_HIRES3X, 435, 96
 {
     xscale 3
     yscale 3
-    Patch "HUD_RFIX_HIRES3X", 4, 0
+    Patch HUD_RFIX_HIRES3X, 4, 0
 }
 
 // 4x resolution (1280p)
-Graphic "HUD_SMP_HIRES4X", 1280, 128
+Graphic HUD_SMP_HIRES4X, 1280, 128
 {
     xscale 4
     yscale 4
-    Patch "STBAR", 0, 0 { UseOffsets }
-    Patch "STARMS", 416, 0 { UseOffsets }
+    Patch STBAR, 0, 0
+    Patch STARMS, 416, 0
 }
-Graphic "HUD_DM_HIRES4X", 1280, 128 
+Graphic HUD_DM_HIRES4X, 1280, 128 
 {
     xscale 4
     yscale 4
-    Patch "STBAR", 0, 0 { UseOffsets }
+    Patch STBAR, 0, 0
 }
-Graphic "MUGFRAME_HIRES4X", 140, 128
+Graphic MUGFRAME_HIRES4X, 140, 128
 {
     xscale 4
     yscale 4
-    Patch "STBAR", -572, 0 { UseOffsets }
+    Patch STBAR, -572, 0
 }
-Graphic "HUD_LEFT_HIRES4X", 572, 128
+Graphic HUD_LEFT_HIRES4X, 572, 128
 {
     xscale 4
     yscale 4
-    Patch "STBAR", 0, 0 { UseOffsets }
-    Patch "MUGFRAME_HIRES4X", 436, 0
+    Patch STBAR, 0, 0
+    Patch MUGFRAME_HIRES4X, 436, 0
 }
-Graphic "HUD_RFIX_HIRES4X", 572, 128 
+Graphic HUD_RFIX_HIRES4X, 572, 128 
 {
     xscale 4
     yscale 4
-    Patch "STBAR", -712, 0 { UseOffsets }
+    Patch STBAR, -712, 0
 }
-Graphic "HUD_RIGHT_HIRES4X", 572, 128 
+Graphic HUD_RIGHT_HIRES4X, 572, 128 
 {
     xscale 4
     yscale 4
-    Patch "HUD_RFIX_HIRES4X", 4, 0
+    Patch HUD_RFIX_HIRES4X, 4, 0
 }

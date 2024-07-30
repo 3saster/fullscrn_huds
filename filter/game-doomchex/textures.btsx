@@ -1,22 +1,22 @@
 // Split bar panels
-Graphic "MUGFRAME_BTSX", 34, 32 
+Graphic MUGFRAME_BTSX, 34, 32 
 {
-    	Patch "STBAR", -143, 0 { UseOffsets }
+    	Patch STBAR, -143, 0 { UseOffsets }
 }
-Graphic "HUD_LFIX_BTSX", 142, 32 
+Graphic HUD_LFIX_BTSX, 142, 32 
 {
-    	Patch "STBAR", 0, 0 { UseOffsets }
-    	Patch "MUGFRAME_BTSX", 107, 0
+    	Patch STBAR, 0, 0 { UseOffsets }
+    	Patch MUGFRAME_BTSX, 107, 0
 }
-Graphic "HUD_RFIX_BTSX", 143, 32 
+Graphic HUD_RFIX_BTSX, 143, 32 
 {
-    	Patch "STBAR", -177, 0 { UseOffsets }
+    	Patch STBAR, -177, 0 { UseOffsets }
 }
-Graphic "HUD_LEFT_BTSX", 143, 32 
+Graphic HUD_LEFT_BTSX, 143, 32 
 {
-    	Patch "HUD_LFIX_BTSX", 0, 0
+    	Patch HUD_LFIX_BTSX, 0, 0
 }
-Graphic "HUD_RIGHT_BTSX", 145, 32 
+Graphic HUD_RIGHT_BTSX, 145, 32 
 {
-    	Patch "HUD_RFIX_BTSX", 2, 0
+    	Patch HUD_RFIX_BTSX, 2, 0
 }

@@ -1,22 +1,22 @@
 // Split bar panels
-Graphic "MUGFRAME_AVACT", 35, 32 
+Graphic MUGFRAME_AVACT, 35, 32 
 {
-    	Patch "ST_AVACT", -143, 0 { UseOffsets }
+    	Patch ST_AVACT, -143, 0 { UseOffsets }
 }
-Graphic "HUD_LFIX_AVACT", 143, 32 
+Graphic HUD_LFIX_AVACT, 143, 32 
 {
-    	Patch "ST_AVACT", 0, 0 { UseOffsets }
-    	Patch "MUGFRAME_AVACT", 107, 0
+    	Patch ST_AVACT, 0, 0 { UseOffsets }
+    	Patch MUGFRAME_AVACT, 107, 0
 }
-Graphic "HUD_RFIX_AVACT", 143, 32 
+Graphic HUD_RFIX_AVACT, 143, 32 
 {
-    	Patch "ST_AVACT", -178, 0 { UseOffsets }
+    	Patch ST_AVACT, -178, 0 { UseOffsets }
 }
-Graphic "HUD_LEFT_AVACT", 143, 32 
+Graphic HUD_LEFT_AVACT, 143, 32 
 {
-    	Patch "HUD_LFIX_AVACT", 0, 0
+    	Patch HUD_LFIX_AVACT, 0, 0
 }
-Graphic "HUD_RIGHT_AVACT", 145, 32 
+Graphic HUD_RIGHT_AVACT, 145, 32 
 {
-    	Patch "HUD_RFIX_AVACT", 2, 0
+    	Patch HUD_RFIX_AVACT, 2, 0
 }
