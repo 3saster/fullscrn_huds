@@ -123,16 +123,10 @@ extend Class SpecialDoomStatusBar
                 	// WIDESCREEN
 
                         case 'a518032373d1f3e53f91301022b949b5': // Doom (Unity)
+			case 'b57ae3849a4415559176c1ff9ec30e47': // If You're Into It, I'm Out Of It (RRSP3)
                         	HUD_SMP   = "HUD_SMP_WIDE426P";
                         	HUD_DM    = "HUD_DM_WIDE426P";
                         	HUD_LEFT  = "HUD_LEFT_WIDE426P";
-                        	HUD_RIGHT = "HUD_RIGHT_DOOMUNITY";
-                        break;
-
-                        case 'b57ae3849a4415559176c1ff9ec30e47': // If You're Into It, I'm Out Of It (RRSP3)
-                        	HUD_SMP   = "HUD_SMP_WIDE426P";
-                        	HUD_DM    = "HUD_DM_WIDE426P";
-                        	HUD_LEFT  = "HUD_LEFT_INTOIT";
                         	HUD_RIGHT = "HUD_RIGHT_WIDE426P";
                         break;
 
@@ -151,16 +145,10 @@ extend Class SpecialDoomStatusBar
                         break;
 
                 	case '46687e1fbd991d9f3f184e312b7e6186': // Doom II In City Only
-                        	HUD_SMP   = "HUD_SMP_WIDE960P";
-                        	HUD_DM    = "HUD_DM_WIDE960P";
-                        	HUD_LEFT  = "HUD_LEFT_WIDE960P";
-                        	HUD_RIGHT = "HUD_RIGHT_WIDE960P";
-                        break;
-
                         case '0725650c1348e2cfba08f70897b8adf1': // Rain Currently Known As Purple (RRSP3)
                         	HUD_SMP   = "HUD_SMP_WIDE960P";
                         	HUD_DM    = "HUD_DM_WIDE960P";
-                        	HUD_LEFT  = "HUD_LEFT_RAINPURP";
+                        	HUD_LEFT  = "HUD_LEFT_WIDE960P";
                         	HUD_RIGHT = "HUD_RIGHT_WIDE960P";
                         break;
 
