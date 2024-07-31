@@ -1,333 +1,333 @@
 // Widescreen statusbar compatibility
 
 // STBAR cuts
-Graphic "STBAR_WIDE426P", 320, 32 { Patch "STBAR", -53, 0 }
-Graphic "STBAR_WIDE428P", 320, 32 { Patch "STBAR", -54, 0 }
-Graphic "STBAR_WIDE430P", 320, 32 { Patch "STBAR", -55, 0 }
-Graphic "STBAR_WIDE486P", 320, 32 { Patch "STBAR", -83, 0 }
-Graphic "STBAR_WIDE574P", 320, 32 { Patch "STBAR", -127, 0 }
-Graphic "STBAR_WIDE576P", 320, 32 { Patch "STBAR", -128, 0 }
-Graphic "STBAR_WIDE900P", 320, 32 { Patch "STBAR", -290, 0 }
-Graphic "STBAR_WIDE960P", 320, 32 { Patch "STBAR", -320, 0 }
-Graphic "STBAR_WIDE1000P", 320, 32 { Patch "STBAR", -340, 0 }
-Graphic "STBAR_WIDE1600P", 320, 32 { Patch "STBAR", -640, 0 }
+Graphic STBAR_WIDE426P, 320, 32 { Patch STBAR, -53, 0 }
+Graphic STBAR_WIDE428P, 320, 32 { Patch STBAR, -54, 0 }
+Graphic STBAR_WIDE430P, 320, 32 { Patch STBAR, -55, 0 }
+Graphic STBAR_WIDE486P, 320, 32 { Patch STBAR, -83, 0 }
+Graphic STBAR_WIDE574P, 320, 32 { Patch STBAR, -127, 0 }
+Graphic STBAR_WIDE576P, 320, 32 { Patch STBAR, -128, 0 }
+Graphic STBAR_WIDE900P, 320, 32 { Patch STBAR, -290, 0 }
+Graphic STBAR_WIDE960P, 320, 32 { Patch STBAR, -320, 0 }
+Graphic STBAR_WIDE1000P, 320, 32 { Patch STBAR, -340, 0 }
+Graphic STBAR_WIDE1600P, 320, 32 { Patch STBAR, -640, 0 }
 
 // 426p width
-Graphic "HUD_SMP_WIDE426P", 320, 32
+Graphic HUD_SMP_WIDE426P, 320, 32
 {
-    	Patch "STBAR_WIDE426P", 0, 0
-    	Patch "STARMS", 104, 0
+    	Patch STBAR_WIDE426P, 0, 0
+    	Patch STARMS, 104, 0
 }
-Graphic "HUD_DM_WIDE426P", 320, 32 
+Graphic HUD_DM_WIDE426P, 320, 32 
 {
-    	Patch "STBAR_WIDE426P", 0, 0
+    	Patch STBAR_WIDE426P, 0, 0
 }
-Graphic "MUGFRAME_WIDE426P", 35, 32 
+Graphic MUGFRAME_WIDE426P, 35, 32 
 {
-    	Patch "STBAR_WIDE426P", -143, 0
+    	Patch STBAR_WIDE426P, -143, 0
 }
-Graphic "HUD_LFIX_WIDE426P", 143, 32 
+Graphic HUD_LFIX_WIDE426P, 143, 32 
 {
-    	Patch "STBAR_WIDE426P", 0, 0
-    	Patch "MUGFRAME_WIDE426P", 107, 0
+    	Patch STBAR_WIDE426P, 0, 0
+    	Patch MUGFRAME_WIDE426P, 107, 0
 }
-Graphic "HUD_RFIX_WIDE426P", 143, 32 
+Graphic HUD_RFIX_WIDE426P, 143, 32 
 {
-    	Patch "STBAR_WIDE426P", -178, 0
+    	Patch STBAR_WIDE426P, -178, 0
 }
-Graphic "HUD_LEFT_WIDE426P", 143, 32 
+Graphic HUD_LEFT_WIDE426P, 143, 32 
 {
-    	Patch "HUD_LFIX_WIDE426P", 0, 0
+    	Patch HUD_LFIX_WIDE426P, 0, 0
 }
-Graphic "HUD_RIGHT_WIDE426P", 145, 32 
+Graphic HUD_RIGHT_WIDE426P, 145, 32 
 {
-    	Patch "HUD_RFIX_WIDE426P", 2, 0
+    	Patch HUD_RFIX_WIDE426P, 2, 0
 }
 
 // 428p width
-Graphic "HUD_SMP_WIDE428P", 320, 32
+Graphic HUD_SMP_WIDE428P, 320, 32
 {
-    	Patch "STBAR_WIDE428P", 0, 0
-    	Patch "STARMS", 104, 0
+    	Patch STBAR_WIDE428P, 0, 0
+    	Patch STARMS, 104, 0
 }
-Graphic "HUD_DM_WIDE428P", 320, 32 
+Graphic HUD_DM_WIDE428P, 320, 32 
 {
-    	Patch "STBAR_WIDE428P", 0, 0
+    	Patch STBAR_WIDE428P, 0, 0
 }
-Graphic "MUGFRAME_WIDE428P", 35, 32 
+Graphic MUGFRAME_WIDE428P, 35, 32 
 {
-    	Patch "STBAR_WIDE428P", -143, 0
+    	Patch STBAR_WIDE428P, -143, 0
 }
-Graphic "HUD_LFIX_WIDE428P", 143, 32 
+Graphic HUD_LFIX_WIDE428P, 143, 32 
 {
-    	Patch "STBAR_WIDE428P", 0, 0
-    	Patch "MUGFRAME_WIDE428P", 107, 0
+    	Patch STBAR_WIDE428P, 0, 0
+    	Patch MUGFRAME_WIDE428P, 107, 0
 }
-Graphic "HUD_RFIX_WIDE428P", 143, 32 
+Graphic HUD_RFIX_WIDE428P, 143, 32 
 {
-    	Patch "STBAR_WIDE428P", -178, 0
+    	Patch STBAR_WIDE428P, -178, 0
 }
-Graphic "HUD_LEFT_WIDE428P", 143, 32 
+Graphic HUD_LEFT_WIDE428P, 143, 32 
 {
-    	Patch "HUD_LFIX_WIDE428P", 0, 0
+    	Patch HUD_LFIX_WIDE428P, 0, 0
 }
-Graphic "HUD_RIGHT_WIDE428P", 145, 32 
+Graphic HUD_RIGHT_WIDE428P, 145, 32 
 {
-    	Patch "HUD_RFIX_WIDE428P", 2, 0
+    	Patch HUD_RFIX_WIDE428P, 2, 0
 }
 
 // 430p width
-Graphic "HUD_SMP_WIDE430P", 320, 32
+Graphic HUD_SMP_WIDE430P, 320, 32
 {
-    	Patch "STBAR_WIDE430P", 0, 0
-    	Patch "STARMS", 104, 0
+    	Patch STBAR_WIDE430P, 0, 0
+    	Patch STARMS, 104, 0
 }
-Graphic "HUD_DM_WIDE430P", 320, 32 
+Graphic HUD_DM_WIDE430P, 320, 32 
 {
-    	Patch "STBAR_WIDE430P", 0, 0
+    	Patch STBAR_WIDE430P, 0, 0
 }
-Graphic "MUGFRAME_WIDE430P", 35, 32 
+Graphic MUGFRAME_WIDE430P, 35, 32 
 {
-    	Patch "STBAR_WIDE430P", -143, 0
+    	Patch STBAR_WIDE430P, -143, 0
 }
-Graphic "HUD_LFIX_WIDE430P", 143, 32 
+Graphic HUD_LFIX_WIDE430P, 143, 32 
 {
-    	Patch "STBAR_WIDE430P", 0, 0
-    	Patch "MUGFRAME_WIDE430P", 107, 0
+    	Patch STBAR_WIDE430P, 0, 0
+    	Patch MUGFRAME_WIDE430P, 107, 0
 }
-Graphic "HUD_RFIX_WIDE430P", 143, 32 
+Graphic HUD_RFIX_WIDE430P, 143, 32 
 {
-    	Patch "STBAR_WIDE430P", -178, 0
+    	Patch STBAR_WIDE430P, -178, 0
 }
-Graphic "HUD_LEFT_WIDE430P", 143, 32 
+Graphic HUD_LEFT_WIDE430P, 143, 32 
 {
-    	Patch "HUD_LFIX_WIDE430P", 0, 0
+    	Patch HUD_LFIX_WIDE430P, 0, 0
 }
-Graphic "HUD_RIGHT_WIDE430P", 145, 32 
+Graphic HUD_RIGHT_WIDE430P, 145, 32 
 {
-    	Patch "HUD_RFIX_WIDE430P", 2, 0
+    	Patch HUD_RFIX_WIDE430P, 2, 0
 }
 
 // 486p width
-Graphic "HUD_SMP_WIDE486P", 320, 32
+Graphic HUD_SMP_WIDE486P, 320, 32
 {
-    	Patch "STBAR_WIDE486P", 0, 0
-    	Patch "STARMS", 104, 0
+    	Patch STBAR_WIDE486P, 0, 0
+    	Patch STARMS, 104, 0
 }
-Graphic "HUD_DM_WIDE486P", 320, 32 
+Graphic HUD_DM_WIDE486P, 320, 32 
 {
-    	Patch "STBAR_WIDE486P", 0, 0
+    	Patch STBAR_WIDE486P, 0, 0
 }
-Graphic "MUGFRAME_WIDE486P", 35, 32 
+Graphic MUGFRAME_WIDE486P, 35, 32 
 {
-    	Patch "STBAR_WIDE486P", -143, 0
+    	Patch STBAR_WIDE486P, -143, 0
 }
-Graphic "HUD_LFIX_WIDE486P", 143, 32 
+Graphic HUD_LFIX_WIDE486P, 143, 32 
 {
-    	Patch "STBAR_WIDE486P", 0, 0
-    	Patch "MUGFRAME_WIDE486P", 107, 0
+    	Patch STBAR_WIDE486P, 0, 0
+    	Patch MUGFRAME_WIDE486P, 107, 0
 }
-Graphic "HUD_RFIX_WIDE486P", 143, 32 
+Graphic HUD_RFIX_WIDE486P, 143, 32 
 {
-    	Patch "STBAR_WIDE486P", -178, 0
+    	Patch STBAR_WIDE486P, -178, 0
 }
-Graphic "HUD_LEFT_WIDE486P", 143, 32 
+Graphic HUD_LEFT_WIDE486P, 143, 32 
 {
-    	Patch "HUD_LFIX_WIDE486P", 0, 0
+    	Patch HUD_LFIX_WIDE486P, 0, 0
 }
-Graphic "HUD_RIGHT_WIDE486P", 145, 32 
+Graphic HUD_RIGHT_WIDE486P, 145, 32 
 {
-    	Patch "HUD_RFIX_WIDE486P", 2, 0
+    	Patch HUD_RFIX_WIDE486P, 2, 0
 }
 
 // 574p width
-Graphic "HUD_SMP_WIDE574P", 320, 32
+Graphic HUD_SMP_WIDE574P, 320, 32
 {
-    	Patch "STBAR_WIDE574P", 0, 0
-    	Patch "STARMS", 104, 0
+    	Patch STBAR_WIDE574P, 0, 0
+    	Patch STARMS, 104, 0
 }
-Graphic "HUD_DM_WIDE574P", 320, 32 
+Graphic HUD_DM_WIDE574P, 320, 32 
 {
-    	Patch "STBAR_WIDE574P", 0, 0
+    	Patch STBAR_WIDE574P, 0, 0
 }
-Graphic "MUGFRAME_WIDE574P", 35, 32 
+Graphic MUGFRAME_WIDE574P, 35, 32 
 {
-    	Patch "STBAR_WIDE574P", -143, 0
+    	Patch STBAR_WIDE574P, -143, 0
 }
-Graphic "HUD_LFIX_WIDE574P", 143, 32 
+Graphic HUD_LFIX_WIDE574P, 143, 32 
 {
-    	Patch "STBAR_WIDE574P", 0, 0
-    	Patch "MUGFRAME_WIDE574P", 107, 0
+    	Patch STBAR_WIDE574P, 0, 0
+    	Patch MUGFRAME_WIDE574P, 107, 0
 }
-Graphic "HUD_RFIX_WIDE574P", 143, 32 
+Graphic HUD_RFIX_WIDE574P, 143, 32 
 {
-    	Patch "STBAR_WIDE574P", -178, 0
+    	Patch STBAR_WIDE574P, -178, 0
 }
-Graphic "HUD_LEFT_WIDE574P", 143, 32 
+Graphic HUD_LEFT_WIDE574P, 143, 32 
 {
-    	Patch "HUD_LFIX_WIDE574P", 0, 0
+    	Patch HUD_LFIX_WIDE574P, 0, 0
 }
-Graphic "HUD_RIGHT_WIDE574P", 145, 32 
+Graphic HUD_RIGHT_WIDE574P, 145, 32 
 {
-    	Patch "HUD_RFIX_WIDE574P", 2, 0
+    	Patch HUD_RFIX_WIDE574P, 2, 0
 }
 
 // 576p width
-Graphic "HUD_SMP_WIDE576P", 320, 32
+Graphic HUD_SMP_WIDE576P, 320, 32
 {
-    	Patch "STBAR_WIDE576P", 0, 0
-    	Patch "STARMS", 104, 0
+    	Patch STBAR_WIDE576P, 0, 0
+    	Patch STARMS, 104, 0
 }
-Graphic "HUD_DM_WIDE576P", 320, 32 
+Graphic HUD_DM_WIDE576P, 320, 32 
 {
-    	Patch "STBAR_WIDE576P", 0, 0
+    	Patch STBAR_WIDE576P, 0, 0
 }
-Graphic "MUGFRAME_WIDE576P", 35, 32 
+Graphic MUGFRAME_WIDE576P, 35, 32 
 {
-    	Patch "STBAR_WIDE576P", -143, 0
+    	Patch STBAR_WIDE576P, -143, 0
 }
-Graphic "HUD_LFIX_WIDE576P", 143, 32 
+Graphic HUD_LFIX_WIDE576P, 143, 32 
 {
-    	Patch "STBAR_WIDE576P", 0, 0
-    	Patch "MUGFRAME_WIDE576P", 107, 0
+    	Patch STBAR_WIDE576P, 0, 0
+    	Patch MUGFRAME_WIDE576P, 107, 0
 }
-Graphic "HUD_RFIX_WIDE576P", 143, 32 
+Graphic HUD_RFIX_WIDE576P, 143, 32 
 {
-    	Patch "STBAR_WIDE576P", -178, 0
+    	Patch STBAR_WIDE576P, -178, 0
 }
-Graphic "HUD_LEFT_WIDE576P", 143, 32 
+Graphic HUD_LEFT_WIDE576P, 143, 32 
 {
-    	Patch "HUD_LFIX_WIDE576P", 0, 0
+    	Patch HUD_LFIX_WIDE576P, 0, 0
 }
-Graphic "HUD_RIGHT_WIDE576P", 145, 32 
+Graphic HUD_RIGHT_WIDE576P, 145, 32 
 {
-    	Patch "HUD_RFIX_WIDE576P", 2, 0
+    	Patch HUD_RFIX_WIDE576P, 2, 0
 }
 
 // 900p width
-Graphic "HUD_SMP_WIDE900P", 320, 32
+Graphic HUD_SMP_WIDE900P, 320, 32
 {
-    	Patch "STBAR_WIDE900P", 0, 0
-    	Patch "STARMS", 104, 0
+    	Patch STBAR_WIDE900P, 0, 0
+    	Patch STARMS, 104, 0
 }
-Graphic "HUD_DM_WIDE900P", 320, 32 
+Graphic HUD_DM_WIDE900P, 320, 32 
 {
-    	Patch "STBAR_WIDE900P", 0, 0
+    	Patch STBAR_WIDE900P, 0, 0
 }
-Graphic "MUGFRAME_WIDE900P", 35, 32 
+Graphic MUGFRAME_WIDE900P, 35, 32 
 {
-    	Patch "STBAR_WIDE900P", -143, 0
+    	Patch STBAR_WIDE900P, -143, 0
 }
-Graphic "HUD_LFIX_WIDE900P", 143, 32 
+Graphic HUD_LFIX_WIDE900P, 143, 32 
 {
-    	Patch "STBAR_WIDE900P", 0, 0
-    	Patch "MUGFRAME_WIDE900P", 107, 0
+    	Patch STBAR_WIDE900P, 0, 0
+    	Patch MUGFRAME_WIDE900P, 107, 0
 }
-Graphic "HUD_RFIX_WIDE900P", 143, 32 
+Graphic HUD_RFIX_WIDE900P, 143, 32 
 {
-    	Patch "STBAR_WIDE900P", -178, 0
+    	Patch STBAR_WIDE900P, -178, 0
 }
-Graphic "HUD_LEFT_WIDE900P", 143, 32 
+Graphic HUD_LEFT_WIDE900P, 143, 32 
 {
-    	Patch "HUD_LFIX_WIDE900P", 0, 0
+    	Patch HUD_LFIX_WIDE900P, 0, 0
 }
-Graphic "HUD_RIGHT_WIDE900P", 145, 32 
+Graphic HUD_RIGHT_WIDE900P, 145, 32 
 {
-    	Patch "HUD_RFIX_WIDE900P", 2, 0
+    	Patch HUD_RFIX_WIDE900P, 2, 0
 }
 
 // 960p width
-Graphic "HUD_SMP_WIDE960P", 320, 32
+Graphic HUD_SMP_WIDE960P, 320, 32
 {
-    	Patch "STBAR_WIDE960P", 0, 0
-    	Patch "STARMS", 104, 0
+    	Patch STBAR_WIDE960P, 0, 0
+    	Patch STARMS, 104, 0
 }
-Graphic "HUD_DM_WIDE960P", 320, 32 
+Graphic HUD_DM_WIDE960P, 320, 32 
 {
-    	Patch "STBAR_WIDE960P", 0, 0
+    	Patch STBAR_WIDE960P, 0, 0
 }
-Graphic "MUGFRAME_WIDE960P", 35, 32 
+Graphic MUGFRAME_WIDE960P, 35, 32 
 {
-    	Patch "STBAR_WIDE960P", -143, 0
+    	Patch STBAR_WIDE960P, -143, 0
 }
-Graphic "HUD_LFIX_WIDE960P", 143, 32 
+Graphic HUD_LFIX_WIDE960P, 143, 32 
 {
-    	Patch "STBAR_WIDE960P", 0, 0
-    	Patch "MUGFRAME_WIDE960P", 107, 0
+    	Patch STBAR_WIDE960P, 0, 0
+    	Patch MUGFRAME_WIDE960P, 107, 0
 }
-Graphic "HUD_RFIX_WIDE960P", 143, 32 
+Graphic HUD_RFIX_WIDE960P, 143, 32 
 {
-    	Patch "STBAR_WIDE960P", -178, 0
+    	Patch STBAR_WIDE960P, -178, 0
 }
-Graphic "HUD_LEFT_WIDE960P", 143, 32 
+Graphic HUD_LEFT_WIDE960P, 143, 32 
 {
-    	Patch "HUD_LFIX_WIDE960P", 0, 0
+    	Patch HUD_LFIX_WIDE960P, 0, 0
 }
-Graphic "HUD_RIGHT_WIDE960P", 145, 32 
+Graphic HUD_RIGHT_WIDE960P, 145, 32 
 {
-    	Patch "HUD_RFIX_WIDE960P", 2, 0
+    	Patch HUD_RFIX_WIDE960P, 2, 0
 }
 
 // 1000p width
-Graphic "HUD_SMP_WIDE1000P", 320, 32
+Graphic HUD_SMP_WIDE1000P, 320, 32
 {
-    	Patch "STBAR_WIDE1000P", 0, 0
-    	Patch "STARMS", 104, 0
+    	Patch STBAR_WIDE1000P, 0, 0
+    	Patch STARMS, 104, 0
 }
-Graphic "HUD_DM_WIDE1000P", 320, 32 
+Graphic HUD_DM_WIDE1000P, 320, 32 
 {
-    	Patch "STBAR_WIDE1000P", 0, 0
+    	Patch STBAR_WIDE1000P, 0, 0
 }
-Graphic "MUGFRAME_WIDE1000P", 35, 32 
+Graphic MUGFRAME_WIDE1000P, 35, 32 
 {
-    	Patch "STBAR_WIDE1000P", -143, 0
+    	Patch STBAR_WIDE1000P, -143, 0
 }
-Graphic "HUD_LFIX_WIDE1000P", 143, 32 
+Graphic HUD_LFIX_WIDE1000P, 143, 32 
 {
-    	Patch "STBAR_WIDE1000P", 0, 0
-    	Patch "MUGFRAME_WIDE1000P", 107, 0
+    	Patch STBAR_WIDE1000P, 0, 0
+    	Patch MUGFRAME_WIDE1000P, 107, 0
 }
-Graphic "HUD_RFIX_WIDE1000P", 143, 32 
+Graphic HUD_RFIX_WIDE1000P, 143, 32 
 {
-    	Patch "STBAR_WIDE1000P", -178, 0
+    	Patch STBAR_WIDE1000P, -178, 0
 }
-Graphic "HUD_LEFT_WIDE1000P", 143, 32 
+Graphic HUD_LEFT_WIDE1000P, 143, 32 
 {
-    	Patch "HUD_LFIX_WIDE1000P", 0, 0
+    	Patch HUD_LFIX_WIDE1000P, 0, 0
 }
-Graphic "HUD_RIGHT_WIDE1000P", 145, 32 
+Graphic HUD_RIGHT_WIDE1000P, 145, 32 
 {
-    	Patch "HUD_RFIX_WIDE1000P", 2, 0
+    	Patch HUD_RFIX_WIDE1000P, 2, 0
 }
 
 // 1600p width
-Graphic "HUD_SMP_WIDE1600P", 320, 32
+Graphic HUD_SMP_WIDE1600P, 320, 32
 {
-    	Patch "STBAR_WIDE1600P", 0, 0
-    	Patch "STARMS", 104, 0
+    	Patch STBAR_WIDE1600P, 0, 0
+    	Patch STARMS, 104, 0
 }
-Graphic "HUD_DM_WIDE1600P", 320, 32 
+Graphic HUD_DM_WIDE1600P, 320, 32 
 {
-    	Patch "STBAR_WIDE1600P", 0, 0
+    	Patch STBAR_WIDE1600P, 0, 0
 }
-Graphic "MUGFRAME_WIDE1600P", 35, 32 
+Graphic MUGFRAME_WIDE1600P, 35, 32 
 {
-    	Patch "STBAR_WIDE1600P", -143, 0
+    	Patch STBAR_WIDE1600P, -143, 0
 }
-Graphic "HUD_LFIX_WIDE1600P", 143, 32 
+Graphic HUD_LFIX_WIDE1600P, 143, 32 
 {
-    	Patch "STBAR_WIDE1600P", 0, 0
-    	Patch "MUGFRAME_WIDE1600P", 107, 0
+    	Patch STBAR_WIDE1600P, 0, 0
+    	Patch MUGFRAME_WIDE1600P, 107, 0
 }
-Graphic "HUD_RFIX_WIDE1600P", 143, 32 
+Graphic HUD_RFIX_WIDE1600P, 143, 32 
 {
-    	Patch "STBAR_WIDE1600P", -178, 0
+    	Patch STBAR_WIDE1600P, -178, 0
 }
-Graphic "HUD_LEFT_WIDE1600P", 143, 32 
+Graphic HUD_LEFT_WIDE1600P, 143, 32 
 {
-    	Patch "HUD_LFIX_WIDE1600P", 0, 0
+    	Patch HUD_LFIX_WIDE1600P, 0, 0
 }
-Graphic "HUD_RIGHT_WIDE1600P", 145, 32 
+Graphic HUD_RIGHT_WIDE1600P, 145, 32 
 {
-    	Patch "HUD_RFIX_WIDE1600P", 2, 0
+    	Patch HUD_RFIX_WIDE1600P, 2, 0
 }
