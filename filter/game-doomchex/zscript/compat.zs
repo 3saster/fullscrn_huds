@@ -123,11 +123,20 @@ extend Class SpecialDoomStatusBar
                 	// WIDESCREEN
 
                         case 'a518032373d1f3e53f91301022b949b5': // Doom (Unity)
+			case '7acbba805b39b0f9c89773d917f23091': // Scientist (Unity)
+			case 'f66a453915311b2dc8be4d56cfdce2df': // Tetanus (Unity)
 			case 'b57ae3849a4415559176c1ff9ec30e47': // If You're Into It, I'm Out Of It (RRSP3)
                         	HUD_SMP   = "HUD_SMP_WIDE426P";
                         	HUD_DM    = "HUD_DM_WIDE426P";
                         	HUD_LEFT  = "HUD_LEFT_WIDE426P";
                         	HUD_RIGHT = "HUD_RIGHT_WIDE426P";
+                        break;
+
+			case 'ede5fef3207c78ae9e1cfb91141c4b5e': // No End In Sight (Unity)
+                        	HUD_SMP   = "HUD_SMP_WIDE426P";
+                        	HUD_DM    = "HUD_DM_WIDE426P";
+                        	HUD_LEFT  = "HUD_LEFT_NEISWIDE";
+                        	HUD_RIGHT = "HUD_RIGHT_NEISWIDE";
                         break;
 
                         case 'd84cfb0cbb6d521462fb5ad5495dd89a': // Super Doom TV

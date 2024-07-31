@@ -1,20 +1,20 @@
 // Non-split status bars (SP/MP/DM)
-Graphic HUD_SMP_CCHEST, 320, 32
+Graphic "HUD_SMP_CCHEST", 320, 32
 {
-    	Patch STBAR_CC, 0, 0 { UseOffsets }
-    	Patch STARMS, 104, 0 { UseOffsets }
+    	Patch "STBAR_CC", 0, 0 { UseOffsets }
+    	Patch "STARMS", 104, 0 { UseOffsets }
 }
-Graphic HUD_DM_CCHEST, 320, 32 
+Graphic "HUD_DM_CCHEST", 320, 32 
 {
-    	Patch STBAR_CC, 0, 0 { UseOffsets }
+    	Patch "STBAR_CC", 0, 0 { UseOffsets }
 }
 
 // Split bar panels
-Graphic HUD_LEFT_CCHEST, 143, 32 
+Graphic "HUD_LEFT_CCHEST", 143, 32 
 {
-    	Patch HUDL_CC, 0, 0
+    	Patch "HUDL_CC", 0, 0
 }
-Graphic HUD_RIGHT_CCHEST, 143, 32 
+Graphic "HUD_RIGHT_CCHEST", 143, 32 
 {
-    	Patch HUDR_CC, 0, 0
+    	Patch "HUDR_CC", 0, 0
 }
