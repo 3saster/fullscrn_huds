@@ -9,87 +9,44 @@ extend Class SpecialDoomStatusBar
 	void setSTBARNames()
 	{
 		// Defaults
-		HUD_SMP     = "HUD_SMP";
-		HUD_DM      = "HUD_DM";
-		HUD_LEFT    = "HUD_LEFT";
-		HUD_RIGHT   = "HUD_RIGHT";
 		STYSNUM     = "STYSNUM";
 		STGNUM      = "STGNUM";
 		ARMS_OFFSET = 0;
 		MUG_OFFSET  = 0;
 
 		// Determine which widescreen graphics to use
-		TextureID bar   = TexMan.CheckForTexture("STBAR"); // Retrieve pointer to STBAR TextureID
-		Vector2 barsize = TexMan.GetScaledSize(bar);       // Get STBAR size
-		if (barsize.x > 320 && barsize.y == 32)
+		TextureID bar   = TexMan.CheckForTexture("STBAR");
+		vector2 barsize = TexMan.GetScaledSize(bar);
+                int barwidth    = barsize.x;
+
+		switch(barsize.x)
 		{
-    			switch(barsize.x)
-			{
-				case 426:
-					HUD_SMP   = "HUD_SMP_WIDE426P";
-					HUD_DM    = "HUD_DM_WIDE426P";
-					HUD_LEFT  = "HUD_LEFT_WIDE426P";
-					HUD_RIGHT = "HUD_RIGHT_WIDE426P";
-					break;
-				case 428:
-					HUD_SMP   = "HUD_SMP_WIDE428P";
-					HUD_DM    = "HUD_DM_WIDE428P";
-					HUD_LEFT  = "HUD_LEFT_WIDE428P";
-					HUD_RIGHT = "HUD_RIGHT_WIDE428P";
-					break;
-				case 430:
-					HUD_SMP   = "HUD_SMP_WIDE430P";
-					HUD_DM    = "HUD_DM_WIDE430P";
-					HUD_LEFT  = "HUD_LEFT_WIDE430P";
-					HUD_RIGHT = "HUD_RIGHT_WIDE430P";
-					break;
-				case 486:
-					HUD_SMP   = "HUD_SMP_WIDE486P";
-					HUD_DM    = "HUD_DM_WIDE486P";
-					HUD_LEFT  = "HUD_LEFT_WIDE486P";
-					HUD_RIGHT = "HUD_RIGHT_WIDE486P";
-					break;
-				case 574:
-					HUD_SMP   = "HUD_SMP_WIDE574P";
-					HUD_DM    = "HUD_DM_WIDE574P";
-					HUD_LEFT  = "HUD_LEFT_WIDE574P";
-					HUD_RIGHT = "HUD_RIGHT_WIDE574P";
-					break;
-				case 576:
-					HUD_SMP   = "HUD_SMP_WIDE576P";
-					HUD_DM    = "HUD_DM_WIDE576P";
-					HUD_LEFT  = "HUD_LEFT_WIDE576P";
-					HUD_RIGHT = "HUD_RIGHT_WIDE576P";
-					break;
-				case 900:
-					HUD_SMP   = "HUD_SMP_WIDE900P";
-					HUD_DM    = "HUD_DM_WIDE900P";
-					HUD_LEFT  = "HUD_LEFT_WIDE900P";
-					HUD_RIGHT = "HUD_RIGHT_WIDE900P";
-					break;
-				case 960:
-					HUD_SMP   = "HUD_SMP_WIDE960P";
-					HUD_DM    = "HUD_DM_WIDE960P";
-					HUD_LEFT  = "HUD_LEFT_WIDE960P";
-					HUD_RIGHT = "HUD_RIGHT_WIDE960P";
-					break;
-				case 1000:
-					HUD_SMP   = "HUD_SMP_WIDE1000P";
-					HUD_DM    = "HUD_DM_WIDE1000P";
-					HUD_LEFT  = "HUD_LEFT_WIDE1000P";
-					HUD_RIGHT = "HUD_RIGHT_WIDE1000P";
-					break;
-				case 1600:
-					HUD_SMP   = "HUD_SMP_WIDE1600P";
-					HUD_DM    = "HUD_DM_WIDE1600P";
-					HUD_LEFT  = "HUD_LEFT_WIDE1600P";
-					HUD_RIGHT = "HUD_RIGHT_WIDE1600P";
-					break;
-			}
+			case 426:
+			case 428:
+			case 430:
+			case 486:
+			case 574:
+			case 576:
+			case 900:
+			case 960:
+			case 1000:
+			case 1600:
+				HUD_SMP   = "HUD_SMP_WIDE"..barwidth.."P";
+				HUD_DM    = "HUD_DM_WIDE"..barwidth.."P";
+				HUD_LEFT  = "HUD_LEFT_WIDE"..barwidth.."P";
+				HUD_RIGHT = "HUD_RIGHT_WIDE"..barwidth.."P";
+				break;
+			default:
+				HUD_SMP   = "HUD_SMP";
+				HUD_DM    = "HUD_DM";
+				HUD_LEFT  = "HUD_LEFT";
+				HUD_RIGHT = "HUD_RIGHT";
+				break;
 		}
 
 		Font fnt;
-		// Deal with compatibility for certain PWADS
+
+		// Compatibility for certain PWADS
 		switch(STBAR_HASH)
 		{
 			case '2d9a53658a9d756702f00e11529a05f5': // Alien Vendetta
