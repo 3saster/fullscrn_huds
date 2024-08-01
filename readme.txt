@@ -3,7 +3,7 @@ Advanced engine needed  : GZDoom 4.3.0+ / LZDoom 3.84+
 ===========================================================================
 Title                : Fullscreen Status Bar Mod (v5.2.0)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : 07/31/2024
+Release date         : 08/01/2024
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -106,7 +106,7 @@ Tested With          : GZDoom
 
 * CHANGELOG *
 
-> Version 5.2.0 (Jul 31, 2024)
+> Version 5.2.0 (Aug 1, 2024)
   [ALL] Stats: Added option to position next to statusbar (code by scar45)
   [ALL] Stats: Hours in time widget only shown when needed
   [DOOM] Compatibility for Brutal Doom v2.1 (fixes non-functional ammo overview)
@@ -114,10 +114,9 @@ Tested With          : GZDoom
          This restores support for the Neural Upscale Pack and many other PWADs which required
          compatibility fixes. Many thanks to AFADoomer and Blue Shadow for the code update!
   [DOOM] Non-split status bar: Fix for STARMS shown in (Alt-)DM
-  [DOOM] Split status bar: Support for widescreen bars; currently supports Doom (Unity),
-                           "Bloody Steel", "Doom II In City Only", "No End In Sight" (Unity), "RRSP3", 
-                           "Scientist" (Unity), "Simulacrum", "Spectrum Descent", "Super Doom TV", 
-                           "Tetanus" (Unity)
+  [DOOM] Split status bar: Support for widescreen bars; works with Doom Unity (incl. "No End In Sight", 
+                           "Scientist", "Tetanus"), "Bloody Steel", "Doom II In City Only", "RRSP3", 
+                           "Simulacrum", "Spectrum Descent", "Super Doom TV"
   [HEXEN] Compatibility with "Hexen Rebalanced" and "Tempered Arms" (code by Delfino Furioso)
 
 > Version 5.1.11 (Jun 7, 2022)

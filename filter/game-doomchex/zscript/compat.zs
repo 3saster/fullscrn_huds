@@ -18,6 +18,83 @@ extend Class SpecialDoomStatusBar
 		ARMS_OFFSET = 0;
 		MUG_OFFSET  = 0;
 
+		// Determine which widescreen graphics to use
+		TextureID bar   = TexMan.CheckForTexture("STBAR"); // Retrieve pointer to STBAR TextureID
+		Vector2 barsize = TexMan.GetScaledSize(bar);       // Get STBAR size
+		if (barsize.x > 320 && barsize.y == 32)
+		{
+    			if (barsize.x == 426)
+    			{
+				HUD_SMP   = "HUD_SMP_WIDE426P";
+				HUD_DM    = "HUD_DM_WIDE426P";
+				HUD_LEFT  = "HUD_LEFT_WIDE426P";
+				HUD_RIGHT = "HUD_RIGHT_WIDE426P";
+			}
+			else if (barsize.x == 428)
+    			{
+				HUD_SMP   = "HUD_SMP_WIDE428P";
+				HUD_DM    = "HUD_DM_WIDE428P";
+				HUD_LEFT  = "HUD_LEFT_WIDE428P";
+				HUD_RIGHT = "HUD_RIGHT_WIDE428P";
+			}
+			else if (barsize.x == 430)
+    			{
+				HUD_SMP   = "HUD_SMP_WIDE430P";
+				HUD_DM    = "HUD_DM_WIDE430P";
+				HUD_LEFT  = "HUD_LEFT_WIDE430P";
+				HUD_RIGHT = "HUD_RIGHT_WIDE430P";
+			}
+			else if (barsize.x == 486)
+    			{
+				HUD_SMP   = "HUD_SMP_WIDE486P";
+				HUD_DM    = "HUD_DM_WIDE486P";
+				HUD_LEFT  = "HUD_LEFT_WIDE486P";
+				HUD_RIGHT = "HUD_RIGHT_WIDE486P";
+			}
+			else if (barsize.x == 574)
+    			{
+				HUD_SMP   = "HUD_SMP_WIDE574P";
+				HUD_DM    = "HUD_DM_WIDE574P";
+				HUD_LEFT  = "HUD_LEFT_WIDE574P";
+				HUD_RIGHT = "HUD_RIGHT_WIDE574P";
+			}
+			else if (barsize.x == 576)
+    			{
+				HUD_SMP   = "HUD_SMP_WIDE576P";
+				HUD_DM    = "HUD_DM_WIDE576P";
+				HUD_LEFT  = "HUD_LEFT_WIDE576P";
+				HUD_RIGHT = "HUD_RIGHT_WIDE576P";
+			}
+			else if (barsize.x == 900)
+    			{
+				HUD_SMP   = "HUD_SMP_WIDE900P";
+				HUD_DM    = "HUD_DM_WIDE900P";
+				HUD_LEFT  = "HUD_LEFT_WIDE900P";
+				HUD_RIGHT = "HUD_RIGHT_WIDE900P";
+			}
+			else if (barsize.x == 960)
+    			{
+				HUD_SMP   = "HUD_SMP_WIDE960P";
+				HUD_DM    = "HUD_DM_WIDE960P";
+				HUD_LEFT  = "HUD_LEFT_WIDE960P";
+				HUD_RIGHT = "HUD_RIGHT_WIDE960P";
+			}
+			else if (barsize.x == 1000)
+    			{
+				HUD_SMP   = "HUD_SMP_WIDE1000P";
+				HUD_DM    = "HUD_DM_WIDE1000P";
+				HUD_LEFT  = "HUD_LEFT_WIDE1000P";
+				HUD_RIGHT = "HUD_RIGHT_WIDE1000P";
+			}
+			else if (barsize.x == 1600)
+    			{
+				HUD_SMP   = "HUD_SMP_WIDE1600P";
+				HUD_DM    = "HUD_DM_WIDE1600P";
+				HUD_LEFT  = "HUD_LEFT_WIDE1600P";
+				HUD_RIGHT = "HUD_RIGHT_WIDE1600P";
+			}
+		}
+
 		Font fnt;
 		// Deal with compatibility for certain PWADS
 		switch(STBAR_HASH)
@@ -122,50 +199,14 @@ extend Class SpecialDoomStatusBar
 
                 	// WIDESCREEN
 
-                        case 'a518032373d1f3e53f91301022b949b5': // Doom (Unity)
-			case '7acbba805b39b0f9c89773d917f23091': // Scientist (Unity)
-			case 'f66a453915311b2dc8be4d56cfdce2df': // Tetanus (Unity)
-			case 'b57ae3849a4415559176c1ff9ec30e47': // If You're Into It, I'm Out Of It (RRSP3)
-                        	HUD_SMP   = "HUD_SMP_WIDE426P";
-                        	HUD_DM    = "HUD_DM_WIDE426P";
-                        	HUD_LEFT  = "HUD_LEFT_WIDE426P";
-                        	HUD_RIGHT = "HUD_RIGHT_WIDE426P";
-                        break;
-
 			case 'ede5fef3207c78ae9e1cfb91141c4b5e': // No End In Sight (Unity)
-                        	HUD_SMP   = "HUD_SMP_WIDE426P";
-                        	HUD_DM    = "HUD_DM_WIDE426P";
                         	HUD_LEFT  = "HUD_LEFT_NEISWIDE";
                         	HUD_RIGHT = "HUD_RIGHT_NEISWIDE";
                         break;
 
                         case 'd84cfb0cbb6d521462fb5ad5495dd89a': // Super Doom TV
-                        	HUD_SMP   = "HUD_SMP_WIDE430P";
-                        	HUD_DM    = "HUD_DM_WIDE430P";
                         	HUD_LEFT  = "HUD_LEFT_SDTV";
                         	HUD_RIGHT = "HUD_RIGHT_SDTV";
-                        break;
-
-                	case 'b82ee8cc0c7c39ebaf67708622edc119': // Spectrum Descent
-                        	HUD_SMP   = "HUD_SMP_WIDE900P";
-                        	HUD_DM    = "HUD_DM_WIDE900P";
-                        	HUD_LEFT  = "HUD_LEFT_WIDE900P";
-                        	HUD_RIGHT = "HUD_RIGHT_WIDE900P";
-                        break;
-
-                	case '46687e1fbd991d9f3f184e312b7e6186': // Doom II In City Only
-                        case '0725650c1348e2cfba08f70897b8adf1': // Rain Currently Known As Purple (RRSP3)
-                        	HUD_SMP   = "HUD_SMP_WIDE960P";
-                        	HUD_DM    = "HUD_DM_WIDE960P";
-                        	HUD_LEFT  = "HUD_LEFT_WIDE960P";
-                        	HUD_RIGHT = "HUD_RIGHT_WIDE960P";
-                        break;
-
-                	case '9480ff92d95f4812f4a613ddb2bb917e': // Simulacrum
-                        	HUD_SMP   = "HUD_SMP_WIDE1600P";
-                        	HUD_DM    = "HUD_DM_WIDE1600P";
-                        	HUD_LEFT  = "HUD_LEFT_WIDE1600P";
-                        	HUD_RIGHT = "HUD_RIGHT_WIDE1600P";
                         break;
 
                 	// HIGHRES
