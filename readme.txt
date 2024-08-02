@@ -115,8 +115,8 @@ Tested With          : GZDoom
          compatibility fixes. Many thanks to AFADoomer and Blue Shadow for the code update!
   [DOOM] Non-split status bar: Fix for STARMS shown in (Alt-)DM
   [DOOM] Split status bar: Support for widescreen bars; works with Doom Unity (incl. "No End In Sight", 
-                           "Scientist", "Tetanus"), "Bloody Steel", "Doom II In City Only", "RRSP3", 
-                           "Simulacrum", "Spectrum Descent", "Super Doom TV"
+                           "Scientist", "Tetanus"), "Bloody Steel", "Doom II In City Only", "Reconditus",
+                           "RRSP3", "Simulacrum", "Spectrum Descent", "Super Doom TV"
   [HEXEN] Compatibility with "Hexen Rebalanced" and "Tempered Arms" (code by Delfino Furioso)
 
 > Version 5.1.11 (Jun 7, 2022)

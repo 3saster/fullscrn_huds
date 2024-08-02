@@ -135,15 +135,15 @@ extend Class SpecialDoomStatusBar
 				HUD_RIGHT = "HUD_RIGHT_NEIS";
 				break;
 
+			case '55bba172e6b2aaf532b59b34c333887a': // Sunlust
+				HUD_LEFT  = "HUD_LEFT_SUNLUST";
+				HUD_RIGHT = "HUD_RIGHT_SUNLUST";
+				break;
+
 			case '2c2a7e0ac35806ae5d2654c33584f0e0': // Tangerine Nightmare
 				HUD_LEFT  = "HUD_LEFT_TN";
 				HUD_RIGHT = "HUD_RIGHT_TN";
 				STGNUM    = "STG_TN";
-				break;
-
-			case '55bba172e6b2aaf532b59b34c333887a': // Sunlust
-				HUD_LEFT  = "HUD_LEFT_SUNLUST";
-				HUD_RIGHT = "HUD_RIGHT_SUNLUST";
 				break;
 
                 	// WIDESCREEN
@@ -152,6 +152,11 @@ extend Class SpecialDoomStatusBar
                         	HUD_LEFT  = "HUD_LEFT_NEISWIDE";
                         	HUD_RIGHT = "HUD_RIGHT_NEISWIDE";
                         	break;
+
+			case '8a5a05b8fbaea3096ff4ecb0a49da989': // Reconditus
+				HUD_LEFT  = "HUD_LEFT_RECON";
+				HUD_RIGHT = "HUD_RIGHT_RECON";
+				break;
 
                         case 'd84cfb0cbb6d521462fb5ad5495dd89a': // Super Doom TV
                         	HUD_LEFT  = "HUD_LEFT_SDTV";

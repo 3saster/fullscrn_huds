@@ -70,6 +70,16 @@ Graphic HUD_LFIX_NEISWIDE, 141, 32
 Graphic HUD_LEFT_NEISWIDE, 143, 32 { Patch HUD_LFIX_NEISWIDE, 0, 0 }
 Graphic HUD_RIGHT_NEISWIDE, 150, 32 { Patch STBAR_WIDE426P, -173, 0 }
 
+// Reconditus
+Graphic HUD_LFIX_RECON, 141, 32 
+{
+    	Patch STBAR_WIDE960P, 0, 0
+    	Patch MUGFRAME_WIDE960P, 107, 0
+}
+Graphic HUD_RFIX_RECON, 144, 32 { Patch STBAR_WIDE960P, -177, 0 }
+Graphic HUD_LEFT_RECON, 143, 32 { Patch HUD_LFIX_RECON, 0, 0 }
+Graphic HUD_RIGHT_RECON, 143, 32 { Patch HUD_RFIX_RECON, 0, 0 }
+
 // Sunlust
 Graphic MUGFRAME_SUNLUST, 35, 32 { Patch STBAR_SL, -143, 0 { UseOffsets } }
 Graphic HUD_LFIX_SUNLUST, 143, 32 
