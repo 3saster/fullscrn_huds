@@ -1,0 +1,102 @@
+// Alien Vendetta
+Graphic MUGFRAME_AV, 35, 32 { Patch STBAR_AV, -143, 0 { UseOffsets } }
+Graphic HUD_LFIX_AV, 143, 32 
+{
+    	Patch STBAR_AV, 0, 0 { UseOffsets }
+    	Patch MUGFRAME_AV, 107, 0
+}
+Graphic HUD_RFIX_AV, 143, 32 { Patch STBAR_AV, -178, 0 { UseOffsets } }
+Graphic HUD_LEFT_AV, 143, 32 { Patch HUD_LFIX_AV, 0, 0 }
+Graphic HUD_RIGHT_AV, 145, 32 { Patch HUD_RFIX_AV, 2, 0 }
+
+// Avactor
+Graphic MUGFRAME_AVACT, 35, 32 { Patch ST_AVACT, -143, 0 { UseOffsets } }
+Graphic HUD_LFIX_AVACT, 143, 32 
+{
+    	Patch ST_AVACT, 0, 0 { UseOffsets }
+    	Patch MUGFRAME_AVACT, 107, 0
+}
+Graphic HUD_RFIX_AVACT, 143, 32 { Patch ST_AVACT, -178, 0 { UseOffsets } }
+Graphic HUD_LEFT_AVACT, 143, 32 { Patch HUD_LFIX_AVACT, 0, 0 }
+Graphic HUD_RIGHT_AVACT, 145, 32 { Patch HUD_RFIX_AVACT, 2, 0 }
+
+// Back to Saturn X
+Graphic MUGFRAME_BTSX, 34, 32 { Patch STBAR, -143, 0 { UseOffsets } }
+Graphic HUD_LFIX_BTSX, 142, 32 
+{
+    	Patch STBAR, 0, 0 { UseOffsets }
+    	Patch MUGFRAME_BTSX, 107, 0
+}
+Graphic HUD_RFIX_BTSX, 143, 32 { Patch STBAR, -177, 0 { UseOffsets } }
+Graphic HUD_LEFT_BTSX, 143, 32 { Patch HUD_LFIX_BTSX, 0, 0 }
+Graphic HUD_RIGHT_BTSX, 145, 32 { Patch HUD_RFIX_BTSX, 2, 0 }
+
+// Community Chest Series
+Graphic HUD_SMP_CCHEST, 320, 32
+{
+    	Patch STBAR_CC, 0, 0 { UseOffsets }
+    	Patch STARMS, 104, 0 { UseOffsets }
+}
+Graphic HUD_DM_CCHEST, 320, 32 { Patch STBAR_CC, 0, 0 { UseOffsets } }
+Graphic HUD_LEFT_CCHEST, 143, 32 { Patch HUDL_CC, 0, 0 }
+Graphic HUD_RIGHT_CCHEST, 143, 32 { Patch HUDR_CC, 0, 0 }
+
+// Dystopia 3
+Graphic HUD_LEFT_DYSTOPIA, 143, 32 { Patch ST_DYSTL, 0, 0 }
+
+// Eternal Doom
+Graphic HUD_LEFT_ETERNAL, 185, 32 { Patch HUDL_ETE, 21, 0 }
+Graphic HUD_RIGHT_ETERNAL, 147, 32 { Patch HUDR_ETE, 0, 0 }
+
+// Eviternity
+Graphic HUD_LFIX_EVET, 141, 32 
+{
+    	Patch STBAR, 0, 0 { UseOffsets }
+    	Patch MUGFRAME, 107, 0
+}
+Graphic HUD_RFIX_EVET, 147, 32 { Patch STBAR, -176, 0 { UseOffsets } }
+Graphic HUD_LEFT_EVET, 143, 32 { Patch HUD_LFIX_EVET, 0, 0 }
+Graphic HUD_RIGHT_EVET, 147, 32 { Patch HUD_RFIX_EVET, 1, 0 }
+
+// No End In Sight (Regular)
+Graphic HUD_RIGHT_NEIS, 150, 32 { Patch STBAR, -173, 0 { UseOffsets } }
+
+// No End In Sight (Widescreen)
+Graphic HUD_LFIX_NEISWIDE, 141, 32 
+{
+    	Patch STBAR_WIDE426P, 0, 0
+    	Patch MUGFRAME_WIDE426P, 107, 0
+}
+Graphic HUD_LEFT_NEISWIDE, 143, 32 { Patch HUD_LFIX_NEISWIDE, 0, 0 }
+Graphic HUD_RIGHT_NEISWIDE, 150, 32 { Patch STBAR_WIDE426P, -173, 0 }
+
+// Sunlust
+Graphic MUGFRAME_SUNLUST, 35, 32 { Patch STBAR_SL, -143, 0 { UseOffsets } }
+Graphic HUD_LFIX_SUNLUST, 143, 32 
+{
+    	Patch STBAR_SL, 0, 0 { UseOffsets }
+    	Patch MUGFRAME_SUNLUST, 107, 0
+}
+Graphic HUD_RFIX_SUNLUST, 143, 32 { Patch STBAR_SL, -178, 0 { UseOffsets } }
+Graphic HUD_LEFT_SUNLUST, 143, 32 { Patch HUD_LFIX_SUNLUST, 0, 0 }
+Graphic HUD_RIGHT_SUNLUST, 145, 32 { Patch HUD_RFIX_SUNLUST, 2, 0 }
+
+// Super Doom TV
+Graphic HUD_LFIX_SDTV, 142, 32 
+{
+    	Patch STBAR, -55, 0 { UseOffsets }
+    	Patch MUGFRAME_WIDE430P, 107, 0
+}
+Graphic HUD_LEFT_SDTV, 143, 32 { Patch HUD_LFIX_SDTV, 0, 0 }
+Graphic HUD_RFIX_SDTV, 143, 32 { Patch STBAR, -232, 0 { UseOffsets } }
+Graphic HUD_RIGHT_SDTV, 145, 32 { Patch HUD_RFIX_SDTV, 1, 0 }
+
+// Tangerine Nightmare
+Graphic HUD_LFIX_TN, 142, 32 
+{
+    	Patch STBAR, 0, 0 { UseOffsets }
+    	Patch MUGFRAME, 107, 0
+}
+Graphic HUD_RFIX_TN, 147, 32 { Patch STBAR, -177, 0 { UseOffsets } }
+Graphic HUD_LEFT_TN, 143, 32 { Patch HUD_LFIX_TN, 0, 0 }
+Graphic HUD_RIGHT_TN, 147, 32 { Patch HUD_RFIX_TN, 2, 0 }

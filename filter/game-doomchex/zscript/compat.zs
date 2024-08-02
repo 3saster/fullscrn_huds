@@ -59,29 +59,7 @@ extend Class SpecialDoomStatusBar
 				HUD_RIGHT = "HUD_RIGHT_AVACT";
 				break;
 
-			case '59eb7834c61abb94b45491ad6435425f': // Eviternity
-			case 'e817eaf5fde41aa3d40cc0590079b6e6': // Epic 2
-			case 'bde46d9647869a86535c7245648bd847': // Mayhem 2016
-				HUD_LEFT  = "HUD_LEFT_EVET";
-				HUD_RIGHT = "HUD_RIGHT_EVET";
-				break;
-
-			case '55bba172e6b2aaf532b59b34c333887a': // Sunlust
-				HUD_LEFT  = "HUD_LEFT_SUNLUST";
-				HUD_RIGHT = "HUD_RIGHT_SUNLUST";
-				break;
-
-			case 'f75c27163008a99942efb8e26321331c': // Memento Mori 2
-				HUD_LEFT    = "HUD_LEFT_MM2";
-				HUD_RIGHT   = "HUD_RIGHT_MM2";
-				STYSNUM     = "MM2_NUM";
-				fnt         = "INDEXFONT_MM2";
-				mIndexFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft);
-				fnt         = "HUDFONT_MM2";
-				mHUDFont    = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
-				break;
-
-			case 'ff7f01f87976084b8ecb36a5fa9241df': // Back to Saturn X Episode 1
+			case 'ff7f01f87976084b8ecb36a5fa9241df': // Back to Saturn X Ep.1
 		                 			         // Doom 4 Vanilla
 				HUD_LEFT    = "HUD_LEFT_BTSX";
 				HUD_RIGHT   = "HUD_RIGHT_BTSX";
@@ -93,7 +71,7 @@ extend Class SpecialDoomStatusBar
 				mHUDFont    = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
 				break;
 
-			case '4b0f899d7aed5b2cb92624042d54387f': // Back to Saturn X Episode 2
+			case '4b0f899d7aed5b2cb92624042d54387f': // Back to Saturn X Ep.2
 				HUD_LEFT    = "HUD_LEFT_BTSX";
 				HUD_RIGHT   = "HUD_RIGHT_BTSX";
 				STYSNUM     = "BTSX2_N";
@@ -102,6 +80,19 @@ extend Class SpecialDoomStatusBar
 				mIndexFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft);
 				fnt         = "HUDFONT_BTSX";
 				mHUDFont    = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
+				break;
+
+			case '071b93d8d4c0fa065f4ea1b1a9bc3978': // Community Chest Series
+				HUD_SMP     = "HUD_SMP_CCHEST";
+				HUD_DM      = "HUD_DM_CCHEST";
+				HUD_LEFT    = "HUD_LEFT_CCHEST";
+				HUD_RIGHT   = "HUD_RIGHT_CCHEST";
+				MUG_OFFSET  = -2;
+				ARMS_OFFSET = -2;
+				break;
+
+			case '08c30fe8a2183a442bee8a6eedae3764': // Dystopia 3
+				HUD_LEFT = "HUD_LEFT_DYSTOPIA";
 				break;
 
 			case 'a29f9e16dcb7ac8a744c4760f1ec9257': // Eternal Doom
@@ -114,6 +105,13 @@ extend Class SpecialDoomStatusBar
 				mHUDFont    = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
 				break;
 
+			case '59eb7834c61abb94b45491ad6435425f': // Eviternity
+			case 'e817eaf5fde41aa3d40cc0590079b6e6': // Epic 2
+			case 'bde46d9647869a86535c7245648bd847': // Mayhem 2016
+				HUD_LEFT  = "HUD_LEFT_EVET";
+				HUD_RIGHT = "HUD_RIGHT_EVET";
+				break;
+
 			case 'b65eb1a13d873457e147f34cd72daa09': // Mayhem 2018 - Orange Edition
 				HUD_LEFT  = "HUD_LEFT_TN";
 				HUD_RIGHT = "HUD_RIGHT_TN";
@@ -123,28 +121,29 @@ extend Class SpecialDoomStatusBar
 				STGNUM = "BTSX1_";
 				break;
 
+			case 'f75c27163008a99942efb8e26321331c': // Memento Mori 2
+				HUD_LEFT    = "HUD_LEFT_EVET";
+				STYSNUM     = "MM2_NUM";
+				fnt         = "INDEXFONT_MM2";
+				mIndexFontF = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft);
+				fnt         = "HUDFONT_MM2";
+				mHUDFont    = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
+				break;
+
+			case 'a0411c98547d79d11fe3957fe29debab': // No End In Sight
+				HUD_LEFT  = "HUD_LEFT_EVET";
+				HUD_RIGHT = "HUD_RIGHT_NEIS";
+				break;
+
 			case '2c2a7e0ac35806ae5d2654c33584f0e0': // Tangerine Nightmare
 				HUD_LEFT  = "HUD_LEFT_TN";
 				HUD_RIGHT = "HUD_RIGHT_TN";
 				STGNUM    = "STG_TN";
 				break;
 
-			case '08c30fe8a2183a442bee8a6eedae3764': // Dystopia 3
-				HUD_LEFT = "HUD_LEFT_DYSTOPIA";
-				break;
-
-			case '071b93d8d4c0fa065f4ea1b1a9bc3978': // Community Chest Series
-				HUD_SMP     = "HUD_SMP_CCHEST";
-				HUD_DM      = "HUD_DM_CCHEST";
-				HUD_LEFT    = "HUD_LEFT_CCHEST";
-				HUD_RIGHT   = "HUD_RIGHT_CCHEST";
-				MUG_OFFSET  = -2;
-				ARMS_OFFSET = -2;
-				break;
-
-			case 'a0411c98547d79d11fe3957fe29debab': // No End In Sight
-				HUD_LEFT  = "HUD_LEFT_NEIS";
-				HUD_RIGHT = "HUD_RIGHT_NEIS";
+			case '55bba172e6b2aaf532b59b34c333887a': // Sunlust
+				HUD_LEFT  = "HUD_LEFT_SUNLUST";
+				HUD_RIGHT = "HUD_RIGHT_SUNLUST";
 				break;
 
                 	// WIDESCREEN
