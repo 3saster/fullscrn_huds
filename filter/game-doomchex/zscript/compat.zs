@@ -108,8 +108,8 @@ extend Class SpecialDoomStatusBar
 			case '59eb7834c61abb94b45491ad6435425f': // Eviternity
 			case 'e817eaf5fde41aa3d40cc0590079b6e6': // Epic 2
 			case 'bde46d9647869a86535c7245648bd847': // Mayhem 2016
-				HUD_LEFT  = "HUD_LEFT_EVET";
-				HUD_RIGHT = "HUD_RIGHT_EVET";
+				HUD_LEFT  = "HUD_LEFT_EVIT";
+				HUD_RIGHT = "HUD_RIGHT_EVIT";
 				break;
 
 			case 'b65eb1a13d873457e147f34cd72daa09': // Mayhem 2018 - Orange Edition
@@ -147,6 +147,11 @@ extend Class SpecialDoomStatusBar
 				break;
 
                 	// WIDESCREEN
+
+			case '4d737396af8fa064bfa22dd3a9649a01': // Eviternity II
+                        	HUD_LEFT  = "HUD_LEFT_EVIT2";
+                        	HUD_RIGHT = "HUD_RIGHT_EVIT2";
+                        	break;
 
 			case 'ede5fef3207c78ae9e1cfb91141c4b5e': // No End In Sight (Unity)
                         	HUD_LEFT  = "HUD_LEFT_NEISWIDE";

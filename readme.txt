@@ -1,9 +1,9 @@
 ===========================================================================
 Advanced engine needed  : GZDoom 4.3.0+ / LZDoom 3.84+
 ===========================================================================
-Title                : Fullscreen Status Bar Mod (v5.2.0)
+Title                : Fullscreen Status Bar Mod (v5.2.1)
 Filename             : FULLSCRN_HUDS.PK3
-Release date         : 08/02/2024
+Release date         : XX/XX/2024
 Authors              : NightFright / 3saster
 
 Other files by author: Blinking Eyes for Doom Mugshot
@@ -105,6 +105,9 @@ Tested With          : GZDoom
 
 
 * CHANGELOG *
+
+> Version 5.2.1 (XXX XX, 2024)
+  [DOOM] Split status bar: Widescreen support for "Eviternity II"
 
 > Version 5.2.0 (Aug 2, 2024)
   [ALL] Stats: Added option to position next to statusbar (code by scar45)

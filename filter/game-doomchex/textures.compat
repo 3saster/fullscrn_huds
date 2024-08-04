@@ -49,14 +49,24 @@ Graphic HUD_LEFT_ETERNAL, 185, 32 { Patch HUDL_ETE, 21, 0 }
 Graphic HUD_RIGHT_ETERNAL, 147, 32 { Patch HUDR_ETE, 0, 0 }
 
 // Eviternity
-Graphic HUD_LFIX_EVET, 141, 32 
+Graphic HUD_LFIX_EVIT, 141, 32 
 {
     	Patch STBAR, 0, 0 { UseOffsets }
     	Patch MUGFRAME, 107, 0
 }
-Graphic HUD_RFIX_EVET, 147, 32 { Patch STBAR, -176, 0 { UseOffsets } }
-Graphic HUD_LEFT_EVET, 143, 32 { Patch HUD_LFIX_EVET, 0, 0 }
-Graphic HUD_RIGHT_EVET, 147, 32 { Patch HUD_RFIX_EVET, 1, 0 }
+Graphic HUD_RFIX_EVIT, 147, 32 { Patch STBAR, -176, 0 { UseOffsets } }
+Graphic HUD_LEFT_EVIT, 143, 32 { Patch HUD_LFIX_EVIT, 0, 0 }
+Graphic HUD_RIGHT_EVIT, 147, 32 { Patch HUD_RFIX_EVIT, 1, 0 }
+
+// Eviternity II
+Graphic HUD_LFIX_EVIT2, 142, 32 
+{
+    	Patch STBAR_WIDE1600P, 0, 0
+    	Patch MUGFRAME_WIDE1600P, 107, 0
+}
+Graphic HUD_RFIX_EVIT2, 145, 32 { Patch STBAR_WIDE1600P, -176, 0 }
+Graphic HUD_LEFT_EVIT2, 143, 32 { Patch HUD_LFIX_EVIT2, 0, 0 }
+Graphic HUD_RIGHT_EVIT2, 143, 32 { Patch HUD_RFIX_EVIT2, 0, 0 }
 
 // No End In Sight (Regular)
 Graphic HUD_RIGHT_NEIS, 150, 32 { Patch STBAR, -173, 0 { UseOffsets } }
