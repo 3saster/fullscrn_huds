@@ -14,11 +14,20 @@ extend Class SpecialHexenStatusBar
 		// Draw Health Gem
 		String Gem, Chain;
 		if (CPlayer.mo is "ClericPlayer")
-			Gem = "LIFEGMC2"; Chain = "CHAIN2";
+		{
+			Gem = "LIFEGMC2";
+			Chain = "CHAIN2";
+		}
 		else if (CPlayer.mo is "MagePlayer")
-			Gem = "LIFEGMM2"; Chain = "CHAIN3";
+		{
+			Gem = "LIFEGMM2";
+			Chain = "CHAIN3";
+		}
 		else
-			Gem = "LIFEGMF2"; Chain = "CHAIN";
+		{
+			Gem = "LIFEGMF2";
+			Chain = "CHAIN";
+		}
 
 		int inthealth =  mHealthInterpolator2.GetValue();
 		DrawGemTrans(Chain, Gem, inthealth, CPlayer.mo.GetMaxHealth(true), (-7, 0), -23, 49, 15, (multiplayer? DI_TRANSLATABLE : 0) | DI_ITEM_CENTER_BOTTOM | DI_SCREEN_CENTER_BOTTOM, alphaFloat); 
