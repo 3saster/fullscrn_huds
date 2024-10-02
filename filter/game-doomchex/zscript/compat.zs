@@ -148,7 +148,7 @@ extend Class SpecialDoomStatusBar
 
                 	// WIDESCREEN
 
-			case '4d737396af8fa064bfa22dd3a9649a01': // Eviternity II
+			case '5890f9a021d52463bc0b32a74e7726f0': // Eviternity II
                         	HUD_LEFT  = "HUD_LEFT_EVIT2";
                         	HUD_RIGHT = "HUD_RIGHT_EVIT2";
                         	break;
