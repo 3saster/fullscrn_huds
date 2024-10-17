@@ -27,6 +27,8 @@ extend Class SpecialDoomStatusBar
 			case 486:
 			case 574:
 			case 576:
+			case 640:
+			case 768:
 			case 900:
 			case 960:
 			case 1000:

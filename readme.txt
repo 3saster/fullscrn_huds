@@ -107,7 +107,8 @@ Tested With          : GZDoom
 * CHANGELOG *
 
 > Version 5.2.2 (XXX XX, XXXX)
-  [DOOM] Split status bar: Widescreen support for final release of "Eviternity II"
+  [DOOM] Split status bar: Support for 640p/768p widescreen bars; widescreen support for final release
+                           of "Eviternity II"
 
 > Version 5.2.1 (Aug 17, 2024)
   [DOOM] Split status bar: Widescreen support for "Eviternity II"
